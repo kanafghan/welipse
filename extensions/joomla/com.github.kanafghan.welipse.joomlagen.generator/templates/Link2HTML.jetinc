@@ -1,0 +1,19 @@
+<a
+<% 
+	if (!link.getName().isEmpty()) { 
+%>
+ id="<%= link.getName() %>"
+<% 	
+	}
+%>
+ href="<%= url %>">
+<% 
+	PageElement content = link.getContent();
+	if (content instanceof StaticText) {
+		StaticText text = (StaticText) content;
+%>
+		<%@ include file="Text2HTML.jetinc" %>
+<%
+	}
+%>
+</a>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="webdsl" nsURI="http://github.com/kanafghan/welipse/webdsl/1.0"
+    nsPrefix="webdsl">
+  <eClassifiers xsi:type="ecore:EClass" name="Website">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pages" upperBound="-1"
+        eType="#//Page" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="home" lowerBound="1" eType="#//Page"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Page">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//PageElement" containment="true" eOpposite="#//PageElement/page"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PageElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="page" eType="#//Page" eOpposite="#//Page/elements"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PresentationElement" abstract="true"
+      eSuperTypes="#//PageElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationElement" abstract="true" eSuperTypes="#//PageElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Multimedia" abstract="true" eSuperTypes="#//PresentationElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Text" abstract="true" eSuperTypes="#//PresentationElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Image" abstract="true" eSuperTypes="#//PresentationElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StaticText" eSuperTypes="#//Text">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StaticImage" eSuperTypes="#//Image">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Link" abstract="true" eSuperTypes="#//NavigationElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" lowerBound="1"
+        eType="#//PageElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InternalLink" eSuperTypes="#//Link">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//PageElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalLink" eSuperTypes="#//Link"/>
+</ecore:EPackage>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="com.github.kanafghan.welipse.ui.popups"
+            defaultHandler="com.github.kanafghan.welipse.joomlagen.generator.handler.GenerateCodeHandler"
+            description="Generate the code for Joomla! extension"
+            id="com.github.kanafghan.welipse.joomlagen.generator.command.GenerateCode"
+            name="Generate Code">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?before=additions">
+         <command
+               commandId="com.github.kanafghan.welipse.joomlagen.generator.command.GenerateCode"
+               label="Generate Code"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate>
+                     <adapt
+                           type="com.github.kanafghan.welipse.joomlagen.JoomlaGenModel">
+                     </adapt>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>

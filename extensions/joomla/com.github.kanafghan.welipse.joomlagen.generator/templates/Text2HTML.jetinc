@@ -1,0 +1,9 @@
+<% if (text.getName().isEmpty()) { %>
+	<p>
+		<%= text.getContent() %>
+	</p>
+<% } else { %>
+	<p id="<%= text.getName() %>">
+		<%= text.getContent() %>
+	</p>
+<% } %>

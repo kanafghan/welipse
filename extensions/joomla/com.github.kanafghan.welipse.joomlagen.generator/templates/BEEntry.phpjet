@@ -1,0 +1,29 @@
+<%@jet 
+	package="com.github.kanafghan.welipse.joomlagen.entry"
+	class="GenBEEntry"
+	skeleton="skeletons/GenEntrySkeleton.java"
+%>
+<% 
+	initialize(argument);
+%>
+<?php
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
+ 
+// import joomla controller library
+//jimport('joomla.application.component.controller');
+ 
+// Get an instance of the main controller
+//$controller = JController::getInstance('<%= getComponentName() %>');
+ 
+// Get the task
+//$jinput = JFactory::getApplication()->input;
+//$task = $jinput->get('task', "", 'STRING');
+ 
+// Perform the Requested task
+//$controller->execute($task);
+ 
+// Redirect if set by the controller
+//$controller->redirect();
+
+echo "Welcome to the Back-End for <%= getComponentName() %> component.";

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated webdsl -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="com.github.kanafghan.welipse.webdsl.presentation.WebDSLModelWizardID"
+            name="%_UI_WebDSLModelWizard_label"
+            class="com.github.kanafghan.welipse.webdsl.presentation.WebDSLModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/WebDSLModelFile.gif">
+         <description>%_UI_WebDSLModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated webdsl -->
+      <editor
+            id="com.github.kanafghan.welipse.webdsl.presentation.WebDSLEditorID"
+            name="%_UI_WebDSLEditor_label"
+            icon="icons/full/obj16/WebDSLModelFile.gif"
+            extensions="webdsl"
+            class="com.github.kanafghan.welipse.webdsl.presentation.WebDSLEditor"
+            contributorClass="com.github.kanafghan.welipse.webdsl.presentation.WebDSLActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

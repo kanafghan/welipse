@@ -1,0 +1,38 @@
+<%@jet 
+	package="com.github.kanafghan.welipse.joomlagen"
+	class="GenManifest"
+	skeleton="skeletons/GenManifestSkeleton.java"
+%>
+<% 
+	initialize(argument);
+%>
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="component" version="2.5.0" method="upgrade">
+    <name><%= getExtensionName() %></name>
+    <creationDate>September 2013</creationDate>
+    <author>Ismail Faizi</author>
+    <authorEmail>kanafghan@gmail.com</authorEmail>
+    <authorUrl>http://www.hamwatanet.com</authorUrl>
+    <copyright>Copyright IF, All rights are reserved.</copyright>
+    <license>see license.txt</license>
+    <version>0.0.1</version>
+    <description>Generated component for Joomla!</description>
+    
+	<files folder="site">
+		<filename>index.html</filename>
+		<filename><%= getExtensionName().toLowerCase() %>.php</filename>
+		<filename>controller.php</filename>
+		<folder>views</folder>
+   </files>
+   
+	<administration>
+		<!-- Administration Menu Section -->
+		<menu><%= getExtensionName() %></menu>
+		<!-- Administration Main File Copy Section -->
+		<files folder="admin">
+		<filename>index.html</filename>
+		<filename><%= getExtensionName().toLowerCase() %>.php</filename>
+		</files>
+	</administration>       
+
+</extension>

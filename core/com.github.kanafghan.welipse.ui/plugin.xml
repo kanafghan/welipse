@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            description="Welipse Popups Category"
+            id="com.github.kanafghan.welipse.ui.popups"
+            name="popups">
+      </category>
+   </extension>
+
+</plugin>

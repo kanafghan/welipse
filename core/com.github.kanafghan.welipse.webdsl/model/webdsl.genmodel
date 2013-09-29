@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.github.kanafghan.welipse.webdsl/src" modelPluginID="com.github.kanafghan.welipse.webdsl"
+    modelName="Webdsl" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>webdsl.ecore</foreignModel>
+  <genPackages prefix="WebDSL" basePackage="com.github.kanafghan.welipse" disposableProviderFactory="true"
+      contentTypeIdentifier="" ecorePackage="webdsl.ecore#/">
+    <genClasses ecoreClass="webdsl.ecore#//Website">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Website/pages"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//Website/home"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Website/name"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//Page">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Page/elements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Page/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//PageElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//PageElement/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference webdsl.ecore#//PageElement/page"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//PresentationElement"/>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//NavigationElement"/>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//Multimedia"/>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//Text"/>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//Image"/>
+    <genClasses ecoreClass="webdsl.ecore#//StaticText">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//StaticText/content"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//StaticImage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//StaticImage/source"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//Link">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Link/content"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//InternalLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//InternalLink/target"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//ExternalLink"/>
+  </genPackages>
+</genmodel:GenModel>

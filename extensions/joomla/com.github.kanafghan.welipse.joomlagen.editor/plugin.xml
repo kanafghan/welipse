@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated joomlagen -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="com.github.kanafghan.welipse.joomlagen.presentation.JoomlaGenModelWizardID"
+            name="%_UI_JoomlaGenModelWizard_label"
+            class="com.github.kanafghan.welipse.joomlagen.presentation.JoomlaGenModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/JoomlaGenModelFile.gif">
+         <description>%_UI_JoomlaGenModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated joomlagen -->
+      <editor
+            id="com.github.kanafghan.welipse.joomlagen.presentation.JoomlaGenEditorID"
+            name="%_UI_JoomlaGenEditor_label"
+            icon="icons/full/obj16/JoomlaGenModelFile.gif"
+            extensions="joomlagen"
+            class="com.github.kanafghan.welipse.joomlagen.presentation.JoomlaGenEditor"
+            contributorClass="com.github.kanafghan.welipse.joomlagen.presentation.JoomlaGenActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
