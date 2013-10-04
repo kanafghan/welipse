@@ -38,4 +38,8 @@
         eType="#//PageElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalLink" eSuperTypes="#//Link"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DynamicText" eSuperTypes="#//Text">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//ETypedElement"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -719,6 +719,62 @@ public interface WebDSLPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.DynamicTextImpl <em>Dynamic Text</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.DynamicTextImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getDynamicText()
+	 * @generated
+	 */
+	int DYNAMIC_TEXT = 13;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_TEXT__NAME = TEXT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_TEXT__PAGE = TEXT__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_TEXT__CONTENT = TEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Dynamic Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_TEXT_FEATURE_COUNT = TEXT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Dynamic Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_TEXT_OPERATION_COUNT = TEXT_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Website <em>Website</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -970,6 +1026,27 @@ public interface WebDSLPackage extends EPackage {
 	EClass getExternalLink();
 
 	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.DynamicText <em>Dynamic Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Dynamic Text</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.DynamicText
+	 * @generated
+	 */
+	EClass getDynamicText();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.webdsl.DynamicText#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Content</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.DynamicText#getContent()
+	 * @see #getDynamicText()
+	 * @generated
+	 */
+	EReference getDynamicText_Content();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1209,6 +1286,24 @@ public interface WebDSLPackage extends EPackage {
 		 * @generated
 		 */
 		EClass EXTERNAL_LINK = eINSTANCE.getExternalLink();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.DynamicTextImpl <em>Dynamic Text</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.DynamicTextImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getDynamicText()
+		 * @generated
+		 */
+		EClass DYNAMIC_TEXT = eINSTANCE.getDynamicText();
+
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DYNAMIC_TEXT__CONTENT = eINSTANCE.getDynamicText_Content();
 
 	}
 

@@ -3,7 +3,8 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.github.kanafghan.welipse.webdsl/src" modelPluginID="com.github.kanafghan.welipse.webdsl"
     modelName="Webdsl" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore" operationReflection="true"
+    importOrganizing="true">
   <foreignModel>webdsl.ecore</foreignModel>
   <genPackages prefix="WebDSL" basePackage="com.github.kanafghan.welipse" disposableProviderFactory="true"
       contentTypeIdentifier="" ecorePackage="webdsl.ecore#/">
@@ -38,5 +39,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//InternalLink/target"/>
     </genClasses>
     <genClasses ecoreClass="webdsl.ecore#//ExternalLink"/>
+    <genClasses ecoreClass="webdsl.ecore#//DynamicText">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//DynamicText/content"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

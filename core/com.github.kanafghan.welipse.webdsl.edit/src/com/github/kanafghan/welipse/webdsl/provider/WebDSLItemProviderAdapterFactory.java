@@ -210,6 +210,29 @@ public class WebDSLItemProviderAdapterFactory extends WebDSLAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.DynamicText} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DynamicTextItemProvider dynamicTextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.DynamicText}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDynamicTextAdapter() {
+		if (dynamicTextItemProvider == null) {
+			dynamicTextItemProvider = new DynamicTextItemProvider(this);
+		}
+
+		return dynamicTextItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -314,6 +337,7 @@ public class WebDSLItemProviderAdapterFactory extends WebDSLAdapterFactory imple
 		if (staticImageItemProvider != null) staticImageItemProvider.dispose();
 		if (internalLinkItemProvider != null) internalLinkItemProvider.dispose();
 		if (externalLinkItemProvider != null) externalLinkItemProvider.dispose();
+		if (dynamicTextItemProvider != null) dynamicTextItemProvider.dispose();
 	}
 
 }

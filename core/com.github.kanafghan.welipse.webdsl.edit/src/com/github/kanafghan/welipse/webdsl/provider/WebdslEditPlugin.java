@@ -5,6 +5,7 @@ package com.github.kanafghan.welipse.webdsl.provider;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 /**
  * This is the central singleton for the Webdsl edit plugin.
@@ -38,6 +39,7 @@ public final class WebdslEditPlugin extends EMFPlugin {
 	public WebdslEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     EcoreEditPlugin.INSTANCE,
 		   });
 	}
 

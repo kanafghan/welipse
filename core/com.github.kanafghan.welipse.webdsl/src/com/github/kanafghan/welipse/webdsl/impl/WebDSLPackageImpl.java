@@ -2,6 +2,7 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
+import com.github.kanafghan.welipse.webdsl.DynamicText;
 import com.github.kanafghan.welipse.webdsl.ExternalLink;
 import com.github.kanafghan.welipse.webdsl.Image;
 import com.github.kanafghan.welipse.webdsl.InternalLink;
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -124,6 +126,13 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	private EClass externalLinkEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dynamicTextEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -168,6 +177,9 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		WebDSLPackageImpl theWebDSLPackage = (WebDSLPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof WebDSLPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new WebDSLPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		EcorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theWebDSLPackage.createPackageContents();
@@ -405,6 +417,24 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDynamicText() {
+		return dynamicTextEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDynamicText_Content() {
+		return (EReference)dynamicTextEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public WebDSLFactory getWebDSLFactory() {
 		return (WebDSLFactory)getEFactoryInstance();
 	}
@@ -464,6 +494,9 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		createEReference(internalLinkEClass, INTERNAL_LINK__TARGET);
 
 		externalLinkEClass = createEClass(EXTERNAL_LINK);
+
+		dynamicTextEClass = createEClass(DYNAMIC_TEXT);
+		createEReference(dynamicTextEClass, DYNAMIC_TEXT__CONTENT);
 	}
 
 	/**
@@ -489,6 +522,9 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -504,6 +540,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		linkEClass.getESuperTypes().add(this.getNavigationElement());
 		internalLinkEClass.getESuperTypes().add(this.getLink());
 		externalLinkEClass.getESuperTypes().add(this.getLink());
+		dynamicTextEClass.getESuperTypes().add(this.getText());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(websiteEClass, Website.class, "Website", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -542,6 +579,9 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		initEReference(getInternalLink_Target(), this.getPageElement(), null, "target", null, 1, 1, InternalLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(externalLinkEClass, ExternalLink.class, "ExternalLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dynamicTextEClass, DynamicText.class, "DynamicText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDynamicText_Content(), theEcorePackage.getETypedElement(), null, "content", null, 1, 1, DynamicText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

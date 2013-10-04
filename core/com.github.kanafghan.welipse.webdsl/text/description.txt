@@ -43,3 +43,6 @@ Package webdsl <http://github.com/kanafghan/welipse/webdsl/1.0>
     Reference target : PageElement<<1..1>>
 
   Class ExternalLink -> Link
+
+  Class DynamicText -> Text
+    Reference content : ETypedElement<<1..1>>

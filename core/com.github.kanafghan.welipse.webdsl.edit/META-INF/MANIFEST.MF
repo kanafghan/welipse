@@ -11,5 +11,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: com.github.kanafghan.welipse.webdsl.provider
 Require-Bundle: org.eclipse.core.runtime,
  com.github.kanafghan.welipse.webdsl;visibility:=reexport,
- org.eclipse.emf.edit;visibility:=reexport
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
