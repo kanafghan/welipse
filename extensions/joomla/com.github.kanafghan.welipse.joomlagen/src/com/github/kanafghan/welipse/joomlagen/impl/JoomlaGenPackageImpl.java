@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -160,6 +161,15 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getJoomlaGenModel_Datamodel() {
+		return (EReference)joomlaGenModelEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getExtensionType() {
 		return extensionTypeEEnum;
 	}
@@ -206,6 +216,7 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 		createEAttribute(joomlaGenModelEClass, JOOMLA_GEN_MODEL__JOOMLA_VERSION);
 		createEAttribute(joomlaGenModelEClass, JOOMLA_GEN_MODEL__EXTENSION_NAME);
 		createEReference(joomlaGenModelEClass, JOOMLA_GEN_MODEL__EXTENSION);
+		createEReference(joomlaGenModelEClass, JOOMLA_GEN_MODEL__DATAMODEL);
 
 		// Create enums
 		extensionTypeEEnum = createEEnum(EXTENSION_TYPE);
@@ -237,6 +248,7 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 
 		// Obtain other dependent packages
 		WebDSLPackage theWebDSLPackage = (WebDSLPackage)EPackage.Registry.INSTANCE.getEPackage(WebDSLPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -250,6 +262,7 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 		initEAttribute(getJoomlaGenModel_JoomlaVersion(), this.getJoomlaVersion(), "joomlaVersion", null, 1, 1, JoomlaGenModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJoomlaGenModel_ExtensionName(), ecorePackage.getEString(), "extensionName", null, 1, 1, JoomlaGenModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJoomlaGenModel_Extension(), theWebDSLPackage.getWebsite(), null, "extension", null, 1, 1, JoomlaGenModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoomlaGenModel_Datamodel(), theEcorePackage.getEPackage(), null, "datamodel", null, 0, 1, JoomlaGenModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(extensionTypeEEnum, ExtensionType.class, "ExtensionType");

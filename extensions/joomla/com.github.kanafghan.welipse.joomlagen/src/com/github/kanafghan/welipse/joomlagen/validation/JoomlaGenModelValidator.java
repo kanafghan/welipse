@@ -8,6 +8,7 @@ import com.github.kanafghan.welipse.joomlagen.ExtensionType;
 import com.github.kanafghan.welipse.joomlagen.JoomlaVersion;
 
 import com.github.kanafghan.welipse.webdsl.Website;
+import org.eclipse.emf.ecore.EPackage;
 
 /**
  * A sample validator interface for {@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel}.
@@ -22,4 +23,6 @@ public interface JoomlaGenModelValidator {
 	boolean validateJoomlaVersion(JoomlaVersion value);
 	boolean validateExtensionName(String value);
 	boolean validateExtension(Website value);
+
+	boolean validateDatamodel(EPackage value);
 }

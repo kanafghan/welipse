@@ -12,6 +12,7 @@ import com.github.kanafghan.welipse.webdsl.Website;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getJoomlaVersion <em>Joomla Version</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getExtensionName <em>Extension Name</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getExtension <em>Extension</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getDatamodel <em>Datamodel</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,6 +105,16 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected Website extension;
+
+	/**
+	 * The cached value of the '{@link #getDatamodel() <em>Datamodel</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatamodel()
+	 * @generated
+	 * @ordered
+	 */
+	protected EPackage datamodel;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -229,6 +241,44 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EPackage getDatamodel() {
+		if (datamodel != null && datamodel.eIsProxy()) {
+			InternalEObject oldDatamodel = (InternalEObject)datamodel;
+			datamodel = (EPackage)eResolveProxy(oldDatamodel);
+			if (datamodel != oldDatamodel) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL, oldDatamodel, datamodel));
+			}
+		}
+		return datamodel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EPackage basicGetDatamodel() {
+		return datamodel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDatamodel(EPackage newDatamodel) {
+		EPackage oldDatamodel = datamodel;
+		datamodel = newDatamodel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL, oldDatamodel, datamodel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -241,6 +291,9 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION:
 				if (resolve) return getExtension();
 				return basicGetExtension();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
+				if (resolve) return getDatamodel();
+				return basicGetDatamodel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -264,6 +317,9 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION:
 				setExtension((Website)newValue);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
+				setDatamodel((EPackage)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -289,6 +345,9 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION:
 				setExtension((Website)null);
 				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
+				setDatamodel((EPackage)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -309,6 +368,8 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 				return EXTENSION_NAME_EDEFAULT == null ? extensionName != null : !EXTENSION_NAME_EDEFAULT.equals(extensionName);
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION:
 				return extension != null;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
+				return datamodel != null;
 		}
 		return super.eIsSet(featureID);
 	}

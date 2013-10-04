@@ -104,13 +104,22 @@ public interface JoomlaGenPackage extends EPackage {
 	int JOOMLA_GEN_MODEL__EXTENSION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Datamodel</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOOMLA_GEN_MODEL__DATAMODEL = 4;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL_FEATURE_COUNT = 4;
+	int JOOMLA_GEN_MODEL_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -197,6 +206,17 @@ public interface JoomlaGenPackage extends EPackage {
 	EReference getJoomlaGenModel_Extension();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getDatamodel <em>Datamodel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datamodel</em>'.
+	 * @see com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getDatamodel()
+	 * @see #getJoomlaGenModel()
+	 * @generated
+	 */
+	EReference getJoomlaGenModel_Datamodel();
+
+	/**
 	 * Returns the meta object for enum '{@link com.github.kanafghan.welipse.joomlagen.ExtensionType <em>Extension Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -280,6 +300,14 @@ public interface JoomlaGenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference JOOMLA_GEN_MODEL__EXTENSION = eINSTANCE.getJoomlaGenModel_Extension();
+
+		/**
+		 * The meta object literal for the '<em><b>Datamodel</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOOMLA_GEN_MODEL__DATAMODEL = eINSTANCE.getJoomlaGenModel_Datamodel();
 
 		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.joomlagen.ExtensionType <em>Extension Type</em>}' enum.

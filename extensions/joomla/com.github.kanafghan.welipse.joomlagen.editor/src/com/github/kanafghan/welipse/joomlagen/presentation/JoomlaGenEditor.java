@@ -158,6 +158,7 @@ import com.github.kanafghan.welipse.joomlagen.provider.JoomlaGenItemProviderAdap
 
 import com.github.kanafghan.welipse.webdsl.provider.WebDSLItemProviderAdapterFactory;
 
+import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
@@ -705,6 +706,7 @@ public class JoomlaGenEditor
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new JoomlaGenItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new WebDSLItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

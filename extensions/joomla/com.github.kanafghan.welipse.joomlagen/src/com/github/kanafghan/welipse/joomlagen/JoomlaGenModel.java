@@ -5,6 +5,7 @@ package com.github.kanafghan.welipse.joomlagen;
 import com.github.kanafghan.welipse.webdsl.Website;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getJoomlaVersion <em>Joomla Version</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getExtensionName <em>Extension Name</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getExtension <em>Extension</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getDatamodel <em>Datamodel</em>}</li>
  * </ul>
  * </p>
  *
@@ -135,5 +137,31 @@ public interface JoomlaGenModel extends EObject {
 	 * @generated
 	 */
 	void setExtension(Website value);
+
+	/**
+	 * Returns the value of the '<em><b>Datamodel</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Datamodel</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Datamodel</em>' reference.
+	 * @see #setDatamodel(EPackage)
+	 * @see com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage#getJoomlaGenModel_Datamodel()
+	 * @model
+	 * @generated
+	 */
+	EPackage getDatamodel();
+
+	/**
+	 * Sets the value of the '{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getDatamodel <em>Datamodel</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Datamodel</em>' reference.
+	 * @see #getDatamodel()
+	 * @generated
+	 */
+	void setDatamodel(EPackage value);
 
 } // JoomlaGenModel

@@ -11,6 +11,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extension" lowerBound="1"
         eType="ecore:EClass ../../com.github.kanafghan.welipse.webdsl/model/webdsl.ecore#//Website"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datamodel" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EPackage"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ExtensionType">
     <eLiterals name="COMPONENT"/>

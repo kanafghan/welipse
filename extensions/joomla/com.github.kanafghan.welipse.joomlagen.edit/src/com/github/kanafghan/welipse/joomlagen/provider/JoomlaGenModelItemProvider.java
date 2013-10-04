@@ -64,6 +64,7 @@ public class JoomlaGenModelItemProvider
 			addJoomlaVersionPropertyDescriptor(object);
 			addExtensionNamePropertyDescriptor(object);
 			addExtensionPropertyDescriptor(object);
+			addDatamodelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -148,6 +149,28 @@ public class JoomlaGenModelItemProvider
 				 getString("_UI_JoomlaGenModel_extension_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JoomlaGenModel_extension_feature", "_UI_JoomlaGenModel_type"),
 				 JoomlaGenPackage.Literals.JOOMLA_GEN_MODEL__EXTENSION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Datamodel feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDatamodelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JoomlaGenModel_datamodel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JoomlaGenModel_datamodel_feature", "_UI_JoomlaGenModel_type"),
+				 JoomlaGenPackage.Literals.JOOMLA_GEN_MODEL__DATAMODEL,
 				 true,
 				 false,
 				 true,

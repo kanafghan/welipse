@@ -7,6 +7,7 @@ import com.github.kanafghan.welipse.webdsl.provider.WebdslEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 /**
  * This is the central singleton for the Joomlagen edit plugin.
@@ -41,6 +42,7 @@ public final class JoomlagenEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     WebdslEditPlugin.INSTANCE,
+		     EcoreEditPlugin.INSTANCE,
 		   });
 	}
 

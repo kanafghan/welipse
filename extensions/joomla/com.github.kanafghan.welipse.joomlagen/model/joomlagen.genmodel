@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.github.kanafghan.welipse.joomlagen/src" modelPluginID="com.github.kanafghan.welipse.joomlagen"
     modelName="Joomlagen" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    usedGenPackages="../../com.github.kanafghan.welipse.webdsl/model/webdsl.genmodel#//webdsl"
+    usedGenPackages="../../com.github.kanafghan.welipse.webdsl/model/webdsl.genmodel#//webdsl ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
     operationReflection="true" importOrganizing="true">
   <foreignModel>joomlagen.ecore</foreignModel>
   <genPackages prefix="JoomlaGen" basePackage="com.github.kanafghan.welipse" disposableProviderFactory="true"
@@ -19,6 +19,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/joomlaVersion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/extensionName"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//JoomlaGenModel/extension"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//JoomlaGenModel/datamodel"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
