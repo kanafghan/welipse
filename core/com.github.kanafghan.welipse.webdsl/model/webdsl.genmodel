@@ -25,7 +25,9 @@
     <genClasses image="false" ecoreClass="webdsl.ecore#//NavigationElement"/>
     <genClasses image="false" ecoreClass="webdsl.ecore#//Multimedia"/>
     <genClasses image="false" ecoreClass="webdsl.ecore#//Text"/>
-    <genClasses image="false" ecoreClass="webdsl.ecore#//Image"/>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//Image">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Image/isURL"/>
+    </genClasses>
     <genClasses ecoreClass="webdsl.ecore#//StaticText">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//StaticText/content"/>
     </genClasses>
@@ -41,6 +43,9 @@
     <genClasses ecoreClass="webdsl.ecore#//ExternalLink"/>
     <genClasses ecoreClass="webdsl.ecore#//DynamicText">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//DynamicText/content"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//DynamicImage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//DynamicImage/source"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

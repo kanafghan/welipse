@@ -175,6 +175,15 @@ public class WebDSLSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case WebDSLPackage.DYNAMIC_IMAGE: {
+				DynamicImage dynamicImage = (DynamicImage)theEObject;
+				T result = caseDynamicImage(dynamicImage);
+				if (result == null) result = caseImage(dynamicImage);
+				if (result == null) result = casePresentationElement(dynamicImage);
+				if (result == null) result = casePageElement(dynamicImage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -386,6 +395,21 @@ public class WebDSLSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDynamicText(DynamicText object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Dynamic Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Dynamic Image</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDynamicImage(DynamicImage object) {
 		return null;
 	}
 

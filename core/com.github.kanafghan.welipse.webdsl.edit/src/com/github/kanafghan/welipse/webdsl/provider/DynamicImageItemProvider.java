@@ -3,9 +3,9 @@
 package com.github.kanafghan.welipse.webdsl.provider;
 
 
-import com.github.kanafghan.welipse.webdsl.Image;
-
+import com.github.kanafghan.welipse.webdsl.DynamicImage;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -19,17 +19,15 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.github.kanafghan.welipse.webdsl.Image} object.
+ * This is the item provider adapter for a {@link com.github.kanafghan.welipse.webdsl.DynamicImage} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ImageItemProvider
-	extends PresentationElementItemProvider
+public class DynamicImageItemProvider
+	extends ImageItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -42,7 +40,7 @@ public class ImageItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImageItemProvider(AdapterFactory adapterFactory) {
+	public DynamicImageItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,31 +55,42 @@ public class ImageItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIsURLPropertyDescriptor(object);
+			addSourcePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Is URL feature.
+	 * This adds a property descriptor for the Source feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsURLPropertyDescriptor(Object object) {
+	protected void addSourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Image_isURL_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Image_isURL_feature", "_UI_Image_type"),
-				 WebDSLPackage.Literals.IMAGE__IS_URL,
+				 getString("_UI_DynamicImage_source_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DynamicImage_source_feature", "_UI_DynamicImage_type"),
+				 WebDSLPackage.Literals.DYNAMIC_IMAGE__SOURCE,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This returns DynamicImage.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DynamicImage"));
 	}
 
 	/**
@@ -92,10 +101,10 @@ public class ImageItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Image)object).getName();
+		String label = ((DynamicImage)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Image_type") :
-			getString("_UI_Image_type") + " " + label;
+			getString("_UI_DynamicImage_type") :
+			getString("_UI_DynamicImage_type") + " " + label;
 	}
 
 	/**
@@ -108,12 +117,6 @@ public class ImageItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Image.class)) {
-			case WebDSLPackage.IMAGE__IS_URL:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

@@ -2,6 +2,7 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
+import com.github.kanafghan.welipse.webdsl.DynamicImage;
 import com.github.kanafghan.welipse.webdsl.DynamicText;
 import com.github.kanafghan.welipse.webdsl.ExternalLink;
 import com.github.kanafghan.welipse.webdsl.Image;
@@ -131,6 +132,13 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * @generated
 	 */
 	private EClass dynamicTextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dynamicImageEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -336,6 +344,15 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getImage_IsURL() {
+		return (EAttribute)imageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStaticText() {
 		return staticTextEClass;
 	}
@@ -435,6 +452,24 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDynamicImage() {
+		return dynamicImageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDynamicImage_Source() {
+		return (EReference)dynamicImageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public WebDSLFactory getWebDSLFactory() {
 		return (WebDSLFactory)getEFactoryInstance();
 	}
@@ -480,6 +515,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		textEClass = createEClass(TEXT);
 
 		imageEClass = createEClass(IMAGE);
+		createEAttribute(imageEClass, IMAGE__IS_URL);
 
 		staticTextEClass = createEClass(STATIC_TEXT);
 		createEAttribute(staticTextEClass, STATIC_TEXT__CONTENT);
@@ -497,6 +533,9 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 
 		dynamicTextEClass = createEClass(DYNAMIC_TEXT);
 		createEReference(dynamicTextEClass, DYNAMIC_TEXT__CONTENT);
+
+		dynamicImageEClass = createEClass(DYNAMIC_IMAGE);
+		createEReference(dynamicImageEClass, DYNAMIC_IMAGE__SOURCE);
 	}
 
 	/**
@@ -541,6 +580,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		internalLinkEClass.getESuperTypes().add(this.getLink());
 		externalLinkEClass.getESuperTypes().add(this.getLink());
 		dynamicTextEClass.getESuperTypes().add(this.getText());
+		dynamicImageEClass.getESuperTypes().add(this.getImage());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(websiteEClass, Website.class, "Website", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -565,6 +605,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		initEClass(textEClass, Text.class, "Text", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(imageEClass, Image.class, "Image", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getImage_IsURL(), theEcorePackage.getEBoolean(), "isURL", "false", 1, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(staticTextEClass, StaticText.class, "StaticText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStaticText_Content(), ecorePackage.getEString(), "content", null, 0, 1, StaticText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -582,6 +623,9 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 
 		initEClass(dynamicTextEClass, DynamicText.class, "DynamicText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDynamicText_Content(), theEcorePackage.getETypedElement(), null, "content", null, 1, 1, DynamicText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dynamicImageEClass, DynamicImage.class, "DynamicImage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDynamicImage_Source(), theEcorePackage.getETypedElement(), null, "source", null, 1, 1, DynamicImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

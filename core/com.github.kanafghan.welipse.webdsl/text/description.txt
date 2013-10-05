@@ -29,6 +29,7 @@ Package webdsl <http://github.com/kanafghan/welipse/webdsl/1.0>
   Class Text -> PresentationElement
 
   Class Image -> PresentationElement
+    Attribute isURL : EBoolean<<1..1>>
 
   Class StaticText -> Text
     Attribute content : EString
@@ -46,3 +47,6 @@ Package webdsl <http://github.com/kanafghan/welipse/webdsl/1.0>
 
   Class DynamicText -> Text
     Reference content : ETypedElement<<1..1>>
+
+  Class DynamicImage -> Image
+    Reference source : ETypedElement<<1..1>>

@@ -233,6 +233,29 @@ public class WebDSLItemProviderAdapterFactory extends WebDSLAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.DynamicImage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DynamicImageItemProvider dynamicImageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.DynamicImage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDynamicImageAdapter() {
+		if (dynamicImageItemProvider == null) {
+			dynamicImageItemProvider = new DynamicImageItemProvider(this);
+		}
+
+		return dynamicImageItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -338,6 +361,7 @@ public class WebDSLItemProviderAdapterFactory extends WebDSLAdapterFactory imple
 		if (internalLinkItemProvider != null) internalLinkItemProvider.dispose();
 		if (externalLinkItemProvider != null) externalLinkItemProvider.dispose();
 		if (dynamicTextItemProvider != null) dynamicTextItemProvider.dispose();
+		if (dynamicImageItemProvider != null) dynamicImageItemProvider.dispose();
 	}
 
 }

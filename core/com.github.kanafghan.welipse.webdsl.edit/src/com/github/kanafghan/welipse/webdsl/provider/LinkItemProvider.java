@@ -160,6 +160,11 @@ public class LinkItemProvider
 			(createChildParameter
 				(WebDSLPackage.Literals.LINK__CONTENT,
 				 WebDSLFactory.eINSTANCE.createDynamicText()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LINK__CONTENT,
+				 WebDSLFactory.eINSTANCE.createDynamicImage()));
 	}
 
 }

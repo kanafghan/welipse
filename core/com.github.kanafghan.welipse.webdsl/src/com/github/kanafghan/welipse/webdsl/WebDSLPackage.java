@@ -416,13 +416,22 @@ public interface WebDSLPackage extends EPackage {
 	int IMAGE__PAGE = PRESENTATION_ELEMENT__PAGE;
 
 	/**
+	 * The feature id for the '<em><b>Is URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__IS_URL = PRESENTATION_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Image</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE_FEATURE_COUNT = PRESENTATION_ELEMENT_FEATURE_COUNT + 0;
+	int IMAGE_FEATURE_COUNT = PRESENTATION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Image</em>' class.
@@ -515,6 +524,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATIC_IMAGE__PAGE = IMAGE__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Is URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_IMAGE__IS_URL = IMAGE__IS_URL;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -775,6 +793,71 @@ public interface WebDSLPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.DynamicImageImpl <em>Dynamic Image</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.DynamicImageImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getDynamicImage()
+	 * @generated
+	 */
+	int DYNAMIC_IMAGE = 14;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_IMAGE__NAME = IMAGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_IMAGE__PAGE = IMAGE__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Is URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_IMAGE__IS_URL = IMAGE__IS_URL;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_IMAGE__SOURCE = IMAGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Dynamic Image</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_IMAGE_FEATURE_COUNT = IMAGE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Dynamic Image</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_IMAGE_OPERATION_COUNT = IMAGE_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Website <em>Website</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -932,6 +1015,17 @@ public interface WebDSLPackage extends EPackage {
 	EClass getImage();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.Image#isIsURL <em>Is URL</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is URL</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Image#isIsURL()
+	 * @see #getImage()
+	 * @generated
+	 */
+	EAttribute getImage_IsURL();
+
+	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.StaticText <em>Static Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1045,6 +1139,27 @@ public interface WebDSLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDynamicText_Content();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.DynamicImage <em>Dynamic Image</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Dynamic Image</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.DynamicImage
+	 * @generated
+	 */
+	EClass getDynamicImage();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.webdsl.DynamicImage#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.DynamicImage#getSource()
+	 * @see #getDynamicImage()
+	 * @generated
+	 */
+	EReference getDynamicImage_Source();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1206,6 +1321,14 @@ public interface WebDSLPackage extends EPackage {
 		EClass IMAGE = eINSTANCE.getImage();
 
 		/**
+		 * The meta object literal for the '<em><b>Is URL</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMAGE__IS_URL = eINSTANCE.getImage_IsURL();
+
+		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.StaticTextImpl <em>Static Text</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1304,6 +1427,24 @@ public interface WebDSLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DYNAMIC_TEXT__CONTENT = eINSTANCE.getDynamicText_Content();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.DynamicImageImpl <em>Dynamic Image</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.DynamicImageImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getDynamicImage()
+		 * @generated
+		 */
+		EClass DYNAMIC_IMAGE = eINSTANCE.getDynamicImage();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DYNAMIC_IMAGE__SOURCE = eINSTANCE.getDynamicImage_Source();
 
 	}
 

@@ -85,6 +85,15 @@ public interface WebDSLFactory extends EFactory {
 	DynamicText createDynamicText();
 
 	/**
+	 * Returns a new object of class '<em>Dynamic Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Dynamic Image</em>'.
+	 * @generated
+	 */
+	DynamicImage createDynamicImage();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

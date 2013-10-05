@@ -63,6 +63,7 @@ public class WebDSLFactoryImpl extends EFactoryImpl implements WebDSLFactory {
 			case WebDSLPackage.INTERNAL_LINK: return createInternalLink();
 			case WebDSLPackage.EXTERNAL_LINK: return createExternalLink();
 			case WebDSLPackage.DYNAMIC_TEXT: return createDynamicText();
+			case WebDSLPackage.DYNAMIC_IMAGE: return createDynamicImage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -136,6 +137,16 @@ public class WebDSLFactoryImpl extends EFactoryImpl implements WebDSLFactory {
 	public DynamicText createDynamicText() {
 		DynamicTextImpl dynamicText = new DynamicTextImpl();
 		return dynamicText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DynamicImage createDynamicImage() {
+		DynamicImageImpl dynamicImage = new DynamicImageImpl();
+		return dynamicImage;
 	}
 
 	/**
