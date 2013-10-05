@@ -1,9 +1,13 @@
 package com.github.kanafghan.welipse.joomlagen.generator;
 
+import org.eclipse.emf.ecore.EClass;
+
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenModel;
 import com.github.kanafghan.welipse.webdsl.Page;
 
 public class Utils {
+	
+	public static final String SQL_TABLE_NAME_PREFIX = "#__";
 	
 	private static int counter;
 	
@@ -46,5 +50,12 @@ public class Utils {
 			return page.getName();
 		}
 		return "Page"+ getInstance().generateID();
+	}
+	
+	public static synchronized String getTableName(EClass table, JoomlaGenModel genModel) {
+		String name = table.getName().toLowerCase();
+		return SQL_TABLE_NAME_PREFIX +
+				getExtensionName(genModel) +
+				'_' + name;
 	}
 }

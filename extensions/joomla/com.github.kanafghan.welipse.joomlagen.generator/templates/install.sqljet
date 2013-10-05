@@ -1,0 +1,20 @@
+<%@jet 
+	package="com.github.kanafghan.welipse.joomlagen"
+	class="GenInstall"
+	skeleton="skeletons/GenInstallSkeleton.java"
+%>
+<% 
+	initialize(argument);
+	
+	for (EClass table : getTables()) {
+		String tableName = getTableName(table);
+%>
+DROP TABLE IF EXISTS <%= tableName %>;
+CREATE TABLE IF NOT EXISTS <%= tableName %> (
+	id int(11) NOT NULL AUTO_INCREMENT,
+	<% for (EAttribute field : getTableFields(table)) { %>
+		<%= field.getName() %> <%= getTableFieldType(field) %> NOT NULL,
+	<% } %>
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+<% } %>

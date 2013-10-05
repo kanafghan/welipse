@@ -12,8 +12,8 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 <%
 for (PageElement element: getElements()) {
-	if (element instanceof StaticText) {
-		StaticText text = (StaticText) element;
+	if (element instanceof Text) {
+		Text text = (Text) element;
 %>
 	<%@ include file="Text2HTML.jetinc" %>
 <%

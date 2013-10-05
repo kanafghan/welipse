@@ -1,9 +1,29 @@
-<% if (text.getName().isEmpty()) { %>
+<% 
+if (text instanceof StaticText) {
+	StaticText sText = (StaticText) text;
+%>
+	<% if (sText.getName().isEmpty()) { %>
 	<p>
-		<%= text.getContent() %>
+		<%= sText.getContent() %>
 	</p>
-<% } else { %>
-	<p id="<%= text.getName() %>">
-		<%= text.getContent() %>
+	<% } else { %>
+	<p id="<%= sText.getName() %>">
+		<%= sText.getContent() %>
 	</p>
-<% } %>
+	<% } %>
+<%
+} else if (text instanceof DynamicText) {
+	DynamicText dText = (DynamicText) text;
+%>
+	<% if (dText.getName().isEmpty()) { %>
+	<p>
+		<?php echo $this-><%= getObjectName(dText.getContent()) %>-><%= getObjectAttributeName(dText.getContent()) %>; ?>
+	</p>
+	<% } else { %>
+	<p id="<%= dText.getName() %>">
+		<?php echo $this-><%= getObjectName(dText.getContent()) %>-><%= getObjectAttributeName(dText.getContent()) %>; ?>
+	</p>
+	<% } %>	
+<%
+}
+%>

@@ -1,0 +1,30 @@
+<%@jet 
+	package="com.github.kanafghan.welipse.joomlagen.table"
+	class="GenJTable"
+	skeleton="skeletons/GenTableSkeleton.java"
+%>
+<% 
+	initialize(argument);
+%>
+<?php
+// No direct access
+defined('_JEXEC') or die('Restricted access');
+ 
+// import Joomla table library
+jimport('joomla.database.table');
+ 
+/**
+ * <%= getTableName() %> Table class
+ */
+class <%= getComponentName() %>Table<%= getTableName() %> extends JTable
+{
+    /**
+     * Constructor
+     *
+     * @param object Database connector object
+     */
+    function __construct(&$db) 
+    {
+    	parent::__construct('<%= getSQLTableName() %>', 'id', $db);
+    }
+}

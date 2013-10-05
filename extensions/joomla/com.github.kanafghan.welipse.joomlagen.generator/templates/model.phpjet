@@ -1,0 +1,68 @@
+<%@jet 
+	package="com.github.kanafghan.welipse.joomlagen.model"
+	class="GenJModel"
+	skeleton="skeletons/GenModelSkeleton.java"
+%>
+<% 
+	initialize(argument);
+	String modelName = getModelName();
+	String listVar = modelName.toLowerCase() +"List";
+%>
+<?php
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
+ 
+// import Joomla model library
+jimport('joomla.application.component.modelitem');
+ 
+/**
+ * <%= modelName %> Model
+ */
+class <%= getComponentName() %>Model<%= modelName %> extends JModelItem
+{ 
+    /**
+     * @var array <%= listVar %>
+     */
+    protected $<%= listVar %>;
+
+    /**
+     * (non-PHPdoc)
+     * @see JModel::getTable()
+     */
+    public function getTable($type = '<%= modelName %>', $prefix = '<%= getComponentName() %>Table', $config = array()) 
+    {
+        return JTable::getInstance($type, $prefix, $config);
+    }
+
+    /**
+     * Retrieve and return an instance of <%= modelName %>
+     *
+     * @param  int    The id of the instance to be retrieved
+     * @return object The instance of <%= modelName %>
+     */
+    public function get<%= modelName %>($id = 1) 
+    {
+        if (!is_array($this-><%= listVar %>))
+        {
+            $this-><%= listVar %> = array();
+        }
+
+        if (!isset($this-><%= listVar %>[$id])) 
+        {
+            // request the selected id
+            $jinput = JFactory::getApplication()->input;
+            $id = $jinput->get('id', $id, 'INT');
+
+            // Get an instance of the table corresponding to this model
+            $table = $this->getTable();
+
+            // Load the message
+            $table->load($id);
+
+            // Assign the instance
+            $this-><%= listVar %>[$id] = JArrayHelper::toObject($table->getProperties());
+        }
+
+        return $this-><%= listVar %>[$id];
+    }
+}

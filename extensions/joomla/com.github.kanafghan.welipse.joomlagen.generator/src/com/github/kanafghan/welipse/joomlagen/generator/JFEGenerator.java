@@ -22,13 +22,11 @@ public class JFEGenerator {
 		// Generate main controller
 		MainControllerGenerator.generate(new ControllerContext(context, ""), feFolder);
 		
-		IFolder feViewsFolder = feFolder.getFolder("views");
-		if (!feViewsFolder.exists()) {
-			feViewsFolder.create(true, false, new NullProgressMonitor());
-		}
-		
 		// Generate views
-		FEViewsGenerator.generate(context, feViewsFolder);
+		FEViewsGenerator.generate(context, feFolder);
+		
+		// Generate models
+		FEModelsGenerator.generate(context, feFolder);
 	}
 
 }

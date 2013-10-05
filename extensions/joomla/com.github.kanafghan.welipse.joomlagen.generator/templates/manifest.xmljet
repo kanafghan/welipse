@@ -8,22 +8,46 @@
 %>
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="component" version="2.5.0" method="upgrade">
-    <name><%= getExtensionName() %></name>
-    <creationDate>September 2013</creationDate>
-    <author>Ismail Faizi</author>
-    <authorEmail>kanafghan@gmail.com</authorEmail>
-    <authorUrl>http://www.hamwatanet.com</authorUrl>
-    <copyright>Copyright IF, All rights are reserved.</copyright>
-    <license>see license.txt</license>
-    <version>0.0.1</version>
-    <description>Generated component for Joomla!</description>
+	<name><%= getExtensionName() %></name>
+	<creationDate>September 2013</creationDate>
+	<author>Ismail Faizi</author>
+	<authorEmail>kanafghan@gmail.com</authorEmail>
+	<authorUrl>http://www.hamwatanet.com</authorUrl>
+	<copyright>Copyright IF, All rights are reserved.</copyright>
+	<license>see license.txt</license>
+	<version>0.0.1</version>
+	<description>Generated component for Joomla!</description>
+<% if (addInstall()) { %>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+<% } %>
+<% if (addUninstall()) { %>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+<% } %>
+<% if (addUpdate()) { %>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+<% } %>    
     
 	<files folder="site">
 		<filename>index.html</filename>
 		<filename><%= getExtensionName().toLowerCase() %>.php</filename>
 		<filename>controller.php</filename>
 		<folder>views</folder>
-   </files>
+	<% if (addInstall()) { %>
+		<folder>models</folder>
+	<% } %>
+	</files>
    
 	<administration>
 		<!-- Administration Menu Section -->
@@ -32,6 +56,10 @@
 		<files folder="admin">
 		<filename>index.html</filename>
 		<filename><%= getExtensionName().toLowerCase() %>.php</filename>
+	<% if (addInstall()) { %>
+		<folder>sql</folder>
+		<folder>tables</folder>
+	<% } %>
 		</files>
 	</administration>       
 

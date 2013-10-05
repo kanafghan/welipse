@@ -44,6 +44,9 @@ public class JComponentGenerator {
 					// Generate extension Back-End (BE)
 					JBEGenerator.generate(new Context(genModel), project);
 					
+					// Generate SQL install
+					InstallGenerator.generate(new Context(genModel), project);
+					
 					// Generate extension manifest
 					ManifestGenerator.generate(new Context(genModel), project);
 					

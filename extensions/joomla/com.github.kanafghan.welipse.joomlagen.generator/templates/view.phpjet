@@ -24,6 +24,19 @@ class <%= getComponentName() %>View<%= getViewName() %> extends JView
 	 */
 	function display($tpl = null) 
 	{
+	<% if (hasModels()) { %>
+		// Include other needed models
+		JModel::addIncludePath(JPATH_COMPONENT.DS.'models');
+	<% } %>
+	<% 
+		for (EClass model : models) { 
+			String nameLower = model.getName().toLowerCase();
+			String nameCapitalized = getModelName(model);
+	%>
+		$<%= nameLower %>Model = JModel::getInstance('<%= nameCapitalized %>', '<%= getComponentName() %>Model');
+		$this->assignRef('<%= nameLower %>', $<%= nameLower %>Model->get<%= nameCapitalized %>());
+	<% } %>
+	
 		// Display the template
 		parent::display($tpl);
 	}

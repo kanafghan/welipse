@@ -21,6 +21,9 @@ public class JBEGenerator {
 		// Generate main controller
 //		MainControllerGenerator.generate(new ControllerContext(context, ""), feFolder);
 		
+		// Generate tables
+		TablesGenerator.generate(context, beFolder);
+				
 //		IFolder feViewsFolder = feFolder.getFolder("views");
 //		if (!feViewsFolder.exists()) {
 //			feViewsFolder.create(true, false, new NullProgressMonitor());

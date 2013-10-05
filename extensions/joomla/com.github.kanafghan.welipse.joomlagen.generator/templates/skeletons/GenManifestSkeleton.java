@@ -8,6 +8,18 @@ public class CLASS extends JExtension {
 		this.joomlaGenModel = context.getGenModel();
 	}
 	
+	protected boolean addInstall() {
+		return this.joomlaGenModel.getDatamodel() != null;
+	}
+	
+	protected boolean addUninstall() {
+		return false;
+	}
+	
+	protected boolean addUpdate() {
+		return false;
+	}
+	
 	public String generate(Object argument) {
 		return "";
 	} 
