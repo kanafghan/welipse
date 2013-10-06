@@ -13,16 +13,21 @@ defined('_JEXEC') or die('Restricted access');
 <%
 for (PageElement element: getElements()) {
 	if (element instanceof Text) {
-		Text text = (Text) element;
+		text = (Text) element;
 %>
 	<%@ include file="Text2HTML.jetinc" %>
 <%
 	}
-	if (element instanceof InternalLink) {
-		InternalLink link = (InternalLink) element;
-		String url = buildURL(link);
+	if (element instanceof Link) {
+		link = (Link) element;
 %>
 	<%@ include file="Link2HTML.jetinc" %>
+<%
+	}
+	if (element instanceof Image) {
+		img = (Image) element;
+%>
+	<%@ include file="Image2HTML.jetinc" %>
 <%
 	}
 }

@@ -1,5 +1,7 @@
 package com.github.kanafghan.welipse.joomlagen.generator;
 
+import java.io.File;
+
 import org.eclipse.emf.ecore.EClass;
 
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenModel;
@@ -57,5 +59,10 @@ public class Utils {
 		return SQL_TABLE_NAME_PREFIX +
 				getExtensionName(genModel) +
 				'_' + name;
+	}
+	
+	public static synchronized String getImageName(String path) {
+		File img = new File(path);
+		return img.getName();
 	}
 }

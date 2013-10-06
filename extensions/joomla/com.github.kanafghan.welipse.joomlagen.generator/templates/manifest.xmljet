@@ -47,18 +47,27 @@
 	<% if (addInstall()) { %>
 		<folder>models</folder>
 	<% } %>
-	</files>
-   
+	</files> 
+	
+<% if (addMedia()) { %>
+    <media destination="<%= getExtensionName() %>" folder="media">
+        <filename>index.html</filename>
+        <folder>images</folder>
+        <folder>css</folder>
+        <folder>js</folder>
+    </media>	
+<% } %>
+
 	<administration>
 		<!-- Administration Menu Section -->
 		<menu><%= getExtensionName() %></menu>
 		<!-- Administration Main File Copy Section -->
 		<files folder="admin">
-		<filename>index.html</filename>
-		<filename><%= getExtensionName().toLowerCase() %>.php</filename>
+			<filename>index.html</filename>
+			<filename><%= getExtensionName().toLowerCase() %>.php</filename>
 	<% if (addInstall()) { %>
-		<folder>sql</folder>
-		<folder>tables</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
 	<% } %>
 		</files>
 	</administration>       

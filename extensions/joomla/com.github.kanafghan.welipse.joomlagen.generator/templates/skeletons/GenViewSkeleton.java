@@ -11,6 +11,16 @@ public class CLASS extends JExtension {
 	protected Page page;
 	protected List<EClass> models;
 	
+	protected Text text;
+	protected StaticText sText;
+	protected DynamicText dText;
+	protected Image img;
+	protected StaticImage sImg;
+	protected DynamicImage dImg;
+	protected Link link;
+	protected InternalLink iLink;
+	protected ExternalLink xLink;
+	
 	protected void initialize(Object argument) {
 		ViewContext viewContext = (ViewContext) argument; 
 		this.joomlaGenModel = viewContext.getContext().getGenModel();
@@ -72,6 +82,31 @@ public class CLASS extends JExtension {
 	
 	private boolean hasModels() {
 		return !this.models.isEmpty();
+	}
+	
+	private String getStaticImageSource(StaticImage sImg) {
+		String src = "";
+		if (sImg.isIsURL()) {
+			src = sImg.getSource();
+			return src;
+		} else {
+			src += "<?php echo JURI::base(); ?>media/";
+			src += this.getExtensionName();
+			src += "/images/"+ Utils.getImageName(sImg.getSource());
+			return src;
+		}
+	}
+	
+	private String getDynamicImageSource(DynamicImage dImg) {
+		//TODO implementation needed
+		String src = "";
+		if (dImg.isIsURL()) {
+			src = "";
+			return src;
+		} else {
+			src = "";
+			return src;
+		}
 	}
 	
 	public String generate(Object argument) {

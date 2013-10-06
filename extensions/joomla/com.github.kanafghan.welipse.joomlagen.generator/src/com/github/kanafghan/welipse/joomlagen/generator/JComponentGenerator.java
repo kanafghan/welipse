@@ -1,6 +1,8 @@
 package com.github.kanafghan.welipse.joomlagen.generator;
 
 import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import org.eclipse.core.resources.IFile;
@@ -14,9 +16,13 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.util.EList;
 
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenModel;
 import com.github.kanafghan.welipse.joomlagen.generator.context.Context;
+import com.github.kanafghan.welipse.webdsl.Page;
+import com.github.kanafghan.welipse.webdsl.PageElement;
+import com.github.kanafghan.welipse.webdsl.StaticImage;
 
 public class JComponentGenerator {
 
@@ -36,7 +42,7 @@ public class JComponentGenerator {
 					}
 					project.open(monitor);
 					
-					buildComponentFolderStructure(project, monitor);
+					buildComponentFolderStructure(genModel, project, monitor);
 					
 					// Generate extension Front-End (FE)
 					JFEGenerator.generate(new Context(genModel), project);
@@ -59,28 +65,64 @@ public class JComponentGenerator {
 				return new Status(Status.OK, Activator.PLUGIN_ID, "Code successfully generated!");
 			}
 
-			private void buildComponentFolderStructure(IProject project, IProgressMonitor monitor) throws CoreException {
+			private void buildComponentFolderStructure(JoomlaGenModel genModel, IProject project, IProgressMonitor monitor) throws CoreException {
 				// Create folder for Front-End (FE)
-				IFolder FEFolder = project.getFolder("site");
-				if (!FEFolder.exists()) {
-					FEFolder.create(true, false, monitor);
-					JComponentGenerator.generateBlankPage(FEFolder, monitor);
-				}
+				createFolderIfNotExists(project.getFolder("site"), monitor);
 				
 				// Create folder for Front-End views
-				IFolder FEViewsFolder = project.getFolder("site/views");
-				if (!FEViewsFolder.exists()) {
-					FEViewsFolder.create(true, false, monitor);
-					JComponentGenerator.generateBlankPage(FEViewsFolder, monitor);
-				}
+				createFolderIfNotExists(project.getFolder("site/views"), monitor);
+				
+				// Create folder for component Media
+				createFolderIfNotExists(project.getFolder("media"), monitor);
+				IFolder imagesFolder = createFolderIfNotExists(project.getFolder("media/images"), monitor);
+				createFolderIfNotExists(project.getFolder("media/js"), monitor);
+				createFolderIfNotExists(project.getFolder("media/css"), monitor);
+				
+				// Get all the Static Images which are not URLs
+				getStaticImages(genModel, imagesFolder, monitor);
 				
 				// Create folder for Back-End (BE)
-				IFolder BEFolder = project.getFolder("admin");
-				if (!BEFolder.exists()) {
-					BEFolder.create(true, false, monitor);
-					JComponentGenerator.generateBlankPage(BEFolder, monitor);
+				createFolderIfNotExists(project.getFolder("admin"), monitor);
+			}
+			
+			private IFolder createFolderIfNotExists(IFolder folder, IProgressMonitor monitor) throws CoreException {
+				if (!folder.exists()) {
+					folder.create(true, false, monitor);
+					JComponentGenerator.generateBlankPage(folder, monitor);
 				}
-				
+				return folder;
+			}
+			
+			private void getStaticImages(JoomlaGenModel genModel, IFolder folder, IProgressMonitor monitor) throws CoreException {
+				EList<Page> pages = genModel.getExtension().getPages();
+				for (Page page : pages) {
+					EList<PageElement> elements = page.getElements();
+					for (PageElement element : elements) {
+						if (element instanceof StaticImage) {
+							StaticImage sImg = (StaticImage) element;
+							if (sImg.isIsURL()) continue;
+							
+							String imgName = Utils.getImageName(sImg.getSource());
+							
+							// Create a copy of the image
+							IFile localImg = folder.getFile(imgName);
+							if (!localImg.exists()) {
+								FileInputStream fileStream;
+								try {
+									fileStream = new FileInputStream(
+											sImg.getSource());
+									localImg.create(fileStream, true, monitor);
+								} catch (FileNotFoundException e) {
+									throw new CoreException(new Status(
+											Status.ERROR, Activator.PLUGIN_ID,
+											"Image at location: "
+													+ sImg.getSource()
+													+ " does not exists."));
+								}
+							}
+						}
+					}
+				}
 			}
 		};
 		

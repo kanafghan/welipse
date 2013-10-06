@@ -1,0 +1,21 @@
+<% 
+if (img instanceof StaticImage) {
+	sImg = (StaticImage) img;
+%>
+	<% if (sImg.getName().isEmpty()) { %>
+	<img src="<%= getStaticImageSource(sImg) %>">
+	<% } else { %>
+	<img id="<%= sImg.getName() %>" src="<%= getStaticImageSource(sImg) %>">
+	<% } %>
+<%
+} else if (img instanceof DynamicImage) {
+	dImg = (DynamicImage) img;
+%>
+	<% if (dImg.getName().isEmpty()) { %>
+	<img src="<%= getDynamicImageSource(dImg) %>">
+	<% } else { %>
+	<img id="<%= dImg.getName() %>" src="<%= getDynamicImageSource(dImg) %>">
+	<% } %>	
+<%
+}
+%>

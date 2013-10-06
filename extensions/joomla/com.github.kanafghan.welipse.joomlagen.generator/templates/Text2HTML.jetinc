@@ -1,6 +1,6 @@
 <% 
 if (text instanceof StaticText) {
-	StaticText sText = (StaticText) text;
+	sText = (StaticText) text;
 %>
 	<% if (sText.getName().isEmpty()) { %>
 	<p>
@@ -13,7 +13,7 @@ if (text instanceof StaticText) {
 	<% } %>
 <%
 } else if (text instanceof DynamicText) {
-	DynamicText dText = (DynamicText) text;
+	dText = (DynamicText) text;
 %>
 	<% if (dText.getName().isEmpty()) { %>
 	<p>
