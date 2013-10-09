@@ -181,6 +181,11 @@ public class PageItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(WebDSLPackage.Literals.PAGE__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createList()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.PAGE__ELEMENTS,
 				 WebDSLFactory.eINSTANCE.createStaticText()));
 
 		newChildDescriptors.add

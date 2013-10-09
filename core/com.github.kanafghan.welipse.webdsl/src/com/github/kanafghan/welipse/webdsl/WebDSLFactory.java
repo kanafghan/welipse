@@ -40,6 +40,15 @@ public interface WebDSLFactory extends EFactory {
 	Page createPage();
 
 	/**
+	 * Returns a new object of class '<em>List</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>List</em>'.
+	 * @generated
+	 */
+	List createList();
+
+	/**
 	 * Returns a new object of class '<em>Static Text</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

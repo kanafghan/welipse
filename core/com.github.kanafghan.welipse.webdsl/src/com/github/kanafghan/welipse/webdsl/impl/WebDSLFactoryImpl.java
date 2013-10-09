@@ -58,6 +58,7 @@ public class WebDSLFactoryImpl extends EFactoryImpl implements WebDSLFactory {
 		switch (eClass.getClassifierID()) {
 			case WebDSLPackage.WEBSITE: return createWebsite();
 			case WebDSLPackage.PAGE: return createPage();
+			case WebDSLPackage.LIST: return createList();
 			case WebDSLPackage.STATIC_TEXT: return createStaticText();
 			case WebDSLPackage.STATIC_IMAGE: return createStaticImage();
 			case WebDSLPackage.INTERNAL_LINK: return createInternalLink();
@@ -87,6 +88,16 @@ public class WebDSLFactoryImpl extends EFactoryImpl implements WebDSLFactory {
 	public Page createPage() {
 		PageImpl page = new PageImpl();
 		return page;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public List createList() {
+		ListImpl list = new ListImpl();
+		return list;
 	}
 
 	/**

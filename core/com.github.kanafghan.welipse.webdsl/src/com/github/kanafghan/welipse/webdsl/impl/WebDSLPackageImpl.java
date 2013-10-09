@@ -8,7 +8,7 @@ import com.github.kanafghan.welipse.webdsl.ExternalLink;
 import com.github.kanafghan.welipse.webdsl.Image;
 import com.github.kanafghan.welipse.webdsl.InternalLink;
 import com.github.kanafghan.welipse.webdsl.Link;
-import com.github.kanafghan.welipse.webdsl.Multimedia;
+import com.github.kanafghan.welipse.webdsl.List;
 import com.github.kanafghan.welipse.webdsl.NavigationElement;
 import com.github.kanafghan.welipse.webdsl.Page;
 import com.github.kanafghan.welipse.webdsl.PageElement;
@@ -75,7 +75,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass multimediaEClass = null;
+	private EClass listEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -317,8 +317,44 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMultimedia() {
-		return multimediaEClass;
+	public EClass getList() {
+		return listEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getList_Item() {
+		return (EAttribute)listEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getList_CollectionProvider() {
+		return (EReference)listEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getList_Type() {
+		return (EReference)listEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getList_Content() {
+		return (EReference)listEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -510,7 +546,11 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 
 		navigationElementEClass = createEClass(NAVIGATION_ELEMENT);
 
-		multimediaEClass = createEClass(MULTIMEDIA);
+		listEClass = createEClass(LIST);
+		createEAttribute(listEClass, LIST__ITEM);
+		createEReference(listEClass, LIST__COLLECTION_PROVIDER);
+		createEReference(listEClass, LIST__TYPE);
+		createEReference(listEClass, LIST__CONTENT);
 
 		textEClass = createEClass(TEXT);
 
@@ -571,7 +611,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		// Add supertypes to classes
 		presentationElementEClass.getESuperTypes().add(this.getPageElement());
 		navigationElementEClass.getESuperTypes().add(this.getPageElement());
-		multimediaEClass.getESuperTypes().add(this.getPresentationElement());
+		listEClass.getESuperTypes().add(this.getPresentationElement());
 		textEClass.getESuperTypes().add(this.getPresentationElement());
 		imageEClass.getESuperTypes().add(this.getPresentationElement());
 		staticTextEClass.getESuperTypes().add(this.getText());
@@ -600,7 +640,11 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 
 		initEClass(navigationElementEClass, NavigationElement.class, "NavigationElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(multimediaEClass, Multimedia.class, "Multimedia", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(listEClass, List.class, "List", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getList_Item(), ecorePackage.getEString(), "item", null, 1, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getList_CollectionProvider(), theEcorePackage.getEOperation(), null, "collectionProvider", null, 1, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getList_Type(), theEcorePackage.getEClass(), null, "type", null, 1, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getList_Content(), this.getPageElement(), null, "content", null, 0, -1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(textEClass, Text.class, "Text", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -88,8 +88,8 @@ public class WebDSLAdapterFactory extends AdapterFactoryImpl {
 				return createNavigationElementAdapter();
 			}
 			@Override
-			public Adapter caseMultimedia(Multimedia object) {
-				return createMultimediaAdapter();
+			public Adapter caseList(List object) {
+				return createListAdapter();
 			}
 			@Override
 			public Adapter caseText(Text object) {
@@ -218,16 +218,16 @@ public class WebDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.Multimedia <em>Multimedia</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.List <em>List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.github.kanafghan.welipse.webdsl.Multimedia
+	 * @see com.github.kanafghan.welipse.webdsl.List
 	 * @generated
 	 */
-	public Adapter createMultimediaAdapter() {
+	public Adapter createListAdapter() {
 		return null;
 	}
 

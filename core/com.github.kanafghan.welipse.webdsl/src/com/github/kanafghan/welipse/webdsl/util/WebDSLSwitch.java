@@ -98,11 +98,11 @@ public class WebDSLSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case WebDSLPackage.MULTIMEDIA: {
-				Multimedia multimedia = (Multimedia)theEObject;
-				T result = caseMultimedia(multimedia);
-				if (result == null) result = casePresentationElement(multimedia);
-				if (result == null) result = casePageElement(multimedia);
+			case WebDSLPackage.LIST: {
+				List list = (List)theEObject;
+				T result = caseList(list);
+				if (result == null) result = casePresentationElement(list);
+				if (result == null) result = casePageElement(list);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -264,17 +264,17 @@ public class WebDSLSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Multimedia</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>List</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Multimedia</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>List</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMultimedia(Multimedia object) {
+	public T caseList(List object) {
 		return null;
 	}
 

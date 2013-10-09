@@ -139,6 +139,11 @@ public class LinkItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(WebDSLPackage.Literals.LINK__CONTENT,
+				 WebDSLFactory.eINSTANCE.createList()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LINK__CONTENT,
 				 WebDSLFactory.eINSTANCE.createStaticText()));
 
 		newChildDescriptors.add

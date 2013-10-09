@@ -24,7 +24,11 @@ Package webdsl <http://github.com/kanafghan/welipse/webdsl/1.0>
 
   Class NavigationElement -> PageElement
 
-  Class Multimedia -> PresentationElement
+  Class List -> PresentationElement
+    Attribute item : EString<<1..1>>
+    Reference collectionProvider : EOperation<<1..1>>
+    Reference type : EClass<<1..1>>
+    Reference content : PageElement<<0..*>>
 
   Class Text -> PresentationElement
 

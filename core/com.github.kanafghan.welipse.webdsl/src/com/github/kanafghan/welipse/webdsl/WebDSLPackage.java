@@ -296,14 +296,14 @@ public interface WebDSLPackage extends EPackage {
 	int NAVIGATION_ELEMENT_OPERATION_COUNT = PAGE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.MultimediaImpl <em>Multimedia</em>}' class.
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.ListImpl <em>List</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.github.kanafghan.welipse.webdsl.impl.MultimediaImpl
-	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getMultimedia()
+	 * @see com.github.kanafghan.welipse.webdsl.impl.ListImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getList()
 	 * @generated
 	 */
-	int MULTIMEDIA = 5;
+	int LIST = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -312,7 +312,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIMEDIA__NAME = PRESENTATION_ELEMENT__NAME;
+	int LIST__NAME = PRESENTATION_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Page</b></em>' container reference.
@@ -321,25 +321,61 @@ public interface WebDSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIMEDIA__PAGE = PRESENTATION_ELEMENT__PAGE;
+	int LIST__PAGE = PRESENTATION_ELEMENT__PAGE;
 
 	/**
-	 * The number of structural features of the '<em>Multimedia</em>' class.
+	 * The feature id for the '<em><b>Item</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIMEDIA_FEATURE_COUNT = PRESENTATION_ELEMENT_FEATURE_COUNT + 0;
+	int LIST__ITEM = PRESENTATION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Multimedia</em>' class.
+	 * The feature id for the '<em><b>Collection Provider</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIMEDIA_OPERATION_COUNT = PRESENTATION_ELEMENT_OPERATION_COUNT + 0;
+	int LIST__COLLECTION_PROVIDER = PRESENTATION_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST__TYPE = PRESENTATION_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST__CONTENT = PRESENTATION_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_FEATURE_COUNT = PRESENTATION_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_OPERATION_COUNT = PRESENTATION_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.TextImpl <em>Text</em>}' class.
@@ -985,14 +1021,58 @@ public interface WebDSLPackage extends EPackage {
 	EClass getNavigationElement();
 
 	/**
-	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Multimedia <em>Multimedia</em>}'.
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.List <em>List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Multimedia</em>'.
-	 * @see com.github.kanafghan.welipse.webdsl.Multimedia
+	 * @return the meta object for class '<em>List</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.List
 	 * @generated
 	 */
-	EClass getMultimedia();
+	EClass getList();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.List#getItem <em>Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Item</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.List#getItem()
+	 * @see #getList()
+	 * @generated
+	 */
+	EAttribute getList_Item();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.webdsl.List#getCollectionProvider <em>Collection Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Collection Provider</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.List#getCollectionProvider()
+	 * @see #getList()
+	 * @generated
+	 */
+	EReference getList_CollectionProvider();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.webdsl.List#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.List#getType()
+	 * @see #getList()
+	 * @generated
+	 */
+	EReference getList_Type();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.github.kanafghan.welipse.webdsl.List#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Content</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.List#getContent()
+	 * @see #getList()
+	 * @generated
+	 */
+	EReference getList_Content();
 
 	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Text <em>Text</em>}'.
@@ -1291,14 +1371,46 @@ public interface WebDSLPackage extends EPackage {
 		EClass NAVIGATION_ELEMENT = eINSTANCE.getNavigationElement();
 
 		/**
-		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.MultimediaImpl <em>Multimedia</em>}' class.
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ListImpl <em>List</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.github.kanafghan.welipse.webdsl.impl.MultimediaImpl
-		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getMultimedia()
+		 * @see com.github.kanafghan.welipse.webdsl.impl.ListImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getList()
 		 * @generated
 		 */
-		EClass MULTIMEDIA = eINSTANCE.getMultimedia();
+		EClass LIST = eINSTANCE.getList();
+
+		/**
+		 * The meta object literal for the '<em><b>Item</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LIST__ITEM = eINSTANCE.getList_Item();
+
+		/**
+		 * The meta object literal for the '<em><b>Collection Provider</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIST__COLLECTION_PROVIDER = eINSTANCE.getList_CollectionProvider();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIST__TYPE = eINSTANCE.getList_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIST__CONTENT = eINSTANCE.getList_Content();
 
 		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.TextImpl <em>Text</em>}' class.

@@ -118,6 +118,29 @@ public class WebDSLItemProviderAdapterFactory extends WebDSLAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.List} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ListItemProvider listItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.List}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createListAdapter() {
+		if (listItemProvider == null) {
+			listItemProvider = new ListItemProvider(this);
+		}
+
+		return listItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.StaticText} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -356,6 +379,7 @@ public class WebDSLItemProviderAdapterFactory extends WebDSLAdapterFactory imple
 	public void dispose() {
 		if (websiteItemProvider != null) websiteItemProvider.dispose();
 		if (pageItemProvider != null) pageItemProvider.dispose();
+		if (listItemProvider != null) listItemProvider.dispose();
 		if (staticTextItemProvider != null) staticTextItemProvider.dispose();
 		if (staticImageItemProvider != null) staticImageItemProvider.dispose();
 		if (internalLinkItemProvider != null) internalLinkItemProvider.dispose();

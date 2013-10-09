@@ -23,7 +23,12 @@
     </genClasses>
     <genClasses image="false" ecoreClass="webdsl.ecore#//PresentationElement"/>
     <genClasses image="false" ecoreClass="webdsl.ecore#//NavigationElement"/>
-    <genClasses image="false" ecoreClass="webdsl.ecore#//Multimedia"/>
+    <genClasses ecoreClass="webdsl.ecore#//List">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//List/item"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//List/collectionProvider"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//List/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//List/content"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="webdsl.ecore#//Text"/>
     <genClasses image="false" ecoreClass="webdsl.ecore#//Image">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Image/isURL"/>
