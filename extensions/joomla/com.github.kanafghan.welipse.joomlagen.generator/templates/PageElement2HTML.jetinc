@@ -1,0 +1,22 @@
+<%
+for (PageElement e: elements) {
+	if (e instanceof Text) {
+		text = (Text) e;
+%>
+	<%@ include file="Text2HTML.jetinc" %>
+<%
+	}
+	if (e instanceof Link) {
+		link = (Link) e;
+%>
+	<%@ include file="Link2HTML.jetinc" %>
+<%
+	}
+	if (e instanceof Image) {
+		img = (Image) e;
+%>
+	<%@ include file="Image2HTML.jetinc" %>
+<%
+	}
+}
+%>

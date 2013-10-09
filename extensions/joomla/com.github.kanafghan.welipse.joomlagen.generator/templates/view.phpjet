@@ -34,6 +34,7 @@ class <%= getComponentName() %>View<%= getViewName() %> extends JView
 			String nameCapitalized = getModelName(model);
 	%>
 		$<%= nameLower %>Model = JModel::getInstance('<%= nameCapitalized %>', '<%= getComponentName() %>Model');
+		$this->assignRef('<%= nameLower %>Model', $<%= nameLower %>Model);
 		$this->assignRef('<%= nameLower %>', $<%= nameLower %>Model->get<%= nameCapitalized %>());
 	<% } %>
 	

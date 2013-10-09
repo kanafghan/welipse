@@ -13,12 +13,12 @@
 defined('_JEXEC') or die('Restricted access');
  
 // import Joomla model library
-jimport('joomla.application.component.modelitem');
+jimport('joomla.application.component.model');
  
 /**
  * <%= modelName %> Model
  */
-class <%= getComponentName() %>Model<%= modelName %> extends JModelItem
+class <%= getComponentName() %>Model<%= modelName %> extends JModel
 { 
     /**
      * @var array <%= listVar %>
@@ -65,4 +65,28 @@ class <%= getComponentName() %>Model<%= modelName %> extends JModelItem
 
         return $this-><%= listVar %>[$id];
     }
+    
+<% 
+	for(EOperation operation: getOperations()) { 
+		String returnType = operation.getEType().getName().toLowerCase();
+		String operationName = operation.getName();
+%>
+    /**
+     * <!-- user-docs-start -->
+     * <!-- user-docs-end -->
+     <% 
+     		for (EParameter parameter : operation.getEParameters()) { 
+     %>     
+     * @param	<%= parameter.getEType().getName().toLowerCase() %> $<%= parameter.getName().toLowerCase() %>
+     <% 	} %>
+     * @return <%= returnType %>
+     */
+    public function <%= operationName %>(<%= generateOperationParameters(operation) %>) 
+    {
+    	//TODO Auto-generated function needs implementation
+    	<%= generateOperationReturnStatement(operation) %>
+    }	
+<% 
+	} 
+%>    
 }

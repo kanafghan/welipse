@@ -1,6 +1,7 @@
 import com.github.kanafghan.welipse.joomlagen.generator.*;
 import com.github.kanafghan.welipse.joomlagen.generator.context.*;
 import com.github.kanafghan.welipse.webdsl.*;
+import com.github.kanafghan.welipse.webdsl.List;
 
 import java.util.*;
 
@@ -9,8 +10,10 @@ import org.eclipse.emf.ecore.*;
 public class CLASS extends JExtension {
 
 	protected Page page;
-	protected List<EClass> models;
+	protected java.util.List<EClass> models;
 	
+	protected java.util.List<PageElement> elements;
+	protected List list;
 	protected Text text;
 	protected StaticText sText;
 	protected DynamicText dText;
@@ -26,13 +29,27 @@ public class CLASS extends JExtension {
 		this.joomlaGenModel = viewContext.getContext().getGenModel();
 		this.page = viewContext.getPage();
 		this.models = new ArrayList<EClass>();
-		for (PageElement element : this.page.getElements()) {
+		this.extractModels((java.util.List<PageElement>) this.page.getElements());
+		this.elements = new ArrayList<PageElement>();
+	}
+	
+	private void extractModels(java.util.List<PageElement> elements) {
+		for (PageElement element : elements) {
 			if (element instanceof DynamicText) {
 				ETypedElement content = ((DynamicText) element).getContent();
 				if (content instanceof EStructuralFeature) {
 					EStructuralFeature structuralFeature = (EStructuralFeature) content;
-					models.add(structuralFeature.getEContainingClass());
+					if (!models.contains(structuralFeature.getEContainingClass())) {						
+						models.add(structuralFeature.getEContainingClass());
+					}
 				}
+			}
+			if (element instanceof List) {
+				List list = (List) element;
+				if (!models.contains(list.getType())) {					
+					models.add(list.getType());
+				}
+				this.extractModels((java.util.List<PageElement>) list.getContent());
 			}
 		}
 	}
@@ -47,9 +64,9 @@ public class CLASS extends JExtension {
 		return name.substring(0,1).toUpperCase() + name.substring(1);
 	}
 	
-	private List<PageElement> getElements() {
+	private java.util.List<PageElement> getElements() {
 		if (page != null) {			
-			return (List<PageElement>) this.page.getElements();
+			return (java.util.List<PageElement>) this.page.getElements();
 		}
 		return new ArrayList<PageElement>();
 	}

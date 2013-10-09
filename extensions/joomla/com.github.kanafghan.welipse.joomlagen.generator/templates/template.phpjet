@@ -10,8 +10,9 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 ?>
+<% elements = getElements(); %>
 <%
-for (PageElement element: getElements()) {
+for (PageElement element: elements) {
 	if (element instanceof Text) {
 		text = (Text) element;
 %>
@@ -28,6 +29,12 @@ for (PageElement element: getElements()) {
 		img = (Image) element;
 %>
 	<%@ include file="Image2HTML.jetinc" %>
+<%
+	}
+	if (element instanceof List) {
+		list = (List) element;	
+%>
+	<%@ include file="List2HTML.jetinc" %>	
 <%
 	}
 }

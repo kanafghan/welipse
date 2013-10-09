@@ -1,0 +1,19 @@
+<%
+	elements = list.getContent();
+	String item = list.getItem();
+	String type = list.getType().getName().toLowerCase();
+	String collectionProvider = list.getCollectionProvider().getName();
+%>
+<?php
+$temp = $this-><%= type %>;
+$list = $this-><%= type %>Model-><%= collectionProvider %>(); 
+if ($list && is_array($list)):
+	foreach ($list as $<%= item %>):
+		$this-><%= type %> = $<%= item %>;
+?>
+	<%@ include file="PageElement2HTML.jetinc" %>
+<?php
+	endforeach;
+endif;
+$this-><%= type %> = $temp;
+?>
