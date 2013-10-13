@@ -170,8 +170,7 @@ public class CLASS extends JExtension {
 		//TODO implementation needed
 		String src = "";
 		if (dImg.isIsURL()) {
-			EClass cls = (EClass) dImg.getSource().getEType();
-			src = "$this->"+ cls.getName().toLowerCase() +"->"+ dImg.getSource().getName();
+			src = "<?php echo $this->"+ getObjectName(dImg.getSource()) +"->"+ dImg.getSource().getName() +"; ?>";
 			return src;
 		} else {
 			src = "";
