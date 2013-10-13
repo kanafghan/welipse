@@ -1,0 +1,30 @@
+<%@jet 
+	package="com.github.kanafghan.welipse.joomlagen.model.form"
+	class="GenForm"
+	skeleton="skeletons/GenFormSkeleton.java"
+%>
+<% 
+	initialize(argument);
+%>
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="details">
+		<field 
+			name="id" 
+			type="text" 
+			default="0"
+			readonly="true" 
+			class="readonly"
+			label="JGLOBAL_FIELD_ID_LABEL" 	
+			description ="JGLOBAL_FIELD_ID_DESC" />	
+<% for (EAttribute field : getFields()) { %>
+		<field 
+			name="<%= field.getName().toLowerCase() %>" 
+			type="<%= getFieldType(field) %>" 
+			class="inputbox"
+			size="40" 
+			label="<%= Utils.toUpperFirst(field.getName()) %>"
+			description="Specify the value of <%= Utils.toUpperFirst(field.getName()) %> field." />		
+<% } %>		
+	</fieldset>
+</form>

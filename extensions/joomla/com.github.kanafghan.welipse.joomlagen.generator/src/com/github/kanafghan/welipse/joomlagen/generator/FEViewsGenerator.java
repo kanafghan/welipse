@@ -19,7 +19,7 @@ public class FEViewsGenerator {
 		
 		EList<Page> pages = context.getGenModel().getExtension().getPages();
 		for (Page page: pages) {
-			JViewGenerator.generate(new ViewContext(context, page), feViewsFolder);
+			JViewGenerator.generate(new ViewContext(context, page, null), feViewsFolder);
 		}
 	}
 }

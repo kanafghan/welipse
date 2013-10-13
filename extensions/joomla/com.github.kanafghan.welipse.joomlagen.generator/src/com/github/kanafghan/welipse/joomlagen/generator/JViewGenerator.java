@@ -16,23 +16,31 @@ import org.eclipse.emf.codegen.jet.JETEmitter;
 import org.eclipse.emf.codegen.jet.JETException;
 import org.osgi.framework.Bundle;
 
+import com.github.kanafghan.welipse.joomlagen.generator.Utils.ModelType;
 import com.github.kanafghan.welipse.joomlagen.generator.context.ViewContext;
 
 public class JViewGenerator {
 	
 	public static void generate(ViewContext context, IFolder folder) {
+		String name = Utils.getPageName(context.getPage());
+		if (context.isBackEndView()) {
+			name = context.getModel().getName();
+			if (context.getModelType() == ModelType.ModelList) {
+				name += Utils.MODEL_LIST_NAME_SUFFIX;
+			}
+		}
+		name = name.toLowerCase();
+		
 		// Generate HTML view
-		generateView(context, folder);
+		generateView(context, folder, name);
 		
 		// Generate default layout
-		generateTemplate(context, folder);
+		generateTemplate(context, folder, name);
 	}
 
-	private static void generateTemplate(ViewContext context, IFolder folder) {
+	private static void generateTemplate(ViewContext context, IFolder folder, String viewName) {
 		Bundle bundle = Activator.getDefault().getBundle();
 		final String uri = bundle.getEntry("templates/template.phpjet").toString();
-		
-		String viewName = Utils.getPageName(context.getPage());
 		
 		final ViewContext viewContext = context;
 		final IFolder tmplFolder = folder.getFolder(viewName +"/tmpl");
@@ -47,7 +55,7 @@ public class JViewGenerator {
 					}
 					
 					// Create/get the template file
-					IFile tmplFile = tmplFolder.getFile("default.php");
+					IFile tmplFile = tmplFolder.getFile(viewContext.getLayoutName() +".php");
 					
 					JETEmitter emitter = new JETEmitter(uri, getClass().getClassLoader());
 					// the plugins that we have imported from in the templates
@@ -83,12 +91,10 @@ public class JViewGenerator {
 		job.schedule();
 	}
 
-	private static void generateView(ViewContext context, IFolder folder) {
+	private static void generateView(ViewContext context, IFolder folder, String viewName) {
 		Bundle bundle = Activator.getDefault().getBundle();
 		final String uri = bundle.getEntry("templates/view.phpjet").toString();
-		
-		String viewName = Utils.getPageName(context.getPage());
-		
+				
 		final ViewContext viewContext = context;
 		final IFolder viewFolder = folder.getFolder(viewName);
 		

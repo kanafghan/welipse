@@ -13,17 +13,19 @@
 defined('_JEXEC') or die('Restricted access');
  
 // import Joomla model library
-jimport('joomla.application.component.model');
+jimport('joomla.application.component.<%= getType().toLowerCase() %>');
  
 /**
  * <%= modelName %> Model
  */
-class <%= getComponentName() %>Model<%= modelName %> extends JModel
+class <%= getComponentName() %>Model<%= getName() %> extends J<%= getType() %>
 { 
+<% if (!context.isBackEndModel()) { %>
     /**
      * @var array <%= listVar %>
      */
     protected $<%= listVar %>;
+<% } %>
 
     /**
      * (non-PHPdoc)
@@ -33,7 +35,8 @@ class <%= getComponentName() %>Model<%= modelName %> extends JModel
     {
         return JTable::getInstance($type, $prefix, $config);
     }
-
+    
+<% if (!context.isBackEndModel()) { %>
     /**
      * Retrieve and return an instance of <%= modelName %>
      *
@@ -65,10 +68,66 @@ class <%= getComponentName() %>Model<%= modelName %> extends JModel
 
         return $this-><%= listVar %>[$id];
     }
-    
+<% } %>
+
+<% if (isListBasedModel()) { %>
+    /**
+     * (non-PHPdoc)
+     * @see JModelList::getListQuery()
+     */
+    protected function getListQuery()
+    {
+        $db = $this->getDbo();
+        $query = $db->getQuery(true);
+
+        $query->select('a.*');
+        $query->from('<%= getTableName() %> AS a');
+
+        return $query;
+    }
+<%}%>
+
+<% if (isFormBasedModel()) { %>
+	/**
+	 * (non-PHPdoc)
+	 * @see JModelForm::getForm()
+	 */
+	public function getForm($data = array(), $loadData = true)
+	{		
+		// Get the form.
+		$form = $this->loadForm('<%= getComponent() %>.<%= modelName.toLowerCase() %>', '<%= modelName.toLowerCase() %>', array('control' => 'jform', 'load_data' => $loadData));
+		if (empty($form))
+		{
+			return false;
+		}
+
+		return $form;
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see JModelForm::loadFormData()
+	 */	
+	protected function loadFormData()
+	{
+		$app = JFactory::getApplication();
+		$input = $app->input;
+		
+		// Check the session for previously entered form data.
+		$data = $app->getUserState('<%= getComponent() %>.edit.<%= modelName.toLowerCase() %>.data', array());
+
+		if (empty($data))
+		{
+			$data = $this->getItem();
+		}
+
+		return $data;
+	}
+<% } %>
+ 
 <% 
 	for(EOperation operation: getOperations()) { 
-		String returnType = operation.getEType().getName().toLowerCase();
+		String returnType = getOperationType(operation);
 		String operationName = operation.getName();
 %>
     /**

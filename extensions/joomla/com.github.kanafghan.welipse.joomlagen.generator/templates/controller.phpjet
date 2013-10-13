@@ -11,25 +11,48 @@
 defined('_JEXEC') or die('Restricted access');
  
 // import Joomla controller library
-jimport('joomla.application.component.controller');
+jimport('joomla.application.component.<%= getType().toLowerCase() %>');
  
 /**
  * Main controller for <%= getComponentName() %> component
  */
-class <%= getComponentName() %>Controller<%= getControllerName() %> extends JController
+class <%= getComponentName() %>Controller<%= getName() %> extends J<%= getType() %>
 {
+<% if (isFormBased()) { %>
+	protected $view_list = '<%= getListViewName() %>';
+<% } %>
+
+<% if (isMain()) { %>
 	 /**
-     * display task
-     *
-     * @return void
+     * (non-PHPdoc)
+     * @see JController::display()
      */
     function display($cachable = false, $urlparams = false) 
     {
-            // set default view if not set
-            $input = JFactory::getApplication()->input;
-            $input->set('view', $input->getCmd('view', '<%= getHomePageName() %>'));
-
-            // call parent behavior
-            parent::display($cachable, $urlparams);
+       // set default view if not set
+       $input = JFactory::getApplication()->input;
+       $input->set('view', $input->getCmd('view', '<%= getDefaultView() %>'));
+ 
+	    <% if (isBackEnd()) { %>
+	    	  require_once JPATH_COMPONENT.'/helpers/<%= getComponentName().toLowerCase() %>.php';		
+	    	  
+	    	  // load the submenu.
+	        <%= getComponentName() %>Helper::addSubmenu($input->getCmd('view', '<%= getDefaultView() %>'));
+	    <% } %>
+    
+       // call parent behavior
+       parent::display($cachable, $urlparams);
     }
+<% } %>
+
+<% if (isAdmin()) { %>
+	/**
+	 * (non-PHPdoc)
+	 * @see JController::getModel()
+	 */
+	public function getModel($name = '<%= getModelName() %>', $prefix = '<%= getComponentName() %>Model', $config = array('ignore_request' => true))
+	{
+		return parent::getModel($name, $prefix, $config);
+	}
+<% } %>
 }

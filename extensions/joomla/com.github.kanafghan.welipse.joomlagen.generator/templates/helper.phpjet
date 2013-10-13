@@ -1,0 +1,34 @@
+<%@jet 
+	package="com.github.kanafghan.welipse.joomlagen.helper"
+	class="GenJHelper"
+	skeleton="skeletons/GenHelperSkeleton.java"
+%>
+<% 
+	initialize(argument);
+%>
+<?php
+// No direct access.
+defined('_JEXEC') or die;
+ 
+/**
+ * <%= getHelperName() %> helper
+ */
+class <%= getHelperName() %>Helper
+{
+	/**
+	 * Configure the Linkbar.
+	 *
+	 * @param	string	The name of the active view.
+	 * @return	void
+	 */
+	public static function addSubmenu($vName)
+	{
+<% for (EClass view: getLinkbarViews()) { %>	
+		JSubMenuHelper::addEntry(
+			JText::_('<%= getLinkbarLabel(view) %>'),
+			'index.php?option=<%= getComponent() %>&view=<%= getViewName(view) %>',
+			$vName == '<%= getViewName(view) %>'
+		);
+<% } %>
+	}
+}

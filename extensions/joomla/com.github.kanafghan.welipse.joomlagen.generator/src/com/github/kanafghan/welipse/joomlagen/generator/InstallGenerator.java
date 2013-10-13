@@ -26,21 +26,16 @@ public class InstallGenerator {
 		final String uri = bundle.getEntry("templates/install.sqljet").toString();
 		
 		final String fileName = "install.mysql.utf8.sql";
-		final Context intallContext = context;
-		final IFolder adminFolder = project.getFolder("admin");
+		final Context installContext = context;
+		final IProject prj = project;
 		
 		final Job job = new Job("Generating codes for install file: "+ fileName) {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
 				try {
-					if (!adminFolder.exists()) {
-						throw new CoreException(new Status(0, "", "No 'admin' folder exists!"));
-					}
+					IFolder adminFolder = Utils.getFolder(prj.getFolder("admin"), monitor);
 					
-					IFolder sqlFolder = adminFolder.getFolder("sql");
-					if (!sqlFolder.exists()) {
-						sqlFolder.create(true, false, monitor);
-					}
+					IFolder sqlFolder = Utils.getFolder(adminFolder.getFolder("sql"), monitor);
 					IFile file = sqlFolder.getFile(fileName);
 					
 					JETEmitter emitter = new JETEmitter(uri, getClass().getClassLoader());
@@ -50,7 +45,7 @@ public class InstallGenerator {
 					emitter.addVariable("WELIPSE_JOOMLAGEN", "com.github.kanafghan.welipse.joomlagen");
 					emitter.addVariable("WELIPSE_JCGENERATOR", "com.github.kanafghan.welipse.joomlagen.generator");
 					
-					String result = emitter.generate(monitor, new Object[] {intallContext});
+					String result = emitter.generate(monitor, new Object[] {installContext});
 					
 					InputStream newContents = new ByteArrayInputStream(result.getBytes());
 					if (file.exists()) {

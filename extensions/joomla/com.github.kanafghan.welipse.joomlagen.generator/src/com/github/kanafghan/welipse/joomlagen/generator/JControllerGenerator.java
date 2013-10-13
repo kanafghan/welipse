@@ -18,20 +18,23 @@ import org.osgi.framework.Bundle;
 
 import com.github.kanafghan.welipse.joomlagen.generator.context.ControllerContext;
 
-public class MainControllerGenerator {
+public class JControllerGenerator {
 
 	public static void generate(ControllerContext context, IFolder folder) {
 		Bundle bundle = Activator.getDefault().getBundle();
 		final String uri = bundle.getEntry("templates/controller.phpjet").toString();
 		
-		final ControllerContext controllerContext = context;
-		final IFolder feFolder = folder;
+		String name = context.isMain() ? "controller" : context.getName().toLowerCase();
 		
-		final Job job = new Job("Generating codes for Front-End Main Controller.") {
+		final String fileName = name +".php";
+		final ControllerContext controllerContext = context;
+		final IFolder controllerFolder = folder;
+		
+		final Job job = new Job("Generating code for controller: "+ fileName) {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
 				try {
-					IFile file = feFolder.getFile("controller.php");
+					IFile file = controllerFolder.getFile(fileName);
 					
 					JETEmitter emitter = new JETEmitter(uri, getClass().getClassLoader());
 					// the plugins that we have imported from in the templates

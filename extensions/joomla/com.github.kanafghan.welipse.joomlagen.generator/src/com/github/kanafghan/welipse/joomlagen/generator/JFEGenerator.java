@@ -20,13 +20,15 @@ public class JFEGenerator {
 		FEEntryGenerator.generate(context, feFolder);
 		
 		// Generate main controller
-		MainControllerGenerator.generate(new ControllerContext(context, ""), feFolder);
+		ControllerContext ctx = new ControllerContext(context, false);
+		ctx.setMain(true);
+		JControllerGenerator.generate(ctx, feFolder);
 		
 		// Generate views
 		FEViewsGenerator.generate(context, feFolder);
 		
 		// Generate models
-		FEModelsGenerator.generate(context, feFolder);
+		FEModelsGenerator.generate(context, feFolder.getFolder("models"));
 	}
 
 }

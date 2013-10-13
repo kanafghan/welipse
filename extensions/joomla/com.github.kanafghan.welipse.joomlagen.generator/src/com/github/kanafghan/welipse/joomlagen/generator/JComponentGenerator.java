@@ -1,9 +1,7 @@
 package com.github.kanafghan.welipse.joomlagen.generator;
 
-import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -14,7 +12,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
 
@@ -61,36 +58,52 @@ public class JComponentGenerator {
 						"An exception occurred during the code generation! Please check the error view. "
 						+ e.getMessage(), e);
 				}
+				
 				monitor.worked(1);
 				return new Status(Status.OK, Activator.PLUGIN_ID, "Code successfully generated!");
 			}
 
 			private void buildComponentFolderStructure(JoomlaGenModel genModel, IProject project, IProgressMonitor monitor) throws CoreException {
 				// Create folder for Front-End (FE)
-				createFolderIfNotExists(project.getFolder("site"), monitor);
+				Utils.getFolder(project.getFolder("site"), monitor);
 				
-				// Create folder for Front-End views
-				createFolderIfNotExists(project.getFolder("site/views"), monitor);
+				// Create folder for FE models
+				Utils.getFolder(project.getFolder("site/models"), monitor);
+				// Create folder for FE views
+				Utils.getFolder(project.getFolder("site/views"), monitor);
+				// Create folder for FE views
+				Utils.getFolder(project.getFolder("site/controllers"), monitor);
 				
-				// Create folder for component Media
-				createFolderIfNotExists(project.getFolder("media"), monitor);
-				IFolder imagesFolder = createFolderIfNotExists(project.getFolder("media/images"), monitor);
-				createFolderIfNotExists(project.getFolder("media/js"), monitor);
-				createFolderIfNotExists(project.getFolder("media/css"), monitor);
+				// Create folders for component Media
+				Utils.getFolder(project.getFolder("media"), monitor);
+				IFolder imagesFolder = Utils.getFolder(project.getFolder("media/images"), monitor);
+				Utils.getFolder(project.getFolder("media/js"), monitor);
+				Utils.getFolder(project.getFolder("media/css"), monitor);
 				
 				// Get all the Static Images which are not URLs
 				getStaticImages(genModel, imagesFolder, monitor);
 				
 				// Create folder for Back-End (BE)
-				createFolderIfNotExists(project.getFolder("admin"), monitor);
-			}
-			
-			private IFolder createFolderIfNotExists(IFolder folder, IProgressMonitor monitor) throws CoreException {
-				if (!folder.exists()) {
-					folder.create(true, false, monitor);
-					JComponentGenerator.generateBlankPage(folder, monitor);
-				}
-				return folder;
+				Utils.getFolder(project.getFolder("admin"), monitor);
+				
+				// Create folder for BE models
+				IFolder modelsFodler = Utils.getFolder(project.getFolder("admin/models"), monitor);
+				// Create folder for BE views
+				Utils.getFolder(project.getFolder("admin/views"), monitor);
+				// Create folder for BE controllers
+				Utils.getFolder(project.getFolder("admin/controllers"), monitor);
+				
+				// Create folder for BE forms
+				Utils.getFolder(modelsFodler.getFolder("forms"), monitor);
+				
+				// Create 'tables' folder
+				Utils.getFolder(project.getFolder("admin/tables"), monitor);
+				
+				// Create 'sql' folder
+				Utils.getFolder(project.getFolder("admin/sql"), monitor);
+				
+				// Create 'helpers' folder
+				Utils.getFolder(project.getFolder("admin/helpers"), monitor);
 			}
 			
 			private void getStaticImages(JoomlaGenModel genModel, IFolder folder, IProgressMonitor monitor) throws CoreException {
@@ -117,7 +130,7 @@ public class JComponentGenerator {
 											Status.ERROR, Activator.PLUGIN_ID,
 											"Image at location: "
 													+ sImg.getSource()
-													+ " does not exists."));
+													+ " does not exist."));
 								}
 							}
 						}
@@ -130,14 +143,5 @@ public class JComponentGenerator {
 		job.setRule(ResourcesPlugin.getWorkspace().getRoot());
 		job.setUser(true);
 		job.schedule();
-	}
-	
-	public static void generateBlankPage(IFolder folder, IProgressMonitor monitor) throws CoreException {
-		IFile index = folder.getFile("index.html");
-		if (!index.exists()) {
-			String html = "<html><body bgcolor=\"#FFFFFF\"></body></html>";
-			InputStream contents = new ByteArrayInputStream(html.getBytes());
-			index.create(contents , true, new SubProgressMonitor(monitor, 1));
-		}
 	}
 }

@@ -6,6 +6,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
 import com.github.kanafghan.welipse.joomlagen.generator.context.Context;
+import com.github.kanafghan.welipse.joomlagen.generator.context.ControllerContext;
+import com.github.kanafghan.welipse.joomlagen.generator.context.HelperContext;
 
 public class JBEGenerator {
 
@@ -19,18 +21,15 @@ public class JBEGenerator {
 		BEEntryGenerator.generate(context, beFolder);
 		
 		// Generate main controller
-//		MainControllerGenerator.generate(new ControllerContext(context, ""), feFolder);
+		ControllerContext ctx = new ControllerContext(context, true);
+		ctx.setMain(true);
+		JControllerGenerator.generate(ctx, beFolder);
 		
-		// Generate tables
-		TablesGenerator.generate(context, beFolder);
-				
-//		IFolder feViewsFolder = feFolder.getFolder("views");
-//		if (!feViewsFolder.exists()) {
-//			feViewsFolder.create(true, false, new NullProgressMonitor());
-//		}
-//		
-//		// Generate views
-//		FEViewsGenerator.generate(context, feViewsFolder);
+		// Generate Main helper
+		HelperContext helperCtx = new HelperContext(context, context.getGenModel().getExtensionName().toLowerCase());
+		HelperGenerator.generate(helperCtx, beFolder.getFolder("helpers"));
+		
+		// Generate Content Managers
+		ContentManagersGenerator.generate(context, beFolder);
 	}
-
 }

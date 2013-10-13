@@ -1,14 +1,15 @@
+import java.util.ArrayList;
+
 import com.github.kanafghan.welipse.joomlagen.generator.*;
+import com.github.kanafghan.welipse.joomlagen.generator.Utils.ModelType;
 import com.github.kanafghan.welipse.joomlagen.generator.context.*;
 import com.github.kanafghan.welipse.webdsl.*;
-import com.github.kanafghan.welipse.webdsl.List;
-
-import java.util.*;
 
 import org.eclipse.emf.ecore.*;
 
 public class CLASS extends JExtension {
 
+	protected ViewContext context;
 	protected Page page;
 	protected java.util.List<EClass> models;
 	
@@ -27,10 +28,17 @@ public class CLASS extends JExtension {
 	protected void initialize(Object argument) {
 		ViewContext viewContext = (ViewContext) argument; 
 		this.joomlaGenModel = viewContext.getContext().getGenModel();
+		this.context = viewContext;
 		this.page = viewContext.getPage();
 		this.models = new ArrayList<EClass>();
-		this.extractModels((java.util.List<PageElement>) this.page.getElements());
+		if (this.page != null) {			
+			this.extractModels((java.util.List<PageElement>) this.page.getElements());
+		}
 		this.elements = new ArrayList<PageElement>();
+	}
+	
+	private boolean isListView() {
+		return this.context.getModelType() == ModelType.ModelList;
 	}
 	
 	private void extractModels(java.util.List<PageElement> elements) {
@@ -55,13 +63,52 @@ public class CLASS extends JExtension {
 	}
 	
 	private String getViewName() {
-		String name = this.page.getName();
-		return name.substring(0,1).toUpperCase() + name.substring(1);
+		if (this.page != null) {			
+			return Utils.toUpperFirst(this.page.getName());
+		}
+		if (this.context.getModel() != null) {
+			if (this.isListView()) {
+				return Utils.toUpperFirst(this.context.getModel().getName()) 
+						+ Utils.MODEL_LIST_NAME_SUFFIX;
+			} else {
+				return Utils.toUpperFirst(this.context.getModel().getName());
+			}
+		}
+		return "";
+	}
+	
+	private String getListViewName() {
+		return this.getViewName() + Utils.MODEL_LIST_NAME_SUFFIX;
 	}
 	
 	private String getModelName(EClass model) {
-		String name = model.getName();
-		return name.substring(0,1).toUpperCase() + name.substring(1);
+		return Utils.toUpperFirst(model.getName());
+	}
+	
+	private String getFormName() {
+		return this.context.getModel().getName();
+	}
+	
+	private String echoField(EAttribute field) {
+		String result = "$this->escape($item->"+ field.getName() +")";
+		
+		if (field.getEType().getName().equals("EInt")) {
+			result = "$item->"+ field.getName();
+		}
+		
+		return result;
+	}
+	
+	private boolean isEditView() {
+		return this.context.getModelType() == ModelType.ModelAdmin;
+	}
+	
+	private boolean isEditLayout() {
+		return this.context.getModel() != null && isEditView();
+	}
+	
+	private java.util.List<EAttribute> getFormFields() {
+		return (java.util.List<EAttribute>) this.context.getModel().getEAllAttributes();
 	}
 	
 	private java.util.List<PageElement> getElements() {
@@ -74,12 +121,17 @@ public class CLASS extends JExtension {
 	private String buildURL(Link link) {
 		String url = "";
 		if (link instanceof InternalLink) {
+			InternalLink lnk = (InternalLink) link;
 			url = "?option="+ getComponent();
-			PageElement target = ((InternalLink) link).getTarget();
+			PageElement target = lnk.getTarget();
 			if (target != null) {				
 				Page targetPage = target.getPage();
 				if (targetPage != null) {
 					url += "&view="+ targetPage.getName().toLowerCase();
+					if (lnk.getContent() instanceof DynamicText) {
+						DynamicText dTxt = (DynamicText) lnk.getContent();
+						url += "&id=<?php echo $this->"+ getObjectName(dTxt.getContent()) +"->id; ?>"; 
+					}
 				}
 			}
 		}
@@ -118,7 +170,8 @@ public class CLASS extends JExtension {
 		//TODO implementation needed
 		String src = "";
 		if (dImg.isIsURL()) {
-			src = "";
+			EClass cls = (EClass) dImg.getSource().getEType();
+			src = "$this->"+ cls.getName().toLowerCase() +"->"+ dImg.getSource().getName();
 			return src;
 		} else {
 			src = "";

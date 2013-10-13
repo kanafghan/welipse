@@ -18,12 +18,43 @@ jimport('joomla.application.component.view');
  */
 class <%= getComponentName() %>View<%= getViewName() %> extends JView
 {
+<% if (isEditView()) { %>
+	protected $form;
+	protected $item;
+	protected $state;
+<% } %>
+<% if (isListView()) { %>
+	protected $categories;
+	protected $items;
+	protected $pagination;
+	protected $state;
+<% } %>
 	/**
 	 * <%= getViewName() %> view display method
 	 * @return void
 	 */
 	function display($tpl = null) 
 	{
+	<% if (isEditView()) { %>
+		$this->form		= $this->get('Form');
+		$this->item		= $this->get('Item');
+		$this->state	= $this->get('State');		
+	<% } %>
+	<% if (isListView()) { %>
+		$this->items		= $this->get('Items');
+		$this->pagination	= $this->get('Pagination');
+		$this->state		= $this->get('State');
+	<% } %>
+	<% if (isListView() || isEditView()) { %>
+		// Check for errors.
+		if (count($errors = $this->get('Errors')))
+		{
+			JError::raiseError(500, implode("\n", $errors));
+			return false;
+		}
+
+		$this->addToolbar();
+	<% } %>
 	<% if (hasModels()) { %>
 		// Include other needed models
 		JModel::addIncludePath(JPATH_COMPONENT.DS.'models');
@@ -41,4 +72,41 @@ class <%= getComponentName() %>View<%= getViewName() %> extends JView
 		// Display the template
 		parent::display($tpl);
 	}
+	
+<% if (isListView() || isEditView()) { %>	
+	/**
+	 * Add the page title and toolbar.
+	 *
+	 * @return  void
+	 */
+	protected function addToolbar()
+	{
+	<% if (isListView()) { %>
+		JToolBarHelper::title(JText::_('<%= context.getModel().getName() %> Manager'));
+		
+		JToolBarHelper::addNew('<%= context.getModel().getName().toLowerCase() %>.add');
+		JToolBarHelper::editList('<%= context.getModel().getName().toLowerCase() %>.edit');
+		JToolBarHelper::deleteList('', '<%= getViewName().toLowerCase() %>.delete', 'JTOOLBAR_DELETE');
+	<% } %>
+	<% if (isEditView()) { %>
+		JRequest::setVar('hidemainmenu', true);
+		
+		$isNew = ($this->item->id == 0);
+		
+		JToolBarHelper::apply('<%= getViewName().toLowerCase() %>.apply');
+		JToolBarHelper::save('<%= getViewName().toLowerCase() %>.save');
+		
+		if (!$isNew) {
+			JToolBarHelper::save2copy('<%= getViewName().toLowerCase() %>.save2copy');
+		}
+		
+		if (empty($this->item->id))  {
+			JToolBarHelper::cancel('<%= getViewName().toLowerCase() %>.cancel');
+		}
+		else {
+			JToolBarHelper::cancel('<%= getViewName().toLowerCase() %>.cancel', 'JTOOLBAR_CLOSE');
+		}
+	<% } %>	
+	}
+<% } %>
 }

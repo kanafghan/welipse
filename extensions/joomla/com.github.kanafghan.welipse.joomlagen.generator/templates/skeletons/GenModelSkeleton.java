@@ -1,4 +1,5 @@
 import com.github.kanafghan.welipse.joomlagen.generator.*;
+import com.github.kanafghan.welipse.joomlagen.generator.Utils.ModelType;
 import com.github.kanafghan.welipse.joomlagen.generator.context.*;
 import com.github.kanafghan.welipse.webdsl.*;
 
@@ -8,21 +9,66 @@ import org.eclipse.emf.ecore.*;
 
 public class CLASS extends JExtension {
 
+	protected ModelContext context;
 	protected EClass model;
 	
 	protected void initialize(Object argument) {
 		ModelContext modelContext = (ModelContext) argument; 
 		this.joomlaGenModel = modelContext.getContext().getGenModel();
 		this.model = modelContext.getModel();
+		this.context = modelContext;
+	}
+	
+	private String getType() {
+		String type = "";
+		switch (this.context.getType()) {
+			case ModelList:
+				type = "ModelList";
+				break;
+			case ModelItem:
+				type = "ModelItem";
+				break;
+			case ModelForm:
+				type = "ModelForm";
+				break;
+			case ModelAdmin:
+				type = "ModelAdmin";
+				break;
+			case Model:
+			default:
+				type = "Model";
+				break;
+		}
+		return type;
+	}
+	
+	private String getName() {
+		String name = this.getModelName();
+		if (this.context.getType() == ModelType.ModelList) {
+			name += Utils.MODEL_LIST_NAME_SUFFIX;
+		}
+		return name;
 	}
 	
 	private String getModelName() {
-		String name = this.model.getName();
-		return name.substring(0,1).toUpperCase() + name.substring(1);
+		return Utils.toUpperFirst(this.model.getName());
+	}
+	
+	private String getTableName() {
+		return Utils.getTableName(this.model, joomlaGenModel);
 	}
 	
 	private java.util.List<EOperation> getOperations() {
 		return (java.util.List<EOperation>) this.model.getEAllOperations();
+	}
+	
+	private String getOperationType(EOperation operation) {
+		String type = "mixed";
+		EClassifier eType = operation.getEType();
+		if (eType != null) {
+			type = eType.getName().toLowerCase();
+		}
+		return type;
 	}
 	
 	private String generateOperationParameters(EOperation operation) {
@@ -56,6 +102,15 @@ public class CLASS extends JExtension {
 			return operation.getUpperBound() > 1 ? "return array();" : "return '';";
 		}
 		return "";
+	}
+	
+	private boolean isFormBasedModel() {
+		return context.getType() == ModelType.ModelForm 
+				|| context.getType() == ModelType.ModelAdmin;
+	}
+	
+	private boolean isListBasedModel() {
+		return context.getType() == ModelType.ModelList;
 	}
 	
 	public String generate(Object argument) {

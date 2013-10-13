@@ -43,10 +43,9 @@
 		<filename>index.html</filename>
 		<filename><%= getExtensionName().toLowerCase() %>.php</filename>
 		<filename>controller.php</filename>
-		<folder>views</folder>
-	<% if (addInstall()) { %>
 		<folder>models</folder>
-	<% } %>
+		<folder>views</folder>
+		<folder>controllers</folder>
 	</files> 
 	
 <% if (addMedia()) { %>
@@ -65,6 +64,11 @@
 		<files folder="admin">
 			<filename>index.html</filename>
 			<filename><%= getExtensionName().toLowerCase() %>.php</filename>
+			<filename>controller.php</filename>
+			<folder>models</folder>
+			<folder>views</folder>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
 	<% if (addInstall()) { %>
 			<folder>sql</folder>
 			<folder>tables</folder>

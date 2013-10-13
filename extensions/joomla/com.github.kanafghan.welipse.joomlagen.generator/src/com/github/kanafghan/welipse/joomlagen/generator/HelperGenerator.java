@@ -16,36 +16,32 @@ import org.eclipse.emf.codegen.jet.JETEmitter;
 import org.eclipse.emf.codegen.jet.JETException;
 import org.osgi.framework.Bundle;
 
-import com.github.kanafghan.welipse.joomlagen.generator.Utils.ModelType;
-import com.github.kanafghan.welipse.joomlagen.generator.context.ModelContext;
+import com.github.kanafghan.welipse.joomlagen.generator.context.HelperContext;
 
-public class JModelGenerator {
-	
-	public static void generate(ModelContext context, IFolder folder) {
+public class HelperGenerator {
+
+	public static void generate(HelperContext context, IFolder folder) {
 		Bundle bundle = Activator.getDefault().getBundle();
-		final String uri = bundle.getEntry("templates/model.phpjet").toString();
+		final String uri = bundle.getEntry("templates/helper.phpjet").toString();
 		
-		String fileName = context.getModel().getName().toLowerCase();
-		if (context.getType() == ModelType.ModelList) {
-			fileName += Utils.MODEL_LIST_NAME_SUFFIX.toLowerCase();
-		}
-		fileName += ".php";
+		final String fileName = context.getName().toLowerCase() +".php";
+		final HelperContext helperContext = context;
+		final IFolder helpersFolder = folder;
 		
-		final ModelContext modelContext = context;
-		final IFile file = folder.getFile(fileName);
-		
-		final Job job = new Job("Generating codes for model: "+ fileName) {
+		final Job job = new Job("Generating codes for install file: "+ fileName) {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
 				try {
+					IFile file = helpersFolder.getFile(fileName);
+					
 					JETEmitter emitter = new JETEmitter(uri, getClass().getClassLoader());
-					// the plugins that we have imported from in the templates
+					// the plugins that we have imported from within the templates
 					emitter.addVariable("EMF_ECORE", "org.eclipse.emf.ecore");
 					emitter.addVariable("WELIPSE_WEBDSL", "com.github.kanafghan.welipse.webdsl");
 					emitter.addVariable("WELIPSE_JOOMLAGEN", "com.github.kanafghan.welipse.joomlagen");
-					emitter.addVariable("WELIPSE_JOOMLAGEN_GENERATOR", "com.github.kanafghan.welipse.joomlagen.generator");
+					emitter.addVariable("WELIPSE_JCGENERATOR", "com.github.kanafghan.welipse.joomlagen.generator");
 					
-					String result = emitter.generate(monitor, new Object[] {modelContext});
+					String result = emitter.generate(monitor, new Object[] {helperContext});
 					
 					InputStream newContents = new ByteArrayInputStream(result.getBytes());
 					if (file.exists()) {
