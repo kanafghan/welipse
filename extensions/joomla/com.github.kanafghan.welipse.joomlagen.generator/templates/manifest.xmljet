@@ -49,7 +49,7 @@
 	</files> 
 	
 <% if (addMedia()) { %>
-    <media destination="<%= getExtensionName() %>" folder="media">
+    <media destination="<%= getComponent() %>" folder="media">
         <filename>index.html</filename>
         <folder>images</folder>
         <folder>css</folder>

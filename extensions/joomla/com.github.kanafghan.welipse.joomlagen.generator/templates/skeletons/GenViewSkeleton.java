@@ -161,7 +161,7 @@ public class CLASS extends JExtension {
 		} else {
 			src += "<?php echo JURI::base(); ?>media/";
 			src += this.getExtensionName();
-			src += "/images/"+ Utils.getImageName(sImg.getSource());
+			src += "/images/"+ Utils.getFileName(sImg.getSource());
 			return src;
 		}
 	}
@@ -176,6 +176,17 @@ public class CLASS extends JExtension {
 			src = "";
 			return src;
 		}
+	}
+	
+	private String renderAttributes(PresentationElement element) {
+		String result = "";
+		if (!element.getName().isEmpty()) {
+			result += " id=\""+ element.getName() +"\"";
+		}
+		if (element.getClass_() != null) {
+			result += " class=\""+ element.getClass_() +"\"";
+		}
+		return result;
 	}
 	
 	public String generate(Object argument) {

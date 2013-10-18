@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getExtensionName <em>Extension Name</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getExtension <em>Extension</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getDatamodel <em>Datamodel</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getCSS <em>CSS</em>}</li>
  * </ul>
  * </p>
  *
@@ -163,5 +164,31 @@ public interface JoomlaGenModel extends EObject {
 	 * @generated
 	 */
 	void setDatamodel(EPackage value);
+
+	/**
+	 * Returns the value of the '<em><b>CSS</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>CSS</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>CSS</em>' attribute.
+	 * @see #setCSS(String)
+	 * @see com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage#getJoomlaGenModel_CSS()
+	 * @model
+	 * @generated
+	 */
+	String getCSS();
+
+	/**
+	 * Sets the value of the '{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getCSS <em>CSS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>CSS</em>' attribute.
+	 * @see #getCSS()
+	 * @generated
+	 */
+	void setCSS(String value);
 
 } // JoomlaGenModel

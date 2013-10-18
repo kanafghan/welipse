@@ -14,4 +14,6 @@ package com.github.kanafghan.welipse.webdsl.validation;
 public interface PresentationElementValidator {
 	boolean validate();
 
+	boolean validateClass(String value);
+
 }

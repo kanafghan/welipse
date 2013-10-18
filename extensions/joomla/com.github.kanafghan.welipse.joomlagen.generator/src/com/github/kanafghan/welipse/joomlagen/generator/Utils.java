@@ -27,6 +27,7 @@ public class Utils {
 	
 	public static final String SQL_TABLE_NAME_PREFIX = "#__";
 	public static final String MODEL_LIST_NAME_SUFFIX = "List";
+	public static final String CSS_FILES_SEPARATOR = ";";
 	
 	private static int counter;
 	
@@ -86,9 +87,9 @@ public class Utils {
 				'_' + name;
 	}
 	
-	public static synchronized String getImageName(String path) {
-		File img = new File(path);
-		return img.getName();
+	public static synchronized String getFileName(String path) {
+		File file = new File(path);
+		return file.getName();
 	}
 	
 	public static synchronized IFolder getFolder(IFolder folder, IProgressMonitor monitor) throws CoreException {

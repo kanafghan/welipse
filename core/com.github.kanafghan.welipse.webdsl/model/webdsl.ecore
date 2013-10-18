@@ -18,7 +18,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="page" eType="#//Page" eOpposite="#//Page/elements"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PresentationElement" abstract="true"
-      eSuperTypes="#//PageElement"/>
+      eSuperTypes="#//PageElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NavigationElement" abstract="true" eSuperTypes="#//PageElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="List" eSuperTypes="#//PresentationElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="item" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

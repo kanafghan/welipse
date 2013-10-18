@@ -13,6 +13,7 @@ Package joomlagen <http://github.com/kanafghan/welipse/joomlagen/1.0>
     Attribute extensionName : EString<<1..1>>
     Reference extension : Website<<1..1>>
     Reference datamodel : EPackage
+    Attribute CSS : EString
 
   Enum ExtensionType
     Literal COMPONENT = 0

@@ -232,13 +232,22 @@ public interface WebDSLPackage extends EPackage {
 	int PRESENTATION_ELEMENT__PAGE = PAGE_ELEMENT__PAGE;
 
 	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRESENTATION_ELEMENT__CLASS = PAGE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Presentation Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRESENTATION_ELEMENT_FEATURE_COUNT = PAGE_ELEMENT_FEATURE_COUNT + 0;
+	int PRESENTATION_ELEMENT_FEATURE_COUNT = PAGE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Presentation Element</em>' class.
@@ -324,6 +333,15 @@ public interface WebDSLPackage extends EPackage {
 	int LIST__PAGE = PRESENTATION_ELEMENT__PAGE;
 
 	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST__CLASS = PRESENTATION_ELEMENT__CLASS;
+
+	/**
 	 * The feature id for the '<em><b>Item</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -406,6 +424,15 @@ public interface WebDSLPackage extends EPackage {
 	int TEXT__PAGE = PRESENTATION_ELEMENT__PAGE;
 
 	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__CLASS = PRESENTATION_ELEMENT__CLASS;
+
+	/**
 	 * The number of structural features of the '<em>Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -450,6 +477,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int IMAGE__PAGE = PRESENTATION_ELEMENT__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__CLASS = PRESENTATION_ELEMENT__CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Is URL</b></em>' attribute.
@@ -507,6 +543,15 @@ public interface WebDSLPackage extends EPackage {
 	int STATIC_TEXT__PAGE = TEXT__PAGE;
 
 	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TEXT__CLASS = TEXT__CLASS;
+
+	/**
 	 * The feature id for the '<em><b>Content</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -560,6 +605,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATIC_IMAGE__PAGE = IMAGE__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_IMAGE__CLASS = IMAGE__CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Is URL</b></em>' attribute.
@@ -801,6 +855,15 @@ public interface WebDSLPackage extends EPackage {
 	int DYNAMIC_TEXT__PAGE = TEXT__PAGE;
 
 	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_TEXT__CLASS = TEXT__CLASS;
+
+	/**
 	 * The feature id for the '<em><b>Content</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -855,6 +918,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DYNAMIC_IMAGE__PAGE = IMAGE__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_IMAGE__CLASS = IMAGE__CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Is URL</b></em>' attribute.
@@ -1009,6 +1081,17 @@ public interface WebDSLPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPresentationElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.PresentationElement#getClass_ <em>Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Class</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.PresentationElement#getClass_()
+	 * @see #getPresentationElement()
+	 * @generated
+	 */
+	EAttribute getPresentationElement_Class();
 
 	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.NavigationElement <em>Navigation Element</em>}'.
@@ -1359,6 +1442,14 @@ public interface WebDSLPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PRESENTATION_ELEMENT = eINSTANCE.getPresentationElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Class</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRESENTATION_ELEMENT__CLASS = eINSTANCE.getPresentationElement_Class();
 
 		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.NavigationElementImpl <em>Navigation Element</em>}' class.

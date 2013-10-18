@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getExtensionName <em>Extension Name</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getExtension <em>Extension</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getDatamodel <em>Datamodel</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getCSS <em>CSS</em>}</li>
  * </ul>
  * </p>
  *
@@ -115,6 +116,26 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EPackage datamodel;
+
+	/**
+	 * The default value of the '{@link #getCSS() <em>CSS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCSS()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CSS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCSS() <em>CSS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCSS()
+	 * @generated
+	 * @ordered
+	 */
+	protected String css = CSS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -279,6 +300,27 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getCSS() {
+		return css;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCSS(String newCSS) {
+		String oldCSS = css;
+		css = newCSS;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__CSS, oldCSS, css));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -294,6 +336,8 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
 				if (resolve) return getDatamodel();
 				return basicGetDatamodel();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CSS:
+				return getCSS();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -320,6 +364,9 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
 				setDatamodel((EPackage)newValue);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CSS:
+				setCSS((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -348,6 +395,9 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
 				setDatamodel((EPackage)null);
 				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CSS:
+				setCSS(CSS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -370,6 +420,8 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 				return extension != null;
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
 				return datamodel != null;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CSS:
+				return CSS_EDEFAULT == null ? css != null : !CSS_EDEFAULT.equals(css);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -390,6 +442,8 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 		result.append(joomlaVersion);
 		result.append(", extensionName: ");
 		result.append(extensionName);
+		result.append(", CSS: ");
+		result.append(css);
 		result.append(')');
 		return result.toString();
 	}

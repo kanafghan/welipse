@@ -25,4 +25,6 @@ public interface JoomlaGenModelValidator {
 	boolean validateExtension(Website value);
 
 	boolean validateDatamodel(EPackage value);
+
+	boolean validateCSS(String value);
 }

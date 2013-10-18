@@ -21,7 +21,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//PageElement/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference webdsl.ecore#//PageElement/page"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="webdsl.ecore#//PresentationElement"/>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//PresentationElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//PresentationElement/class"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="webdsl.ecore#//NavigationElement"/>
     <genClasses ecoreClass="webdsl.ecore#//List">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//List/item"/>

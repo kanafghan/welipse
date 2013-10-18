@@ -115,6 +115,10 @@
   <children xmi:type="notation:Node" xmi:id="_SCTX9CkwEeO-mdyyiG6OcA" type="1001">
     <children xmi:type="notation:Node" xmi:id="_SCT_ACkwEeO-mdyyiG6OcA" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_SCT_ASkwEeO-mdyyiG6OcA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_aSEnoDeHEeOwBaStppnXFQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="webdsl.ecore#//Text/class"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_aSEnoTeHEeOwBaStppnXFQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_SCT_AikwEeO-mdyyiG6OcA"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_SCT_AykwEeO-mdyyiG6OcA"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_SCT_BCkwEeO-mdyyiG6OcA"/>

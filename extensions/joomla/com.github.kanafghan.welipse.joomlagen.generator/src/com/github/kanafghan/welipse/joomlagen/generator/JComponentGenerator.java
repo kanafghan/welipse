@@ -20,6 +20,7 @@ import com.github.kanafghan.welipse.joomlagen.generator.context.Context;
 import com.github.kanafghan.welipse.webdsl.Page;
 import com.github.kanafghan.welipse.webdsl.PageElement;
 import com.github.kanafghan.welipse.webdsl.StaticImage;
+import com.github.kanafghan.welipse.webdsl.Website;
 
 public class JComponentGenerator {
 
@@ -78,10 +79,12 @@ public class JComponentGenerator {
 				Utils.getFolder(project.getFolder("media"), monitor);
 				IFolder imagesFolder = Utils.getFolder(project.getFolder("media/images"), monitor);
 				Utils.getFolder(project.getFolder("media/js"), monitor);
-				Utils.getFolder(project.getFolder("media/css"), monitor);
+				IFolder cssFolder = Utils.getFolder(project.getFolder("media/css"), monitor);
 				
 				// Get all the Static Images which are not URLs
 				getStaticImages(genModel, imagesFolder, monitor);
+				// Get all CSS files
+				getStyles(genModel, cssFolder, monitor);
 				
 				// Create folder for Back-End (BE)
 				Utils.getFolder(project.getFolder("admin"), monitor);
@@ -107,31 +110,63 @@ public class JComponentGenerator {
 			}
 			
 			private void getStaticImages(JoomlaGenModel genModel, IFolder folder, IProgressMonitor monitor) throws CoreException {
-				EList<Page> pages = genModel.getExtension().getPages();
-				for (Page page : pages) {
-					EList<PageElement> elements = page.getElements();
-					for (PageElement element : elements) {
-						if (element instanceof StaticImage) {
-							StaticImage sImg = (StaticImage) element;
-							if (sImg.isIsURL()) continue;
-							
-							String imgName = Utils.getImageName(sImg.getSource());
-							
-							// Create a copy of the image
-							IFile localImg = folder.getFile(imgName);
-							if (!localImg.exists()) {
-								FileInputStream fileStream;
-								try {
-									fileStream = new FileInputStream(
-											sImg.getSource());
-									localImg.create(fileStream, true, monitor);
-								} catch (FileNotFoundException e) {
-									throw new CoreException(new Status(
-											Status.ERROR, Activator.PLUGIN_ID,
-											"Image at location: "
-													+ sImg.getSource()
-													+ " does not exist."));
+				Website extension = genModel.getExtension();
+				if (extension != null) {
+					EList<Page> pages = extension.getPages();
+					for (Page page : pages) {
+						EList<PageElement> elements = page.getElements();
+						for (PageElement element : elements) {
+							if (element instanceof StaticImage) {
+								StaticImage sImg = (StaticImage) element;
+								if (sImg.isIsURL())
+									continue;
+
+								String imgName = Utils.getFileName(sImg
+										.getSource());
+
+								// Create a copy of the image
+								IFile localImg = folder.getFile(imgName);
+								if (!localImg.exists()) {
+									FileInputStream fileStream;
+									try {
+										fileStream = new FileInputStream(
+												sImg.getSource());
+										localImg.create(fileStream, true,
+												monitor);
+									} catch (FileNotFoundException e) {
+										throw new CoreException(new Status(
+												Status.ERROR,
+												Activator.PLUGIN_ID,
+												"Image at location: "
+														+ sImg.getSource()
+														+ " does not exist."));
+									}
 								}
+							}
+						}
+					}
+				}
+			}
+			
+			private void getStyles(JoomlaGenModel genModel, IFolder folder, IProgressMonitor monitor) throws CoreException {
+				String css = genModel.getCSS();
+				if (!css.isEmpty()) {
+					String[] paths = css.split(Utils.CSS_FILES_SEPARATOR);
+					for (String path: paths) {
+						String fileName = Utils.getFileName(path);
+						IFile localCSS = folder.getFile(fileName);
+						if (!localCSS.exists()) {
+							FileInputStream fileStream;
+							try {
+								fileStream = new FileInputStream(path);
+								localCSS.create(fileStream, true, monitor);
+							} catch (FileNotFoundException e) {
+								throw new CoreException(new Status(
+										Status.ERROR,
+										Activator.PLUGIN_ID,
+										"CSS file at location: "
+												+ path
+												+ " does not exist."));
 							}
 						}
 					}

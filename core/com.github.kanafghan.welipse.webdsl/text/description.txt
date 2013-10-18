@@ -21,6 +21,7 @@ Package webdsl <http://github.com/kanafghan/welipse/webdsl/1.0>
     Reference page : Page
 
   Class PresentationElement -> PageElement
+    Attribute class : EString
 
   Class NavigationElement -> PageElement
 

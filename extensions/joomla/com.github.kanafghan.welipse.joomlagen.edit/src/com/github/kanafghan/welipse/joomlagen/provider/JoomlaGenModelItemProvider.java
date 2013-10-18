@@ -65,6 +65,7 @@ public class JoomlaGenModelItemProvider
 			addExtensionNamePropertyDescriptor(object);
 			addExtensionPropertyDescriptor(object);
 			addDatamodelPropertyDescriptor(object);
+			addCSSPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -180,6 +181,28 @@ public class JoomlaGenModelItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the CSS feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCSSPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JoomlaGenModel_CSS_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JoomlaGenModel_CSS_feature", "_UI_JoomlaGenModel_type"),
+				 JoomlaGenPackage.Literals.JOOMLA_GEN_MODEL__CSS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns JoomlaGenModel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,6 +242,7 @@ public class JoomlaGenModelItemProvider
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION_TYPE:
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__JOOMLA_VERSION:
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION_NAME:
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CSS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

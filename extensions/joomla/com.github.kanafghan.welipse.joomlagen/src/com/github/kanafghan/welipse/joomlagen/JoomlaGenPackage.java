@@ -113,13 +113,22 @@ public interface JoomlaGenPackage extends EPackage {
 	int JOOMLA_GEN_MODEL__DATAMODEL = 4;
 
 	/**
+	 * The feature id for the '<em><b>CSS</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOOMLA_GEN_MODEL__CSS = 5;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL_FEATURE_COUNT = 5;
+	int JOOMLA_GEN_MODEL_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -217,6 +226,17 @@ public interface JoomlaGenPackage extends EPackage {
 	EReference getJoomlaGenModel_Datamodel();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getCSS <em>CSS</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>CSS</em>'.
+	 * @see com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getCSS()
+	 * @see #getJoomlaGenModel()
+	 * @generated
+	 */
+	EAttribute getJoomlaGenModel_CSS();
+
+	/**
 	 * Returns the meta object for enum '{@link com.github.kanafghan.welipse.joomlagen.ExtensionType <em>Extension Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -308,6 +328,14 @@ public interface JoomlaGenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference JOOMLA_GEN_MODEL__DATAMODEL = eINSTANCE.getJoomlaGenModel_Datamodel();
+
+		/**
+		 * The meta object literal for the '<em><b>CSS</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOOMLA_GEN_MODEL__CSS = eINSTANCE.getJoomlaGenModel_CSS();
 
 		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.joomlagen.ExtensionType <em>Extension Type</em>}' enum.

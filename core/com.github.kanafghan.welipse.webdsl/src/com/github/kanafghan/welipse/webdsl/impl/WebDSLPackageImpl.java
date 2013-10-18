@@ -308,6 +308,15 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPresentationElement_Class() {
+		return (EAttribute)presentationElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNavigationElement() {
 		return navigationElementEClass;
 	}
@@ -543,6 +552,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		createEReference(pageElementEClass, PAGE_ELEMENT__PAGE);
 
 		presentationElementEClass = createEClass(PRESENTATION_ELEMENT);
+		createEAttribute(presentationElementEClass, PRESENTATION_ELEMENT__CLASS);
 
 		navigationElementEClass = createEClass(NAVIGATION_ELEMENT);
 
@@ -637,6 +647,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		initEReference(getPageElement_Page(), this.getPage(), this.getPage_Elements(), "page", null, 0, 1, PageElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(presentationElementEClass, PresentationElement.class, "PresentationElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPresentationElement_Class(), ecorePackage.getEString(), "class", null, 0, 1, PresentationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(navigationElementEClass, NavigationElement.class, "NavigationElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
