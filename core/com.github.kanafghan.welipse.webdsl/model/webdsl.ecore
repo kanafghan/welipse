@@ -58,4 +58,56 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//ETypedElement"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true">
+    <eOperations name="type" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClassifier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableExp" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationExp" abstract="true" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" abstract="true"
+      eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableInitialization" eSuperTypes="#//VariableDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initExp" lowerBound="1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyOperation" abstract="true" eSuperTypes="#//OperationExp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstantExp" abstract="true" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BasicOperation" abstract="true" eSuperTypes="#//OperationExp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operands" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArithmaticOperation" eSuperTypes="#//BasicOperation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+        eType="#//ArithmaticOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ArithmaticOperator">
+    <eLiterals name="Addition"/>
+    <eLiterals name="Subtraction" value="1"/>
+    <eLiterals name="Multiplication" value="2"/>
+    <eLiterals name="Division" value="3" literal="Division"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructuralExp" eSuperTypes="#//PropertyOperation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EReference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClassifierOperation" eSuperTypes="#//PropertyOperation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguements" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerConstant" eSuperTypes="#//ConstantExp">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringConstant" eSuperTypes="#//ConstantExp">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//VariableDeclaration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringConcatenation" eSuperTypes="#//BasicOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LocalVariable" eSuperTypes="#//VariableDeclaration"/>
 </ecore:EPackage>
