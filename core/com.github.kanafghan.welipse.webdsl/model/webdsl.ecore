@@ -12,6 +12,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//PageElement" containment="true" eOpposite="#//PageElement/page"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="#//VariableInitialization" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PageElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -23,23 +27,26 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NavigationElement" abstract="true" eSuperTypes="#//PageElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="List" eSuperTypes="#//PresentationElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="item" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="collectionProvider" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EOperation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//PageElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="collection" lowerBound="1"
+        eType="#//Expression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="iteratorVariable" lowerBound="1"
+        eType="#//VariableDeclaration" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Text" abstract="true" eSuperTypes="#//PresentationElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Image" abstract="true" eSuperTypes="#//PresentationElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isURL" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
-        defaultValueLiteral="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//PresentationElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" lowerBound="1"
+        eType="#//Expression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="static" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StaticText" eSuperTypes="#//Text">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StaticImage" eSuperTypes="#//Image">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//PresentationElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenced" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Expression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="static" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Link" abstract="true" eSuperTypes="#//NavigationElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" lowerBound="1"
@@ -49,25 +56,21 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//PageElement"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExternalLink" eSuperTypes="#//Link"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DynamicText" eSuperTypes="#//Text">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="content" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//ETypedElement"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DynamicImage" eSuperTypes="#//Image">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//ETypedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalLink" eSuperTypes="#//Link">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true">
     <eOperations name="type" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClassifier"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariableExp" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" eType="#//VariableDeclaration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OperationExp" abstract="true" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" abstract="true"
-      eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClassifier"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariableInitialization" eSuperTypes="#//VariableDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="initExp" lowerBound="1"
@@ -79,8 +82,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstantExp" abstract="true" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="BasicOperation" abstract="true" eSuperTypes="#//OperationExp">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operands" upperBound="-1"
-        eType="#//Expression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operands" lowerBound="1"
+        upperBound="-1" eType="#//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArithmaticOperation" eSuperTypes="#//BasicOperation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
@@ -94,7 +97,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StructuralExp" eSuperTypes="#//PropertyOperation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EReference"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClassifierOperation" eSuperTypes="#//PropertyOperation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EOperation"/>
@@ -108,6 +111,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//VariableDeclaration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StringConcatenation" eSuperTypes="#//BasicOperation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LocalVariable" eSuperTypes="#//VariableDeclaration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringOperation" eSuperTypes="#//BasicOperation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//StringOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanConstant" eSuperTypes="#//ConstantExp">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="StringOperator">
+    <eLiterals name="Concatenation"/>
+  </eClassifiers>
 </ecore:EPackage>
