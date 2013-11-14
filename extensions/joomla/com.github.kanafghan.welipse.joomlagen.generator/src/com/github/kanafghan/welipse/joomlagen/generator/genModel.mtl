@@ -1,0 +1,100 @@
+[comment encoding = UTF-8 /]
+[module genModel('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
+
+[template public generateModel(model : EClass, genModel : JoomlaGenModel)]
+[comment @main/]
+[file (model.name.toLower().concat('.php'), false, 'UTF-8')]
+<?php
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
+ 
+// import Joomla model library
+jimport('joomla.application.component.model');
+ 
+/**
+ * [model.name.toUpperFirst().concat('List')/] Model
+ */
+class [getComponentName(genModel)/]Model[model.name.toUpperFirst()/] extends JModel
+{ 
+[let listVariable : String = model.name.toLower().concat('List')]
+    /**
+     * @var array [listVariable/]
+     */
+    protected [listVariable/];
+
+    /**
+     * (non-PHPdoc)
+     * @see JModel::getTable()
+     */
+    public function getTable($type = '[model.name.toUpperFirst()/]', $prefix = '[getComponentName(genModel)/]Table', $config = array()) 
+    {
+        return JTable::getInstance($type, $prefix, $config);
+    }
+
+    /**
+     * Retrieve and return an instance of [model.name.toUpperFirst()/]
+     *
+     * @param  int    The id of the instance to be retrieved
+     * @return object The instance of [model.name.toUpperFirst()/]
+     */
+    public function get[model.name.toUpperFirst()/]($id = 1) 
+    {
+        if (!is_array($this->[listVariable/]))
+        {
+            $this->[listVariable/] = array();
+        }
+
+        if (!isset($this->[listVariable/][ '[' /]$id[ ']' /] )) 
+        {
+            // request the selected id
+            $jinput = JFactory::getApplication()->input;
+            $id = $jinput->get('id', $id, 'INT');
+
+            // Get an instance of the table corresponding to this model
+            $table = $this->getTable();
+
+            // Load the record
+            $table->load($id);
+
+            // Assign the instance
+            $this->[listVariable/][ '[' /]$id[ ']' /]  = JArrayHelper::toObject($table->getProperties());
+        }
+
+        return $this->[listVariable/][ '[' /]$id[ ']' /];
+    }
+
+[for (operation : EOperation | model.eOperations)]
+    /**
+     * <!-- user-docs-start -->
+     * <!-- user-docs-end -->
+[for (parameter : EParameter | operation.eParameters)]
+     * @param	[parameter.eType.name/] $[parameter.name/]
+[/for]
+     * @return [operation.eType.name/]
+     */
+    public function [operation.name/]([generateOperationParameters(operation)/]) 
+    {
+		// <%startUserCode%> before
+    	//TODO Auto-generated function needs implementation
+    	[generateOperationReturnStatement(operation)/]
+		// <%endUserCode%>
+    }	
+[/for]
+[/let]
+}
+[/file]
+[/template]
+
+[template public generateOperationParameters (operation : EOperation) post (trim())]
+[operation.eParameters.generateParameter()->sep(',')/]
+[/template]
+
+[template public generateOperationReturnStatement (operation : EOperation) post (trim())]
+return [if (operation.upperBound = -1)]array()[else][if (operation.eType.oclIsKindOf(EInt))]0[elseif (operation.eType.oclIsKindOf(EBoolean))]false[else]''[/if][/if];
+[/template]
+
+[template public generateParameter (parameter : EParameter) ]
+$[parameter.name/]
+[/template]

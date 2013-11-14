@@ -1,0 +1,15 @@
+[comment encoding = UTF-8 /]
+[module common('http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore', '/com.github.kanafghan.welipse.joomlagen/model/joomlagen.ecore')]
+
+
+[template public generateAttributes(element : PresentationElement) post (trim())]
+[if (not element.name.oclIsUndefined() and element.name.size() > 0)] id="[element.name/]"[/if][if (not element.class.oclIsUndefined() and element.class.size() > 0)] class="[element.class/]"[/if]
+[/template]
+
+[template public getObjectName (element : ETypedElement) post (trim())]
+[element.eType.name.toLower()/]	
+[/template]
+
+[template public getObjectAttributeName (element : ETypedElement) post (trim())]
+[element.name.toLower()/]
+[/template]

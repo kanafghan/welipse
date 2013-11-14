@@ -1,64 +1,53 @@
 package com.github.kanafghan.welipse.joomlagen.generator;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.eclipse.core.resources.IFile;
+import org.eclipse.acceleo.engine.service.AbstractAcceleoGenerator;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.emf.codegen.jet.JETEmitter;
-import org.eclipse.emf.codegen.jet.JETException;
-import org.osgi.framework.Bundle;
+import org.eclipse.emf.common.util.BasicMonitor;
 
+import com.github.kanafghan.welipse.joomlagen.generator.Utils.ControllerType;
 import com.github.kanafghan.welipse.joomlagen.generator.context.ControllerContext;
 
 public class JControllerGenerator {
 
 	public static void generate(ControllerContext context, IFolder folder) {
-		Bundle bundle = Activator.getDefault().getBundle();
-		final String uri = bundle.getEntry("templates/controller.phpjet").toString();
-		
-		String name = context.isMain() ? "controller" : context.getName().toLowerCase();
-		
-		final String fileName = name +".php";
 		final ControllerContext controllerContext = context;
-		final IFolder controllerFolder = folder;
+		final File targetFolder = new File(folder.getLocationURI());
+		final List<Object> arguments = new ArrayList<Object>(2);
 		
-		final Job job = new Job("Generating code for controller: "+ fileName) {
+		final Job job = new Job("Generating Joomla! Controller.") {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
+				AbstractAcceleoGenerator generator = null;
 				try {
-					IFile file = controllerFolder.getFile(fileName);
-					
-					JETEmitter emitter = new JETEmitter(uri, getClass().getClassLoader());
-					// the plugins that we have imported from in the templates
-					emitter.addVariable("WELIPSE_WEBDSL", "com.github.kanafghan.welipse.webdsl");
-					emitter.addVariable("WELIPSE_JOOMLAGEN", "com.github.kanafghan.welipse.joomlagen");
-					emitter.addVariable("WELIPSE_JOOMLAGEN_GENERATOR", "com.github.kanafghan.welipse.joomlagen.generator");
-					
-					String result = emitter.generate(monitor, new Object[] {controllerContext});
-					
-					InputStream newContents = new ByteArrayInputStream(result.getBytes());
-					if (file.exists()) {
-						file.setContents(newContents, true, true, new SubProgressMonitor(monitor, 1));
+					if (controllerContext.isMain()) {
+						arguments.add(new Boolean(controllerContext.isMain()));
+						arguments.add(new Boolean(controllerContext.isBackEndController()));
+						generator = new GenController(controllerContext.getContext().getGenModel(), targetFolder, arguments);
+					} else if (controllerContext.getType() == ControllerType.ControllerForm) {
+						arguments.add(controllerContext.getContext().getGenModel());
+						generator = new GenFormController(controllerContext.getModel(), targetFolder, arguments);
 					} else {
-						file.create(newContents, true, new SubProgressMonitor(monitor, 1));
+						arguments.add(controllerContext.getContext().getGenModel());
+						generator = new GenAdminController(controllerContext.getModel(), targetFolder, arguments);
 					}
-				} catch (JETException e) {
+					
+					generator.doGenerate(BasicMonitor.toMonitor(monitor));
+				} catch (IOException e) {
 					return new Status(Status.ERROR, Activator.PLUGIN_ID, 
-							"An exception occurred during the code generation! Please check the error view. "
-							+ e.getMessage(), e);
-				} catch (CoreException e) {
-					return new Status(Status.ERROR, Activator.PLUGIN_ID, 
-							"An exception occurred during the code generation! Please check the error view. "
-							+ e.getMessage(), e);
-				}
+					"An exception occurred during the code generation! Please check the error view. "
+					+ e.getMessage(), e);					
+				}				
+				
 				monitor.worked(1);
 				return new Status(Status.OK, Activator.PLUGIN_ID, "Code successfully generated!");
 			}

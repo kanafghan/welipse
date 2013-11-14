@@ -66,6 +66,7 @@ public class ContentManagersGenerator {
 				ControllerContext controllerCtx = new ControllerContext(context, 
 						ControllerType.ControllerForm, 
 						entity.getName().toLowerCase());
+				controllerCtx.setModel(entity);
 				JControllerGenerator.generate(controllerCtx, folder.getFolder("controllers"));
 				
 				// Generate Model (of type ModelAdmin) in the 'models' folder

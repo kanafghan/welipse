@@ -1,0 +1,41 @@
+[comment encoding = UTF-8 /]
+[module genInstallSQL('http://www.eclipse.org/emf/2002/Ecore', '/com.github.kanafghan.welipse.joomlagen/model/joomlagen.ecore')]
+
+[template public generateInstallSQL(genModel : JoomlaGenModel)]
+[comment @main/]
+[file ('install.mysql.utf8.sql', false, 'UTF-8')]
+[for (table : EClassifier | genModel.datamodel.oclAsType(EPackage).eClassifiers)]
+	[if (table.oclIsKindOf(EClass) and table.oclAsType(EClass).eAllStructuralFeatures->size() > 0)]
+CREATE TABLE IF NOT EXISTS [table.name/] (
+	id int(11) NOT NULL AUTO_INCREMENT,
+	[generateTableFields(table.oclAsType(EClass))/]
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+	[/if]
+
+[/for]
+
+// <%startUserCode%> before
+//TODO enter custom SQL here (don't remove the above and the below lines)
+// <%endUserCode%>
+
+[/file]
+[/template]
+
+[template public generateTableFields (table : EClass) ]
+[table.eAllAttributes.generateField()->sep(',\n')/]
+[/template]
+
+[template public generateField (field : EAttribute) post (substituteAll('\\n*', '\\1'))]
+[field.name/] 
+[if (field.oclIsKindOf(EString))]
+	varchar(250)
+[elseif (field.oclIsKindOf(EInt))]
+	int(11)
+[elseif (field.oclIsKindOf(EDate))]
+	date
+[else]
+	varchar(20)
+[/if]
+	NOT NULL
+[/template]

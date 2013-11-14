@@ -1,0 +1,32 @@
+[comment encoding = UTF-8 /]
+[module genTable('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
+
+[template public generateTable(model : EClass, genModel : JoomlaGenModel)]
+[comment @main/]
+[file (model.name.toLower().concat('.php'), false, 'UTF-8')]
+<?php
+// No direct access
+defined('_JEXEC') or die('Restricted access');
+ 
+// import Joomla table library
+jimport('joomla.database.table');
+ 
+/**
+ * [model.name.toUpperFirst()/] Table class
+ */
+class [getComponent(genModel)/]Table[model.name.toUpperFirst()/] extends JTable
+{
+    /**
+     * Constructor
+     *
+     * @param object Database connector object
+     */
+    function __construct(&$db) 
+    {
+    	parent::__construct('[getTableName(model, genModel)/]', 'id', $db);
+    }
+}
+[/file]
+[/template]

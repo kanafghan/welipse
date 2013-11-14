@@ -8,6 +8,7 @@ import org.eclipse.emf.common.util.EList;
 import com.github.kanafghan.welipse.joomlagen.generator.context.Context;
 import com.github.kanafghan.welipse.joomlagen.generator.context.ViewContext;
 import com.github.kanafghan.welipse.webdsl.Page;
+import com.github.kanafghan.welipse.webdsl.Website;
 
 public class FEViewsGenerator {
 
@@ -17,9 +18,12 @@ public class FEViewsGenerator {
 			feViewsFolder.create(true, false, new NullProgressMonitor());
 		}
 		
-		EList<Page> pages = context.getGenModel().getExtension().getPages();
-		for (Page page: pages) {
-			JViewGenerator.generate(new ViewContext(context, page, null), feViewsFolder);
+		Website extension = context.getGenModel().getExtension();
+		if (extension != null) {			
+			EList<Page> pages = extension.getPages();
+			for (Page page: pages) {
+				JViewGenerator.generate(new ViewContext(context, page, null), feViewsFolder);
+			}
 		}
 	}
 }

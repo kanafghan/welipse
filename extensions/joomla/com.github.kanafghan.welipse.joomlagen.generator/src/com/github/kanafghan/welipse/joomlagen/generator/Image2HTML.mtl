@@ -1,0 +1,31 @@
+[comment encoding = UTF-8 /]
+[module Image2HTML('http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore', '/com.github.kanafghan.welipse.joomlagen/model/joomlagen.ecore')]
+
+[import com::github::kanafghan::welipse::joomlagen::generator::common::common /]
+[import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
+
+[template public generateImage(img : Image, genModel : JoomlaGenModel)]
+	[if (img.oclIsKindOf(StaticImage))]
+		[generateStaticImage(img.oclAsType(StaticImage), genModel)/]
+	[/if]
+	[if (img.oclIsKindOf(DynamicImage))]
+		[generateDynamicImage(img.oclAsType(DynamicImage), genModel)/]
+	[/if]
+[/template]
+
+[template protected generateStaticImage(sImg : StaticImage, genModel : JoomlaGenModel) post (trim())]
+	<img src="[generateStaticImageSource(sImg, genModel)/]"[generateAttributes()/]>
+[/template]
+
+[template protected generateDynamicImage (dImg : DynamicImage, genModel : JoomlaGenModel) post (trim())]
+	<img src="[generateDynamicImageSource(dImg, genModel)/]"[generateAttributes()/]>
+[/template]
+
+[template public generateStaticImageSource(sImg : StaticImage, genModel : JoomlaGenModel) post (trim())]
+[if (sImg.isURL)][sImg.source/][else]<?php echo JURI:base(); ?>media/[getComponent(genModel)/]/images/[getFileName(sImg.source)/][/if]
+[/template]
+
+[comment TODO complete the implementation (the case for image source not being URL is missing) /]
+[template public generateDynamicImageSource (dImg : DynamicImage, genModel : JoomlaGenModel) post (trim())]
+[if (dImg.isURL)]<?php echo $this->"+[getObjectName(dImg.source.oclAsType(ETypedElement))/]+"->"+[getObjectAttributeName(dImg.source.oclAsType(ETypedElement))/]+"; ?>[else][/if]
+[/template]

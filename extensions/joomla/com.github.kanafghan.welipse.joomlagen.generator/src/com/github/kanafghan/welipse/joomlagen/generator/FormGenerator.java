@@ -1,63 +1,41 @@
 package com.github.kanafghan.welipse.joomlagen.generator;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.emf.codegen.jet.JETEmitter;
-import org.eclipse.emf.codegen.jet.JETException;
-import org.osgi.framework.Bundle;
+import org.eclipse.emf.common.util.BasicMonitor;
 
 import com.github.kanafghan.welipse.joomlagen.generator.context.FormContext;
 
 public class FormGenerator {
 
 	public static void generate(FormContext context, IFolder folder) {
-		Bundle bundle = Activator.getDefault().getBundle();
-		final String uri = bundle.getEntry("templates/form.xmljet").toString();
-		
-		final String fileName = context.getModel().getName().toLowerCase() +".xml";
 		final FormContext formContext = context;
-		final IFolder formsFolder = folder;
+		final File targetFolder = new File(folder.getLocationURI());
+		final List<Object> arguments = new ArrayList<Object>(1);
+		arguments.add(formContext.getContext().getGenModel());
 		
-		final Job job = new Job("Generating codes for install file: "+ fileName) {
+		final Job job = new Job("Generating form.") {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
+				GenForm generator = new GenForm();
 				try {
-					IFile file = formsFolder.getFile(fileName);
-					
-					JETEmitter emitter = new JETEmitter(uri, getClass().getClassLoader());
-					// the plugins that we have imported from within the templates
-					emitter.addVariable("EMF_ECORE", "org.eclipse.emf.ecore");
-					emitter.addVariable("WELIPSE_WEBDSL", "com.github.kanafghan.welipse.webdsl");
-					emitter.addVariable("WELIPSE_JOOMLAGEN", "com.github.kanafghan.welipse.joomlagen");
-					emitter.addVariable("WELIPSE_JCGENERATOR", "com.github.kanafghan.welipse.joomlagen.generator");
-					
-					String result = emitter.generate(monitor, new Object[] {formContext});
-					
-					InputStream newContents = new ByteArrayInputStream(result.getBytes());
-					if (file.exists()) {
-						file.setContents(newContents, true, true, new SubProgressMonitor(monitor, 1));
-					} else {
-						file.create(newContents, true, new SubProgressMonitor(monitor, 1));
-					}
-				} catch (JETException e) {
+					generator.initialize(formContext.getModel(), targetFolder, arguments);
+					generator.doGenerate(BasicMonitor.toMonitor(monitor));
+				} catch (IOException e) {
 					return new Status(Status.ERROR, Activator.PLUGIN_ID, 
-							"An exception occurred during the code generation! Please check the error view. "
-							+ e.getMessage(), e);
-				} catch (CoreException e) {
-					return new Status(Status.ERROR, Activator.PLUGIN_ID, 
-							"An exception occurred during the code generation! Please check the error view. "
-							+ e.getMessage(), e);
+					"An exception occurred during the code generation! Please check the error view. "
+					+ e.getMessage(), e);					
 				}
+				
 				monitor.worked(1);
 				return new Status(Status.OK, Activator.PLUGIN_ID, "Code successfully generated!");
 			}

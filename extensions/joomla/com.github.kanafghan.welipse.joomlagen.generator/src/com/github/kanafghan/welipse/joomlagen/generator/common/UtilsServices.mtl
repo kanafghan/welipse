@@ -1,0 +1,26 @@
+[comment encoding = Cp1252 /]
+[module UtilsServices('http://github.com/kanafghan/welipse/webdsl/1.0', 'http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+
+[query public getFileName(arg0 : String) : String
+	= invoke('com.github.kanafghan.welipse.joomlagen.generator.Utils', 'getFileName(java.lang.String)', Sequence{arg0}) /]
+
+[query public generateID() : Integer
+	= invoke('com.github.kanafghan.welipse.joomlagen.generator.Utils', 'generateID()', Sequence{}) /]
+
+[query public getComponent(arg0 : JoomlaGenModel) : String
+	= invoke('com.github.kanafghan.welipse.joomlagen.generator.Utils', 'getComponent(com.github.kanafghan.welipse.joomlagen.JoomlaGenModel)', Sequence{arg0}) /]
+
+[query public toUpperFirst(arg0 : String) : String
+	= invoke('com.github.kanafghan.welipse.joomlagen.generator.Utils', 'toUpperFirst(java.lang.String)', Sequence{arg0}) /]
+
+[query public getExtensionName(arg0 : JoomlaGenModel) : String
+	= invoke('com.github.kanafghan.welipse.joomlagen.generator.Utils', 'getExtensionName(com.github.kanafghan.welipse.joomlagen.JoomlaGenModel)', Sequence{arg0}) /]
+
+[query public getComponentName(arg0 : JoomlaGenModel) : String
+	= invoke('com.github.kanafghan.welipse.joomlagen.generator.Utils', 'getComponentName(com.github.kanafghan.welipse.joomlagen.JoomlaGenModel)', Sequence{arg0}) /]
+
+[query public getTableName(arg0 : EClass, arg1 : JoomlaGenModel) : String
+	= invoke('com.github.kanafghan.welipse.joomlagen.generator.Utils', 'getTableName(org.eclipse.emf.ecore.EClass, com.github.kanafghan.welipse.joomlagen.JoomlaGenModel)', Sequence{arg0, arg1}) /]
+
+[query public getPageName(arg0 : Page) : String
+	= invoke('com.github.kanafghan.welipse.joomlagen.generator.Utils', 'getPageName(com.github.kanafghan.welipse.webdsl.Page)', Sequence{arg0}) /]

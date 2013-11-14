@@ -12,7 +12,7 @@ defined('_JEXEC') or die('Restricted access');
 
 <% if (isListView() || isEditLayout()) { %>
 JHtml::_('behavior.tooltip');
-<% } %>
+<% } %>	
 <% if (isEditLayout()) { %>
 JHtml::_('behavior.formvalidation');
 JHtml::_('behavior.keepalive');

@@ -1,10 +1,10 @@
 package com.github.kanafghan.welipse.joomlagen.generator;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -13,55 +13,42 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.emf.codegen.jet.JETEmitter;
-import org.eclipse.emf.codegen.jet.JETException;
-import org.osgi.framework.Bundle;
+import org.eclipse.emf.common.util.BasicMonitor;
 
 import com.github.kanafghan.welipse.joomlagen.generator.context.Context;
 
 public class InstallGenerator {
 
 	public static void generate(Context context, IProject project) {
-		Bundle bundle = Activator.getDefault().getBundle();
-		final String uri = bundle.getEntry("templates/install.sqljet").toString();
-		
-		final String fileName = "install.mysql.utf8.sql";
-		final Context installContext = context;
 		final IProject prj = project;
+		final Context installContext = context;
 		
-		final Job job = new Job("Generating codes for install file: "+ fileName) {
+		final Job job = new Job("Generating installer.") {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
+				File targetFolder = new File(prj.getFolder("admin/sql").getLocationURI());
+				List<Object> arguments = new ArrayList<Object>(1);
+				
+				GenInstallSQL generator = new GenInstallSQL();
 				try {
-					IFolder adminFolder = Utils.getFolder(prj.getFolder("admin"), monitor);
-					
-					IFolder sqlFolder = Utils.getFolder(adminFolder.getFolder("sql"), monitor);
-					IFile file = sqlFolder.getFile(fileName);
-					
-					JETEmitter emitter = new JETEmitter(uri, getClass().getClassLoader());
-					// the plugins that we have imported from within the templates
-					emitter.addVariable("EMF_ECORE", "org.eclipse.emf.ecore");
-					emitter.addVariable("WELIPSE_WEBDSL", "com.github.kanafghan.welipse.webdsl");
-					emitter.addVariable("WELIPSE_JOOMLAGEN", "com.github.kanafghan.welipse.joomlagen");
-					emitter.addVariable("WELIPSE_JCGENERATOR", "com.github.kanafghan.welipse.joomlagen.generator");
-					
-					String result = emitter.generate(monitor, new Object[] {installContext});
-					
-					InputStream newContents = new ByteArrayInputStream(result.getBytes());
-					if (file.exists()) {
-						file.setContents(newContents, true, true, new SubProgressMonitor(monitor, 1));
-					} else {
-						file.create(newContents, true, new SubProgressMonitor(monitor, 1));
-					}
-				} catch (JETException e) {
+					generator.initialize(installContext.getGenModel(), targetFolder, arguments);
+					generator.doGenerate(BasicMonitor.toMonitor(monitor));
+				} catch (IOException e) {
 					return new Status(Status.ERROR, Activator.PLUGIN_ID, 
-							"An exception occurred during the code generation! Please check the error view. "
-							+ e.getMessage(), e);
+					"An exception occurred during the code generation! Please check the error view. "
+					+ e.getMessage(), e);					
+				}	
+				
+				try {
+					// Refresh the project in order to reflect the creation of the
+					// generated files in the workspace
+					prj.refreshLocal(IProject.DEPTH_INFINITE, new SubProgressMonitor(monitor, 1, SubProgressMonitor.SUPPRESS_SUBTASK_LABEL));
 				} catch (CoreException e) {
 					return new Status(Status.ERROR, Activator.PLUGIN_ID, 
-							"An exception occurred during the code generation! Please check the error view. "
-							+ e.getMessage(), e);
+					"An exception occurred during the code generation! Please check the error view. "
+					+ e.getMessage(), e);					
 				}
+				
 				monitor.worked(1);
 				return new Status(Status.OK, Activator.PLUGIN_ID, "Code successfully generated!");
 			}

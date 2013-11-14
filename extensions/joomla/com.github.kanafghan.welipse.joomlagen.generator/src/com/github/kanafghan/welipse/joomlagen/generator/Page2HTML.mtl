@@ -1,0 +1,19 @@
+[comment encoding = UTF-8 /]
+[module Page2HTML('http://github.com/kanafghan/welipse/webdsl/1.0', 'http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[import com::github::kanafghan::welipse::joomlagen::generator::PageElement2HTML /]
+
+[template public generatePage(page : Page, genModel : JoomlaGenModel)]
+
+[comment @main /]
+[file ('default.php', false, 'UTF-8')]
+<?php
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
+?>
+	[for (element : PageElement | page.elements)]
+		[generatePageElement(element, genModel)/]
+	[/for]
+[/file]
+
+[/template]

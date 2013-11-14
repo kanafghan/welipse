@@ -12,6 +12,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
 
@@ -36,11 +37,11 @@ public class JComponentGenerator {
 				
 				try {
 					if (!project.exists()) {
-						project.create(monitor);
+						project.create(new SubProgressMonitor(monitor, 1, SubProgressMonitor.SUPPRESS_SUBTASK_LABEL));
 					}
-					project.open(monitor);
+					project.open(new SubProgressMonitor(monitor, 1, SubProgressMonitor.SUPPRESS_SUBTASK_LABEL));
 					
-					buildComponentFolderStructure(genModel, project, monitor);
+					buildComponentFolderStructure(genModel, project, new SubProgressMonitor(monitor, 1, SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
 					
 					// Generate extension Front-End (FE)
 					JFEGenerator.generate(new Context(genModel), project);
@@ -53,13 +54,12 @@ public class JComponentGenerator {
 					
 					// Generate extension manifest
 					ManifestGenerator.generate(new Context(genModel), project);
-					
 				} catch (CoreException e) {
 					return new Status(Status.ERROR, Activator.PLUGIN_ID, 
 						"An exception occurred during the code generation! Please check the error view. "
 						+ e.getMessage(), e);
 				}
-				
+							
 				monitor.worked(1);
 				return new Status(Status.OK, Activator.PLUGIN_ID, "Code successfully generated!");
 			}

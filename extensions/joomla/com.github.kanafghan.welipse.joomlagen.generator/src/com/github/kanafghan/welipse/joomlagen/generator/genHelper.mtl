@@ -1,0 +1,46 @@
+[comment encoding = UTF-8 /]
+[module genHelper('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
+
+[template public generateHelper(genModel : JoomlaGenModel, name : String, generateLinkbar : Boolean)]
+[comment @main /]
+[file (name.toLower().concat('.php'), false, 'UTF-8')]
+<?php
+// No direct access.
+defined('_JEXEC') or die;
+ 
+/**
+ * [name/] helper
+ */
+class [name/]Helper
+{
+[if (generateLinkbar)]
+	/**
+	 * Configure the Linkbar.
+	 *
+	 * @param	string	The name of the active view.
+	 * @return	void
+	 */
+	public static function addSubmenu($vName)
+	{
+[for (view : EClassifier | genModel.datamodel.oclAsType(EPackage).eClassifiers)]
+	[if (view.oclIsKindOf(EClass))]
+	[let v : EClass = view.oclAsType(EClass)]
+		JSubMenuHelper::addEntry(
+			JText::_('[v.name.toUpperFirst()/]'),
+			'index.php?option=[getComponent(genModel)/]&view=[v.name.toLower().concat('list')/]',
+			$vName == '[v.name.toLower().concat('list')/]'
+		);
+	[/let]
+	[/if]
+[/for]
+	}
+[/if]
+
+	// [protected ('custom helper scripts')]
+	//TODO enter custom code here (don't remove the above and the below lines)
+ 	// [/protected]
+}
+[/file]
+[/template]

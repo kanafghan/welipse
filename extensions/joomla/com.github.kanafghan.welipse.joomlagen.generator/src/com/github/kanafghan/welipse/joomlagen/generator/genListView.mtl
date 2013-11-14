@@ -1,0 +1,64 @@
+[comment encoding = UTF-8 /]
+[module genListView('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
+
+[template public genListView(model : EClass, genModel : JoomlaGenModel)]
+
+[comment @main/]
+[file ('view.html.php', false, 'UTF-8')]
+<?php
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
+ 
+// import Joomla view library
+jimport('joomla.application.component.view');
+
+/**
+ * [model.name.toUpperFirst()/] View
+ */
+class [getComponentName(genModel)/]View[model.name.toUpperFirst().concat('List')/] extends JView
+{
+	protected $items;
+	protected $pagination;
+	protected $state;
+
+	/**
+	 * [model.name.toUpperFirst()/] view display method
+	 * @return void
+	 */
+	function display($tpl = null) 
+	{
+		$this->items		= $this->get('Items');
+		$this->pagination	= $this->get('Pagination');
+		$this->state		= $this->get('State');
+
+		// Check for errors.
+		if (count($errors = $this->get('Errors')))
+		{
+			JError::raiseError(500, implode("\n", $errors));
+			return false;
+		}
+
+		$this->addToolbar();
+
+		// Display the template
+		parent::display($tpl);
+	}
+
+	/**
+	 * Add the page title and toolbar.
+	 *
+	 * @return  void
+	 */
+	protected function addToolbar()
+	{
+		JToolBarHelper::title(JText::_('[model.name.toUpperFirst()/] Manager'));
+		
+		JToolBarHelper::addNew('[model.name.toLower()/].add');
+		JToolBarHelper::editList('[model.name.toLower()/].edit');
+		JToolBarHelper::deleteList('', '[model.name.toLower().concat('list')/].delete', 'JTOOLBAR_DELETE');
+	}
+[/file]
+
+[/template]
