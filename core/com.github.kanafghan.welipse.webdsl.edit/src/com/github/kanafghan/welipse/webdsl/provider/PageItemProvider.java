@@ -103,6 +103,8 @@ public class PageItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(WebDSLPackage.Literals.PAGE__ELEMENTS);
+			childrenFeatures.add(WebDSLPackage.Literals.PAGE__PARAMETERS);
+			childrenFeatures.add(WebDSLPackage.Literals.PAGE__VARIABLES);
 		}
 		return childrenFeatures;
 	}
@@ -161,6 +163,8 @@ public class PageItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case WebDSLPackage.PAGE__ELEMENTS:
+			case WebDSLPackage.PAGE__PARAMETERS:
+			case WebDSLPackage.PAGE__VARIABLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -186,12 +190,12 @@ public class PageItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(WebDSLPackage.Literals.PAGE__ELEMENTS,
-				 WebDSLFactory.eINSTANCE.createStaticText()));
+				 WebDSLFactory.eINSTANCE.createText()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(WebDSLPackage.Literals.PAGE__ELEMENTS,
-				 WebDSLFactory.eINSTANCE.createStaticImage()));
+				 WebDSLFactory.eINSTANCE.createImage()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -205,13 +209,13 @@ public class PageItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.PAGE__ELEMENTS,
-				 WebDSLFactory.eINSTANCE.createDynamicText()));
+				(WebDSLPackage.Literals.PAGE__PARAMETERS,
+				 WebDSLFactory.eINSTANCE.createParameter()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.PAGE__ELEMENTS,
-				 WebDSLFactory.eINSTANCE.createDynamicImage()));
+				(WebDSLPackage.Literals.PAGE__VARIABLES,
+				 WebDSLFactory.eINSTANCE.createVariableInitialization()));
 	}
 
 	/**

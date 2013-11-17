@@ -4,6 +4,8 @@ package com.github.kanafghan.welipse.webdsl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -140,13 +142,31 @@ public interface WebDSLPackage extends EPackage {
 	int PAGE__NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__PARAMETERS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__VARIABLES = 3;
+
+	/**
 	 * The number of structural features of the '<em>Page</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_FEATURE_COUNT = 2;
+	int PAGE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Page</em>' class.
@@ -342,40 +362,31 @@ public interface WebDSLPackage extends EPackage {
 	int LIST__CLASS = PRESENTATION_ELEMENT__CLASS;
 
 	/**
-	 * The feature id for the '<em><b>Item</b></em>' attribute.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST__ITEM = PRESENTATION_ELEMENT_FEATURE_COUNT + 0;
+	int LIST__ELEMENTS = PRESENTATION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Collection Provider</b></em>' reference.
+	 * The feature id for the '<em><b>Collection</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST__COLLECTION_PROVIDER = PRESENTATION_ELEMENT_FEATURE_COUNT + 1;
+	int LIST__COLLECTION = PRESENTATION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * The feature id for the '<em><b>Iterator Variable</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST__TYPE = PRESENTATION_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST__CONTENT = PRESENTATION_ELEMENT_FEATURE_COUNT + 3;
+	int LIST__ITERATOR_VARIABLE = PRESENTATION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>List</em>' class.
@@ -384,7 +395,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_FEATURE_COUNT = PRESENTATION_ELEMENT_FEATURE_COUNT + 4;
+	int LIST_FEATURE_COUNT = PRESENTATION_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>List</em>' class.
@@ -433,13 +444,31 @@ public interface WebDSLPackage extends EPackage {
 	int TEXT__CLASS = PRESENTATION_ELEMENT__CLASS;
 
 	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__CONTENT = PRESENTATION_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Static</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__STATIC = PRESENTATION_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_FEATURE_COUNT = PRESENTATION_ELEMENT_FEATURE_COUNT + 0;
+	int TEXT_FEATURE_COUNT = PRESENTATION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Text</em>' class.
@@ -488,13 +517,31 @@ public interface WebDSLPackage extends EPackage {
 	int IMAGE__CLASS = PRESENTATION_ELEMENT__CLASS;
 
 	/**
-	 * The feature id for the '<em><b>Is URL</b></em>' attribute.
+	 * The feature id for the '<em><b>Referenced</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE__IS_URL = PRESENTATION_ELEMENT_FEATURE_COUNT + 0;
+	int IMAGE__REFERENCED = PRESENTATION_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__SOURCE = PRESENTATION_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Static</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__STATIC = PRESENTATION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Image</em>' class.
@@ -503,7 +550,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE_FEATURE_COUNT = PRESENTATION_ELEMENT_FEATURE_COUNT + 1;
+	int IMAGE_FEATURE_COUNT = PRESENTATION_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Image</em>' class.
@@ -515,143 +562,6 @@ public interface WebDSLPackage extends EPackage {
 	int IMAGE_OPERATION_COUNT = PRESENTATION_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.StaticTextImpl <em>Static Text</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.github.kanafghan.welipse.webdsl.impl.StaticTextImpl
-	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStaticText()
-	 * @generated
-	 */
-	int STATIC_TEXT = 8;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_TEXT__NAME = TEXT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Page</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_TEXT__PAGE = TEXT__PAGE;
-
-	/**
-	 * The feature id for the '<em><b>Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_TEXT__CLASS = TEXT__CLASS;
-
-	/**
-	 * The feature id for the '<em><b>Content</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_TEXT__CONTENT = TEXT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Static Text</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_TEXT_FEATURE_COUNT = TEXT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Static Text</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_TEXT_OPERATION_COUNT = TEXT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.StaticImageImpl <em>Static Image</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.github.kanafghan.welipse.webdsl.impl.StaticImageImpl
-	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStaticImage()
-	 * @generated
-	 */
-	int STATIC_IMAGE = 9;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_IMAGE__NAME = IMAGE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Page</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_IMAGE__PAGE = IMAGE__PAGE;
-
-	/**
-	 * The feature id for the '<em><b>Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_IMAGE__CLASS = IMAGE__CLASS;
-
-	/**
-	 * The feature id for the '<em><b>Is URL</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_IMAGE__IS_URL = IMAGE__IS_URL;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_IMAGE__SOURCE = IMAGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Static Image</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_IMAGE_FEATURE_COUNT = IMAGE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Static Image</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_IMAGE_OPERATION_COUNT = IMAGE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.LinkImpl <em>Link</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -659,7 +569,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getLink()
 	 * @generated
 	 */
-	int LINK = 10;
+	int LINK = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -714,7 +624,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getInternalLink()
 	 * @generated
 	 */
-	int INTERNAL_LINK = 11;
+	int INTERNAL_LINK = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -778,7 +688,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getExternalLink()
 	 * @generated
 	 */
-	int EXTERNAL_LINK = 12;
+	int EXTERNAL_LINK = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -808,13 +718,22 @@ public interface WebDSLPackage extends EPackage {
 	int EXTERNAL_LINK__CONTENT = LINK__CONTENT;
 
 	/**
+	 * The feature id for the '<em><b>Target</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_LINK__TARGET = LINK_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>External Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_LINK_FEATURE_COUNT = LINK_FEATURE_COUNT + 0;
+	int EXTERNAL_LINK_FEATURE_COUNT = LINK_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>External Link</em>' class.
@@ -825,144 +744,1028 @@ public interface WebDSLPackage extends EPackage {
 	 */
 	int EXTERNAL_LINK_OPERATION_COUNT = LINK_OPERATION_COUNT + 0;
 
-
 	/**
-	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.DynamicTextImpl <em>Dynamic Text</em>}' class.
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.ExpressionImpl <em>Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.github.kanafghan.welipse.webdsl.impl.DynamicTextImpl
-	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getDynamicText()
+	 * @see com.github.kanafghan.welipse.webdsl.impl.ExpressionImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getExpression()
 	 * @generated
 	 */
-	int DYNAMIC_TEXT = 13;
+	int EXPRESSION = 11;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DYNAMIC_TEXT__NAME = TEXT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * The number of structural features of the '<em>Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_TEXT__PAGE = TEXT__PAGE;
+	int EXPRESSION_FEATURE_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * The operation id for the '<em>Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_TEXT__CLASS = TEXT__CLASS;
+	int EXPRESSION___TYPE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Content</b></em>' reference.
+	 * The number of operations of the '<em>Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_TEXT__CONTENT = TEXT_FEATURE_COUNT + 0;
+	int EXPRESSION_OPERATION_COUNT = 1;
 
 	/**
-	 * The number of structural features of the '<em>Dynamic Text</em>' class.
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.VariableExpImpl <em>Variable Exp</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.VariableExpImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getVariableExp()
+	 * @generated
+	 */
+	int VARIABLE_EXP = 12;
+
+	/**
+	 * The feature id for the '<em><b>Var</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_TEXT_FEATURE_COUNT = TEXT_FEATURE_COUNT + 1;
+	int VARIABLE_EXP__VAR = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Dynamic Text</em>' class.
+	 * The feature id for the '<em><b>Declaration</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_TEXT_OPERATION_COUNT = TEXT_OPERATION_COUNT + 0;
-
-
-	/**
-	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.DynamicImageImpl <em>Dynamic Image</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.github.kanafghan.welipse.webdsl.impl.DynamicImageImpl
-	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getDynamicImage()
-	 * @generated
-	 */
-	int DYNAMIC_IMAGE = 14;
+	int VARIABLE_EXP__DECLARATION = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The number of structural features of the '<em>Variable Exp</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_IMAGE__NAME = IMAGE__NAME;
+	int VARIABLE_EXP_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * The operation id for the '<em>Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_IMAGE__PAGE = IMAGE__PAGE;
+	int VARIABLE_EXP___TYPE = EXPRESSION___TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * The number of operations of the '<em>Variable Exp</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_IMAGE__CLASS = IMAGE__CLASS;
+	int VARIABLE_EXP_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Is URL</b></em>' attribute.
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.OperationExpImpl <em>Operation Exp</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.OperationExpImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getOperationExp()
+	 * @generated
+	 */
+	int OPERATION_EXP = 13;
+
+	/**
+	 * The number of structural features of the '<em>Operation Exp</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_IMAGE__IS_URL = IMAGE__IS_URL;
+	int OPERATION_EXP_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * The operation id for the '<em>Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_IMAGE__SOURCE = IMAGE_FEATURE_COUNT + 0;
+	int OPERATION_EXP___TYPE = EXPRESSION___TYPE;
 
 	/**
-	 * The number of structural features of the '<em>Dynamic Image</em>' class.
+	 * The number of operations of the '<em>Operation Exp</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_IMAGE_FEATURE_COUNT = IMAGE_FEATURE_COUNT + 1;
+	int OPERATION_EXP_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Dynamic Image</em>' class.
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.VariableDeclarationImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getVariableDeclaration()
+	 * @generated
+	 */
+	int VARIABLE_DECLARATION = 14;
+
+	/**
+	 * The feature id for the '<em><b>Var</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_IMAGE_OPERATION_COUNT = IMAGE_OPERATION_COUNT + 0;
+	int VARIABLE_DECLARATION__VAR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DECLARATION__TYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Classifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DECLARATION__CLASSIFIER = 2;
+
+	/**
+	 * The number of structural features of the '<em>Variable Declaration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DECLARATION_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Variable Declaration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DECLARATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.VariableInitializationImpl <em>Variable Initialization</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.VariableInitializationImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getVariableInitialization()
+	 * @generated
+	 */
+	int VARIABLE_INITIALIZATION = 15;
+
+	/**
+	 * The feature id for the '<em><b>Var</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_INITIALIZATION__VAR = VARIABLE_DECLARATION__VAR;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_INITIALIZATION__TYPE = VARIABLE_DECLARATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Classifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_INITIALIZATION__CLASSIFIER = VARIABLE_DECLARATION__CLASSIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Init Exp</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_INITIALIZATION__INIT_EXP = VARIABLE_DECLARATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Variable Initialization</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_INITIALIZATION_FEATURE_COUNT = VARIABLE_DECLARATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Variable Initialization</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_INITIALIZATION_OPERATION_COUNT = VARIABLE_DECLARATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.PropertyOperationImpl <em>Property Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.PropertyOperationImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getPropertyOperation()
+	 * @generated
+	 */
+	int PROPERTY_OPERATION = 16;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPERATION__SOURCE = OPERATION_EXP_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPERATION__IDENTIFIER = OPERATION_EXP_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Property Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPERATION_FEATURE_COUNT = OPERATION_EXP_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPERATION___TYPE = OPERATION_EXP___TYPE;
+
+	/**
+	 * The number of operations of the '<em>Property Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPERATION_OPERATION_COUNT = OPERATION_EXP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.ConstantExpImpl <em>Constant Exp</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.ConstantExpImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getConstantExp()
+	 * @generated
+	 */
+	int CONSTANT_EXP = 17;
+
+	/**
+	 * The number of structural features of the '<em>Constant Exp</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT_EXP_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT_EXP___TYPE = EXPRESSION___TYPE;
+
+	/**
+	 * The number of operations of the '<em>Constant Exp</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT_EXP_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.BasicOperationImpl <em>Basic Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.BasicOperationImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getBasicOperation()
+	 * @generated
+	 */
+	int BASIC_OPERATION = 18;
+
+	/**
+	 * The feature id for the '<em><b>Operands</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASIC_OPERATION__OPERANDS = OPERATION_EXP_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Basic Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASIC_OPERATION_FEATURE_COUNT = OPERATION_EXP_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASIC_OPERATION___TYPE = OPERATION_EXP___TYPE;
+
+	/**
+	 * The number of operations of the '<em>Basic Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASIC_OPERATION_OPERATION_COUNT = OPERATION_EXP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.ArithmeticOperationImpl <em>Arithmetic Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.ArithmeticOperationImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getArithmeticOperation()
+	 * @generated
+	 */
+	int ARITHMETIC_OPERATION = 19;
+
+	/**
+	 * The feature id for the '<em><b>Operands</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARITHMETIC_OPERATION__OPERANDS = BASIC_OPERATION__OPERANDS;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARITHMETIC_OPERATION__OPERATOR = BASIC_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Arithmetic Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARITHMETIC_OPERATION_FEATURE_COUNT = BASIC_OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARITHMETIC_OPERATION___TYPE = BASIC_OPERATION___TYPE;
+
+	/**
+	 * The number of operations of the '<em>Arithmetic Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARITHMETIC_OPERATION_OPERATION_COUNT = BASIC_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.StructuralExpImpl <em>Structural Exp</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.StructuralExpImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStructuralExp()
+	 * @generated
+	 */
+	int STRUCTURAL_EXP = 20;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURAL_EXP__SOURCE = PROPERTY_OPERATION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURAL_EXP__IDENTIFIER = PROPERTY_OPERATION__IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Feature</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURAL_EXP__FEATURE = PROPERTY_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Structural Exp</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURAL_EXP_FEATURE_COUNT = PROPERTY_OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURAL_EXP___TYPE = PROPERTY_OPERATION___TYPE;
+
+	/**
+	 * The number of operations of the '<em>Structural Exp</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURAL_EXP_OPERATION_COUNT = PROPERTY_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.ClassifierOperationImpl <em>Classifier Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.ClassifierOperationImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getClassifierOperation()
+	 * @generated
+	 */
+	int CLASSIFIER_OPERATION = 21;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER_OPERATION__SOURCE = PROPERTY_OPERATION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER_OPERATION__IDENTIFIER = PROPERTY_OPERATION__IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Operation</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER_OPERATION__OPERATION = PROPERTY_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER_OPERATION__ARGUMENTS = PROPERTY_OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Classifier Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER_OPERATION_FEATURE_COUNT = PROPERTY_OPERATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER_OPERATION___TYPE = PROPERTY_OPERATION___TYPE;
+
+	/**
+	 * The number of operations of the '<em>Classifier Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER_OPERATION_OPERATION_COUNT = PROPERTY_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.IntegerConstantImpl <em>Integer Constant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.IntegerConstantImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getIntegerConstant()
+	 * @generated
+	 */
+	int INTEGER_CONSTANT = 22;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_CONSTANT__VALUE = CONSTANT_EXP_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Integer Constant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_CONSTANT_FEATURE_COUNT = CONSTANT_EXP_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_CONSTANT___TYPE = CONSTANT_EXP___TYPE;
+
+	/**
+	 * The number of operations of the '<em>Integer Constant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_CONSTANT_OPERATION_COUNT = CONSTANT_EXP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.StringConstantImpl <em>String Constant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.StringConstantImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStringConstant()
+	 * @generated
+	 */
+	int STRING_CONSTANT = 23;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_CONSTANT__VALUE = CONSTANT_EXP_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>String Constant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_CONSTANT_FEATURE_COUNT = CONSTANT_EXP_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_CONSTANT___TYPE = CONSTANT_EXP___TYPE;
+
+	/**
+	 * The number of operations of the '<em>String Constant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_CONSTANT_OPERATION_COUNT = CONSTANT_EXP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.ParameterImpl <em>Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.ParameterImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getParameter()
+	 * @generated
+	 */
+	int PARAMETER = 24;
+
+	/**
+	 * The feature id for the '<em><b>Var</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__VAR = VARIABLE_DECLARATION__VAR;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__TYPE = VARIABLE_DECLARATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Classifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__CLASSIFIER = VARIABLE_DECLARATION__CLASSIFIER;
+
+	/**
+	 * The number of structural features of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FEATURE_COUNT = VARIABLE_DECLARATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_OPERATION_COUNT = VARIABLE_DECLARATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.StringOperationImpl <em>String Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.StringOperationImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStringOperation()
+	 * @generated
+	 */
+	int STRING_OPERATION = 25;
+
+	/**
+	 * The feature id for the '<em><b>Operands</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_OPERATION__OPERANDS = BASIC_OPERATION__OPERANDS;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_OPERATION__OPERATOR = BASIC_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>String Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_OPERATION_FEATURE_COUNT = BASIC_OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_OPERATION___TYPE = BASIC_OPERATION___TYPE;
+
+	/**
+	 * The number of operations of the '<em>String Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_OPERATION_OPERATION_COUNT = BASIC_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.BooleanConstantImpl <em>Boolean Constant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.BooleanConstantImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getBooleanConstant()
+	 * @generated
+	 */
+	int BOOLEAN_CONSTANT = 26;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_CONSTANT__VALUE = CONSTANT_EXP_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Boolean Constant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_CONSTANT_FEATURE_COUNT = CONSTANT_EXP_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_CONSTANT___TYPE = CONSTANT_EXP___TYPE;
+
+	/**
+	 * The number of operations of the '<em>Boolean Constant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_CONSTANT_OPERATION_COUNT = CONSTANT_EXP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.BooleanOperationImpl <em>Boolean Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.BooleanOperationImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getBooleanOperation()
+	 * @generated
+	 */
+	int BOOLEAN_OPERATION = 27;
+
+	/**
+	 * The feature id for the '<em><b>Operands</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATION__OPERANDS = BASIC_OPERATION__OPERANDS;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATION__OPERATOR = BASIC_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Boolean Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATION_FEATURE_COUNT = BASIC_OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATION___TYPE = BASIC_OPERATION___TYPE;
+
+	/**
+	 * The number of operations of the '<em>Boolean Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATION_OPERATION_COUNT = BASIC_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.ComparisonOperationImpl <em>Comparison Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.ComparisonOperationImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getComparisonOperation()
+	 * @generated
+	 */
+	int COMPARISON_OPERATION = 28;
+
+	/**
+	 * The feature id for the '<em><b>Operands</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPERATION__OPERANDS = BASIC_OPERATION__OPERANDS;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPERATION__OPERATOR = BASIC_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Comparison Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPERATION_FEATURE_COUNT = BASIC_OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPERATION___TYPE = BASIC_OPERATION___TYPE;
+
+	/**
+	 * The number of operations of the '<em>Comparison Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPERATION_OPERATION_COUNT = BASIC_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.RealConstantImpl <em>Real Constant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.RealConstantImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getRealConstant()
+	 * @generated
+	 */
+	int REAL_CONSTANT = 29;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REAL_CONSTANT__VALUE = CONSTANT_EXP_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Real Constant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REAL_CONSTANT_FEATURE_COUNT = CONSTANT_EXP_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REAL_CONSTANT___TYPE = CONSTANT_EXP___TYPE;
+
+	/**
+	 * The number of operations of the '<em>Real Constant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REAL_CONSTANT_OPERATION_COUNT = CONSTANT_EXP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.ArithmeticOperator <em>Arithmetic Operator</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.ArithmeticOperator
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getArithmeticOperator()
+	 * @generated
+	 */
+	int ARITHMETIC_OPERATOR = 30;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.StringOperator <em>String Operator</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.StringOperator
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStringOperator()
+	 * @generated
+	 */
+	int STRING_OPERATOR = 31;
+
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.BooleanOperator <em>Boolean Operator</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.BooleanOperator
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getBooleanOperator()
+	 * @generated
+	 */
+	int BOOLEAN_OPERATOR = 32;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.ComparisonOperator <em>Comparison Operator</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.ComparisonOperator
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getComparisonOperator()
+	 * @generated
+	 */
+	int COMPARISON_OPERATOR = 33;
 
 
 	/**
@@ -1041,6 +1844,28 @@ public interface WebDSLPackage extends EPackage {
 	EAttribute getPage_Name();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.github.kanafghan.welipse.webdsl.Page#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Page#getParameters()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EReference getPage_Parameters();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.github.kanafghan.welipse.webdsl.Page#getVariables <em>Variables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Variables</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Page#getVariables()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EReference getPage_Variables();
+
+	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.PageElement <em>Page Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1114,48 +1939,37 @@ public interface WebDSLPackage extends EPackage {
 	EClass getList();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.List#getItem <em>Item</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.github.kanafghan.welipse.webdsl.List#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Item</em>'.
-	 * @see com.github.kanafghan.welipse.webdsl.List#getItem()
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.List#getElements()
 	 * @see #getList()
 	 * @generated
 	 */
-	EAttribute getList_Item();
+	EReference getList_Elements();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.webdsl.List#getCollectionProvider <em>Collection Provider</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.List#getCollection <em>Collection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Collection Provider</em>'.
-	 * @see com.github.kanafghan.welipse.webdsl.List#getCollectionProvider()
+	 * @return the meta object for the containment reference '<em>Collection</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.List#getCollection()
 	 * @see #getList()
 	 * @generated
 	 */
-	EReference getList_CollectionProvider();
+	EReference getList_Collection();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.webdsl.List#getType <em>Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.List#getIteratorVariable <em>Iterator Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see com.github.kanafghan.welipse.webdsl.List#getType()
+	 * @return the meta object for the containment reference '<em>Iterator Variable</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.List#getIteratorVariable()
 	 * @see #getList()
 	 * @generated
 	 */
-	EReference getList_Type();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.github.kanafghan.welipse.webdsl.List#getContent <em>Content</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Content</em>'.
-	 * @see com.github.kanafghan.welipse.webdsl.List#getContent()
-	 * @see #getList()
-	 * @generated
-	 */
-	EReference getList_Content();
+	EReference getList_IteratorVariable();
 
 	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Text <em>Text</em>}'.
@@ -1168,6 +1982,28 @@ public interface WebDSLPackage extends EPackage {
 	EClass getText();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.Text#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Content</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Text#getContent()
+	 * @see #getText()
+	 * @generated
+	 */
+	EReference getText_Content();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.Text#isStatic <em>Static</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Static</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Text#isStatic()
+	 * @see #getText()
+	 * @generated
+	 */
+	EAttribute getText_Static();
+
+	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Image <em>Image</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1178,57 +2014,37 @@ public interface WebDSLPackage extends EPackage {
 	EClass getImage();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.Image#isIsURL <em>Is URL</em>}'.
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.Image#isReferenced <em>Referenced</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is URL</em>'.
-	 * @see com.github.kanafghan.welipse.webdsl.Image#isIsURL()
+	 * @return the meta object for the attribute '<em>Referenced</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Image#isReferenced()
 	 * @see #getImage()
 	 * @generated
 	 */
-	EAttribute getImage_IsURL();
+	EAttribute getImage_Referenced();
 
 	/**
-	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.StaticText <em>Static Text</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.Image#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Static Text</em>'.
-	 * @see com.github.kanafghan.welipse.webdsl.StaticText
+	 * @return the meta object for the containment reference '<em>Source</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Image#getSource()
+	 * @see #getImage()
 	 * @generated
 	 */
-	EClass getStaticText();
+	EReference getImage_Source();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.StaticText#getContent <em>Content</em>}'.
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.Image#isStatic <em>Static</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Content</em>'.
-	 * @see com.github.kanafghan.welipse.webdsl.StaticText#getContent()
-	 * @see #getStaticText()
+	 * @return the meta object for the attribute '<em>Static</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Image#isStatic()
+	 * @see #getImage()
 	 * @generated
 	 */
-	EAttribute getStaticText_Content();
-
-	/**
-	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.StaticImage <em>Static Image</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Static Image</em>'.
-	 * @see com.github.kanafghan.welipse.webdsl.StaticImage
-	 * @generated
-	 */
-	EClass getStaticImage();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.StaticImage#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Source</em>'.
-	 * @see com.github.kanafghan.welipse.webdsl.StaticImage#getSource()
-	 * @see #getStaticImage()
-	 * @generated
-	 */
-	EAttribute getStaticImage_Source();
+	EAttribute getImage_Static();
 
 	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Link <em>Link</em>}'.
@@ -1283,46 +2099,475 @@ public interface WebDSLPackage extends EPackage {
 	EClass getExternalLink();
 
 	/**
-	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.DynamicText <em>Dynamic Text</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.ExternalLink#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Dynamic Text</em>'.
-	 * @see com.github.kanafghan.welipse.webdsl.DynamicText
+	 * @return the meta object for the containment reference '<em>Target</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ExternalLink#getTarget()
+	 * @see #getExternalLink()
 	 * @generated
 	 */
-	EClass getDynamicText();
+	EReference getExternalLink_Target();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.webdsl.DynamicText#getContent <em>Content</em>}'.
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Expression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Content</em>'.
-	 * @see com.github.kanafghan.welipse.webdsl.DynamicText#getContent()
-	 * @see #getDynamicText()
+	 * @return the meta object for class '<em>Expression</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Expression
 	 * @generated
 	 */
-	EReference getDynamicText_Content();
+	EClass getExpression();
 
 	/**
-	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.DynamicImage <em>Dynamic Image</em>}'.
+	 * Returns the meta object for the '{@link com.github.kanafghan.welipse.webdsl.Expression#type() <em>Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Dynamic Image</em>'.
-	 * @see com.github.kanafghan.welipse.webdsl.DynamicImage
+	 * @return the meta object for the '<em>Type</em>' operation.
+	 * @see com.github.kanafghan.welipse.webdsl.Expression#type()
 	 * @generated
 	 */
-	EClass getDynamicImage();
+	EOperation getExpression__Type();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.webdsl.DynamicImage#getSource <em>Source</em>}'.
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.VariableExp <em>Variable Exp</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see com.github.kanafghan.welipse.webdsl.DynamicImage#getSource()
-	 * @see #getDynamicImage()
+	 * @return the meta object for class '<em>Variable Exp</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.VariableExp
 	 * @generated
 	 */
-	EReference getDynamicImage_Source();
+	EClass getVariableExp();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.VariableExp#getVar <em>Var</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Var</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.VariableExp#getVar()
+	 * @see #getVariableExp()
+	 * @generated
+	 */
+	EAttribute getVariableExp_Var();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.webdsl.VariableExp#getDeclaration <em>Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Declaration</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.VariableExp#getDeclaration()
+	 * @see #getVariableExp()
+	 * @generated
+	 */
+	EReference getVariableExp_Declaration();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.OperationExp <em>Operation Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operation Exp</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.OperationExp
+	 * @generated
+	 */
+	EClass getOperationExp();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.VariableDeclaration <em>Variable Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variable Declaration</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.VariableDeclaration
+	 * @generated
+	 */
+	EClass getVariableDeclaration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.VariableDeclaration#getVar <em>Var</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Var</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.VariableDeclaration#getVar()
+	 * @see #getVariableDeclaration()
+	 * @generated
+	 */
+	EAttribute getVariableDeclaration_Var();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.webdsl.VariableDeclaration#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.VariableDeclaration#getType()
+	 * @see #getVariableDeclaration()
+	 * @generated
+	 */
+	EReference getVariableDeclaration_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.VariableDeclaration#getClassifier <em>Classifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Classifier</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.VariableDeclaration#getClassifier()
+	 * @see #getVariableDeclaration()
+	 * @generated
+	 */
+	EAttribute getVariableDeclaration_Classifier();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.VariableInitialization <em>Variable Initialization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variable Initialization</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.VariableInitialization
+	 * @generated
+	 */
+	EClass getVariableInitialization();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.VariableInitialization#getInitExp <em>Init Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Init Exp</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.VariableInitialization#getInitExp()
+	 * @see #getVariableInitialization()
+	 * @generated
+	 */
+	EReference getVariableInitialization_InitExp();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.PropertyOperation <em>Property Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Property Operation</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.PropertyOperation
+	 * @generated
+	 */
+	EClass getPropertyOperation();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.PropertyOperation#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Source</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.PropertyOperation#getSource()
+	 * @see #getPropertyOperation()
+	 * @generated
+	 */
+	EReference getPropertyOperation_Source();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.PropertyOperation#getIdentifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Identifier</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.PropertyOperation#getIdentifier()
+	 * @see #getPropertyOperation()
+	 * @generated
+	 */
+	EAttribute getPropertyOperation_Identifier();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.ConstantExp <em>Constant Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Constant Exp</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ConstantExp
+	 * @generated
+	 */
+	EClass getConstantExp();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.BasicOperation <em>Basic Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Basic Operation</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.BasicOperation
+	 * @generated
+	 */
+	EClass getBasicOperation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.github.kanafghan.welipse.webdsl.BasicOperation#getOperands <em>Operands</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operands</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.BasicOperation#getOperands()
+	 * @see #getBasicOperation()
+	 * @generated
+	 */
+	EReference getBasicOperation_Operands();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.ArithmeticOperation <em>Arithmetic Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Arithmetic Operation</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ArithmeticOperation
+	 * @generated
+	 */
+	EClass getArithmeticOperation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.ArithmeticOperation#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ArithmeticOperation#getOperator()
+	 * @see #getArithmeticOperation()
+	 * @generated
+	 */
+	EAttribute getArithmeticOperation_Operator();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.StructuralExp <em>Structural Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Structural Exp</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.StructuralExp
+	 * @generated
+	 */
+	EClass getStructuralExp();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.webdsl.StructuralExp#getFeature <em>Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Feature</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.StructuralExp#getFeature()
+	 * @see #getStructuralExp()
+	 * @generated
+	 */
+	EReference getStructuralExp_Feature();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.ClassifierOperation <em>Classifier Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Classifier Operation</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ClassifierOperation
+	 * @generated
+	 */
+	EClass getClassifierOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.webdsl.ClassifierOperation#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Operation</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ClassifierOperation#getOperation()
+	 * @see #getClassifierOperation()
+	 * @generated
+	 */
+	EReference getClassifierOperation_Operation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.github.kanafghan.welipse.webdsl.ClassifierOperation#getArguments <em>Arguments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Arguments</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ClassifierOperation#getArguments()
+	 * @see #getClassifierOperation()
+	 * @generated
+	 */
+	EReference getClassifierOperation_Arguments();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.IntegerConstant <em>Integer Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integer Constant</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.IntegerConstant
+	 * @generated
+	 */
+	EClass getIntegerConstant();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.IntegerConstant#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.IntegerConstant#getValue()
+	 * @see #getIntegerConstant()
+	 * @generated
+	 */
+	EAttribute getIntegerConstant_Value();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.StringConstant <em>String Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Constant</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.StringConstant
+	 * @generated
+	 */
+	EClass getStringConstant();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.StringConstant#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.StringConstant#getValue()
+	 * @see #getStringConstant()
+	 * @generated
+	 */
+	EAttribute getStringConstant_Value();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Parameter
+	 * @generated
+	 */
+	EClass getParameter();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.StringOperation <em>String Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Operation</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.StringOperation
+	 * @generated
+	 */
+	EClass getStringOperation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.StringOperation#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.StringOperation#getOperator()
+	 * @see #getStringOperation()
+	 * @generated
+	 */
+	EAttribute getStringOperation_Operator();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.BooleanConstant <em>Boolean Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Constant</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.BooleanConstant
+	 * @generated
+	 */
+	EClass getBooleanConstant();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.BooleanConstant#isValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.BooleanConstant#isValue()
+	 * @see #getBooleanConstant()
+	 * @generated
+	 */
+	EAttribute getBooleanConstant_Value();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.BooleanOperation <em>Boolean Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Operation</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.BooleanOperation
+	 * @generated
+	 */
+	EClass getBooleanOperation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.BooleanOperation#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.BooleanOperation#getOperator()
+	 * @see #getBooleanOperation()
+	 * @generated
+	 */
+	EAttribute getBooleanOperation_Operator();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.ComparisonOperation <em>Comparison Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Comparison Operation</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ComparisonOperation
+	 * @generated
+	 */
+	EClass getComparisonOperation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.ComparisonOperation#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ComparisonOperation#getOperator()
+	 * @see #getComparisonOperation()
+	 * @generated
+	 */
+	EAttribute getComparisonOperation_Operator();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.RealConstant <em>Real Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Real Constant</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.RealConstant
+	 * @generated
+	 */
+	EClass getRealConstant();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.RealConstant#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.RealConstant#getValue()
+	 * @see #getRealConstant()
+	 * @generated
+	 */
+	EAttribute getRealConstant_Value();
+
+	/**
+	 * Returns the meta object for enum '{@link com.github.kanafghan.welipse.webdsl.ArithmeticOperator <em>Arithmetic Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Arithmetic Operator</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ArithmeticOperator
+	 * @generated
+	 */
+	EEnum getArithmeticOperator();
+
+	/**
+	 * Returns the meta object for enum '{@link com.github.kanafghan.welipse.webdsl.StringOperator <em>String Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>String Operator</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.StringOperator
+	 * @generated
+	 */
+	EEnum getStringOperator();
+
+	/**
+	 * Returns the meta object for enum '{@link com.github.kanafghan.welipse.webdsl.BooleanOperator <em>Boolean Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Boolean Operator</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.BooleanOperator
+	 * @generated
+	 */
+	EEnum getBooleanOperator();
+
+	/**
+	 * Returns the meta object for enum '{@link com.github.kanafghan.welipse.webdsl.ComparisonOperator <em>Comparison Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Comparison Operator</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ComparisonOperator
+	 * @generated
+	 */
+	EEnum getComparisonOperator();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1408,6 +2653,22 @@ public interface WebDSLPackage extends EPackage {
 		EAttribute PAGE__NAME = eINSTANCE.getPage_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PAGE__PARAMETERS = eINSTANCE.getPage_Parameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PAGE__VARIABLES = eINSTANCE.getPage_Variables();
+
+		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.PageElementImpl <em>Page Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1472,36 +2733,28 @@ public interface WebDSLPackage extends EPackage {
 		EClass LIST = eINSTANCE.getList();
 
 		/**
-		 * The meta object literal for the '<em><b>Item</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LIST__ITEM = eINSTANCE.getList_Item();
+		EReference LIST__ELEMENTS = eINSTANCE.getList_Elements();
 
 		/**
-		 * The meta object literal for the '<em><b>Collection Provider</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Collection</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LIST__COLLECTION_PROVIDER = eINSTANCE.getList_CollectionProvider();
+		EReference LIST__COLLECTION = eINSTANCE.getList_Collection();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Iterator Variable</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LIST__TYPE = eINSTANCE.getList_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LIST__CONTENT = eINSTANCE.getList_Content();
+		EReference LIST__ITERATOR_VARIABLE = eINSTANCE.getList_IteratorVariable();
 
 		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.TextImpl <em>Text</em>}' class.
@@ -1514,6 +2767,22 @@ public interface WebDSLPackage extends EPackage {
 		EClass TEXT = eINSTANCE.getText();
 
 		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEXT__CONTENT = eINSTANCE.getText_Content();
+
+		/**
+		 * The meta object literal for the '<em><b>Static</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT__STATIC = eINSTANCE.getText_Static();
+
+		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ImageImpl <em>Image</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1524,48 +2793,28 @@ public interface WebDSLPackage extends EPackage {
 		EClass IMAGE = eINSTANCE.getImage();
 
 		/**
-		 * The meta object literal for the '<em><b>Is URL</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Referenced</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute IMAGE__IS_URL = eINSTANCE.getImage_IsURL();
+		EAttribute IMAGE__REFERENCED = eINSTANCE.getImage_Referenced();
 
 		/**
-		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.StaticTextImpl <em>Static Text</em>}' class.
+		 * The meta object literal for the '<em><b>Source</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.github.kanafghan.welipse.webdsl.impl.StaticTextImpl
-		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStaticText()
 		 * @generated
 		 */
-		EClass STATIC_TEXT = eINSTANCE.getStaticText();
+		EReference IMAGE__SOURCE = eINSTANCE.getImage_Source();
 
 		/**
-		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Static</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STATIC_TEXT__CONTENT = eINSTANCE.getStaticText_Content();
-
-		/**
-		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.StaticImageImpl <em>Static Image</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.github.kanafghan.welipse.webdsl.impl.StaticImageImpl
-		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStaticImage()
-		 * @generated
-		 */
-		EClass STATIC_IMAGE = eINSTANCE.getStaticImage();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STATIC_IMAGE__SOURCE = eINSTANCE.getStaticImage_Source();
+		EAttribute IMAGE__STATIC = eINSTANCE.getImage_Static();
 
 		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.LinkImpl <em>Link</em>}' class.
@@ -1614,40 +2863,410 @@ public interface WebDSLPackage extends EPackage {
 		EClass EXTERNAL_LINK = eINSTANCE.getExternalLink();
 
 		/**
-		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.DynamicTextImpl <em>Dynamic Text</em>}' class.
+		 * The meta object literal for the '<em><b>Target</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.github.kanafghan.welipse.webdsl.impl.DynamicTextImpl
-		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getDynamicText()
 		 * @generated
 		 */
-		EClass DYNAMIC_TEXT = eINSTANCE.getDynamicText();
+		EReference EXTERNAL_LINK__TARGET = eINSTANCE.getExternalLink_Target();
 
 		/**
-		 * The meta object literal for the '<em><b>Content</b></em>' reference feature.
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ExpressionImpl <em>Expression</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.ExpressionImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getExpression()
 		 * @generated
 		 */
-		EReference DYNAMIC_TEXT__CONTENT = eINSTANCE.getDynamicText_Content();
+		EClass EXPRESSION = eINSTANCE.getExpression();
 
 		/**
-		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.DynamicImageImpl <em>Dynamic Image</em>}' class.
+		 * The meta object literal for the '<em><b>Type</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.github.kanafghan.welipse.webdsl.impl.DynamicImageImpl
-		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getDynamicImage()
 		 * @generated
 		 */
-		EClass DYNAMIC_IMAGE = eINSTANCE.getDynamicImage();
+		EOperation EXPRESSION___TYPE = eINSTANCE.getExpression__Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.VariableExpImpl <em>Variable Exp</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.VariableExpImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getVariableExp()
+		 * @generated
+		 */
+		EClass VARIABLE_EXP = eINSTANCE.getVariableExp();
+
+		/**
+		 * The meta object literal for the '<em><b>Var</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DYNAMIC_IMAGE__SOURCE = eINSTANCE.getDynamicImage_Source();
+		EAttribute VARIABLE_EXP__VAR = eINSTANCE.getVariableExp_Var();
+
+		/**
+		 * The meta object literal for the '<em><b>Declaration</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_EXP__DECLARATION = eINSTANCE.getVariableExp_Declaration();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.OperationExpImpl <em>Operation Exp</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.OperationExpImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getOperationExp()
+		 * @generated
+		 */
+		EClass OPERATION_EXP = eINSTANCE.getOperationExp();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.VariableDeclarationImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getVariableDeclaration()
+		 * @generated
+		 */
+		EClass VARIABLE_DECLARATION = eINSTANCE.getVariableDeclaration();
+
+		/**
+		 * The meta object literal for the '<em><b>Var</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VARIABLE_DECLARATION__VAR = eINSTANCE.getVariableDeclaration_Var();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_DECLARATION__TYPE = eINSTANCE.getVariableDeclaration_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Classifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VARIABLE_DECLARATION__CLASSIFIER = eINSTANCE.getVariableDeclaration_Classifier();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.VariableInitializationImpl <em>Variable Initialization</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.VariableInitializationImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getVariableInitialization()
+		 * @generated
+		 */
+		EClass VARIABLE_INITIALIZATION = eINSTANCE.getVariableInitialization();
+
+		/**
+		 * The meta object literal for the '<em><b>Init Exp</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_INITIALIZATION__INIT_EXP = eINSTANCE.getVariableInitialization_InitExp();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.PropertyOperationImpl <em>Property Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.PropertyOperationImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getPropertyOperation()
+		 * @generated
+		 */
+		EClass PROPERTY_OPERATION = eINSTANCE.getPropertyOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY_OPERATION__SOURCE = eINSTANCE.getPropertyOperation_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY_OPERATION__IDENTIFIER = eINSTANCE.getPropertyOperation_Identifier();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ConstantExpImpl <em>Constant Exp</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.ConstantExpImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getConstantExp()
+		 * @generated
+		 */
+		EClass CONSTANT_EXP = eINSTANCE.getConstantExp();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.BasicOperationImpl <em>Basic Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.BasicOperationImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getBasicOperation()
+		 * @generated
+		 */
+		EClass BASIC_OPERATION = eINSTANCE.getBasicOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Operands</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BASIC_OPERATION__OPERANDS = eINSTANCE.getBasicOperation_Operands();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ArithmeticOperationImpl <em>Arithmetic Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.ArithmeticOperationImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getArithmeticOperation()
+		 * @generated
+		 */
+		EClass ARITHMETIC_OPERATION = eINSTANCE.getArithmeticOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARITHMETIC_OPERATION__OPERATOR = eINSTANCE.getArithmeticOperation_Operator();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.StructuralExpImpl <em>Structural Exp</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.StructuralExpImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStructuralExp()
+		 * @generated
+		 */
+		EClass STRUCTURAL_EXP = eINSTANCE.getStructuralExp();
+
+		/**
+		 * The meta object literal for the '<em><b>Feature</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRUCTURAL_EXP__FEATURE = eINSTANCE.getStructuralExp_Feature();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ClassifierOperationImpl <em>Classifier Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.ClassifierOperationImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getClassifierOperation()
+		 * @generated
+		 */
+		EClass CLASSIFIER_OPERATION = eINSTANCE.getClassifierOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASSIFIER_OPERATION__OPERATION = eINSTANCE.getClassifierOperation_Operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Arguments</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASSIFIER_OPERATION__ARGUMENTS = eINSTANCE.getClassifierOperation_Arguments();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.IntegerConstantImpl <em>Integer Constant</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.IntegerConstantImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getIntegerConstant()
+		 * @generated
+		 */
+		EClass INTEGER_CONSTANT = eINSTANCE.getIntegerConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTEGER_CONSTANT__VALUE = eINSTANCE.getIntegerConstant_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.StringConstantImpl <em>String Constant</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.StringConstantImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStringConstant()
+		 * @generated
+		 */
+		EClass STRING_CONSTANT = eINSTANCE.getStringConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_CONSTANT__VALUE = eINSTANCE.getStringConstant_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ParameterImpl <em>Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.ParameterImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getParameter()
+		 * @generated
+		 */
+		EClass PARAMETER = eINSTANCE.getParameter();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.StringOperationImpl <em>String Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.StringOperationImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStringOperation()
+		 * @generated
+		 */
+		EClass STRING_OPERATION = eINSTANCE.getStringOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_OPERATION__OPERATOR = eINSTANCE.getStringOperation_Operator();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.BooleanConstantImpl <em>Boolean Constant</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.BooleanConstantImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getBooleanConstant()
+		 * @generated
+		 */
+		EClass BOOLEAN_CONSTANT = eINSTANCE.getBooleanConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOLEAN_CONSTANT__VALUE = eINSTANCE.getBooleanConstant_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.BooleanOperationImpl <em>Boolean Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.BooleanOperationImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getBooleanOperation()
+		 * @generated
+		 */
+		EClass BOOLEAN_OPERATION = eINSTANCE.getBooleanOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOLEAN_OPERATION__OPERATOR = eINSTANCE.getBooleanOperation_Operator();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ComparisonOperationImpl <em>Comparison Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.ComparisonOperationImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getComparisonOperation()
+		 * @generated
+		 */
+		EClass COMPARISON_OPERATION = eINSTANCE.getComparisonOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPARISON_OPERATION__OPERATOR = eINSTANCE.getComparisonOperation_Operator();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.RealConstantImpl <em>Real Constant</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.RealConstantImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getRealConstant()
+		 * @generated
+		 */
+		EClass REAL_CONSTANT = eINSTANCE.getRealConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REAL_CONSTANT__VALUE = eINSTANCE.getRealConstant_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.ArithmeticOperator <em>Arithmetic Operator</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.ArithmeticOperator
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getArithmeticOperator()
+		 * @generated
+		 */
+		EEnum ARITHMETIC_OPERATOR = eINSTANCE.getArithmeticOperator();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.StringOperator <em>String Operator</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.StringOperator
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStringOperator()
+		 * @generated
+		 */
+		EEnum STRING_OPERATOR = eINSTANCE.getStringOperator();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.BooleanOperator <em>Boolean Operator</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.BooleanOperator
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getBooleanOperator()
+		 * @generated
+		 */
+		EEnum BOOLEAN_OPERATOR = eINSTANCE.getBooleanOperator();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.ComparisonOperator <em>Comparison Operator</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.ComparisonOperator
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getComparisonOperator()
+		 * @generated
+		 */
+		EEnum COMPARISON_OPERATOR = eINSTANCE.getComparisonOperator();
 
 	}
 

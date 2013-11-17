@@ -14,14 +14,12 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -59,77 +57,8 @@ public class ListItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addItemPropertyDescriptor(object);
-			addCollectionProviderPropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Item feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addItemPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_List_item_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_List_item_feature", "_UI_List_type"),
-				 WebDSLPackage.Literals.LIST__ITEM,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Collection Provider feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCollectionProviderPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_List_collectionProvider_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_List_collectionProvider_feature", "_UI_List_type"),
-				 WebDSLPackage.Literals.LIST__COLLECTION_PROVIDER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_List_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_List_type_feature", "_UI_List_type"),
-				 WebDSLPackage.Literals.LIST__TYPE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -144,7 +73,9 @@ public class ListItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(WebDSLPackage.Literals.LIST__CONTENT);
+			childrenFeatures.add(WebDSLPackage.Literals.LIST__ELEMENTS);
+			childrenFeatures.add(WebDSLPackage.Literals.LIST__COLLECTION);
+			childrenFeatures.add(WebDSLPackage.Literals.LIST__ITERATOR_VARIABLE);
 		}
 		return childrenFeatures;
 	}
@@ -199,10 +130,9 @@ public class ListItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(com.github.kanafghan.welipse.webdsl.List.class)) {
-			case WebDSLPackage.LIST__ITEM:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case WebDSLPackage.LIST__CONTENT:
+			case WebDSLPackage.LIST__ELEMENTS:
+			case WebDSLPackage.LIST__COLLECTION:
+			case WebDSLPackage.LIST__ITERATOR_VARIABLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -222,38 +152,93 @@ public class ListItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LIST__CONTENT,
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
 				 WebDSLFactory.eINSTANCE.createList()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LIST__CONTENT,
-				 WebDSLFactory.eINSTANCE.createStaticText()));
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createText()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LIST__CONTENT,
-				 WebDSLFactory.eINSTANCE.createStaticImage()));
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createImage()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LIST__CONTENT,
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
 				 WebDSLFactory.eINSTANCE.createInternalLink()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LIST__CONTENT,
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
 				 WebDSLFactory.eINSTANCE.createExternalLink()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LIST__CONTENT,
-				 WebDSLFactory.eINSTANCE.createDynamicText()));
+				(WebDSLPackage.Literals.LIST__COLLECTION,
+				 WebDSLFactory.eINSTANCE.createVariableExp()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LIST__CONTENT,
-				 WebDSLFactory.eINSTANCE.createDynamicImage()));
+				(WebDSLPackage.Literals.LIST__COLLECTION,
+				 WebDSLFactory.eINSTANCE.createArithmeticOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__COLLECTION,
+				 WebDSLFactory.eINSTANCE.createStructuralExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__COLLECTION,
+				 WebDSLFactory.eINSTANCE.createClassifierOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__COLLECTION,
+				 WebDSLFactory.eINSTANCE.createIntegerConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__COLLECTION,
+				 WebDSLFactory.eINSTANCE.createStringConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__COLLECTION,
+				 WebDSLFactory.eINSTANCE.createStringOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__COLLECTION,
+				 WebDSLFactory.eINSTANCE.createBooleanConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__COLLECTION,
+				 WebDSLFactory.eINSTANCE.createBooleanOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__COLLECTION,
+				 WebDSLFactory.eINSTANCE.createComparisonOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__COLLECTION,
+				 WebDSLFactory.eINSTANCE.createRealConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__ITERATOR_VARIABLE,
+				 WebDSLFactory.eINSTANCE.createVariableInitialization()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__ITERATOR_VARIABLE,
+				 WebDSLFactory.eINSTANCE.createParameter()));
 	}
 
 }

@@ -20,7 +20,6 @@ package com.github.kanafghan.welipse.webdsl;
  * @generated
  */
 public interface PresentationElement extends PageElement {
-
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -46,4 +45,5 @@ public interface PresentationElement extends PageElement {
 	 * @generated
 	 */
 	void setClass(String value);
+
 } // PresentationElement

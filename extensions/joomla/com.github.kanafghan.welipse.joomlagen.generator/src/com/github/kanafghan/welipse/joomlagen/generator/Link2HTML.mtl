@@ -29,7 +29,7 @@
 [/template]
 
 [template public buildURL(link : Link, genModel : JoomlaGenModel) post (trim())]
-[if (link.oclIsKindOf(InternalLink))]?option=[getComponent(genModel)/]&view=[link.oclAsType(InternalLink).target.name.toLower()/][if (link.content.oclIsKindOf(DynamicText))]&id=<?php echo $this->[getObjectName(link.content.oclAsType(DynamicText).content.oclAsType(ETypedElement))/]->[getObjectAttributeName(link.content.oclAsType(DynamicText).content.oclAsType(ETypedElement))/][/if][/if]
+[if (link.oclIsKindOf(InternalLink))]?option=[getComponent(genModel)/]&view=[link.oclAsType(InternalLink).target.name.toLower()/][if (link.content.oclIsKindOf(Text))]&id=<?php echo $this->[getObjectName(link.content.oclAsType(Text).content.oclAsType(ETypedElement))/]->[getObjectAttributeName(link.content.oclAsType(Text).content.oclAsType(ETypedElement))/][/if][/if]
 [/template]
 
 [template public generateLinkContent(element : PageElement, genModel : JoomlaGenModel) ]

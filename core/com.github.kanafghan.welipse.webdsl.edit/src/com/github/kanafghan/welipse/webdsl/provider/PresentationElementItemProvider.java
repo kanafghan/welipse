@@ -4,8 +4,8 @@ package com.github.kanafghan.welipse.webdsl.provider;
 
 
 import com.github.kanafghan.welipse.webdsl.PresentationElement;
-
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
+
 import java.util.Collection;
 import java.util.List;
 

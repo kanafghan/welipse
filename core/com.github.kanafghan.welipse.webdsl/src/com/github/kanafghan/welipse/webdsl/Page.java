@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.Page#getElements <em>Elements</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.Page#getName <em>Name</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.Page#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.Page#getVariables <em>Variables</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,5 +69,37 @@ public interface Page extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link com.github.kanafghan.welipse.webdsl.Parameter}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameters</em>' containment reference list.
+	 * @see com.github.kanafghan.welipse.webdsl.WebDSLPackage#getPage_Parameters()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Parameter> getParameters();
+
+	/**
+	 * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
+	 * The list contents are of type {@link com.github.kanafghan.welipse.webdsl.VariableInitialization}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Variables</em>' containment reference list.
+	 * @see com.github.kanafghan.welipse.webdsl.WebDSLPackage#getPage_Variables()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<VariableInitialization> getVariables();
 
 } // Page

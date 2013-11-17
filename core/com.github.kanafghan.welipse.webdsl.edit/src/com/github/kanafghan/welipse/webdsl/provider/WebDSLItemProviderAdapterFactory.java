@@ -141,49 +141,49 @@ public class WebDSLItemProviderAdapterFactory extends WebDSLAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.StaticText} instances.
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.Text} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StaticTextItemProvider staticTextItemProvider;
+	protected TextItemProvider textItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.StaticText}.
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.Text}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createStaticTextAdapter() {
-		if (staticTextItemProvider == null) {
-			staticTextItemProvider = new StaticTextItemProvider(this);
+	public Adapter createTextAdapter() {
+		if (textItemProvider == null) {
+			textItemProvider = new TextItemProvider(this);
 		}
 
-		return staticTextItemProvider;
+		return textItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.StaticImage} instances.
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.Image} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StaticImageItemProvider staticImageItemProvider;
+	protected ImageItemProvider imageItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.StaticImage}.
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.Image}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createStaticImageAdapter() {
-		if (staticImageItemProvider == null) {
-			staticImageItemProvider = new StaticImageItemProvider(this);
+	public Adapter createImageAdapter() {
+		if (imageItemProvider == null) {
+			imageItemProvider = new ImageItemProvider(this);
 		}
 
-		return staticImageItemProvider;
+		return imageItemProvider;
 	}
 
 	/**
@@ -233,49 +233,302 @@ public class WebDSLItemProviderAdapterFactory extends WebDSLAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.DynamicText} instances.
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.VariableExp} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DynamicTextItemProvider dynamicTextItemProvider;
+	protected VariableExpItemProvider variableExpItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.DynamicText}.
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.VariableExp}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDynamicTextAdapter() {
-		if (dynamicTextItemProvider == null) {
-			dynamicTextItemProvider = new DynamicTextItemProvider(this);
+	public Adapter createVariableExpAdapter() {
+		if (variableExpItemProvider == null) {
+			variableExpItemProvider = new VariableExpItemProvider(this);
 		}
 
-		return dynamicTextItemProvider;
+		return variableExpItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.DynamicImage} instances.
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.VariableInitialization} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DynamicImageItemProvider dynamicImageItemProvider;
+	protected VariableInitializationItemProvider variableInitializationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.DynamicImage}.
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.VariableInitialization}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDynamicImageAdapter() {
-		if (dynamicImageItemProvider == null) {
-			dynamicImageItemProvider = new DynamicImageItemProvider(this);
+	public Adapter createVariableInitializationAdapter() {
+		if (variableInitializationItemProvider == null) {
+			variableInitializationItemProvider = new VariableInitializationItemProvider(this);
 		}
 
-		return dynamicImageItemProvider;
+		return variableInitializationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.ArithmeticOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArithmeticOperationItemProvider arithmeticOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.ArithmeticOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArithmeticOperationAdapter() {
+		if (arithmeticOperationItemProvider == null) {
+			arithmeticOperationItemProvider = new ArithmeticOperationItemProvider(this);
+		}
+
+		return arithmeticOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.StructuralExp} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StructuralExpItemProvider structuralExpItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.StructuralExp}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStructuralExpAdapter() {
+		if (structuralExpItemProvider == null) {
+			structuralExpItemProvider = new StructuralExpItemProvider(this);
+		}
+
+		return structuralExpItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.ClassifierOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ClassifierOperationItemProvider classifierOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.ClassifierOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createClassifierOperationAdapter() {
+		if (classifierOperationItemProvider == null) {
+			classifierOperationItemProvider = new ClassifierOperationItemProvider(this);
+		}
+
+		return classifierOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.IntegerConstant} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntegerConstantItemProvider integerConstantItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.IntegerConstant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntegerConstantAdapter() {
+		if (integerConstantItemProvider == null) {
+			integerConstantItemProvider = new IntegerConstantItemProvider(this);
+		}
+
+		return integerConstantItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.StringConstant} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringConstantItemProvider stringConstantItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.StringConstant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringConstantAdapter() {
+		if (stringConstantItemProvider == null) {
+			stringConstantItemProvider = new StringConstantItemProvider(this);
+		}
+
+		return stringConstantItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.Parameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterItemProvider parameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.Parameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterAdapter() {
+		if (parameterItemProvider == null) {
+			parameterItemProvider = new ParameterItemProvider(this);
+		}
+
+		return parameterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.StringOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringOperationItemProvider stringOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.StringOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringOperationAdapter() {
+		if (stringOperationItemProvider == null) {
+			stringOperationItemProvider = new StringOperationItemProvider(this);
+		}
+
+		return stringOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.BooleanConstant} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BooleanConstantItemProvider booleanConstantItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.BooleanConstant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBooleanConstantAdapter() {
+		if (booleanConstantItemProvider == null) {
+			booleanConstantItemProvider = new BooleanConstantItemProvider(this);
+		}
+
+		return booleanConstantItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.BooleanOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BooleanOperationItemProvider booleanOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.BooleanOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBooleanOperationAdapter() {
+		if (booleanOperationItemProvider == null) {
+			booleanOperationItemProvider = new BooleanOperationItemProvider(this);
+		}
+
+		return booleanOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.ComparisonOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComparisonOperationItemProvider comparisonOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.ComparisonOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createComparisonOperationAdapter() {
+		if (comparisonOperationItemProvider == null) {
+			comparisonOperationItemProvider = new ComparisonOperationItemProvider(this);
+		}
+
+		return comparisonOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.RealConstant} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RealConstantItemProvider realConstantItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.RealConstant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRealConstantAdapter() {
+		if (realConstantItemProvider == null) {
+			realConstantItemProvider = new RealConstantItemProvider(this);
+		}
+
+		return realConstantItemProvider;
 	}
 
 	/**
@@ -380,12 +633,23 @@ public class WebDSLItemProviderAdapterFactory extends WebDSLAdapterFactory imple
 		if (websiteItemProvider != null) websiteItemProvider.dispose();
 		if (pageItemProvider != null) pageItemProvider.dispose();
 		if (listItemProvider != null) listItemProvider.dispose();
-		if (staticTextItemProvider != null) staticTextItemProvider.dispose();
-		if (staticImageItemProvider != null) staticImageItemProvider.dispose();
+		if (textItemProvider != null) textItemProvider.dispose();
+		if (imageItemProvider != null) imageItemProvider.dispose();
 		if (internalLinkItemProvider != null) internalLinkItemProvider.dispose();
 		if (externalLinkItemProvider != null) externalLinkItemProvider.dispose();
-		if (dynamicTextItemProvider != null) dynamicTextItemProvider.dispose();
-		if (dynamicImageItemProvider != null) dynamicImageItemProvider.dispose();
+		if (variableExpItemProvider != null) variableExpItemProvider.dispose();
+		if (variableInitializationItemProvider != null) variableInitializationItemProvider.dispose();
+		if (arithmeticOperationItemProvider != null) arithmeticOperationItemProvider.dispose();
+		if (structuralExpItemProvider != null) structuralExpItemProvider.dispose();
+		if (classifierOperationItemProvider != null) classifierOperationItemProvider.dispose();
+		if (integerConstantItemProvider != null) integerConstantItemProvider.dispose();
+		if (stringConstantItemProvider != null) stringConstantItemProvider.dispose();
+		if (parameterItemProvider != null) parameterItemProvider.dispose();
+		if (stringOperationItemProvider != null) stringOperationItemProvider.dispose();
+		if (booleanConstantItemProvider != null) booleanConstantItemProvider.dispose();
+		if (booleanOperationItemProvider != null) booleanOperationItemProvider.dispose();
+		if (comparisonOperationItemProvider != null) comparisonOperationItemProvider.dispose();
+		if (realConstantItemProvider != null) realConstantItemProvider.dispose();
 	}
 
 }

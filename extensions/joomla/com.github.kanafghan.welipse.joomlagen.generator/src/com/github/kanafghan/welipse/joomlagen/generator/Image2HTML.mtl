@@ -5,27 +5,27 @@
 [import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
 
 [template public generateImage(img : Image, genModel : JoomlaGenModel)]
-	[if (img.oclIsKindOf(StaticImage))]
-		[generateStaticImage(img.oclAsType(StaticImage), genModel)/]
+	[if (img._static)]
+		[generateStaticImage(img, genModel)/]
 	[/if]
-	[if (img.oclIsKindOf(DynamicImage))]
-		[generateDynamicImage(img.oclAsType(DynamicImage), genModel)/]
+	[if (not img._static)]
+		[generateDynamicImage(img, genModel)/]
 	[/if]
 [/template]
 
-[template protected generateStaticImage(sImg : StaticImage, genModel : JoomlaGenModel) post (trim())]
+[template protected generateStaticImage(sImg : Image, genModel : JoomlaGenModel) post (trim())]
 	<img src="[generateStaticImageSource(sImg, genModel)/]"[generateAttributes()/]>
 [/template]
 
-[template protected generateDynamicImage (dImg : DynamicImage, genModel : JoomlaGenModel) post (trim())]
+[template protected generateDynamicImage (dImg : Image, genModel : JoomlaGenModel) post (trim())]
 	<img src="[generateDynamicImageSource(dImg, genModel)/]"[generateAttributes()/]>
 [/template]
 
-[template public generateStaticImageSource(sImg : StaticImage, genModel : JoomlaGenModel) post (trim())]
-[if (sImg.isURL)][sImg.source/][else]<?php echo JURI:base(); ?>media/[getComponent(genModel)/]/images/[getFileName(sImg.source)/][/if]
+[template public generateStaticImageSource(sImg : Image, genModel : JoomlaGenModel) post (trim())]
+[if (sImg.referenced)][sImg.source/][else]<?php echo JURI:base(); ?>media/[getComponent(genModel)/]/images/[getFileName(sImg.source.toString())/][/if]
 [/template]
 
 [comment TODO complete the implementation (the case for image source not being URL is missing) /]
-[template public generateDynamicImageSource (dImg : DynamicImage, genModel : JoomlaGenModel) post (trim())]
-[if (dImg.isURL)]<?php echo $this->"+[getObjectName(dImg.source.oclAsType(ETypedElement))/]+"->"+[getObjectAttributeName(dImg.source.oclAsType(ETypedElement))/]+"; ?>[else][/if]
+[template public generateDynamicImageSource (dImg : Image, genModel : JoomlaGenModel) post (trim())]
+[if (dImg.referenced)]<?php echo $this->"+[getObjectName(dImg.source.oclAsType(ETypedElement))/]+"->"+[getObjectAttributeName(dImg.source.oclAsType(ETypedElement))/]+"; ?>[else][/if]
 [/template]

@@ -2,29 +2,48 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
-import com.github.kanafghan.welipse.webdsl.DynamicImage;
-import com.github.kanafghan.welipse.webdsl.DynamicText;
+import com.github.kanafghan.welipse.webdsl.ArithmeticOperation;
+import com.github.kanafghan.welipse.webdsl.ArithmeticOperator;
+import com.github.kanafghan.welipse.webdsl.BasicOperation;
+import com.github.kanafghan.welipse.webdsl.BooleanConstant;
+import com.github.kanafghan.welipse.webdsl.BooleanOperation;
+import com.github.kanafghan.welipse.webdsl.BooleanOperator;
+import com.github.kanafghan.welipse.webdsl.ClassifierOperation;
+import com.github.kanafghan.welipse.webdsl.ComparisonOperation;
+import com.github.kanafghan.welipse.webdsl.ComparisonOperator;
+import com.github.kanafghan.welipse.webdsl.ConstantExp;
+import com.github.kanafghan.welipse.webdsl.Expression;
 import com.github.kanafghan.welipse.webdsl.ExternalLink;
 import com.github.kanafghan.welipse.webdsl.Image;
+import com.github.kanafghan.welipse.webdsl.IntegerConstant;
 import com.github.kanafghan.welipse.webdsl.InternalLink;
 import com.github.kanafghan.welipse.webdsl.Link;
 import com.github.kanafghan.welipse.webdsl.List;
 import com.github.kanafghan.welipse.webdsl.NavigationElement;
+import com.github.kanafghan.welipse.webdsl.OperationExp;
 import com.github.kanafghan.welipse.webdsl.Page;
 import com.github.kanafghan.welipse.webdsl.PageElement;
+import com.github.kanafghan.welipse.webdsl.Parameter;
 import com.github.kanafghan.welipse.webdsl.PresentationElement;
-import com.github.kanafghan.welipse.webdsl.StaticImage;
-import com.github.kanafghan.welipse.webdsl.StaticText;
+import com.github.kanafghan.welipse.webdsl.PropertyOperation;
+import com.github.kanafghan.welipse.webdsl.RealConstant;
+import com.github.kanafghan.welipse.webdsl.StringConstant;
+import com.github.kanafghan.welipse.webdsl.StringOperation;
+import com.github.kanafghan.welipse.webdsl.StringOperator;
+import com.github.kanafghan.welipse.webdsl.StructuralExp;
 import com.github.kanafghan.welipse.webdsl.Text;
+import com.github.kanafghan.welipse.webdsl.VariableDeclaration;
+import com.github.kanafghan.welipse.webdsl.VariableExp;
+import com.github.kanafghan.welipse.webdsl.VariableInitialization;
 import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 import com.github.kanafghan.welipse.webdsl.Website;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -96,20 +115,6 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass staticTextEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass staticImageEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass linkEClass = null;
 
 	/**
@@ -131,14 +136,161 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dynamicTextEClass = null;
+	private EClass expressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dynamicImageEClass = null;
+	private EClass variableExpEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass operationExpEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass variableDeclarationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass variableInitializationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propertyOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass constantExpEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass basicOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass arithmeticOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass structuralExpEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass classifierOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass integerConstantEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringConstantEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass booleanConstantEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass booleanOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comparisonOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass realConstantEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum arithmeticOperatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum stringOperatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum booleanOperatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum comparisonOperatorEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -272,6 +424,24 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPage_Parameters() {
+		return (EReference)pageEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPage_Variables() {
+		return (EReference)pageEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPageElement() {
 		return pageElementEClass;
 	}
@@ -335,8 +505,8 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getList_Item() {
-		return (EAttribute)listEClass.getEStructuralFeatures().get(0);
+	public EReference getList_Elements() {
+		return (EReference)listEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -344,7 +514,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getList_CollectionProvider() {
+	public EReference getList_Collection() {
 		return (EReference)listEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -353,17 +523,8 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getList_Type() {
+	public EReference getList_IteratorVariable() {
 		return (EReference)listEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getList_Content() {
-		return (EReference)listEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -380,6 +541,24 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getText_Content() {
+		return (EReference)textEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getText_Static() {
+		return (EAttribute)textEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getImage() {
 		return imageEClass;
 	}
@@ -389,7 +568,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImage_IsURL() {
+	public EAttribute getImage_Referenced() {
 		return (EAttribute)imageEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -398,8 +577,8 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getStaticText() {
-		return staticTextEClass;
+	public EReference getImage_Source() {
+		return (EReference)imageEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -407,26 +586,8 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStaticText_Content() {
-		return (EAttribute)staticTextEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getStaticImage() {
-		return staticImageEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStaticImage_Source() {
-		return (EAttribute)staticImageEClass.getEStructuralFeatures().get(0);
+	public EAttribute getImage_Static() {
+		return (EAttribute)imageEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -479,8 +640,8 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDynamicText() {
-		return dynamicTextEClass;
+	public EReference getExternalLink_Target() {
+		return (EReference)externalLinkEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -488,8 +649,8 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDynamicText_Content() {
-		return (EReference)dynamicTextEClass.getEStructuralFeatures().get(0);
+	public EClass getExpression() {
+		return expressionEClass;
 	}
 
 	/**
@@ -497,8 +658,8 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDynamicImage() {
-		return dynamicImageEClass;
+	public EOperation getExpression__Type() {
+		return expressionEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -506,8 +667,377 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDynamicImage_Source() {
-		return (EReference)dynamicImageEClass.getEStructuralFeatures().get(0);
+	public EClass getVariableExp() {
+		return variableExpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVariableExp_Var() {
+		return (EAttribute)variableExpEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariableExp_Declaration() {
+		return (EReference)variableExpEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOperationExp() {
+		return operationExpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVariableDeclaration() {
+		return variableDeclarationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVariableDeclaration_Var() {
+		return (EAttribute)variableDeclarationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariableDeclaration_Type() {
+		return (EReference)variableDeclarationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVariableDeclaration_Classifier() {
+		return (EAttribute)variableDeclarationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVariableInitialization() {
+		return variableInitializationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariableInitialization_InitExp() {
+		return (EReference)variableInitializationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPropertyOperation() {
+		return propertyOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropertyOperation_Source() {
+		return (EReference)propertyOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPropertyOperation_Identifier() {
+		return (EAttribute)propertyOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConstantExp() {
+		return constantExpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBasicOperation() {
+		return basicOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBasicOperation_Operands() {
+		return (EReference)basicOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getArithmeticOperation() {
+		return arithmeticOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getArithmeticOperation_Operator() {
+		return (EAttribute)arithmeticOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStructuralExp() {
+		return structuralExpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStructuralExp_Feature() {
+		return (EReference)structuralExpEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getClassifierOperation() {
+		return classifierOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getClassifierOperation_Operation() {
+		return (EReference)classifierOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getClassifierOperation_Arguments() {
+		return (EReference)classifierOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIntegerConstant() {
+		return integerConstantEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntegerConstant_Value() {
+		return (EAttribute)integerConstantEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStringConstant() {
+		return stringConstantEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStringConstant_Value() {
+		return (EAttribute)stringConstantEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParameter() {
+		return parameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStringOperation() {
+		return stringOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStringOperation_Operator() {
+		return (EAttribute)stringOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBooleanConstant() {
+		return booleanConstantEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBooleanConstant_Value() {
+		return (EAttribute)booleanConstantEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBooleanOperation() {
+		return booleanOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBooleanOperation_Operator() {
+		return (EAttribute)booleanOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComparisonOperation() {
+		return comparisonOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComparisonOperation_Operator() {
+		return (EAttribute)comparisonOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRealConstant() {
+		return realConstantEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRealConstant_Value() {
+		return (EAttribute)realConstantEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getArithmeticOperator() {
+		return arithmeticOperatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getStringOperator() {
+		return stringOperatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getBooleanOperator() {
+		return booleanOperatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getComparisonOperator() {
+		return comparisonOperatorEEnum;
 	}
 
 	/**
@@ -546,6 +1076,8 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		pageEClass = createEClass(PAGE);
 		createEReference(pageEClass, PAGE__ELEMENTS);
 		createEAttribute(pageEClass, PAGE__NAME);
+		createEReference(pageEClass, PAGE__PARAMETERS);
+		createEReference(pageEClass, PAGE__VARIABLES);
 
 		pageElementEClass = createEClass(PAGE_ELEMENT);
 		createEAttribute(pageElementEClass, PAGE_ELEMENT__NAME);
@@ -557,21 +1089,18 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		navigationElementEClass = createEClass(NAVIGATION_ELEMENT);
 
 		listEClass = createEClass(LIST);
-		createEAttribute(listEClass, LIST__ITEM);
-		createEReference(listEClass, LIST__COLLECTION_PROVIDER);
-		createEReference(listEClass, LIST__TYPE);
-		createEReference(listEClass, LIST__CONTENT);
+		createEReference(listEClass, LIST__ELEMENTS);
+		createEReference(listEClass, LIST__COLLECTION);
+		createEReference(listEClass, LIST__ITERATOR_VARIABLE);
 
 		textEClass = createEClass(TEXT);
+		createEReference(textEClass, TEXT__CONTENT);
+		createEAttribute(textEClass, TEXT__STATIC);
 
 		imageEClass = createEClass(IMAGE);
-		createEAttribute(imageEClass, IMAGE__IS_URL);
-
-		staticTextEClass = createEClass(STATIC_TEXT);
-		createEAttribute(staticTextEClass, STATIC_TEXT__CONTENT);
-
-		staticImageEClass = createEClass(STATIC_IMAGE);
-		createEAttribute(staticImageEClass, STATIC_IMAGE__SOURCE);
+		createEAttribute(imageEClass, IMAGE__REFERENCED);
+		createEReference(imageEClass, IMAGE__SOURCE);
+		createEAttribute(imageEClass, IMAGE__STATIC);
 
 		linkEClass = createEClass(LINK);
 		createEReference(linkEClass, LINK__CONTENT);
@@ -580,12 +1109,72 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		createEReference(internalLinkEClass, INTERNAL_LINK__TARGET);
 
 		externalLinkEClass = createEClass(EXTERNAL_LINK);
+		createEReference(externalLinkEClass, EXTERNAL_LINK__TARGET);
 
-		dynamicTextEClass = createEClass(DYNAMIC_TEXT);
-		createEReference(dynamicTextEClass, DYNAMIC_TEXT__CONTENT);
+		expressionEClass = createEClass(EXPRESSION);
+		createEOperation(expressionEClass, EXPRESSION___TYPE);
 
-		dynamicImageEClass = createEClass(DYNAMIC_IMAGE);
-		createEReference(dynamicImageEClass, DYNAMIC_IMAGE__SOURCE);
+		variableExpEClass = createEClass(VARIABLE_EXP);
+		createEAttribute(variableExpEClass, VARIABLE_EXP__VAR);
+		createEReference(variableExpEClass, VARIABLE_EXP__DECLARATION);
+
+		operationExpEClass = createEClass(OPERATION_EXP);
+
+		variableDeclarationEClass = createEClass(VARIABLE_DECLARATION);
+		createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__VAR);
+		createEReference(variableDeclarationEClass, VARIABLE_DECLARATION__TYPE);
+		createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__CLASSIFIER);
+
+		variableInitializationEClass = createEClass(VARIABLE_INITIALIZATION);
+		createEReference(variableInitializationEClass, VARIABLE_INITIALIZATION__INIT_EXP);
+
+		propertyOperationEClass = createEClass(PROPERTY_OPERATION);
+		createEReference(propertyOperationEClass, PROPERTY_OPERATION__SOURCE);
+		createEAttribute(propertyOperationEClass, PROPERTY_OPERATION__IDENTIFIER);
+
+		constantExpEClass = createEClass(CONSTANT_EXP);
+
+		basicOperationEClass = createEClass(BASIC_OPERATION);
+		createEReference(basicOperationEClass, BASIC_OPERATION__OPERANDS);
+
+		arithmeticOperationEClass = createEClass(ARITHMETIC_OPERATION);
+		createEAttribute(arithmeticOperationEClass, ARITHMETIC_OPERATION__OPERATOR);
+
+		structuralExpEClass = createEClass(STRUCTURAL_EXP);
+		createEReference(structuralExpEClass, STRUCTURAL_EXP__FEATURE);
+
+		classifierOperationEClass = createEClass(CLASSIFIER_OPERATION);
+		createEReference(classifierOperationEClass, CLASSIFIER_OPERATION__OPERATION);
+		createEReference(classifierOperationEClass, CLASSIFIER_OPERATION__ARGUMENTS);
+
+		integerConstantEClass = createEClass(INTEGER_CONSTANT);
+		createEAttribute(integerConstantEClass, INTEGER_CONSTANT__VALUE);
+
+		stringConstantEClass = createEClass(STRING_CONSTANT);
+		createEAttribute(stringConstantEClass, STRING_CONSTANT__VALUE);
+
+		parameterEClass = createEClass(PARAMETER);
+
+		stringOperationEClass = createEClass(STRING_OPERATION);
+		createEAttribute(stringOperationEClass, STRING_OPERATION__OPERATOR);
+
+		booleanConstantEClass = createEClass(BOOLEAN_CONSTANT);
+		createEAttribute(booleanConstantEClass, BOOLEAN_CONSTANT__VALUE);
+
+		booleanOperationEClass = createEClass(BOOLEAN_OPERATION);
+		createEAttribute(booleanOperationEClass, BOOLEAN_OPERATION__OPERATOR);
+
+		comparisonOperationEClass = createEClass(COMPARISON_OPERATION);
+		createEAttribute(comparisonOperationEClass, COMPARISON_OPERATION__OPERATOR);
+
+		realConstantEClass = createEClass(REAL_CONSTANT);
+		createEAttribute(realConstantEClass, REAL_CONSTANT__VALUE);
+
+		// Create enums
+		arithmeticOperatorEEnum = createEEnum(ARITHMETIC_OPERATOR);
+		stringOperatorEEnum = createEEnum(STRING_OPERATOR);
+		booleanOperatorEEnum = createEEnum(BOOLEAN_OPERATOR);
+		comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
 	}
 
 	/**
@@ -624,13 +1213,26 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		listEClass.getESuperTypes().add(this.getPresentationElement());
 		textEClass.getESuperTypes().add(this.getPresentationElement());
 		imageEClass.getESuperTypes().add(this.getPresentationElement());
-		staticTextEClass.getESuperTypes().add(this.getText());
-		staticImageEClass.getESuperTypes().add(this.getImage());
 		linkEClass.getESuperTypes().add(this.getNavigationElement());
 		internalLinkEClass.getESuperTypes().add(this.getLink());
 		externalLinkEClass.getESuperTypes().add(this.getLink());
-		dynamicTextEClass.getESuperTypes().add(this.getText());
-		dynamicImageEClass.getESuperTypes().add(this.getImage());
+		variableExpEClass.getESuperTypes().add(this.getExpression());
+		operationExpEClass.getESuperTypes().add(this.getExpression());
+		variableInitializationEClass.getESuperTypes().add(this.getVariableDeclaration());
+		propertyOperationEClass.getESuperTypes().add(this.getOperationExp());
+		constantExpEClass.getESuperTypes().add(this.getExpression());
+		basicOperationEClass.getESuperTypes().add(this.getOperationExp());
+		arithmeticOperationEClass.getESuperTypes().add(this.getBasicOperation());
+		structuralExpEClass.getESuperTypes().add(this.getPropertyOperation());
+		classifierOperationEClass.getESuperTypes().add(this.getPropertyOperation());
+		integerConstantEClass.getESuperTypes().add(this.getConstantExp());
+		stringConstantEClass.getESuperTypes().add(this.getConstantExp());
+		parameterEClass.getESuperTypes().add(this.getVariableDeclaration());
+		stringOperationEClass.getESuperTypes().add(this.getBasicOperation());
+		booleanConstantEClass.getESuperTypes().add(this.getConstantExp());
+		booleanOperationEClass.getESuperTypes().add(this.getBasicOperation());
+		comparisonOperationEClass.getESuperTypes().add(this.getBasicOperation());
+		realConstantEClass.getESuperTypes().add(this.getConstantExp());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(websiteEClass, Website.class, "Website", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -641,6 +1243,8 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPage_Elements(), this.getPageElement(), this.getPageElement_Page(), "elements", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_Name(), ecorePackage.getEString(), "name", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPage_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPage_Variables(), this.getVariableInitialization(), null, "variables", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pageElementEClass, PageElement.class, "PageElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPageElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, PageElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -652,21 +1256,18 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		initEClass(navigationElementEClass, NavigationElement.class, "NavigationElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(listEClass, List.class, "List", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getList_Item(), ecorePackage.getEString(), "item", null, 1, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getList_CollectionProvider(), theEcorePackage.getEOperation(), null, "collectionProvider", null, 1, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getList_Type(), theEcorePackage.getEClass(), null, "type", null, 1, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getList_Content(), this.getPageElement(), null, "content", null, 0, -1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getList_Elements(), this.getPageElement(), null, "elements", null, 0, -1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getList_Collection(), this.getExpression(), null, "collection", null, 1, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getList_IteratorVariable(), this.getVariableDeclaration(), null, "iteratorVariable", null, 1, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(textEClass, Text.class, "Text", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getText_Content(), this.getExpression(), null, "content", null, 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getText_Static(), ecorePackage.getEBoolean(), "static", null, 0, 1, Text.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(imageEClass, Image.class, "Image", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getImage_IsURL(), theEcorePackage.getEBoolean(), "isURL", "false", 1, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(staticTextEClass, StaticText.class, "StaticText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStaticText_Content(), ecorePackage.getEString(), "content", null, 0, 1, StaticText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(staticImageEClass, StaticImage.class, "StaticImage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStaticImage_Source(), ecorePackage.getEString(), "source", null, 0, 1, StaticImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getImage_Referenced(), ecorePackage.getEBoolean(), "referenced", "false", 1, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getImage_Source(), this.getExpression(), null, "source", null, 1, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImage_Static(), ecorePackage.getEBoolean(), "static", null, 0, 1, Image.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkEClass, Link.class, "Link", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLink_Content(), this.getPageElement(), null, "content", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -675,12 +1276,92 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		initEReference(getInternalLink_Target(), this.getPageElement(), null, "target", null, 1, 1, InternalLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(externalLinkEClass, ExternalLink.class, "ExternalLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExternalLink_Target(), this.getExpression(), null, "target", null, 1, 1, ExternalLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dynamicTextEClass, DynamicText.class, "DynamicText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDynamicText_Content(), theEcorePackage.getETypedElement(), null, "content", null, 1, 1, DynamicText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(expressionEClass, Expression.class, "Expression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dynamicImageEClass, DynamicImage.class, "DynamicImage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDynamicImage_Source(), theEcorePackage.getETypedElement(), null, "source", null, 1, 1, DynamicImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEOperation(getExpression__Type(), theEcorePackage.getEClassifier(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(variableExpEClass, VariableExp.class, "VariableExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVariableExp_Var(), theEcorePackage.getEString(), "var", null, 1, 1, VariableExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVariableExp_Declaration(), this.getVariableDeclaration(), null, "declaration", null, 0, 1, VariableExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(operationExpEClass, OperationExp.class, "OperationExp", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(variableDeclarationEClass, VariableDeclaration.class, "VariableDeclaration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVariableDeclaration_Var(), theEcorePackage.getEString(), "var", null, 1, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVariableDeclaration_Type(), theEcorePackage.getEClassifier(), null, "type", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVariableDeclaration_Classifier(), theEcorePackage.getEString(), "classifier", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(variableInitializationEClass, VariableInitialization.class, "VariableInitialization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVariableInitialization_InitExp(), this.getExpression(), null, "initExp", null, 1, 1, VariableInitialization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(propertyOperationEClass, PropertyOperation.class, "PropertyOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPropertyOperation_Source(), this.getExpression(), null, "source", null, 1, 1, PropertyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPropertyOperation_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, PropertyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(constantExpEClass, ConstantExp.class, "ConstantExp", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(basicOperationEClass, BasicOperation.class, "BasicOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBasicOperation_Operands(), this.getExpression(), null, "operands", null, 1, -1, BasicOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(arithmeticOperationEClass, ArithmeticOperation.class, "ArithmeticOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getArithmeticOperation_Operator(), this.getArithmeticOperator(), "operator", null, 1, 1, ArithmeticOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(structuralExpEClass, StructuralExp.class, "StructuralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStructuralExp_Feature(), theEcorePackage.getEStructuralFeature(), null, "feature", null, 0, 1, StructuralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(classifierOperationEClass, ClassifierOperation.class, "ClassifierOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getClassifierOperation_Operation(), theEcorePackage.getEOperation(), null, "operation", null, 0, 1, ClassifierOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClassifierOperation_Arguments(), this.getExpression(), null, "arguments", null, 0, -1, ClassifierOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(integerConstantEClass, IntegerConstant.class, "IntegerConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIntegerConstant_Value(), theEcorePackage.getEInt(), "value", null, 0, 1, IntegerConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stringConstantEClass, StringConstant.class, "StringConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringConstant_Value(), theEcorePackage.getEString(), "value", null, 0, 1, StringConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(stringOperationEClass, StringOperation.class, "StringOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringOperation_Operator(), this.getStringOperator(), "operator", null, 0, 1, StringOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(booleanConstantEClass, BooleanConstant.class, "BooleanConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBooleanConstant_Value(), theEcorePackage.getEBoolean(), "value", null, 0, 1, BooleanConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(booleanOperationEClass, BooleanOperation.class, "BooleanOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBooleanOperation_Operator(), this.getBooleanOperator(), "operator", null, 0, 1, BooleanOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(comparisonOperationEClass, ComparisonOperation.class, "ComparisonOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComparisonOperation_Operator(), this.getComparisonOperator(), "operator", null, 0, 1, ComparisonOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(realConstantEClass, RealConstant.class, "RealConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRealConstant_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, RealConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(arithmeticOperatorEEnum, ArithmeticOperator.class, "ArithmeticOperator");
+		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.NEGATION);
+		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.ADDITION);
+		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.SUBTRACTION);
+		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.MULTIPLICATION);
+		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.DIVISION);
+
+		initEEnum(stringOperatorEEnum, StringOperator.class, "StringOperator");
+		addEEnumLiteral(stringOperatorEEnum, StringOperator.CONCATENATION);
+		addEEnumLiteral(stringOperatorEEnum, StringOperator.LENGTH);
+
+		initEEnum(booleanOperatorEEnum, BooleanOperator.class, "BooleanOperator");
+		addEEnumLiteral(booleanOperatorEEnum, BooleanOperator.NEGATION);
+		addEEnumLiteral(booleanOperatorEEnum, BooleanOperator.CONJUNCTION);
+		addEEnumLiteral(booleanOperatorEEnum, BooleanOperator.DISJUNCTION);
+
+		initEEnum(comparisonOperatorEEnum, ComparisonOperator.class, "ComparisonOperator");
+		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.EQUAL);
+		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.NOT_EQUAL);
+		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.GREATER_THAN);
+		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.LESS_THAN);
+		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.GREATER_THAN_EQUAL);
+		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.LESS_THAN_EQUAL);
 
 		// Create resource
 		createResource(eNS_URI);

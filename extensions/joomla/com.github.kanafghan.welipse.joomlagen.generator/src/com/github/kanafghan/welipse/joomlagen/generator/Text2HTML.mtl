@@ -4,21 +4,21 @@
 [import com::github::kanafghan::welipse::joomlagen::generator::common::common /]
 
 [template public generateText(txt : Text)]
-	[if (txt.oclIsKindOf(StaticText))]
-		[generateStaticText(txt.oclAsType(StaticText))/]
+	[if (txt._static)]
+		[generateStaticText(txt)/]
 	[/if]
-	[if (txt.oclIsKindOf(DynamicText))]
-		[generateDynamicText(txt.oclAsType(DynamicText))/]
+	[if (not txt._static)]
+		[generateDynamicText(txt)/]
 	[/if]
 [/template]
 
-[template protected generateStaticText(sTxt : StaticText) post (trim())]
+[template protected generateStaticText(sTxt : Text) post (trim())]
 <p[generateAttributes()/]>
 	[sTxt.content/]
 </p>
 [/template]
 
-[template protected generateDynamicText(dTxt : DynamicText) post (trim())]
+[template protected generateDynamicText(dTxt : Text) post (trim())]
 <p[generateAttributes()/]>
 	<?php echo $this->[getObjectName(dTxt.content.oclAsType(ETypedElement))/]->[getObjectAttributeName(dTxt.content.oclAsType(ETypedElement))/]; ?>
 </p>

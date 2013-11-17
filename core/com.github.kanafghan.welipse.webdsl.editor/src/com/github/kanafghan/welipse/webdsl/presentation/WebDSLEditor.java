@@ -157,6 +157,7 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import com.github.kanafghan.welipse.webdsl.provider.WebDSLItemProviderAdapterFactory;
 
 import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
+
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 

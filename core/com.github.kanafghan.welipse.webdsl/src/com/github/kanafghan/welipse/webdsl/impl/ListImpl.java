@@ -2,23 +2,18 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
+import com.github.kanafghan.welipse.webdsl.Expression;
 import com.github.kanafghan.welipse.webdsl.List;
 import com.github.kanafghan.welipse.webdsl.PageElement;
+import com.github.kanafghan.welipse.webdsl.VariableDeclaration;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -29,10 +24,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.ListImpl#getItem <em>Item</em>}</li>
- *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.ListImpl#getCollectionProvider <em>Collection Provider</em>}</li>
- *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.ListImpl#getType <em>Type</em>}</li>
- *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.ListImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.ListImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.ListImpl#getCollection <em>Collection</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.ListImpl#getIteratorVariable <em>Iterator Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,54 +34,34 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ListImpl extends PresentationElementImpl implements List {
 	/**
-	 * The default value of the '{@link #getItem() <em>Item</em>}' attribute.
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getItem()
+	 * @see #getElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ITEM_EDEFAULT = null;
+	protected EList<PageElement> elements;
 
 	/**
-	 * The cached value of the '{@link #getItem() <em>Item</em>}' attribute.
+	 * The cached value of the '{@link #getCollection() <em>Collection</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getItem()
+	 * @see #getCollection()
 	 * @generated
 	 * @ordered
 	 */
-	protected String item = ITEM_EDEFAULT;
+	protected Expression collection;
 
 	/**
-	 * The cached value of the '{@link #getCollectionProvider() <em>Collection Provider</em>}' reference.
+	 * The cached value of the '{@link #getIteratorVariable() <em>Iterator Variable</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCollectionProvider()
+	 * @see #getIteratorVariable()
 	 * @generated
 	 * @ordered
 	 */
-	protected EOperation collectionProvider;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EClass type;
-
-	/**
-	 * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContent()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<PageElement> content;
+	protected VariableDeclaration iteratorVariable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,37 +87,11 @@ public class ListImpl extends PresentationElementImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getItem() {
-		return item;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setItem(String newItem) {
-		String oldItem = item;
-		item = newItem;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WebDSLPackage.LIST__ITEM, oldItem, item));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getCollectionProvider() {
-		if (collectionProvider != null && collectionProvider.eIsProxy()) {
-			InternalEObject oldCollectionProvider = (InternalEObject)collectionProvider;
-			collectionProvider = (EOperation)eResolveProxy(oldCollectionProvider);
-			if (collectionProvider != oldCollectionProvider) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, WebDSLPackage.LIST__COLLECTION_PROVIDER, oldCollectionProvider, collectionProvider));
-			}
+	public EList<PageElement> getElements() {
+		if (elements == null) {
+			elements = new EObjectContainmentEList<PageElement>(PageElement.class, this, WebDSLPackage.LIST__ELEMENTS);
 		}
-		return collectionProvider;
+		return elements;
 	}
 
 	/**
@@ -151,8 +99,8 @@ public class ListImpl extends PresentationElementImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation basicGetCollectionProvider() {
-		return collectionProvider;
+	public Expression getCollection() {
+		return collection;
 	}
 
 	/**
@@ -160,28 +108,14 @@ public class ListImpl extends PresentationElementImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCollectionProvider(EOperation newCollectionProvider) {
-		EOperation oldCollectionProvider = collectionProvider;
-		collectionProvider = newCollectionProvider;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WebDSLPackage.LIST__COLLECTION_PROVIDER, oldCollectionProvider, collectionProvider));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getType() {
-		if (type != null && type.eIsProxy()) {
-			InternalEObject oldType = (InternalEObject)type;
-			type = (EClass)eResolveProxy(oldType);
-			if (type != oldType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, WebDSLPackage.LIST__TYPE, oldType, type));
-			}
+	public NotificationChain basicSetCollection(Expression newCollection, NotificationChain msgs) {
+		Expression oldCollection = collection;
+		collection = newCollection;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDSLPackage.LIST__COLLECTION, oldCollection, newCollection);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return type;
+		return msgs;
 	}
 
 	/**
@@ -189,32 +123,61 @@ public class ListImpl extends PresentationElementImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass basicGetType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(EClass newType) {
-		EClass oldType = type;
-		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WebDSLPackage.LIST__TYPE, oldType, type));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<PageElement> getContent() {
-		if (content == null) {
-			content = new EObjectContainmentEList<PageElement>(PageElement.class, this, WebDSLPackage.LIST__CONTENT);
+	public void setCollection(Expression newCollection) {
+		if (newCollection != collection) {
+			NotificationChain msgs = null;
+			if (collection != null)
+				msgs = ((InternalEObject)collection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDSLPackage.LIST__COLLECTION, null, msgs);
+			if (newCollection != null)
+				msgs = ((InternalEObject)newCollection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDSLPackage.LIST__COLLECTION, null, msgs);
+			msgs = basicSetCollection(newCollection, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return content;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WebDSLPackage.LIST__COLLECTION, newCollection, newCollection));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VariableDeclaration getIteratorVariable() {
+		return iteratorVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIteratorVariable(VariableDeclaration newIteratorVariable, NotificationChain msgs) {
+		VariableDeclaration oldIteratorVariable = iteratorVariable;
+		iteratorVariable = newIteratorVariable;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDSLPackage.LIST__ITERATOR_VARIABLE, oldIteratorVariable, newIteratorVariable);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIteratorVariable(VariableDeclaration newIteratorVariable) {
+		if (newIteratorVariable != iteratorVariable) {
+			NotificationChain msgs = null;
+			if (iteratorVariable != null)
+				msgs = ((InternalEObject)iteratorVariable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDSLPackage.LIST__ITERATOR_VARIABLE, null, msgs);
+			if (newIteratorVariable != null)
+				msgs = ((InternalEObject)newIteratorVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDSLPackage.LIST__ITERATOR_VARIABLE, null, msgs);
+			msgs = basicSetIteratorVariable(newIteratorVariable, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WebDSLPackage.LIST__ITERATOR_VARIABLE, newIteratorVariable, newIteratorVariable));
 	}
 
 	/**
@@ -225,8 +188,12 @@ public class ListImpl extends PresentationElementImpl implements List {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case WebDSLPackage.LIST__CONTENT:
-				return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
+			case WebDSLPackage.LIST__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+			case WebDSLPackage.LIST__COLLECTION:
+				return basicSetCollection(null, msgs);
+			case WebDSLPackage.LIST__ITERATOR_VARIABLE:
+				return basicSetIteratorVariable(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -239,16 +206,12 @@ public class ListImpl extends PresentationElementImpl implements List {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case WebDSLPackage.LIST__ITEM:
-				return getItem();
-			case WebDSLPackage.LIST__COLLECTION_PROVIDER:
-				if (resolve) return getCollectionProvider();
-				return basicGetCollectionProvider();
-			case WebDSLPackage.LIST__TYPE:
-				if (resolve) return getType();
-				return basicGetType();
-			case WebDSLPackage.LIST__CONTENT:
-				return getContent();
+			case WebDSLPackage.LIST__ELEMENTS:
+				return getElements();
+			case WebDSLPackage.LIST__COLLECTION:
+				return getCollection();
+			case WebDSLPackage.LIST__ITERATOR_VARIABLE:
+				return getIteratorVariable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -262,18 +225,15 @@ public class ListImpl extends PresentationElementImpl implements List {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case WebDSLPackage.LIST__ITEM:
-				setItem((String)newValue);
+			case WebDSLPackage.LIST__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends PageElement>)newValue);
 				return;
-			case WebDSLPackage.LIST__COLLECTION_PROVIDER:
-				setCollectionProvider((EOperation)newValue);
+			case WebDSLPackage.LIST__COLLECTION:
+				setCollection((Expression)newValue);
 				return;
-			case WebDSLPackage.LIST__TYPE:
-				setType((EClass)newValue);
-				return;
-			case WebDSLPackage.LIST__CONTENT:
-				getContent().clear();
-				getContent().addAll((Collection<? extends PageElement>)newValue);
+			case WebDSLPackage.LIST__ITERATOR_VARIABLE:
+				setIteratorVariable((VariableDeclaration)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -287,17 +247,14 @@ public class ListImpl extends PresentationElementImpl implements List {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case WebDSLPackage.LIST__ITEM:
-				setItem(ITEM_EDEFAULT);
+			case WebDSLPackage.LIST__ELEMENTS:
+				getElements().clear();
 				return;
-			case WebDSLPackage.LIST__COLLECTION_PROVIDER:
-				setCollectionProvider((EOperation)null);
+			case WebDSLPackage.LIST__COLLECTION:
+				setCollection((Expression)null);
 				return;
-			case WebDSLPackage.LIST__TYPE:
-				setType((EClass)null);
-				return;
-			case WebDSLPackage.LIST__CONTENT:
-				getContent().clear();
+			case WebDSLPackage.LIST__ITERATOR_VARIABLE:
+				setIteratorVariable((VariableDeclaration)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -311,32 +268,14 @@ public class ListImpl extends PresentationElementImpl implements List {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case WebDSLPackage.LIST__ITEM:
-				return ITEM_EDEFAULT == null ? item != null : !ITEM_EDEFAULT.equals(item);
-			case WebDSLPackage.LIST__COLLECTION_PROVIDER:
-				return collectionProvider != null;
-			case WebDSLPackage.LIST__TYPE:
-				return type != null;
-			case WebDSLPackage.LIST__CONTENT:
-				return content != null && !content.isEmpty();
+			case WebDSLPackage.LIST__ELEMENTS:
+				return elements != null && !elements.isEmpty();
+			case WebDSLPackage.LIST__COLLECTION:
+				return collection != null;
+			case WebDSLPackage.LIST__ITERATOR_VARIABLE:
+				return iteratorVariable != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (item: ");
-		result.append(item);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ListImpl

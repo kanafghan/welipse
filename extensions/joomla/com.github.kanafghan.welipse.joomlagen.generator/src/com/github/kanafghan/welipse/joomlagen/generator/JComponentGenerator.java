@@ -18,9 +18,9 @@ import org.eclipse.emf.common.util.EList;
 
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenModel;
 import com.github.kanafghan.welipse.joomlagen.generator.context.Context;
+import com.github.kanafghan.welipse.webdsl.Image;
 import com.github.kanafghan.welipse.webdsl.Page;
 import com.github.kanafghan.welipse.webdsl.PageElement;
-import com.github.kanafghan.welipse.webdsl.StaticImage;
 import com.github.kanafghan.welipse.webdsl.Website;
 
 public class JComponentGenerator {
@@ -116,13 +116,13 @@ public class JComponentGenerator {
 					for (Page page : pages) {
 						EList<PageElement> elements = page.getElements();
 						for (PageElement element : elements) {
-							if (element instanceof StaticImage) {
-								StaticImage sImg = (StaticImage) element;
-								if (sImg.isIsURL())
+							if (element instanceof Image) {
+								Image sImg = (Image) element;
+								if (!sImg.isStatic())
 									continue;
 
 								String imgName = Utils.getFileName(sImg
-										.getSource());
+										.getSource().toString());
 
 								// Create a copy of the image
 								IFile localImg = folder.getFile(imgName);
@@ -130,7 +130,7 @@ public class JComponentGenerator {
 									FileInputStream fileStream;
 									try {
 										fileStream = new FileInputStream(
-												sImg.getSource());
+												sImg.getSource().toString());
 										localImg.create(fileStream, true,
 												monitor);
 									} catch (FileNotFoundException e) {

@@ -8,6 +8,30 @@
   <foreignModel>webdsl.ecore</foreignModel>
   <genPackages prefix="WebDSL" basePackage="com.github.kanafghan.welipse" disposableProviderFactory="true"
       contentTypeIdentifier="" ecorePackage="webdsl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="webdsl.ecore#//ArithmeticOperator">
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ArithmeticOperator/Negation"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ArithmeticOperator/Addition"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ArithmeticOperator/Subtraction"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ArithmeticOperator/Multiplication"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ArithmeticOperator/Division"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="webdsl.ecore#//StringOperator">
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//StringOperator/Concatenation"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//StringOperator/Length"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="webdsl.ecore#//BooleanOperator">
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//BooleanOperator/Negation"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//BooleanOperator/Conjunction"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//BooleanOperator/Disjunction"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="webdsl.ecore#//ComparisonOperator">
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ComparisonOperator/Equal"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ComparisonOperator/NotEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ComparisonOperator/GreaterThan"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ComparisonOperator/LessThan"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ComparisonOperator/GreaterThanEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ComparisonOperator/LessThanEqual"/>
+    </genEnums>
     <genClasses ecoreClass="webdsl.ecore#//Website">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Website/pages"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//Website/home"/>
@@ -16,6 +40,8 @@
     <genClasses ecoreClass="webdsl.ecore#//Page">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Page/elements"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Page/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Page/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Page/variables"/>
     </genClasses>
     <genClasses image="false" ecoreClass="webdsl.ecore#//PageElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//PageElement/name"/>
@@ -26,20 +52,18 @@
     </genClasses>
     <genClasses image="false" ecoreClass="webdsl.ecore#//NavigationElement"/>
     <genClasses ecoreClass="webdsl.ecore#//List">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//List/item"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//List/collectionProvider"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//List/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//List/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//List/elements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//List/collection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//List/iteratorVariable"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="webdsl.ecore#//Text"/>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//Text">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Text/content"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Text/static"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="webdsl.ecore#//Image">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Image/isURL"/>
-    </genClasses>
-    <genClasses ecoreClass="webdsl.ecore#//StaticText">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//StaticText/content"/>
-    </genClasses>
-    <genClasses ecoreClass="webdsl.ecore#//StaticImage">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//StaticImage/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Image/referenced"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Image/source"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Image/static"/>
     </genClasses>
     <genClasses image="false" ecoreClass="webdsl.ecore#//Link">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Link/content"/>
@@ -47,12 +71,64 @@
     <genClasses ecoreClass="webdsl.ecore#//InternalLink">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//InternalLink/target"/>
     </genClasses>
-    <genClasses ecoreClass="webdsl.ecore#//ExternalLink"/>
-    <genClasses ecoreClass="webdsl.ecore#//DynamicText">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//DynamicText/content"/>
+    <genClasses ecoreClass="webdsl.ecore#//ExternalLink">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//ExternalLink/target"/>
     </genClasses>
-    <genClasses ecoreClass="webdsl.ecore#//DynamicImage">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//DynamicImage/source"/>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//Expression">
+      <genOperations ecoreOperation="webdsl.ecore#//Expression/type"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//VariableExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//VariableExp/var"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//VariableExp/declaration"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//OperationExp"/>
+    <genClasses ecoreClass="webdsl.ecore#//VariableDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//VariableDeclaration/var"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//VariableDeclaration/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//VariableDeclaration/classifier"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//VariableInitialization">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//VariableInitialization/initExp"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//PropertyOperation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//PropertyOperation/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//PropertyOperation/identifier"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//ConstantExp"/>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//BasicOperation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//BasicOperation/operands"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//ArithmeticOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//ArithmeticOperation/operator"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//StructuralExp">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//StructuralExp/feature"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//ClassifierOperation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//ClassifierOperation/operation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//ClassifierOperation/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//IntegerConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//IntegerConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//StringConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//StringConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//Parameter"/>
+    <genClasses ecoreClass="webdsl.ecore#//StringOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//StringOperation/operator"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//BooleanConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//BooleanConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//BooleanOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//BooleanOperation/operator"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//ComparisonOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//ComparisonOperation/operator"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//RealConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//RealConstant/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

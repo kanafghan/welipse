@@ -68,9 +68,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" eType="#//VariableDeclaration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OperationExp" abstract="true" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration">
+  <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClassifier"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="classifier" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariableInitialization" eSuperTypes="#//VariableDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="initExp" lowerBound="1"
@@ -79,29 +80,30 @@
   <eClassifiers xsi:type="ecore:EClass" name="PropertyOperation" abstract="true" eSuperTypes="#//OperationExp">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//Expression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstantExp" abstract="true" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="BasicOperation" abstract="true" eSuperTypes="#//OperationExp">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operands" lowerBound="1"
         upperBound="-1" eType="#//Expression" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ArithmaticOperation" eSuperTypes="#//BasicOperation">
+  <eClassifiers xsi:type="ecore:EClass" name="ArithmeticOperation" eSuperTypes="#//BasicOperation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
-        eType="#//ArithmaticOperator"/>
+        eType="#//ArithmeticOperator"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ArithmaticOperator">
+  <eClassifiers xsi:type="ecore:EEnum" name="ArithmeticOperator">
+    <eLiterals name="Negation" value="4"/>
     <eLiterals name="Addition"/>
     <eLiterals name="Subtraction" value="1"/>
     <eLiterals name="Multiplication" value="2"/>
     <eLiterals name="Division" value="3" literal="Division"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StructuralExp" eSuperTypes="#//PropertyOperation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EReference"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClassifierOperation" eSuperTypes="#//PropertyOperation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EOperation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arguements" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
         eType="#//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntegerConstant" eSuperTypes="#//ConstantExp">
@@ -119,5 +121,28 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="StringOperator">
     <eLiterals name="Concatenation"/>
+    <eLiterals name="Length" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanOperation" eSuperTypes="#//BasicOperation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//BooleanOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComparisonOperation" eSuperTypes="#//BasicOperation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//ComparisonOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BooleanOperator">
+    <eLiterals name="Negation"/>
+    <eLiterals name="Conjunction" value="1"/>
+    <eLiterals name="Disjunction" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperator">
+    <eLiterals name="Equal"/>
+    <eLiterals name="NotEqual" value="1"/>
+    <eLiterals name="GreaterThan" value="2"/>
+    <eLiterals name="LessThan" value="3"/>
+    <eLiterals name="GreaterThanEqual" value="4"/>
+    <eLiterals name="LessThanEqual" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RealConstant" eSuperTypes="#//ConstantExp">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
 </ecore:EPackage>

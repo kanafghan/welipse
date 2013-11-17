@@ -9,9 +9,9 @@
 
 [template public generateList(list : List, genModel : JoomlaGenModel) 
 	{ 
-		variable : String = list.iteratorVariable.var.oclAsType(EString); 
-		type : String = list.iteratorVariable.type.oclAsType(EClass).name; 
-		collection : String = list.collection.type().oclAsType(EClassifier).name
+		variable : EString = list.iteratorVariable.var.oclAsType(EString); 
+		type : EString = list.iteratorVariable.type.oclAsType(EClass).name; 
+		collection : EString = list.collection.type().oclAsType(EClassifier).name
 	}]
 <?php
 $temp = $this->[type/];

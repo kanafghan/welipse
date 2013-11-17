@@ -144,12 +144,12 @@ public class LinkItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(WebDSLPackage.Literals.LINK__CONTENT,
-				 WebDSLFactory.eINSTANCE.createStaticText()));
+				 WebDSLFactory.eINSTANCE.createText()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(WebDSLPackage.Literals.LINK__CONTENT,
-				 WebDSLFactory.eINSTANCE.createStaticImage()));
+				 WebDSLFactory.eINSTANCE.createImage()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -160,16 +160,6 @@ public class LinkItemProvider
 			(createChildParameter
 				(WebDSLPackage.Literals.LINK__CONTENT,
 				 WebDSLFactory.eINSTANCE.createExternalLink()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(WebDSLPackage.Literals.LINK__CONTENT,
-				 WebDSLFactory.eINSTANCE.createDynamicText()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(WebDSLPackage.Literals.LINK__CONTENT,
-				 WebDSLFactory.eINSTANCE.createDynamicImage()));
 	}
 
 }

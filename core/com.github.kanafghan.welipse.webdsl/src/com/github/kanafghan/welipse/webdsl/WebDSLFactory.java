@@ -49,22 +49,22 @@ public interface WebDSLFactory extends EFactory {
 	List createList();
 
 	/**
-	 * Returns a new object of class '<em>Static Text</em>'.
+	 * Returns a new object of class '<em>Text</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Static Text</em>'.
+	 * @return a new object of class '<em>Text</em>'.
 	 * @generated
 	 */
-	StaticText createStaticText();
+	Text createText();
 
 	/**
-	 * Returns a new object of class '<em>Static Image</em>'.
+	 * Returns a new object of class '<em>Image</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Static Image</em>'.
+	 * @return a new object of class '<em>Image</em>'.
 	 * @generated
 	 */
-	StaticImage createStaticImage();
+	Image createImage();
 
 	/**
 	 * Returns a new object of class '<em>Internal Link</em>'.
@@ -85,22 +85,121 @@ public interface WebDSLFactory extends EFactory {
 	ExternalLink createExternalLink();
 
 	/**
-	 * Returns a new object of class '<em>Dynamic Text</em>'.
+	 * Returns a new object of class '<em>Variable Exp</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dynamic Text</em>'.
+	 * @return a new object of class '<em>Variable Exp</em>'.
 	 * @generated
 	 */
-	DynamicText createDynamicText();
+	VariableExp createVariableExp();
 
 	/**
-	 * Returns a new object of class '<em>Dynamic Image</em>'.
+	 * Returns a new object of class '<em>Variable Initialization</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dynamic Image</em>'.
+	 * @return a new object of class '<em>Variable Initialization</em>'.
 	 * @generated
 	 */
-	DynamicImage createDynamicImage();
+	VariableInitialization createVariableInitialization();
+
+	/**
+	 * Returns a new object of class '<em>Arithmetic Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Arithmetic Operation</em>'.
+	 * @generated
+	 */
+	ArithmeticOperation createArithmeticOperation();
+
+	/**
+	 * Returns a new object of class '<em>Structural Exp</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Structural Exp</em>'.
+	 * @generated
+	 */
+	StructuralExp createStructuralExp();
+
+	/**
+	 * Returns a new object of class '<em>Classifier Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Classifier Operation</em>'.
+	 * @generated
+	 */
+	ClassifierOperation createClassifierOperation();
+
+	/**
+	 * Returns a new object of class '<em>Integer Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Integer Constant</em>'.
+	 * @generated
+	 */
+	IntegerConstant createIntegerConstant();
+
+	/**
+	 * Returns a new object of class '<em>String Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Constant</em>'.
+	 * @generated
+	 */
+	StringConstant createStringConstant();
+
+	/**
+	 * Returns a new object of class '<em>Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter</em>'.
+	 * @generated
+	 */
+	Parameter createParameter();
+
+	/**
+	 * Returns a new object of class '<em>String Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Operation</em>'.
+	 * @generated
+	 */
+	StringOperation createStringOperation();
+
+	/**
+	 * Returns a new object of class '<em>Boolean Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Boolean Constant</em>'.
+	 * @generated
+	 */
+	BooleanConstant createBooleanConstant();
+
+	/**
+	 * Returns a new object of class '<em>Boolean Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Boolean Operation</em>'.
+	 * @generated
+	 */
+	BooleanOperation createBooleanOperation();
+
+	/**
+	 * Returns a new object of class '<em>Comparison Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Comparison Operation</em>'.
+	 * @generated
+	 */
+	ComparisonOperation createComparisonOperation();
+
+	/**
+	 * Returns a new object of class '<em>Real Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Real Constant</em>'.
+	 * @generated
+	 */
+	RealConstant createRealConstant();
 
 	/**
 	 * Returns the package supported by this factory.

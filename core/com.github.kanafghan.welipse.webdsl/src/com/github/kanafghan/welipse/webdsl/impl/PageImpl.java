@@ -4,6 +4,8 @@ package com.github.kanafghan.welipse.webdsl.impl;
 
 import com.github.kanafghan.welipse.webdsl.Page;
 import com.github.kanafghan.welipse.webdsl.PageElement;
+import com.github.kanafghan.welipse.webdsl.Parameter;
+import com.github.kanafghan.welipse.webdsl.VariableInitialization;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 
 import java.util.Collection;
@@ -19,6 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -31,6 +34,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.PageImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.PageImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.PageImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.PageImpl#getVariables <em>Variables</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +71,26 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Parameter> parameters;
+
+	/**
+	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<VariableInitialization> variables;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,6 +149,30 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Parameter> getParameters() {
+		if (parameters == null) {
+			parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this, WebDSLPackage.PAGE__PARAMETERS);
+		}
+		return parameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<VariableInitialization> getVariables() {
+		if (variables == null) {
+			variables = new EObjectContainmentEList<VariableInitialization>(VariableInitialization.class, this, WebDSLPackage.PAGE__VARIABLES);
+		}
+		return variables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -144,6 +193,10 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 		switch (featureID) {
 			case WebDSLPackage.PAGE__ELEMENTS:
 				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+			case WebDSLPackage.PAGE__PARAMETERS:
+				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+			case WebDSLPackage.PAGE__VARIABLES:
+				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -160,6 +213,10 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 				return getElements();
 			case WebDSLPackage.PAGE__NAME:
 				return getName();
+			case WebDSLPackage.PAGE__PARAMETERS:
+				return getParameters();
+			case WebDSLPackage.PAGE__VARIABLES:
+				return getVariables();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,6 +237,14 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 			case WebDSLPackage.PAGE__NAME:
 				setName((String)newValue);
 				return;
+			case WebDSLPackage.PAGE__PARAMETERS:
+				getParameters().clear();
+				getParameters().addAll((Collection<? extends Parameter>)newValue);
+				return;
+			case WebDSLPackage.PAGE__VARIABLES:
+				getVariables().clear();
+				getVariables().addAll((Collection<? extends VariableInitialization>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -198,6 +263,12 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 			case WebDSLPackage.PAGE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case WebDSLPackage.PAGE__PARAMETERS:
+				getParameters().clear();
+				return;
+			case WebDSLPackage.PAGE__VARIABLES:
+				getVariables().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -214,6 +285,10 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 				return elements != null && !elements.isEmpty();
 			case WebDSLPackage.PAGE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case WebDSLPackage.PAGE__PARAMETERS:
+				return parameters != null && !parameters.isEmpty();
+			case WebDSLPackage.PAGE__VARIABLES:
+				return variables != null && !variables.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

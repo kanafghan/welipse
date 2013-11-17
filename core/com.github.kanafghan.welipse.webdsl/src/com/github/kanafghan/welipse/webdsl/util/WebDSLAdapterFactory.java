@@ -100,14 +100,6 @@ public class WebDSLAdapterFactory extends AdapterFactoryImpl {
 				return createImageAdapter();
 			}
 			@Override
-			public Adapter caseStaticText(StaticText object) {
-				return createStaticTextAdapter();
-			}
-			@Override
-			public Adapter caseStaticImage(StaticImage object) {
-				return createStaticImageAdapter();
-			}
-			@Override
 			public Adapter caseLink(Link object) {
 				return createLinkAdapter();
 			}
@@ -120,12 +112,80 @@ public class WebDSLAdapterFactory extends AdapterFactoryImpl {
 				return createExternalLinkAdapter();
 			}
 			@Override
-			public Adapter caseDynamicText(DynamicText object) {
-				return createDynamicTextAdapter();
+			public Adapter caseExpression(Expression object) {
+				return createExpressionAdapter();
 			}
 			@Override
-			public Adapter caseDynamicImage(DynamicImage object) {
-				return createDynamicImageAdapter();
+			public Adapter caseVariableExp(VariableExp object) {
+				return createVariableExpAdapter();
+			}
+			@Override
+			public Adapter caseOperationExp(OperationExp object) {
+				return createOperationExpAdapter();
+			}
+			@Override
+			public Adapter caseVariableDeclaration(VariableDeclaration object) {
+				return createVariableDeclarationAdapter();
+			}
+			@Override
+			public Adapter caseVariableInitialization(VariableInitialization object) {
+				return createVariableInitializationAdapter();
+			}
+			@Override
+			public Adapter casePropertyOperation(PropertyOperation object) {
+				return createPropertyOperationAdapter();
+			}
+			@Override
+			public Adapter caseConstantExp(ConstantExp object) {
+				return createConstantExpAdapter();
+			}
+			@Override
+			public Adapter caseBasicOperation(BasicOperation object) {
+				return createBasicOperationAdapter();
+			}
+			@Override
+			public Adapter caseArithmeticOperation(ArithmeticOperation object) {
+				return createArithmeticOperationAdapter();
+			}
+			@Override
+			public Adapter caseStructuralExp(StructuralExp object) {
+				return createStructuralExpAdapter();
+			}
+			@Override
+			public Adapter caseClassifierOperation(ClassifierOperation object) {
+				return createClassifierOperationAdapter();
+			}
+			@Override
+			public Adapter caseIntegerConstant(IntegerConstant object) {
+				return createIntegerConstantAdapter();
+			}
+			@Override
+			public Adapter caseStringConstant(StringConstant object) {
+				return createStringConstantAdapter();
+			}
+			@Override
+			public Adapter caseParameter(Parameter object) {
+				return createParameterAdapter();
+			}
+			@Override
+			public Adapter caseStringOperation(StringOperation object) {
+				return createStringOperationAdapter();
+			}
+			@Override
+			public Adapter caseBooleanConstant(BooleanConstant object) {
+				return createBooleanConstantAdapter();
+			}
+			@Override
+			public Adapter caseBooleanOperation(BooleanOperation object) {
+				return createBooleanOperationAdapter();
+			}
+			@Override
+			public Adapter caseComparisonOperation(ComparisonOperation object) {
+				return createComparisonOperationAdapter();
+			}
+			@Override
+			public Adapter caseRealConstant(RealConstant object) {
+				return createRealConstantAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -260,34 +320,6 @@ public class WebDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.StaticText <em>Static Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.github.kanafghan.welipse.webdsl.StaticText
-	 * @generated
-	 */
-	public Adapter createStaticTextAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.StaticImage <em>Static Image</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.github.kanafghan.welipse.webdsl.StaticImage
-	 * @generated
-	 */
-	public Adapter createStaticImageAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.Link <em>Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -330,30 +362,268 @@ public class WebDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.DynamicText <em>Dynamic Text</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.Expression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.github.kanafghan.welipse.webdsl.DynamicText
+	 * @see com.github.kanafghan.welipse.webdsl.Expression
 	 * @generated
 	 */
-	public Adapter createDynamicTextAdapter() {
+	public Adapter createExpressionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.DynamicImage <em>Dynamic Image</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.VariableExp <em>Variable Exp</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.github.kanafghan.welipse.webdsl.DynamicImage
+	 * @see com.github.kanafghan.welipse.webdsl.VariableExp
 	 * @generated
 	 */
-	public Adapter createDynamicImageAdapter() {
+	public Adapter createVariableExpAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.OperationExp <em>Operation Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.OperationExp
+	 * @generated
+	 */
+	public Adapter createOperationExpAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.VariableDeclaration <em>Variable Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.VariableDeclaration
+	 * @generated
+	 */
+	public Adapter createVariableDeclarationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.VariableInitialization <em>Variable Initialization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.VariableInitialization
+	 * @generated
+	 */
+	public Adapter createVariableInitializationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.PropertyOperation <em>Property Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.PropertyOperation
+	 * @generated
+	 */
+	public Adapter createPropertyOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.ConstantExp <em>Constant Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.ConstantExp
+	 * @generated
+	 */
+	public Adapter createConstantExpAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.BasicOperation <em>Basic Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.BasicOperation
+	 * @generated
+	 */
+	public Adapter createBasicOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.ArithmeticOperation <em>Arithmetic Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.ArithmeticOperation
+	 * @generated
+	 */
+	public Adapter createArithmeticOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.StructuralExp <em>Structural Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.StructuralExp
+	 * @generated
+	 */
+	public Adapter createStructuralExpAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.ClassifierOperation <em>Classifier Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.ClassifierOperation
+	 * @generated
+	 */
+	public Adapter createClassifierOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.IntegerConstant <em>Integer Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.IntegerConstant
+	 * @generated
+	 */
+	public Adapter createIntegerConstantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.StringConstant <em>String Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.StringConstant
+	 * @generated
+	 */
+	public Adapter createStringConstantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.Parameter
+	 * @generated
+	 */
+	public Adapter createParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.StringOperation <em>String Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.StringOperation
+	 * @generated
+	 */
+	public Adapter createStringOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.BooleanConstant <em>Boolean Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.BooleanConstant
+	 * @generated
+	 */
+	public Adapter createBooleanConstantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.BooleanOperation <em>Boolean Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.BooleanOperation
+	 * @generated
+	 */
+	public Adapter createBooleanOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.ComparisonOperation <em>Comparison Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.ComparisonOperation
+	 * @generated
+	 */
+	public Adapter createComparisonOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.RealConstant <em>Real Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.RealConstant
+	 * @generated
+	 */
+	public Adapter createRealConstantAdapter() {
 		return null;
 	}
 
