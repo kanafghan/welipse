@@ -442,6 +442,24 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPage_Parameter() {
+		return (EAttribute)pageEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPage_Variable() {
+		return (EAttribute)pageEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPageElement() {
 		return pageElementEClass;
 	}
@@ -487,6 +505,15 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPresentationElement_Expression() {
+		return (EAttribute)presentationElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNavigationElement() {
 		return navigationElementEClass;
 	}
@@ -525,6 +552,15 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 */
 	public EReference getList_IteratorVariable() {
 		return (EReference)listEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getList_Variable() {
+		return (EAttribute)listEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -667,6 +703,15 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getExpression__Initialize__Page() {
+		return expressionEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVariableExp() {
 		return variableExpEClass;
 	}
@@ -732,6 +777,15 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 */
 	public EAttribute getVariableDeclaration_Classifier() {
 		return (EAttribute)variableDeclarationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getVariableDeclaration__Initialize__Page() {
+		return variableDeclarationEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1078,6 +1132,8 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		createEAttribute(pageEClass, PAGE__NAME);
 		createEReference(pageEClass, PAGE__PARAMETERS);
 		createEReference(pageEClass, PAGE__VARIABLES);
+		createEAttribute(pageEClass, PAGE__PARAMETER);
+		createEAttribute(pageEClass, PAGE__VARIABLE);
 
 		pageElementEClass = createEClass(PAGE_ELEMENT);
 		createEAttribute(pageElementEClass, PAGE_ELEMENT__NAME);
@@ -1085,6 +1141,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 
 		presentationElementEClass = createEClass(PRESENTATION_ELEMENT);
 		createEAttribute(presentationElementEClass, PRESENTATION_ELEMENT__CLASS);
+		createEAttribute(presentationElementEClass, PRESENTATION_ELEMENT__EXPRESSION);
 
 		navigationElementEClass = createEClass(NAVIGATION_ELEMENT);
 
@@ -1092,6 +1149,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		createEReference(listEClass, LIST__ELEMENTS);
 		createEReference(listEClass, LIST__COLLECTION);
 		createEReference(listEClass, LIST__ITERATOR_VARIABLE);
+		createEAttribute(listEClass, LIST__VARIABLE);
 
 		textEClass = createEClass(TEXT);
 		createEReference(textEClass, TEXT__CONTENT);
@@ -1113,6 +1171,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 
 		expressionEClass = createEClass(EXPRESSION);
 		createEOperation(expressionEClass, EXPRESSION___TYPE);
+		createEOperation(expressionEClass, EXPRESSION___INITIALIZE__PAGE);
 
 		variableExpEClass = createEClass(VARIABLE_EXP);
 		createEAttribute(variableExpEClass, VARIABLE_EXP__VAR);
@@ -1124,6 +1183,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__VAR);
 		createEReference(variableDeclarationEClass, VARIABLE_DECLARATION__TYPE);
 		createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__CLASSIFIER);
+		createEOperation(variableDeclarationEClass, VARIABLE_DECLARATION___INITIALIZE__PAGE);
 
 		variableInitializationEClass = createEClass(VARIABLE_INITIALIZATION);
 		createEReference(variableInitializationEClass, VARIABLE_INITIALIZATION__INIT_EXP);
@@ -1245,6 +1305,8 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		initEAttribute(getPage_Name(), ecorePackage.getEString(), "name", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPage_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPage_Variables(), this.getVariableInitialization(), null, "variables", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPage_Parameter(), ecorePackage.getEString(), "parameter", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPage_Variable(), ecorePackage.getEString(), "variable", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pageElementEClass, PageElement.class, "PageElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPageElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, PageElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1252,6 +1314,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 
 		initEClass(presentationElementEClass, PresentationElement.class, "PresentationElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPresentationElement_Class(), ecorePackage.getEString(), "class", null, 0, 1, PresentationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPresentationElement_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, PresentationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(navigationElementEClass, NavigationElement.class, "NavigationElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1259,6 +1322,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		initEReference(getList_Elements(), this.getPageElement(), null, "elements", null, 0, -1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getList_Collection(), this.getExpression(), null, "collection", null, 1, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getList_IteratorVariable(), this.getVariableDeclaration(), null, "iteratorVariable", null, 1, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getList_Variable(), ecorePackage.getEString(), "variable", null, 0, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getText_Content(), this.getExpression(), null, "content", null, 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1282,6 +1346,9 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 
 		initEOperation(getExpression__Type(), theEcorePackage.getEClassifier(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		EOperation op = initEOperation(getExpression__Initialize__Page(), null, "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPage(), "page", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(variableExpEClass, VariableExp.class, "VariableExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVariableExp_Var(), theEcorePackage.getEString(), "var", null, 1, 1, VariableExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVariableExp_Declaration(), this.getVariableDeclaration(), null, "declaration", null, 0, 1, VariableExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1292,6 +1359,9 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		initEAttribute(getVariableDeclaration_Var(), theEcorePackage.getEString(), "var", null, 1, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVariableDeclaration_Type(), theEcorePackage.getEClassifier(), null, "type", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVariableDeclaration_Classifier(), theEcorePackage.getEString(), "classifier", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getVariableDeclaration__Initialize__Page(), null, "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPage(), "page", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(variableInitializationEClass, VariableInitialization.class, "VariableInitialization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVariableInitialization_InitExp(), this.getExpression(), null, "initExp", null, 1, 1, VariableInitialization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

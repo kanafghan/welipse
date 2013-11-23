@@ -2,6 +2,8 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
+import com.github.kanafghan.welipse.webdsl.Expression;
+import com.github.kanafghan.welipse.webdsl.Page;
 import com.github.kanafghan.welipse.webdsl.StringOperation;
 import com.github.kanafghan.welipse.webdsl.StringOperator;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
@@ -165,24 +167,63 @@ public class StringOperationImpl extends BasicOperationImpl implements StringOpe
 	 */
 	@Override
 	public EClassifier type() {
-		EClassifier result = null;
-		
-		if (getOperands().size() > 0) {
-			result = getOperands().get(0).type();
-			for (int i=0; i<getOperands().size(); i++) {
-				if (!result.isInstance(getOperands().get(i).type())) {
-					throw new Error("The operands of the '"+ ExpressionUtils.getOperatorSymbol(getOperator()) +"' operation have different types.");
+		EClassifier type = null;
+		if (getOperands().size() == 2) {
+			Expression operand1 = getOperands().get(0);
+			Expression operand2 = getOperands().get(1);
+			if (operand1  != null && operand2 != null) {
+				type = operand1.type();
+				EClassifier otherType = operand2.type();
+				if (type != null && otherType != null) {
+					if (type.getName().equals(otherType.getName())) {
+						if (ExpressionUtils.isString(type)) {							
+							return type;
+						} else {
+							throw new Error("The operands of the string operation '"
+									+ ExpressionUtils.getOperatorSymbol(getOperator())
+									+"' have not String type: the type is "+ type.getName());
+						}
+					} else {
+						throw new Error("The operands of the string operation '"
+								+ ExpressionUtils.getOperatorSymbol(getOperator())
+								+"' have different types: the type of the first operand is "
+								+ type.getName() +" while the type of the second operand is "
+								+ otherType.getName());
+					}
 				}
+			} else {
+				throw new Error("One of the operands in string operation '"
+						+ ExpressionUtils.getOperatorSymbol(getOperator())
+						+"' is null. Operand 1 = "+ operand1 +", Operand 2 = "+ operand2);
 			}
-			
-			if (!result.isInstance(new String())) {
-				throw new Error("The operand '"+ result.toString() +"' in string operation '"
-						+ ExpressionUtils.getOperatorSymbol(getOperator()) 
-						+"' is not of type String.");
+		} else if (getOperands().size() == 1) {
+			if (getOperator() == StringOperator.LENGTH) {
+				type = getOperands().get(0).type();
+				if (!ExpressionUtils.isString(type)) {
+					throw new Error("The operand of the string operation 'length' is not of type String.");
+				}
+			} else {
+				throw new Error("The string operation '"
+						+ ExpressionUtils.getOperatorSymbol(getOperator())
+						+"' does not have 2 operands, but got 1.");
 			}
+		} else {
+			throw new Error("The string operation '"
+					+ ExpressionUtils.getOperatorSymbol(getOperator()) 
+					+"' does not have 1 or 2 operands, but "+ getOperands().size());
 		}
-		
-		return result;
+		return type;
 	}
+
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public void initialize(Page page) {
+		for (Expression operands : getOperands()) {
+			operands.initialize(page);
+		}
+	}
+	
 
 } //StringOperationImpl

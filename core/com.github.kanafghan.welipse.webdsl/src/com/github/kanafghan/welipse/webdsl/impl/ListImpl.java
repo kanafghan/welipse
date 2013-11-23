@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.ListImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.ListImpl#getCollection <em>Collection</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.ListImpl#getIteratorVariable <em>Iterator Variable</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.ListImpl#getVariable <em>Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,6 +63,26 @@ public class ListImpl extends PresentationElementImpl implements List {
 	 * @ordered
 	 */
 	protected VariableDeclaration iteratorVariable;
+
+	/**
+	 * The default value of the '{@link #getVariable() <em>Variable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VARIABLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected String variable = VARIABLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,6 +206,27 @@ public class ListImpl extends PresentationElementImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getVariable() {
+		return variable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVariable(String newVariable) {
+		String oldVariable = variable;
+		variable = newVariable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WebDSLPackage.LIST__VARIABLE, oldVariable, variable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -212,6 +254,8 @@ public class ListImpl extends PresentationElementImpl implements List {
 				return getCollection();
 			case WebDSLPackage.LIST__ITERATOR_VARIABLE:
 				return getIteratorVariable();
+			case WebDSLPackage.LIST__VARIABLE:
+				return getVariable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -235,6 +279,9 @@ public class ListImpl extends PresentationElementImpl implements List {
 			case WebDSLPackage.LIST__ITERATOR_VARIABLE:
 				setIteratorVariable((VariableDeclaration)newValue);
 				return;
+			case WebDSLPackage.LIST__VARIABLE:
+				setVariable((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -256,6 +303,9 @@ public class ListImpl extends PresentationElementImpl implements List {
 			case WebDSLPackage.LIST__ITERATOR_VARIABLE:
 				setIteratorVariable((VariableDeclaration)null);
 				return;
+			case WebDSLPackage.LIST__VARIABLE:
+				setVariable(VARIABLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -274,8 +324,26 @@ public class ListImpl extends PresentationElementImpl implements List {
 				return collection != null;
 			case WebDSLPackage.LIST__ITERATOR_VARIABLE:
 				return iteratorVariable != null;
+			case WebDSLPackage.LIST__VARIABLE:
+				return VARIABLE_EDEFAULT == null ? variable != null : !VARIABLE_EDEFAULT.equals(variable);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (variable: ");
+		result.append(variable);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ListImpl

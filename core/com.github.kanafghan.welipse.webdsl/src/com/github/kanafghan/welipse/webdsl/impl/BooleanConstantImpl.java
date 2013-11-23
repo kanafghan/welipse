@@ -5,11 +5,11 @@ package com.github.kanafghan.welipse.webdsl.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import com.github.kanafghan.welipse.webdsl.BooleanConstant;
+import com.github.kanafghan.welipse.webdsl.Page;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 
 /**
@@ -165,10 +165,15 @@ public class BooleanConstantImpl extends ConstantExpImpl implements BooleanConst
 	 */
 	@Override
 	public EClassifier type() {
-		EDataType dataType = EcoreFactory.eINSTANCE.createEDataType();
-		dataType.setInstanceTypeName("EBoolean");
-		dataType.setName(""+ isValue());
-		return dataType;
+		return EcoreFactory.eINSTANCE.getEcorePackage().getEBoolean();
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public void initialize(Page page) {
+		// nothing to initialize here
 	}
 
 } //BooleanConstantImpl

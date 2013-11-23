@@ -3,20 +3,14 @@
 package com.github.kanafghan.welipse.webdsl.provider;
 
 
-import com.github.kanafghan.welipse.webdsl.Page;
-import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
-import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -27,6 +21,11 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import com.github.kanafghan.welipse.webdsl.Page;
+import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
+import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
+import com.github.kanafghan.welipse.webdsl.expressions.ExpressionsAnalyzer;
 
 /**
  * This is the item provider adapter for a {@link com.github.kanafghan.welipse.webdsl.Page} object.
@@ -64,6 +63,8 @@ public class PageItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addParameterPropertyDescriptor(object);
+			addVariablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -88,6 +89,86 @@ public class PageItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Parameter feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addParameterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(new ItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Page_parameter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Page_parameter_feature", "_UI_Page_type"),
+				 WebDSLPackage.Literals.PAGE__PARAMETER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null)
+			{
+
+				@Override
+				public void setPropertyValue(Object object, Object value) {
+					super.setPropertyValue(object, value);
+					
+					// get the declaration of the parameter
+					if (value instanceof String && object instanceof Page) {
+						String expression = (String) value;
+						Page page = (Page) object;
+						EditingDomain editingDomain = getEditingDomain(page);
+						
+						// parse, initialize, analyze and add the parameter to the page
+						ExpressionsAnalyzer evaluator = new ExpressionsAnalyzer(editingDomain, page, expression);
+						evaluator.analyzeParameter();
+					}
+				}
+			});
+	}
+
+	/**
+	 * This adds a property descriptor for the Variable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVariablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(new ItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Page_variable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Page_variable_feature", "_UI_Page_type"),
+				 WebDSLPackage.Literals.PAGE__VARIABLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null)
+			{
+
+				@Override
+				public void setPropertyValue(Object object, Object value) {
+					super.setPropertyValue(object, value);
+					
+					// get the declaration of the parameter
+					if (value instanceof String && object instanceof Page) {
+						String expression = (String) value;
+						Page page = (Page) object;
+						EditingDomain editingDomain = getEditingDomain(page);
+						
+						// parse, initialize, analyze and add the variable to the page
+						ExpressionsAnalyzer analyzer = new ExpressionsAnalyzer(editingDomain, page, expression);
+						analyzer.analyzeVariable();
+					}
+				}
+			});
 	}
 
 	/**
@@ -160,6 +241,8 @@ public class PageItemProvider
 
 		switch (notification.getFeatureID(Page.class)) {
 			case WebDSLPackage.PAGE__NAME:
+			case WebDSLPackage.PAGE__PARAMETER:
+			case WebDSLPackage.PAGE__VARIABLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case WebDSLPackage.PAGE__ELEMENTS:

@@ -3,15 +3,14 @@
 package com.github.kanafghan.welipse.webdsl.impl;
 
 import com.github.kanafghan.welipse.webdsl.Expression;
+import com.github.kanafghan.welipse.webdsl.Page;
 import com.github.kanafghan.welipse.webdsl.VariableInitialization;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -170,6 +169,15 @@ public class VariableInitializationImpl extends VariableDeclarationImpl implemen
 				return initExp != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	public void initialize(Page page) {
+		// initialize the super first
+		super.initialize(page);
+		
+		// now, let the expression to initialize
+		getInitExp().initialize(page);
 	}
 
 } //VariableInitializationImpl

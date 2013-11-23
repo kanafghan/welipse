@@ -160,13 +160,31 @@ public interface WebDSLPackage extends EPackage {
 	int PAGE__VARIABLES = 3;
 
 	/**
+	 * The feature id for the '<em><b>Parameter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__PARAMETER = 4;
+
+	/**
+	 * The feature id for the '<em><b>Variable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__VARIABLE = 5;
+
+	/**
 	 * The number of structural features of the '<em>Page</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_FEATURE_COUNT = 4;
+	int PAGE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Page</em>' class.
@@ -261,13 +279,22 @@ public interface WebDSLPackage extends EPackage {
 	int PRESENTATION_ELEMENT__CLASS = PAGE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRESENTATION_ELEMENT__EXPRESSION = PAGE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Presentation Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRESENTATION_ELEMENT_FEATURE_COUNT = PAGE_ELEMENT_FEATURE_COUNT + 1;
+	int PRESENTATION_ELEMENT_FEATURE_COUNT = PAGE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Presentation Element</em>' class.
@@ -362,6 +389,15 @@ public interface WebDSLPackage extends EPackage {
 	int LIST__CLASS = PRESENTATION_ELEMENT__CLASS;
 
 	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST__EXPRESSION = PRESENTATION_ELEMENT__EXPRESSION;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -389,13 +425,22 @@ public interface WebDSLPackage extends EPackage {
 	int LIST__ITERATOR_VARIABLE = PRESENTATION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Variable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST__VARIABLE = PRESENTATION_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>List</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_FEATURE_COUNT = PRESENTATION_ELEMENT_FEATURE_COUNT + 3;
+	int LIST_FEATURE_COUNT = PRESENTATION_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>List</em>' class.
@@ -442,6 +487,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT__CLASS = PRESENTATION_ELEMENT__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__EXPRESSION = PRESENTATION_ELEMENT__EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference.
@@ -515,6 +569,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int IMAGE__CLASS = PRESENTATION_ELEMENT__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__EXPRESSION = PRESENTATION_ELEMENT__EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Referenced</b></em>' attribute.
@@ -773,13 +836,22 @@ public interface WebDSLPackage extends EPackage {
 	int EXPRESSION___TYPE = 0;
 
 	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION___INITIALIZE__PAGE = 1;
+
+	/**
 	 * The number of operations of the '<em>Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_OPERATION_COUNT = 1;
+	int EXPRESSION_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.VariableExpImpl <em>Variable Exp</em>}' class.
@@ -828,6 +900,15 @@ public interface WebDSLPackage extends EPackage {
 	int VARIABLE_EXP___TYPE = EXPRESSION___TYPE;
 
 	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_EXP___INITIALIZE__PAGE = EXPRESSION___INITIALIZE__PAGE;
+
+	/**
 	 * The number of operations of the '<em>Variable Exp</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -863,6 +944,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATION_EXP___TYPE = EXPRESSION___TYPE;
+
+	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_EXP___INITIALIZE__PAGE = EXPRESSION___INITIALIZE__PAGE;
 
 	/**
 	 * The number of operations of the '<em>Operation Exp</em>' class.
@@ -920,13 +1010,22 @@ public interface WebDSLPackage extends EPackage {
 	int VARIABLE_DECLARATION_FEATURE_COUNT = 3;
 
 	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DECLARATION___INITIALIZE__PAGE = 0;
+
+	/**
 	 * The number of operations of the '<em>Variable Declaration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_DECLARATION_OPERATION_COUNT = 0;
+	int VARIABLE_DECLARATION_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.VariableInitializationImpl <em>Variable Initialization</em>}' class.
@@ -984,6 +1083,15 @@ public interface WebDSLPackage extends EPackage {
 	int VARIABLE_INITIALIZATION_FEATURE_COUNT = VARIABLE_DECLARATION_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_INITIALIZATION___INITIALIZE__PAGE = VARIABLE_DECLARATION___INITIALIZE__PAGE;
+
+	/**
 	 * The number of operations of the '<em>Variable Initialization</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1039,6 +1147,15 @@ public interface WebDSLPackage extends EPackage {
 	int PROPERTY_OPERATION___TYPE = OPERATION_EXP___TYPE;
 
 	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPERATION___INITIALIZE__PAGE = OPERATION_EXP___INITIALIZE__PAGE;
+
+	/**
 	 * The number of operations of the '<em>Property Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1074,6 +1191,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTANT_EXP___TYPE = EXPRESSION___TYPE;
+
+	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT_EXP___INITIALIZE__PAGE = EXPRESSION___INITIALIZE__PAGE;
 
 	/**
 	 * The number of operations of the '<em>Constant Exp</em>' class.
@@ -1120,6 +1246,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int BASIC_OPERATION___TYPE = OPERATION_EXP___TYPE;
+
+	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASIC_OPERATION___INITIALIZE__PAGE = OPERATION_EXP___INITIALIZE__PAGE;
 
 	/**
 	 * The number of operations of the '<em>Basic Operation</em>' class.
@@ -1175,6 +1310,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int ARITHMETIC_OPERATION___TYPE = BASIC_OPERATION___TYPE;
+
+	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARITHMETIC_OPERATION___INITIALIZE__PAGE = BASIC_OPERATION___INITIALIZE__PAGE;
 
 	/**
 	 * The number of operations of the '<em>Arithmetic Operation</em>' class.
@@ -1239,6 +1383,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRUCTURAL_EXP___TYPE = PROPERTY_OPERATION___TYPE;
+
+	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURAL_EXP___INITIALIZE__PAGE = PROPERTY_OPERATION___INITIALIZE__PAGE;
 
 	/**
 	 * The number of operations of the '<em>Structural Exp</em>' class.
@@ -1314,6 +1467,15 @@ public interface WebDSLPackage extends EPackage {
 	int CLASSIFIER_OPERATION___TYPE = PROPERTY_OPERATION___TYPE;
 
 	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER_OPERATION___INITIALIZE__PAGE = PROPERTY_OPERATION___INITIALIZE__PAGE;
+
+	/**
 	 * The number of operations of the '<em>Classifier Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1360,6 +1522,15 @@ public interface WebDSLPackage extends EPackage {
 	int INTEGER_CONSTANT___TYPE = CONSTANT_EXP___TYPE;
 
 	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_CONSTANT___INITIALIZE__PAGE = CONSTANT_EXP___INITIALIZE__PAGE;
+
+	/**
 	 * The number of operations of the '<em>Integer Constant</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1404,6 +1575,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRING_CONSTANT___TYPE = CONSTANT_EXP___TYPE;
+
+	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_CONSTANT___INITIALIZE__PAGE = CONSTANT_EXP___INITIALIZE__PAGE;
 
 	/**
 	 * The number of operations of the '<em>String Constant</em>' class.
@@ -1461,6 +1641,15 @@ public interface WebDSLPackage extends EPackage {
 	int PARAMETER_FEATURE_COUNT = VARIABLE_DECLARATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___INITIALIZE__PAGE = VARIABLE_DECLARATION___INITIALIZE__PAGE;
+
+	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1516,6 +1705,15 @@ public interface WebDSLPackage extends EPackage {
 	int STRING_OPERATION___TYPE = BASIC_OPERATION___TYPE;
 
 	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_OPERATION___INITIALIZE__PAGE = BASIC_OPERATION___INITIALIZE__PAGE;
+
+	/**
 	 * The number of operations of the '<em>String Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1560,6 +1758,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_CONSTANT___TYPE = CONSTANT_EXP___TYPE;
+
+	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_CONSTANT___INITIALIZE__PAGE = CONSTANT_EXP___INITIALIZE__PAGE;
 
 	/**
 	 * The number of operations of the '<em>Boolean Constant</em>' class.
@@ -1617,6 +1824,15 @@ public interface WebDSLPackage extends EPackage {
 	int BOOLEAN_OPERATION___TYPE = BASIC_OPERATION___TYPE;
 
 	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATION___INITIALIZE__PAGE = BASIC_OPERATION___INITIALIZE__PAGE;
+
+	/**
 	 * The number of operations of the '<em>Boolean Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1672,6 +1888,15 @@ public interface WebDSLPackage extends EPackage {
 	int COMPARISON_OPERATION___TYPE = BASIC_OPERATION___TYPE;
 
 	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPERATION___INITIALIZE__PAGE = BASIC_OPERATION___INITIALIZE__PAGE;
+
+	/**
 	 * The number of operations of the '<em>Comparison Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1716,6 +1941,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int REAL_CONSTANT___TYPE = CONSTANT_EXP___TYPE;
+
+	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REAL_CONSTANT___INITIALIZE__PAGE = CONSTANT_EXP___INITIALIZE__PAGE;
 
 	/**
 	 * The number of operations of the '<em>Real Constant</em>' class.
@@ -1866,6 +2100,28 @@ public interface WebDSLPackage extends EPackage {
 	EReference getPage_Variables();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.Page#getParameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Parameter</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Page#getParameter()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EAttribute getPage_Parameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.Page#getVariable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Variable</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Page#getVariable()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EAttribute getPage_Variable();
+
+	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.PageElement <em>Page Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1919,6 +2175,17 @@ public interface WebDSLPackage extends EPackage {
 	EAttribute getPresentationElement_Class();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.PresentationElement#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expression</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.PresentationElement#getExpression()
+	 * @see #getPresentationElement()
+	 * @generated
+	 */
+	EAttribute getPresentationElement_Expression();
+
+	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.NavigationElement <em>Navigation Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1970,6 +2237,17 @@ public interface WebDSLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getList_IteratorVariable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.List#getVariable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Variable</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.List#getVariable()
+	 * @see #getList()
+	 * @generated
+	 */
+	EAttribute getList_Variable();
 
 	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Text <em>Text</em>}'.
@@ -2130,6 +2408,16 @@ public interface WebDSLPackage extends EPackage {
 	EOperation getExpression__Type();
 
 	/**
+	 * Returns the meta object for the '{@link com.github.kanafghan.welipse.webdsl.Expression#initialize(com.github.kanafghan.welipse.webdsl.Page) <em>Initialize</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Initialize</em>' operation.
+	 * @see com.github.kanafghan.welipse.webdsl.Expression#initialize(com.github.kanafghan.welipse.webdsl.Page)
+	 * @generated
+	 */
+	EOperation getExpression__Initialize__Page();
+
+	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.VariableExp <em>Variable Exp</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2213,6 +2501,16 @@ public interface WebDSLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getVariableDeclaration_Classifier();
+
+	/**
+	 * Returns the meta object for the '{@link com.github.kanafghan.welipse.webdsl.VariableDeclaration#initialize(com.github.kanafghan.welipse.webdsl.Page) <em>Initialize</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Initialize</em>' operation.
+	 * @see com.github.kanafghan.welipse.webdsl.VariableDeclaration#initialize(com.github.kanafghan.welipse.webdsl.Page)
+	 * @generated
+	 */
+	EOperation getVariableDeclaration__Initialize__Page();
 
 	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.VariableInitialization <em>Variable Initialization</em>}'.
@@ -2669,6 +2967,22 @@ public interface WebDSLPackage extends EPackage {
 		EReference PAGE__VARIABLES = eINSTANCE.getPage_Variables();
 
 		/**
+		 * The meta object literal for the '<em><b>Parameter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE__PARAMETER = eINSTANCE.getPage_Parameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Variable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE__VARIABLE = eINSTANCE.getPage_Variable();
+
+		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.PageElementImpl <em>Page Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2713,6 +3027,14 @@ public interface WebDSLPackage extends EPackage {
 		EAttribute PRESENTATION_ELEMENT__CLASS = eINSTANCE.getPresentationElement_Class();
 
 		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRESENTATION_ELEMENT__EXPRESSION = eINSTANCE.getPresentationElement_Expression();
+
+		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.NavigationElementImpl <em>Navigation Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2755,6 +3077,14 @@ public interface WebDSLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LIST__ITERATOR_VARIABLE = eINSTANCE.getList_IteratorVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Variable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LIST__VARIABLE = eINSTANCE.getList_Variable();
 
 		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.TextImpl <em>Text</em>}' class.
@@ -2889,6 +3219,14 @@ public interface WebDSLPackage extends EPackage {
 		EOperation EXPRESSION___TYPE = eINSTANCE.getExpression__Type();
 
 		/**
+		 * The meta object literal for the '<em><b>Initialize</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EXPRESSION___INITIALIZE__PAGE = eINSTANCE.getExpression__Initialize__Page();
+
+		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.VariableExpImpl <em>Variable Exp</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2957,6 +3295,14 @@ public interface WebDSLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VARIABLE_DECLARATION__CLASSIFIER = eINSTANCE.getVariableDeclaration_Classifier();
+
+		/**
+		 * The meta object literal for the '<em><b>Initialize</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VARIABLE_DECLARATION___INITIALIZE__PAGE = eINSTANCE.getVariableDeclaration__Initialize__Page();
 
 		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.VariableInitializationImpl <em>Variable Initialization</em>}' class.

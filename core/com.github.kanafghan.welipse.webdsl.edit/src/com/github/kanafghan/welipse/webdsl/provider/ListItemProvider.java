@@ -3,23 +3,26 @@
 package com.github.kanafghan.welipse.webdsl.provider;
 
 
+import com.github.kanafghan.welipse.webdsl.PresentationElement;
 import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
+import com.github.kanafghan.welipse.webdsl.expressions.ExpressionsAnalyzer;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -57,8 +60,50 @@ public class ListItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addVariablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Variable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addVariablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(new ItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_List_variable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_List_variable_feature", "_UI_List_type"),
+				 WebDSLPackage.Literals.LIST__VARIABLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null) 
+			{
+
+				@Override
+				public void setPropertyValue(Object object, Object value) {
+					super.setPropertyValue(object, value);
+					
+					// get the variable declaration
+					if (value instanceof String && object instanceof PresentationElement) {
+						String expression = (String) value;
+						PresentationElement element = (PresentationElement) object;
+						EditingDomain editingDomain = getEditingDomain(element);
+						
+						// parse, initialize, analyze and set the iteratorVariable of the list
+						ExpressionsAnalyzer evaluator = new ExpressionsAnalyzer(editingDomain, element, expression);
+						evaluator.analyzeIteratorVariable();
+					}
+				}
+				
+			});
 	}
 
 	/**
@@ -130,6 +175,9 @@ public class ListItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(com.github.kanafghan.welipse.webdsl.List.class)) {
+			case WebDSLPackage.LIST__VARIABLE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case WebDSLPackage.LIST__ELEMENTS:
 			case WebDSLPackage.LIST__COLLECTION:
 			case WebDSLPackage.LIST__ITERATOR_VARIABLE:

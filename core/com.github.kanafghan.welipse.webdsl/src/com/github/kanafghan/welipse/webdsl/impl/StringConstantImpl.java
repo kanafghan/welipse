@@ -2,15 +2,15 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
-import com.github.kanafghan.welipse.webdsl.StringConstant;
-import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import com.github.kanafghan.welipse.webdsl.Page;
+import com.github.kanafghan.welipse.webdsl.StringConstant;
+import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -165,10 +165,16 @@ public class StringConstantImpl extends ConstantExpImpl implements StringConstan
 	 */
 	@Override
 	public EClassifier type() {
-		EDataType dataType = EcoreFactory.eINSTANCE.createEDataType();
-		dataType.setInstanceTypeName("EString");
-		dataType.setName(getValue());
-		return dataType;
+		return EcoreFactory.eINSTANCE.getEcorePackage().getEString();
 	}
+	
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public void initialize(Page page) {
+		// Nothing to initialize here
+	}
+	
 
 } //StringConstantImpl

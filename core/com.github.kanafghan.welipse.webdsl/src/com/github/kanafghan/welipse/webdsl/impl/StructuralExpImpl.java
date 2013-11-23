@@ -2,14 +2,18 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
-import com.github.kanafghan.welipse.webdsl.StructuralExp;
-import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import com.github.kanafghan.welipse.webdsl.Page;
+import com.github.kanafghan.welipse.webdsl.StructuralExp;
+import com.github.kanafghan.welipse.webdsl.VariableDeclaration;
+import com.github.kanafghan.welipse.webdsl.VariableExp;
+import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -156,7 +160,52 @@ public class StructuralExpImpl extends PropertyOperationImpl implements Structur
 	 */
 	@Override
 	public EClassifier type() {
-		return getFeature().getEType();
+		if (getFeature() != null) {			
+			return getFeature().getEType();
+		}
+		return null;
+	}
+
+	@Override
+	public void initialize(Page page) {
+		// initialize the source first
+		getSource().initialize(page);
+		
+		if (getSource() instanceof VariableExp) {
+			VariableExp var = (VariableExp) getSource();
+			VariableDeclaration declaration = var.getDeclaration();
+			if (declaration != null) {				
+				EClassifier type = declaration.getType();
+				if (type != null) {
+					if (type instanceof EClass) {
+						EClass cls = (EClass) type;
+						for (EStructuralFeature feature : cls.getEAllStructuralFeatures()) {
+							if (feature.getName().equals(getIdentifier())) {
+								setFeature(feature);
+								break;
+							}
+						}
+						
+						if (getFeature() == null) {
+							throw new Error("The type '"+ cls.getName() +"' has no attribute or reference '"
+									+ getIdentifier() +"'.");
+						}
+					} else {
+						throw new Error("The type of variable '"+ var.getVar() +"' is not EClass. "
+								+ "It was expected to be EClass in order to find '"
+								+ getIdentifier() +"'");
+					}
+				} else {
+					throw new Error("The type of variable '"+ var.getVar() +"' is not set.");
+				}
+			} else {
+				throw new Error("The declaration of variable '"+ var.getVar() 
+						+"' is not set. It was not possible to determine its type.");
+			}
+		} else {
+			throw new Error("The Source expression of structural expression must be variable expression, "
+					+ "but got "+ getSource());
+		}
 	}
 
 } //StructuralExpImpl

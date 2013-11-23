@@ -2,11 +2,15 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
+import com.github.kanafghan.welipse.webdsl.Page;
+import com.github.kanafghan.welipse.webdsl.Parameter;
 import com.github.kanafghan.welipse.webdsl.VariableDeclaration;
 import com.github.kanafghan.welipse.webdsl.VariableExp;
+import com.github.kanafghan.welipse.webdsl.VariableInitialization;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -228,9 +232,46 @@ public class VariableExpImpl extends ExpressionImpl implements VariableExp {
 		VariableDeclaration decl = getDeclaration();
 		if (decl != null) {
 			return decl.getType();
+		} else {
+			throw new Error("The declaration of the variable '"+ getVar() +"' is not set. "
+					+ "You must call the initialize() method first.");
+		}
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public void initialize(Page page) {
+		// Here we initialize the declaration of the variable
+		// This is done by searching in the parameters or
+		// variables of the page
+		boolean found = false;
+		// First we search in the parameters of the page
+		EList<Parameter> params = page.getParameters();
+		for (Parameter param : params) {
+			if (param.getVar().equals(getVar())) {
+				setDeclaration(param);
+				found = true;
+			}
 		}
 		
-		return null;
+		// If we could not found it among the parameters
+		// of the page we search in the variables of the page
+		if (!found) {			
+			EList<VariableInitialization> vars = page.getVariables();
+			for (VariableInitialization var : vars) {
+				if (var.getVar().equals(getVar())) {
+					setDeclaration(var);
+					found = true;
+				}
+			}
+		}
+		
+		// If we still have not found it, then it is not declared
+		if (!found) {
+			throw new Error("Variable '"+ getVar() +"' is not declared.");
+		}
 	}
 
 } //VariableExpImpl

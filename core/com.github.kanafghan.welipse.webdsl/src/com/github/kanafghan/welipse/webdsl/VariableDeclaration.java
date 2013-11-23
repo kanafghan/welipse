@@ -102,4 +102,12 @@ public interface VariableDeclaration extends EObject {
 	 */
 	void setClassifier(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void initialize(Page page);
+
 } // VariableDeclaration

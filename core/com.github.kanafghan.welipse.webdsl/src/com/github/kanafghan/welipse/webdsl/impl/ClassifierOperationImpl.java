@@ -4,6 +4,9 @@ package com.github.kanafghan.welipse.webdsl.impl;
 
 import com.github.kanafghan.welipse.webdsl.ClassifierOperation;
 import com.github.kanafghan.welipse.webdsl.Expression;
+import com.github.kanafghan.welipse.webdsl.Page;
+import com.github.kanafghan.welipse.webdsl.VariableDeclaration;
+import com.github.kanafghan.welipse.webdsl.VariableExp;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 
 import java.util.Collection;
@@ -14,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EParameter;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -213,7 +217,77 @@ public class ClassifierOperationImpl extends PropertyOperationImpl implements Cl
 	 */
 	@Override
 	public EClassifier type() {
-		return getOperation().getEType();
+		if (getOperation() != null) {			
+			return getOperation().getEType();
+		} else {
+			throw new Error("In classifier operation '"+ getIdentifier() +"()' the Operation is not set. "
+					+ "(You must call the initialize() method of the expression first.)");
+		}
 	}
+
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public void initialize(Page page) {
+		// let the source be initialized first
+		getSource().initialize(page);
+		
+		// initialize the arguments
+		for (Expression argument : getArguments()) {
+			argument.initialize(page);
+		}
+		
+		if (getSource() instanceof VariableExp) {
+			VariableExp var = (VariableExp) getSource();
+			VariableDeclaration declaration = var.getDeclaration();
+			if (declaration != null) {				
+				EClassifier type = declaration.getType();
+				if (type != null) {
+					if (type instanceof EClass) {
+						EClass cls = (EClass) type;
+						for (EOperation operation : cls.getEOperations()) {
+							if (operation.getName().equals(getIdentifier())) {
+								EList<EParameter> eParameters = operation.getEParameters();
+								if (eParameters.size() == getArguments().size()) {
+									boolean isMatch = true;
+									for (int i=0; i<eParameters.size(); i++) {
+										EClassifier type1 = eParameters.get(i).getEType();
+										EClassifier type2 = getArguments().get(i).type();
+										if (!type1.getName().equals(type2.getName())) {
+											isMatch = false;
+											break;
+										}
+									}
+									if (isMatch) {										
+										setOperation(operation);
+										break;
+									}
+								}
+							}
+						}
+						
+						if (getOperation() != null) {
+							throw new Error("The type '"+ cls.getName() +"' has no operation '"
+									+ getIdentifier() +"()' with "+ getArguments().size() +" arguments.");
+						}
+					} else {
+						throw new Error("The type of variable '"+ var.getVar() +"' is not EClass. "
+								+ "It was expected to be EClass in order to find operation '"
+								+ getIdentifier() +"()'");
+					}
+				} else {
+					throw new Error("The type of variable '"+ var.getVar() +"' is not set.");
+				}
+			} else {
+				throw new Error("The declaration of variable '"+ var.getVar() 
+						+"' is not set. It was not possible to determine its type.");
+			}
+		} else {
+			throw new Error("The Source expression of classifier operation must be variable expression, "
+					+ "but got "+ getSource());
+		}
+	}
+	
 
 } //ClassifierOperationImpl

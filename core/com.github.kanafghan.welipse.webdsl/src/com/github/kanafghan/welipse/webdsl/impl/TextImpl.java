@@ -2,6 +2,7 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
+import com.github.kanafghan.welipse.webdsl.ConstantExp;
 import com.github.kanafghan.welipse.webdsl.Expression;
 import com.github.kanafghan.welipse.webdsl.Text;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
@@ -111,12 +112,13 @@ public class TextImpl extends PresentationElementImpl implements Text {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isStatic() {
-		// TODO: implement this method to return the 'Static' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (getContent() instanceof ConstantExp) {
+			return true;
+		}
+		return false;
 	}
 
 	/**

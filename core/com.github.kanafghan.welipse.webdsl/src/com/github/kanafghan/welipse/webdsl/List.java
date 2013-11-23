@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.github.kanafghan.welipse.webdsl.List#getElements <em>Elements</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.List#getCollection <em>Collection</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.List#getIteratorVariable <em>Iterator Variable</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.List#getVariable <em>Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,5 +91,31 @@ public interface List extends PresentationElement {
 	 * @generated
 	 */
 	void setIteratorVariable(VariableDeclaration value);
+
+	/**
+	 * Returns the value of the '<em><b>Variable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Variable</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Variable</em>' attribute.
+	 * @see #setVariable(String)
+	 * @see com.github.kanafghan.welipse.webdsl.WebDSLPackage#getList_Variable()
+	 * @model
+	 * @generated
+	 */
+	String getVariable();
+
+	/**
+	 * Sets the value of the '{@link com.github.kanafghan.welipse.webdsl.List#getVariable <em>Variable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Variable</em>' attribute.
+	 * @see #getVariable()
+	 * @generated
+	 */
+	void setVariable(String value);
 
 } // List

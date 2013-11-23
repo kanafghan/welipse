@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.github.kanafghan.welipse.webdsl.Page#getName <em>Name</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.Page#getParameters <em>Parameters</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.Page#getVariables <em>Variables</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.Page#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.Page#getVariable <em>Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,5 +103,57 @@ public interface Page extends EObject {
 	 * @generated
 	 */
 	EList<VariableInitialization> getVariables();
+
+	/**
+	 * Returns the value of the '<em><b>Parameter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parameter</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameter</em>' attribute.
+	 * @see #setParameter(String)
+	 * @see com.github.kanafghan.welipse.webdsl.WebDSLPackage#getPage_Parameter()
+	 * @model
+	 * @generated
+	 */
+	String getParameter();
+
+	/**
+	 * Sets the value of the '{@link com.github.kanafghan.welipse.webdsl.Page#getParameter <em>Parameter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parameter</em>' attribute.
+	 * @see #getParameter()
+	 * @generated
+	 */
+	void setParameter(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Variable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Variable</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Variable</em>' attribute.
+	 * @see #setVariable(String)
+	 * @see com.github.kanafghan.welipse.webdsl.WebDSLPackage#getPage_Variable()
+	 * @model
+	 * @generated
+	 */
+	String getVariable();
+
+	/**
+	 * Sets the value of the '{@link com.github.kanafghan.welipse.webdsl.Page#getVariable <em>Variable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Variable</em>' attribute.
+	 * @see #getVariable()
+	 * @generated
+	 */
+	void setVariable(String value);
 
 } // Page

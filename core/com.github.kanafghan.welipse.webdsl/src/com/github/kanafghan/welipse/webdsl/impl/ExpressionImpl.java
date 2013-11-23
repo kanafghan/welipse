@@ -3,15 +3,14 @@
 package com.github.kanafghan.welipse.webdsl.impl;
 
 import com.github.kanafghan.welipse.webdsl.Expression;
+import com.github.kanafghan.welipse.webdsl.Page;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
@@ -45,13 +44,20 @@ public abstract class ExpressionImpl extends MinimalEObjectImpl.Container implem
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * <!-- end-user-doc --> 
+	 * @generated NOT
 	 */
 	public EClassifier type() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void initialize(Page page) {
+		// nothing to initialize
 	}
 
 	/**
@@ -64,6 +70,9 @@ public abstract class ExpressionImpl extends MinimalEObjectImpl.Container implem
 		switch (operationID) {
 			case WebDSLPackage.EXPRESSION___TYPE:
 				return type();
+			case WebDSLPackage.EXPRESSION___INITIALIZE__PAGE:
+				initialize((Page)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

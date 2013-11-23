@@ -18,10 +18,18 @@ import org.eclipse.emf.ecore.EObject;
 public interface Expression extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- end-user-doc --> 
 	 * @model
 	 * @generated
 	 */
 	EClassifier type();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void initialize(Page page);
 
 } // Expression

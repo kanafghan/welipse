@@ -13,5 +13,9 @@ Require-Bundle: org.eclipse.core.runtime,
  com.github.kanafghan.welipse.webdsl;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.emf.ecore.edit;visibility:=reexport
+ org.eclipse.emf.ecore.edit;visibility:=reexport,
+ com.github.kanafghan.welipse.webdsl.parsers;bundle-version="1.0.0",
+ org.eclipse.ui;bundle-version="3.105.0",
+ org.eclipse.core.resources
 Bundle-ActivationPolicy: lazy
+Import-Package: org.antlr.runtime

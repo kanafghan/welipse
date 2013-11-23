@@ -2,17 +2,24 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
-import com.github.kanafghan.welipse.webdsl.VariableDeclaration;
-import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
+import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+
+import com.github.kanafghan.welipse.webdsl.Page;
+import com.github.kanafghan.welipse.webdsl.VariableDeclaration;
+import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
+import com.github.kanafghan.welipse.webdsl.etc.ExpressionUtils;
 
 /**
  * <!-- begin-user-doc -->
@@ -182,6 +189,56 @@ public abstract class VariableDeclarationImpl extends MinimalEObjectImpl.Contain
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void initialize(Page page) {
+		// We set the type of the variable using the given page
+		// if the type is not an ECore primitive type
+		if (!ExpressionUtils.isPrimitiveType(getClassifier())) {
+			boolean found = false;
+			Resource resource = page.eResource();
+			if (resource != null) {
+				ResourceSet rSet = resource.getResourceSet();
+				for (Resource r : rSet.getResources()) {
+					if (!r.getURI().equals(resource.getURI())) {
+						if (r.isLoaded()) {
+							TreeIterator<EObject> iterator = r.getAllContents();
+							while (iterator.hasNext()) {
+								EObject obj = iterator.next();
+								if (obj instanceof EClassifier) {
+									EClassifier cls = (EClassifier) obj;
+									if (cls.getName().equals(getClassifier())) {
+										setType(cls);
+										found = true;
+										break;
+									}
+								}
+							}
+						}
+					}
+					if (found) {
+						break;
+					}
+				}
+			}	
+			if (!found) {
+				throw new Error("Could not find '"+ getClassifier() +"' type in variable declaration '"
+						+ getVar() +":"+ getClassifier() +"'.");
+			}
+		} else {
+			EClassifier dataType = ExpressionUtils.getDataType(getClassifier());
+			if (dataType != null) {				
+				setType(dataType);
+			} else {
+				throw new Error("The primitive datatype '"+ getClassifier() +"' could not be created in "
+						+"variable declaration '"+ getVar() +":"+ getClassifier() +"'.");
+			}
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -256,6 +313,21 @@ public abstract class VariableDeclarationImpl extends MinimalEObjectImpl.Contain
 				return CLASSIFIER_EDEFAULT == null ? classifier != null : !CLASSIFIER_EDEFAULT.equals(classifier);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case WebDSLPackage.VARIABLE_DECLARATION___INITIALIZE__PAGE:
+				initialize((Page)arguments.get(0));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

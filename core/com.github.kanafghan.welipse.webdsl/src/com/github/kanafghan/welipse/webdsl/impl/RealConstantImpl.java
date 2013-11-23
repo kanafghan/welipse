@@ -2,14 +2,15 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import com.github.kanafghan.welipse.webdsl.Page;
 import com.github.kanafghan.welipse.webdsl.RealConstant;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -157,6 +158,22 @@ public class RealConstantImpl extends ConstantExpImpl implements RealConstant {
 		result.append(value);
 		result.append(')');
 		return result.toString();
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public EClassifier type() {
+		return EcoreFactory.eINSTANCE.getEcorePackage().getEDouble();
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public void initialize(Page page) {
+		// Nothing to initialize here
 	}
 
 } //RealConstantImpl

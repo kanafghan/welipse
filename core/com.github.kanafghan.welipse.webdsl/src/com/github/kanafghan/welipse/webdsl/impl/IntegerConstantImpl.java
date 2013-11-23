@@ -5,11 +5,11 @@ package com.github.kanafghan.welipse.webdsl.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import com.github.kanafghan.welipse.webdsl.IntegerConstant;
+import com.github.kanafghan.welipse.webdsl.Page;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 
 /**
@@ -160,12 +160,20 @@ public class IntegerConstantImpl extends ConstantExpImpl implements IntegerConst
 		return result.toString();
 	}
 
+	/**
+	 * @generated NOT
+	 */
 	@Override
 	public EClassifier type() {
-		EDataType dataType = EcoreFactory.eINSTANCE.createEDataType();
-		dataType.setInstanceTypeName("EInt");
-		dataType.setName(""+ getValue());
-		return dataType;
+		return EcoreFactory.eINSTANCE.getEcorePackage().getEInt();
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public void initialize(Page page) {
+		// Nothing to initialize here
 	}
 
 } //IntegerConstantImpl

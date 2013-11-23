@@ -2,6 +2,7 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
+import com.github.kanafghan.welipse.webdsl.ConstantExp;
 import com.github.kanafghan.welipse.webdsl.Expression;
 import com.github.kanafghan.welipse.webdsl.Image;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
@@ -150,12 +151,13 @@ public class ImageImpl extends PresentationElementImpl implements Image {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isStatic() {
-		// TODO: implement this method to return the 'Static' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (getSource() instanceof ConstantExp) {
+			return true;
+		}
+		return false;
 	}
 
 	/**

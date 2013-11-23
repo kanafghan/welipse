@@ -42,6 +42,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Page/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Page/parameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Page/variables"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Page/parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Page/variable"/>
     </genClasses>
     <genClasses image="false" ecoreClass="webdsl.ecore#//PageElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//PageElement/name"/>
@@ -49,12 +51,14 @@
     </genClasses>
     <genClasses image="false" ecoreClass="webdsl.ecore#//PresentationElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//PresentationElement/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//PresentationElement/expression"/>
     </genClasses>
     <genClasses image="false" ecoreClass="webdsl.ecore#//NavigationElement"/>
     <genClasses ecoreClass="webdsl.ecore#//List">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//List/elements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//List/collection"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//List/iteratorVariable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//List/variable"/>
     </genClasses>
     <genClasses image="false" ecoreClass="webdsl.ecore#//Text">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Text/content"/>
@@ -76,6 +80,9 @@
     </genClasses>
     <genClasses image="false" ecoreClass="webdsl.ecore#//Expression">
       <genOperations ecoreOperation="webdsl.ecore#//Expression/type"/>
+      <genOperations ecoreOperation="webdsl.ecore#//Expression/initialize">
+        <genParameters ecoreParameter="webdsl.ecore#//Expression/initialize/page"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="webdsl.ecore#//VariableExp">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//VariableExp/var"/>
@@ -86,6 +93,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//VariableDeclaration/var"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//VariableDeclaration/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//VariableDeclaration/classifier"/>
+      <genOperations ecoreOperation="webdsl.ecore#//VariableDeclaration/initialize">
+        <genParameters ecoreParameter="webdsl.ecore#//VariableDeclaration/initialize/page"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="webdsl.ecore#//VariableInitialization">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//VariableInitialization/initExp"/>

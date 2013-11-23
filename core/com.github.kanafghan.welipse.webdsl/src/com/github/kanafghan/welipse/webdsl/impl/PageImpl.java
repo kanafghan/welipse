@@ -36,6 +36,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.PageImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.PageImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.PageImpl#getVariables <em>Variables</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.PageImpl#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.PageImpl#getVariable <em>Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -91,6 +93,46 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 	 * @ordered
 	 */
 	protected EList<VariableInitialization> variables;
+
+	/**
+	 * The default value of the '{@link #getParameter() <em>Parameter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PARAMETER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameter()
+	 * @generated
+	 * @ordered
+	 */
+	protected String parameter = PARAMETER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVariable() <em>Variable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VARIABLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected String variable = VARIABLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,6 +215,48 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getParameter() {
+		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParameter(String newParameter) {
+		String oldParameter = parameter;
+		parameter = newParameter;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WebDSLPackage.PAGE__PARAMETER, oldParameter, parameter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getVariable() {
+		return variable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVariable(String newVariable) {
+		String oldVariable = variable;
+		variable = newVariable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WebDSLPackage.PAGE__VARIABLE, oldVariable, variable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -217,6 +301,10 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 				return getParameters();
 			case WebDSLPackage.PAGE__VARIABLES:
 				return getVariables();
+			case WebDSLPackage.PAGE__PARAMETER:
+				return getParameter();
+			case WebDSLPackage.PAGE__VARIABLE:
+				return getVariable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -245,6 +333,12 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 				getVariables().clear();
 				getVariables().addAll((Collection<? extends VariableInitialization>)newValue);
 				return;
+			case WebDSLPackage.PAGE__PARAMETER:
+				setParameter((String)newValue);
+				return;
+			case WebDSLPackage.PAGE__VARIABLE:
+				setVariable((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -269,6 +363,12 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 			case WebDSLPackage.PAGE__VARIABLES:
 				getVariables().clear();
 				return;
+			case WebDSLPackage.PAGE__PARAMETER:
+				setParameter(PARAMETER_EDEFAULT);
+				return;
+			case WebDSLPackage.PAGE__VARIABLE:
+				setVariable(VARIABLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -289,6 +389,10 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 				return parameters != null && !parameters.isEmpty();
 			case WebDSLPackage.PAGE__VARIABLES:
 				return variables != null && !variables.isEmpty();
+			case WebDSLPackage.PAGE__PARAMETER:
+				return PARAMETER_EDEFAULT == null ? parameter != null : !PARAMETER_EDEFAULT.equals(parameter);
+			case WebDSLPackage.PAGE__VARIABLE:
+				return VARIABLE_EDEFAULT == null ? variable != null : !VARIABLE_EDEFAULT.equals(variable);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -305,6 +409,10 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", parameter: ");
+		result.append(parameter);
+		result.append(", variable: ");
+		result.append(variable);
 		result.append(')');
 		return result.toString();
 	}
