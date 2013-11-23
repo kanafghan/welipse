@@ -1,16 +1,9 @@
 package com.github.kanafghan.welipse.webdsl.parsers.tests;
 
-import org.antlr.runtime.ANTLRStringStream;
-import org.antlr.runtime.CharStream;
-import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.TokenStream;
-
 import com.github.kanafghan.welipse.webdsl.Expression;
 import com.github.kanafghan.welipse.webdsl.Parameter;
 import com.github.kanafghan.welipse.webdsl.VariableInitialization;
-import com.github.kanafghan.welipse.webdsl.parsers.expressions.ExpressionsLexer;
-import com.github.kanafghan.welipse.webdsl.parsers.expressions.ExpressionsParser;
+import com.github.kanafghan.welipse.webdsl.parsers.ExpressionsLanguage;
 
 public class Tester {
 	
@@ -49,34 +42,29 @@ public class Tester {
 
 	private static void runTests(String[] expressions, int kind) {
 		for (String tc: expressions) {
-			CharStream charStream = new ANTLRStringStream(tc);
-			ExpressionsLexer lexer = new ExpressionsLexer(charStream);
-			TokenStream tokenStream = new CommonTokenStream(lexer);
-			ExpressionsParser parser = new ExpressionsParser(tokenStream);
+			ExpressionsLanguage parser = ExpressionsLanguage.getInstace();
+			parser.setExpression(tc);
 			try {
 				switch (kind) {
 				case EXPRESSION:
-					Expression e = parser.evaluator();
+					Expression e = parser.getExpression();
 					System.out.println("Test Case: "+ tc +" PASSED ("+ e.toString() +")");
 					break;
 				case VARIABLES:
-					VariableInitialization v = parser.initialization();
+					VariableInitialization v = parser.getVariable();
 					System.out.println("Test Case: "+ tc +" PASSED ("+ v.toString() +")");
 					break;
 				case PARAMETERS:
-					Parameter p = parser.parameter();
+					Parameter p = parser.getParameter();
 					System.out.println("Test Case: "+ tc +" PASSED ("+ p.toString() +")");
 					break;
 				default:
 					break;
 				}
-			} catch (RecognitionException e) {
-				System.err.println("Test Case: "+ tc +" FAILED ("+ e.getMessage() +")");
 			} catch (Exception e) {
 				System.err.println("Test Case: "+ tc +" FAILED ("+ e.getMessage() +")");
 				e.printStackTrace();
 			}
 		}
 	}
-
 }

@@ -182,7 +182,7 @@ term6 returns [Expression result]
 
 term7 returns [Expression result]
 	:	op1 = term6 { $result = $op1.result; } 
-		(	':' op2 = term6
+		(	'.concat(' op2 = term6 ')'
 			{
 				StringOperation e = WebDSLFactory.eINSTANCE.createStringOperation();
 				e.getOperands().add($op1.result);
@@ -321,7 +321,35 @@ parameter returns [Parameter result]
 INTEGER : '0'..'9'+;
 DECIMAL : INTEGER '.' INTEGER | '.' INTEGER | INTEGER '.';
 
-STRING : '\'' (~('\''))* '\'';
-
-IDENT : ('a'..'z' | 'A'..'Z' | '_' | '$')('a'..'z' | 'A'..'Z' | '_' | '$' | '0'..'9')*;
+IDENT : ('a'..'z' | 'A'..'Z' | '_')('a'..'z' | 'A'..'Z' | '_' | '$' | '0'..'9')*;
 WS : (' ' | '\t' | '\n' | '\r' | '\f')+ {$channel = HIDDEN;};
+
+/*
+ * The following is taken from:
+ * http://stackoverflow.com/questions/504402/how-to-handle-escape-sequences-in-string-literals-in-antlr-3
+ */
+STRING      
+@init{final StringBuilder lBuf = new StringBuilder();}
+	:
+		'"'
+		( ESC[lBuf] 
+		| normal=~('"'|'\\'|'\n'|'\r') { lBuf.appendCodePoint(normal); } 
+		)*
+		'"'
+		{ setText(lBuf.toString()); }
+	;
+
+fragment
+ESC[StringBuilder buf]
+:   '\\'
+	(   'n'    {buf.append("\n");}
+	|   'r'    {buf.append("\r");}
+	|   't'    {buf.append("\t");}
+	|   'b'    {buf.append("\b");}
+	|   'f'    {buf.append("\f");}
+	|   '\''   {buf.append("\'");}
+	|   '/'    {buf.append("/");}
+	|   '\\'   {buf.append("\\");}
+	|   '"'    {buf.append("\"");}
+	)
+    ;
