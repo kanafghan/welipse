@@ -58,6 +58,14 @@ public class JoomlaGenFactoryImpl extends EFactoryImpl implements JoomlaGenFacto
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL: return createJoomlaGenModel();
+			case JoomlaGenPackage.GEN_PACKAGE: return createGenPackage();
+			case JoomlaGenPackage.GEN_CLASS: return createGenClass();
+			case JoomlaGenPackage.GEN_ATTRIBUTE: return createGenAttribute();
+			case JoomlaGenPackage.GEN_REFERENCE: return createGenReference();
+			case JoomlaGenPackage.DATABASE_TABLE: return createDatabaseTable();
+			case JoomlaGenPackage.GEN_OPERATION: return createGenOperation();
+			case JoomlaGenPackage.GEN_PARAMETER: return createGenParameter();
+			case JoomlaGenPackage.GEN_DATA_TYPE: return createGenDataType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -75,6 +83,12 @@ public class JoomlaGenFactoryImpl extends EFactoryImpl implements JoomlaGenFacto
 				return createExtensionTypeFromString(eDataType, initialValue);
 			case JoomlaGenPackage.JOOMLA_VERSION:
 				return createJoomlaVersionFromString(eDataType, initialValue);
+			case JoomlaGenPackage.FORM_FIELD_TYPE:
+				return createFormFieldTypeFromString(eDataType, initialValue);
+			case JoomlaGenPackage.DATABASE_COLUMN_TYPE:
+				return createDatabaseColumnTypeFromString(eDataType, initialValue);
+			case JoomlaGenPackage.FOREIGN_KEY_GENERATION:
+				return createForeignKeyGenerationFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -92,6 +106,12 @@ public class JoomlaGenFactoryImpl extends EFactoryImpl implements JoomlaGenFacto
 				return convertExtensionTypeToString(eDataType, instanceValue);
 			case JoomlaGenPackage.JOOMLA_VERSION:
 				return convertJoomlaVersionToString(eDataType, instanceValue);
+			case JoomlaGenPackage.FORM_FIELD_TYPE:
+				return convertFormFieldTypeToString(eDataType, instanceValue);
+			case JoomlaGenPackage.DATABASE_COLUMN_TYPE:
+				return convertDatabaseColumnTypeToString(eDataType, instanceValue);
+			case JoomlaGenPackage.FOREIGN_KEY_GENERATION:
+				return convertForeignKeyGenerationToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -105,6 +125,86 @@ public class JoomlaGenFactoryImpl extends EFactoryImpl implements JoomlaGenFacto
 	public JoomlaGenModel createJoomlaGenModel() {
 		JoomlaGenModelImpl joomlaGenModel = new JoomlaGenModelImpl();
 		return joomlaGenModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenPackage createGenPackage() {
+		GenPackageImpl genPackage = new GenPackageImpl();
+		return genPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenClass createGenClass() {
+		GenClassImpl genClass = new GenClassImpl();
+		return genClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenAttribute createGenAttribute() {
+		GenAttributeImpl genAttribute = new GenAttributeImpl();
+		return genAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenReference createGenReference() {
+		GenReferenceImpl genReference = new GenReferenceImpl();
+		return genReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DatabaseTable createDatabaseTable() {
+		DatabaseTableImpl databaseTable = new DatabaseTableImpl();
+		return databaseTable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenOperation createGenOperation() {
+		GenOperationImpl genOperation = new GenOperationImpl();
+		return genOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenParameter createGenParameter() {
+		GenParameterImpl genParameter = new GenParameterImpl();
+		return genParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenDataType createGenDataType() {
+		GenDataTypeImpl genDataType = new GenDataTypeImpl();
+		return genDataType;
 	}
 
 	/**
@@ -144,6 +244,66 @@ public class JoomlaGenFactoryImpl extends EFactoryImpl implements JoomlaGenFacto
 	 * @generated
 	 */
 	public String convertJoomlaVersionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FormFieldType createFormFieldTypeFromString(EDataType eDataType, String initialValue) {
+		FormFieldType result = FormFieldType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFormFieldTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DatabaseColumnType createDatabaseColumnTypeFromString(EDataType eDataType, String initialValue) {
+		DatabaseColumnType result = DatabaseColumnType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDatabaseColumnTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ForeignKeyGeneration createForeignKeyGenerationFromString(EDataType eDataType, String initialValue) {
+		ForeignKeyGeneration result = ForeignKeyGeneration.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertForeignKeyGenerationToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

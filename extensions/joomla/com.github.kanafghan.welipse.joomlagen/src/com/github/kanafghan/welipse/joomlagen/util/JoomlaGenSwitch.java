@@ -72,6 +72,81 @@ public class JoomlaGenSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JoomlaGenPackage.GEN_PACKAGE: {
+				GenPackage genPackage = (GenPackage)theEObject;
+				T result = caseGenPackage(genPackage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoomlaGenPackage.GEN_CLASSIFIER: {
+				GenClassifier genClassifier = (GenClassifier)theEObject;
+				T result = caseGenClassifier(genClassifier);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoomlaGenPackage.GEN_CLASS: {
+				GenClass genClass = (GenClass)theEObject;
+				T result = caseGenClass(genClass);
+				if (result == null) result = caseGenClassifier(genClass);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoomlaGenPackage.GEN_TYPED_ELEMENT: {
+				GenTypedElement genTypedElement = (GenTypedElement)theEObject;
+				T result = caseGenTypedElement(genTypedElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoomlaGenPackage.GEN_FEATURE: {
+				GenFeature genFeature = (GenFeature)theEObject;
+				T result = caseGenFeature(genFeature);
+				if (result == null) result = caseGenTypedElement(genFeature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoomlaGenPackage.GEN_ATTRIBUTE: {
+				GenAttribute genAttribute = (GenAttribute)theEObject;
+				T result = caseGenAttribute(genAttribute);
+				if (result == null) result = caseGenFeature(genAttribute);
+				if (result == null) result = caseGenTypedElement(genAttribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoomlaGenPackage.GEN_REFERENCE: {
+				GenReference genReference = (GenReference)theEObject;
+				T result = caseGenReference(genReference);
+				if (result == null) result = caseGenFeature(genReference);
+				if (result == null) result = caseGenTypedElement(genReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoomlaGenPackage.DATABASE_TABLE: {
+				DatabaseTable databaseTable = (DatabaseTable)theEObject;
+				T result = caseDatabaseTable(databaseTable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoomlaGenPackage.GEN_OPERATION: {
+				GenOperation genOperation = (GenOperation)theEObject;
+				T result = caseGenOperation(genOperation);
+				if (result == null) result = caseGenTypedElement(genOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoomlaGenPackage.GEN_PARAMETER: {
+				GenParameter genParameter = (GenParameter)theEObject;
+				T result = caseGenParameter(genParameter);
+				if (result == null) result = caseGenTypedElement(genParameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoomlaGenPackage.GEN_DATA_TYPE: {
+				GenDataType genDataType = (GenDataType)theEObject;
+				T result = caseGenDataType(genDataType);
+				if (result == null) result = caseGenClassifier(genDataType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -88,6 +163,171 @@ public class JoomlaGenSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJoomlaGenModel(JoomlaGenModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gen Package</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gen Package</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGenPackage(GenPackage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gen Classifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gen Classifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGenClassifier(GenClassifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gen Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gen Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGenClass(GenClass object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gen Typed Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gen Typed Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGenTypedElement(GenTypedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gen Feature</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gen Feature</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGenFeature(GenFeature object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gen Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gen Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGenAttribute(GenAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gen Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gen Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGenReference(GenReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Database Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Database Table</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDatabaseTable(DatabaseTable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gen Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gen Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGenOperation(GenOperation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gen Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gen Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGenParameter(GenParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gen Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gen Data Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGenDataType(GenDataType object) {
 		return null;
 	}
 

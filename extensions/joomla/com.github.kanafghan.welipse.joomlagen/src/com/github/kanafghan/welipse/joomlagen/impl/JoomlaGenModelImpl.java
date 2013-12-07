@@ -2,21 +2,44 @@
  */
 package com.github.kanafghan.welipse.joomlagen.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import com.github.kanafghan.welipse.joomlagen.DatabaseTable;
 import com.github.kanafghan.welipse.joomlagen.ExtensionType;
+import com.github.kanafghan.welipse.joomlagen.GenAttribute;
+import com.github.kanafghan.welipse.joomlagen.GenClass;
+import com.github.kanafghan.welipse.joomlagen.GenFeature;
+import com.github.kanafghan.welipse.joomlagen.GenPackage;
+import com.github.kanafghan.welipse.joomlagen.GenReference;
+import com.github.kanafghan.welipse.joomlagen.JoomlaGenFactory;
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenModel;
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage;
 import com.github.kanafghan.welipse.joomlagen.JoomlaVersion;
-
+import com.github.kanafghan.welipse.webdsl.Page;
+import com.github.kanafghan.welipse.webdsl.Parameter;
 import com.github.kanafghan.welipse.webdsl.Website;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,10 +50,23 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getExtensionType <em>Extension Type</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getJoomlaVersion <em>Joomla Version</em>}</li>
- *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getExtensionName <em>Extension Name</em>}</li>
- *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getExtension <em>Extension</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getWebmodel <em>Webmodel</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getCustomCSSFiles <em>Custom CSS Files</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getDatamodel <em>Datamodel</em>}</li>
- *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getCSS <em>CSS</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#isUseBootstrap <em>Use Bootstrap</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#isMinifiedBootsrap <em>Minified Bootsrap</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getExtensionName <em>Extension Name</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getCreationDate <em>Creation Date</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getAuthor <em>Author</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getAuthorEmail <em>Author Email</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getAuthorURL <em>Author URL</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getCopyright <em>Copyright</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getLicense <em>License</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getDatabaseTablePrefix <em>Database Table Prefix</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getComponentName <em>Component Name</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getDatabaseTables <em>Database Tables</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,6 +114,86 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	protected JoomlaVersion joomlaVersion = JOOMLA_VERSION_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getWebmodel() <em>Webmodel</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWebmodel()
+	 * @generated
+	 * @ordered
+	 */
+	protected Website webmodel;
+
+	/**
+	 * The default value of the '{@link #getCustomCSSFiles() <em>Custom CSS Files</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCustomCSSFiles()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CUSTOM_CSS_FILES_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCustomCSSFiles() <em>Custom CSS Files</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCustomCSSFiles()
+	 * @generated
+	 * @ordered
+	 */
+	protected String customCSSFiles = CUSTOM_CSS_FILES_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDatamodel() <em>Datamodel</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatamodel()
+	 * @generated
+	 * @ordered
+	 */
+	protected GenPackage datamodel;
+
+	/**
+	 * The default value of the '{@link #isUseBootstrap() <em>Use Bootstrap</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUseBootstrap()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean USE_BOOTSTRAP_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isUseBootstrap() <em>Use Bootstrap</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUseBootstrap()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean useBootstrap = USE_BOOTSTRAP_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isMinifiedBootsrap() <em>Minified Bootsrap</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMinifiedBootsrap()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MINIFIED_BOOTSRAP_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isMinifiedBootsrap() <em>Minified Bootsrap</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMinifiedBootsrap()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean minifiedBootsrap = MINIFIED_BOOTSRAP_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getExtensionName() <em>Extension Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -98,52 +214,221 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	protected String extensionName = EXTENSION_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getExtension() <em>Extension</em>}' reference.
+	 * The default value of the '{@link #getCreationDate() <em>Creation Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExtension()
+	 * @see #getCreationDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected Website extension;
+	protected static final String CREATION_DATE_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getDatamodel() <em>Datamodel</em>}' reference.
+	 * The cached value of the '{@link #getCreationDate() <em>Creation Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDatamodel()
+	 * @see #getCreationDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected EPackage datamodel;
+	protected String creationDate = CREATION_DATE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCSS() <em>CSS</em>}' attribute.
+	 * The default value of the '{@link #getAuthor() <em>Author</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCSS()
+	 * @see #getAuthor()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CSS_EDEFAULT = null;
+	protected static final String AUTHOR_EDEFAULT = "Welipse";
 
 	/**
-	 * The cached value of the '{@link #getCSS() <em>CSS</em>}' attribute.
+	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCSS()
+	 * @see #getAuthor()
 	 * @generated
 	 * @ordered
 	 */
-	protected String css = CSS_EDEFAULT;
+	protected String author = AUTHOR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAuthorEmail() <em>Author Email</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAuthorEmail()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String AUTHOR_EMAIL_EDEFAULT = "support@welipse.com";
+
+	/**
+	 * The cached value of the '{@link #getAuthorEmail() <em>Author Email</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAuthorEmail()
+	 * @generated
+	 * @ordered
+	 */
+	protected String authorEmail = AUTHOR_EMAIL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAuthorURL() <em>Author URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAuthorURL()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String AUTHOR_URL_EDEFAULT = "http://www.welipse.com";
+
+	/**
+	 * The cached value of the '{@link #getAuthorURL() <em>Author URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAuthorURL()
+	 * @generated
+	 * @ordered
+	 */
+	protected String authorURL = AUTHOR_URL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCopyright() <em>Copyright</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCopyright()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COPYRIGHT_EDEFAULT = "Copyright Welipse, All rights are reserved.";
+
+	/**
+	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCopyright()
+	 * @generated
+	 * @ordered
+	 */
+	protected String copyright = COPYRIGHT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLicense() <em>License</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLicense()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LICENSE_EDEFAULT = "see license.txt";
+
+	/**
+	 * The cached value of the '{@link #getLicense() <em>License</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLicense()
+	 * @generated
+	 * @ordered
+	 */
+	protected String license = LICENSE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VERSION_EDEFAULT = "0.0.1";
+
+	/**
+	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String version = VERSION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = "Automatically generated Joomla! extension by Welipse.";
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDatabaseTablePrefix() <em>Database Table Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatabaseTablePrefix()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DATABASE_TABLE_PREFIX_EDEFAULT = "#__";
+
+	/**
+	 * The cached value of the '{@link #getDatabaseTablePrefix() <em>Database Table Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatabaseTablePrefix()
+	 * @generated
+	 * @ordered
+	 */
+	protected String databaseTablePrefix = DATABASE_TABLE_PREFIX_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getComponentName() <em>Component Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComponentName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COMPONENT_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDatabaseTables() <em>Database Tables</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatabaseTables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DatabaseTable> databaseTables;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected JoomlaGenModelImpl() {
 		super();
+		
+		Calendar now = Calendar.getInstance();
+		Locale locale = Locale.getDefault();
+		
+		String month = now.getDisplayName(Calendar.MONTH, Calendar.LONG, locale);
+		int year = now.get(Calendar.YEAR);
+		
+		// Set the default values of some of the Manifest elements
+		setCreationDate(month +" "+ year);
 	}
 
 	/**
@@ -203,6 +488,110 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Website getWebmodel() {
+		if (webmodel != null && webmodel.eIsProxy()) {
+			InternalEObject oldWebmodel = (InternalEObject)webmodel;
+			webmodel = (Website)eResolveProxy(oldWebmodel);
+			if (webmodel != oldWebmodel) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JoomlaGenPackage.JOOMLA_GEN_MODEL__WEBMODEL, oldWebmodel, webmodel));
+			}
+		}
+		return webmodel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Website basicGetWebmodel() {
+		return webmodel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * It will also retrieve the datamodel and set it
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setWebmodel(Website newWebmodel) {
+		Website oldWebmodel = webmodel;
+		webmodel = newWebmodel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__WEBMODEL, oldWebmodel, webmodel));
+		
+		if (webmodel == null) {
+			getDatabaseTables().clear();
+			setDatamodel(null);
+		} else {
+			if (hasDatamodel(webmodel)) {
+				// Retrieve the datamodel from webmodel and set it
+				Resource resource = webmodel.eResource();
+				if (resource != null) {
+					ResourceSet resourceSet = resource.getResourceSet();
+					if (resourceSet != null) {
+						for (Resource res : resourceSet.getResources()) {
+							if (!res.getURI().equals(resource.getURI())) {
+								EList<EObject> contents = res.getContents();
+								if (!contents.isEmpty()) {
+									EObject object = contents.get(0);
+									if (object instanceof EPackage) {
+										GenPackage dm = JoomlaGenFactory.eINSTANCE
+												.createGenPackage();
+										dm.initialize((EPackage) object);
+										setDatamodel(dm);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	private boolean hasDatamodel(Website model) {
+		for (Page page : model.getPages()) {
+			if (!page.getParameters().isEmpty()) {
+				Parameter param = page.getParameters().get(0);
+				if (param != null) {
+					EClassifier type = param.getType();
+					if (type != null) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCustomCSSFiles() {
+		return customCSSFiles;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCustomCSSFiles(String newCustomCSSFiles) {
+		String oldCustomCSSFiles = customCSSFiles;
+		customCSSFiles = newCustomCSSFiles;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__CUSTOM_CSS_FILES, oldCustomCSSFiles, customCSSFiles));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getExtensionName() {
 		return extensionName;
 	}
@@ -210,13 +599,15 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setExtensionName(String newExtensionName) {
 		String oldExtensionName = extensionName;
 		extensionName = newExtensionName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION_NAME, oldExtensionName, extensionName));
+		
+		setDatabaseTablePrefix(DATABASE_TABLE_PREFIX_EDEFAULT + extensionName +"_");
 	}
 
 	/**
@@ -224,16 +615,8 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Website getExtension() {
-		if (extension != null && extension.eIsProxy()) {
-			InternalEObject oldExtension = (InternalEObject)extension;
-			extension = (Website)eResolveProxy(oldExtension);
-			if (extension != oldExtension) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION, oldExtension, extension));
-			}
-		}
-		return extension;
+	public String getCreationDate() {
+		return creationDate;
 	}
 
 	/**
@@ -241,20 +624,11 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Website basicGetExtension() {
-		return extension;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExtension(Website newExtension) {
-		Website oldExtension = extension;
-		extension = newExtension;
+	public void setCreationDate(String newCreationDate) {
+		String oldCreationDate = creationDate;
+		creationDate = newCreationDate;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION, oldExtension, extension));
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__CREATION_DATE, oldCreationDate, creationDate));
 	}
 
 	/**
@@ -262,15 +636,405 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EPackage getDatamodel() {
-		if (datamodel != null && datamodel.eIsProxy()) {
-			InternalEObject oldDatamodel = (InternalEObject)datamodel;
-			datamodel = (EPackage)eResolveProxy(oldDatamodel);
-			if (datamodel != oldDatamodel) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL, oldDatamodel, datamodel));
+	public String getAuthor() {
+		return author;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAuthor(String newAuthor) {
+		String oldAuthor = author;
+		author = newAuthor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__AUTHOR, oldAuthor, author));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getAuthorEmail() {
+		return authorEmail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAuthorEmail(String newAuthorEmail) {
+		String oldAuthorEmail = authorEmail;
+		authorEmail = newAuthorEmail;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__AUTHOR_EMAIL, oldAuthorEmail, authorEmail));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getAuthorURL() {
+		return authorURL;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAuthorURL(String newAuthorURL) {
+		String oldAuthorURL = authorURL;
+		authorURL = newAuthorURL;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__AUTHOR_URL, oldAuthorURL, authorURL));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCopyright() {
+		return copyright;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCopyright(String newCopyright) {
+		String oldCopyright = copyright;
+		copyright = newCopyright;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__COPYRIGHT, oldCopyright, copyright));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getLicense() {
+		return license;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLicense(String newLicense) {
+		String oldLicense = license;
+		license = newLicense;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__LICENSE, oldLicense, license));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getVersion() {
+		return version;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVersion(String newVersion) {
+		String oldVersion = version;
+		version = newVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__VERSION, oldVersion, version));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__DESCRIPTION, oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDatabaseTablePrefix() {
+		return databaseTablePrefix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDatabaseTablePrefix(String newDatabaseTablePrefix) {
+		String oldDatabaseTablePrefix = databaseTablePrefix;
+		databaseTablePrefix = newDatabaseTablePrefix;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLE_PREFIX, oldDatabaseTablePrefix, databaseTablePrefix));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getComponentName() {
+		return "com_" + getExtensionName();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setComponentName(String newComponentName) {
+		// Not Relevant
+	}
+
+	/*
+	 * Data structures needed in order to transform datamodel
+	 * to Database tables  
+	 */
+	Map<String, DatabaseTable> tables = new HashMap<String, DatabaseTable>();
+	Map<String, GenReference> genReferences = new HashMap<String, GenReference>();
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<DatabaseTable> getDatabaseTables() {
+		if (databaseTables == null) {
+			databaseTables = new EObjectContainmentEList<DatabaseTable>(DatabaseTable.class, this, JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLES);
+			
+			// Generate database tables if datamodel is provided 
+			if (getDatamodel() != null) {	
+				List<GenClass> classes = new ArrayList<GenClass>(getDatamodel().getGenClasses());
+				for (GenClass genClass : classes) {
+					DatabaseTable table = tables.get(genClass.getDatabaseTableName());
+					if (table == null) {
+						table = createDatabaseTable(genClass);
+					} else {
+						// Add the attributes and references of genClass to table
+						for (GenFeature genFeature : genClass.getGenFeatures()) {
+							if (genFeature instanceof GenAttribute) {
+								createDatabaseTableColumn(table, (GenAttribute) genFeature);
+							} else {
+								createDatabaseTableForeignKey(table, (GenReference) genFeature);
+							}
+						}
+					}
+					databaseTables.add(table);
+				}
 			}
 		}
+		return databaseTables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getAssociationTableName(GenClass cls1, GenClass cls2) {
+		String name1 = generateAssociationTableName(cls1, cls2);
+		String name2 = generateAssociationTableName(cls2, cls1);
+		String result = "";
+		for (DatabaseTable table : getDatabaseTables()) {
+			if (table.getName().equals(name1)) {
+				result = name1;
+				break;
+			}
+			if (table.getName().equals(name2)) {
+				result = name2;
+				break;
+			}
+		}
+		
+		return getDatabaseTablePrefix() + result;
+	}
+
+	private DatabaseTable createDatabaseTable(GenClass genClass) {
+		DatabaseTable table = JoomlaGenFactory.eINSTANCE.createDatabaseTable();
+		table.setGenClass(genClass);
+		tables.put(genClass.getDatabaseTableName(), table);
+		
+		for (GenFeature feature : genClass.getGenFeatures()) {		
+			if (feature instanceof GenAttribute) {	
+				createDatabaseTableColumn(table, (GenAttribute) feature);
+			} else {	
+				createDatabaseTableForeignKey(table, (GenReference) feature);
+			}
+		}
+		
+		return table;
+	}
+
+	private void createDatabaseTableForeignKey(DatabaseTable table, GenReference reference) {
+		if (!reference.getEcoreReference().isDerived()) {					
+			// Check whether we have already processed this reference
+			GenReference processedRef = genReferences.get(reference.getName());
+			if (processedRef == null) {	
+				genReferences.put(reference.getName(), reference);
+				if (reference.isManyToMany()) {
+					// Apply the Association Table pattern
+					applyAssociationTablePattern(table, reference);
+				} else if (reference.isOneToMany()) {
+					// Apply the Foreign Key Association pattern
+					applyForeignKeyAssociationPattern(table, reference);
+				} else {					
+					// Add table foreign keys (GenReferences)
+					table.getForeignKeys().add(reference);
+					// Remember the opposite reference (if any)
+					if (reference.getOpposite() != null) {
+						genReferences.put(reference.getOpposite().getName(), reference.getOpposite());
+					}
+				}
+			}
+		}	
+	}
+
+	private void applyForeignKeyAssociationPattern(DatabaseTable table, GenReference reference) {
+		// The case where reference is multiplicity-many and 
+		// the opposite reference (if any) is multiplicity-one
+		if (reference.isMany()) {
+			GenClass type =  (GenClass) reference.getType();
+			
+			// Lookup the table that represents the type of the reference
+			DatabaseTable typeTable = tables.get(type.getDatabaseTableName());
+			if (typeTable == null) {
+				typeTable = createDatabaseTable(type);
+			}
+			
+			// Add the reference as foreign key to the referenced table
+			typeTable.getForeignKeys().add(reference);
+			
+			// Remember the opposite reference (if any)
+			if (reference.getOpposite() != null) {
+				genReferences.put(reference.getOpposite().getName(), reference.getOpposite());
+			}
+		} else {
+			if (reference.getOpposite() != null) {
+				// Add the opposite reference as foreign to the table
+				table.getForeignKeys().add(reference.getOpposite());
+				
+				// Remember the opposite reference
+				genReferences.put(reference.getOpposite().getName(), reference.getOpposite());
+			}
+		}
+	}
+
+	private void applyAssociationTablePattern(DatabaseTable table, GenReference reference) {
+		GenClass refGenClass = (GenClass) reference.getType(); 
+
+		// Create the association table and add the references to it
+		DatabaseTable assocTable = createAssociationTable(table.getGenClass(), refGenClass);
+		assocTable.getForeignKeys().add(reference);
+		assocTable.getForeignKeys().add(reference.getOpposite());
+		
+		// Remember the opposite reference
+		genReferences.put(reference.getOpposite().getName(), reference.getOpposite());	
+	}
+
+	private void createDatabaseTableColumn(DatabaseTable table, GenAttribute attribute) {
+		if (!attribute.getEcoreAttribute().isDerived()) {
+			for (GenAttribute genAttribute : table.getColumns()) {
+				if (genAttribute.getName().equals(attribute.getName())) return;
+			}
+			
+			// Add table columns (GenAttributes)
+			table.getColumns().add(attribute);
+		}
+	}
+
+	private DatabaseTable createAssociationTable(GenClass cls, GenClass refCls) {
+		String tableName = generateAssociationTableName(cls, refCls);
+		DatabaseTable table = tables.get(tableName);
+		if (table == null) {
+			table = JoomlaGenFactory.eINSTANCE.createDatabaseTable();
+			GenClass genClass = JoomlaGenFactory.eINSTANCE.createGenClass();
+			genClass.setDatabaseTableName(tableName);
+			genClass.setGenerateContentManager(false);
+			getDatamodel().getGenClasses().add(genClass);
+			table.setGenClass(genClass);
+			getDatabaseTables().add(table);
+			tables.put(tableName, table);
+		} else {
+			throw new Error("It appears that there are more than one many-to-many association between two classes."+
+					" Class 1: "+ cls.getItemMVCName() +", Class 2: "+ refCls.getItemMVCName());
+		}
+		
+		return table;
+	}
+	
+	private String generateAssociationTableName(GenClass cls, GenClass refCls) {
+		return cls.getDatabaseTableName() +"_"+ refCls.getDatabaseTableName() +"_map";
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
+				if (datamodel != null)
+					msgs = ((InternalEObject)datamodel).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL, null, msgs);
+				return basicSetDatamodel((GenPackage)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
+				return basicSetDatamodel(null, msgs);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLES:
+				return ((InternalEList<?>)getDatabaseTables()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenPackage getDatamodel() {
 		return datamodel;
 	}
 
@@ -279,20 +1043,14 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EPackage basicGetDatamodel() {
-		return datamodel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDatamodel(EPackage newDatamodel) {
-		EPackage oldDatamodel = datamodel;
+	public NotificationChain basicSetDatamodel(GenPackage newDatamodel, NotificationChain msgs) {
+		GenPackage oldDatamodel = datamodel;
 		datamodel = newDatamodel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL, oldDatamodel, datamodel));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL, oldDatamodel, newDatamodel);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -300,8 +1058,18 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getCSS() {
-		return css;
+	public void setDatamodel(GenPackage newDatamodel) {
+		if (newDatamodel != datamodel) {
+			NotificationChain msgs = null;
+			if (datamodel != null)
+				msgs = ((InternalEObject)datamodel).eInverseRemove(this, JoomlaGenPackage.GEN_PACKAGE__GEN_MODEL, GenPackage.class, msgs);
+			if (newDatamodel != null)
+				msgs = ((InternalEObject)newDatamodel).eInverseAdd(this, JoomlaGenPackage.GEN_PACKAGE__GEN_MODEL, GenPackage.class, msgs);
+			msgs = basicSetDatamodel(newDatamodel, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL, newDatamodel, newDatamodel));
 	}
 
 	/**
@@ -309,11 +1077,41 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCSS(String newCSS) {
-		String oldCSS = css;
-		css = newCSS;
+	public boolean isUseBootstrap() {
+		return useBootstrap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUseBootstrap(boolean newUseBootstrap) {
+		boolean oldUseBootstrap = useBootstrap;
+		useBootstrap = newUseBootstrap;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__CSS, oldCSS, css));
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__USE_BOOTSTRAP, oldUseBootstrap, useBootstrap));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isMinifiedBootsrap() {
+		return minifiedBootsrap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinifiedBootsrap(boolean newMinifiedBootsrap) {
+		boolean oldMinifiedBootsrap = minifiedBootsrap;
+		minifiedBootsrap = newMinifiedBootsrap;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__MINIFIED_BOOTSRAP, oldMinifiedBootsrap, minifiedBootsrap));
 	}
 
 	/**
@@ -328,16 +1126,41 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 				return getExtensionType();
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__JOOMLA_VERSION:
 				return getJoomlaVersion();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__WEBMODEL:
+				if (resolve) return getWebmodel();
+				return basicGetWebmodel();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CUSTOM_CSS_FILES:
+				return getCustomCSSFiles();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
+				return getDatamodel();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__USE_BOOTSTRAP:
+				return isUseBootstrap();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__MINIFIED_BOOTSRAP:
+				return isMinifiedBootsrap();
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION_NAME:
 				return getExtensionName();
-			case JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION:
-				if (resolve) return getExtension();
-				return basicGetExtension();
-			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
-				if (resolve) return getDatamodel();
-				return basicGetDatamodel();
-			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CSS:
-				return getCSS();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CREATION_DATE:
+				return getCreationDate();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__AUTHOR:
+				return getAuthor();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__AUTHOR_EMAIL:
+				return getAuthorEmail();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__AUTHOR_URL:
+				return getAuthorURL();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__COPYRIGHT:
+				return getCopyright();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__LICENSE:
+				return getLicense();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__VERSION:
+				return getVersion();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DESCRIPTION:
+				return getDescription();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLE_PREFIX:
+				return getDatabaseTablePrefix();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__COMPONENT_NAME:
+				return getComponentName();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLES:
+				return getDatabaseTables();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -347,6 +1170,7 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -356,17 +1180,57 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__JOOMLA_VERSION:
 				setJoomlaVersion((JoomlaVersion)newValue);
 				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__WEBMODEL:
+				setWebmodel((Website)newValue);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CUSTOM_CSS_FILES:
+				setCustomCSSFiles((String)newValue);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
+				setDatamodel((GenPackage)newValue);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__USE_BOOTSTRAP:
+				setUseBootstrap((Boolean)newValue);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__MINIFIED_BOOTSRAP:
+				setMinifiedBootsrap((Boolean)newValue);
+				return;
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION_NAME:
 				setExtensionName((String)newValue);
 				return;
-			case JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION:
-				setExtension((Website)newValue);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CREATION_DATE:
+				setCreationDate((String)newValue);
 				return;
-			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
-				setDatamodel((EPackage)newValue);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__AUTHOR:
+				setAuthor((String)newValue);
 				return;
-			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CSS:
-				setCSS((String)newValue);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__AUTHOR_EMAIL:
+				setAuthorEmail((String)newValue);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__AUTHOR_URL:
+				setAuthorURL((String)newValue);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__COPYRIGHT:
+				setCopyright((String)newValue);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__LICENSE:
+				setLicense((String)newValue);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__VERSION:
+				setVersion((String)newValue);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLE_PREFIX:
+				setDatabaseTablePrefix((String)newValue);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__COMPONENT_NAME:
+				setComponentName((String)newValue);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLES:
+				getDatabaseTables().clear();
+				getDatabaseTables().addAll((Collection<? extends DatabaseTable>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -386,17 +1250,56 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__JOOMLA_VERSION:
 				setJoomlaVersion(JOOMLA_VERSION_EDEFAULT);
 				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__WEBMODEL:
+				setWebmodel((Website)null);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CUSTOM_CSS_FILES:
+				setCustomCSSFiles(CUSTOM_CSS_FILES_EDEFAULT);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
+				setDatamodel((GenPackage)null);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__USE_BOOTSTRAP:
+				setUseBootstrap(USE_BOOTSTRAP_EDEFAULT);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__MINIFIED_BOOTSRAP:
+				setMinifiedBootsrap(MINIFIED_BOOTSRAP_EDEFAULT);
+				return;
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION_NAME:
 				setExtensionName(EXTENSION_NAME_EDEFAULT);
 				return;
-			case JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION:
-				setExtension((Website)null);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CREATION_DATE:
+				setCreationDate(CREATION_DATE_EDEFAULT);
 				return;
-			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
-				setDatamodel((EPackage)null);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__AUTHOR:
+				setAuthor(AUTHOR_EDEFAULT);
 				return;
-			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CSS:
-				setCSS(CSS_EDEFAULT);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__AUTHOR_EMAIL:
+				setAuthorEmail(AUTHOR_EMAIL_EDEFAULT);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__AUTHOR_URL:
+				setAuthorURL(AUTHOR_URL_EDEFAULT);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__COPYRIGHT:
+				setCopyright(COPYRIGHT_EDEFAULT);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__LICENSE:
+				setLicense(LICENSE_EDEFAULT);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLE_PREFIX:
+				setDatabaseTablePrefix(DATABASE_TABLE_PREFIX_EDEFAULT);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__COMPONENT_NAME:
+				setComponentName(COMPONENT_NAME_EDEFAULT);
+				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLES:
+				getDatabaseTables().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -414,16 +1317,56 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 				return extensionType != EXTENSION_TYPE_EDEFAULT;
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__JOOMLA_VERSION:
 				return joomlaVersion != JOOMLA_VERSION_EDEFAULT;
-			case JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION_NAME:
-				return EXTENSION_NAME_EDEFAULT == null ? extensionName != null : !EXTENSION_NAME_EDEFAULT.equals(extensionName);
-			case JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION:
-				return extension != null;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__WEBMODEL:
+				return webmodel != null;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CUSTOM_CSS_FILES:
+				return CUSTOM_CSS_FILES_EDEFAULT == null ? customCSSFiles != null : !CUSTOM_CSS_FILES_EDEFAULT.equals(customCSSFiles);
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
 				return datamodel != null;
-			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CSS:
-				return CSS_EDEFAULT == null ? css != null : !CSS_EDEFAULT.equals(css);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__USE_BOOTSTRAP:
+				return useBootstrap != USE_BOOTSTRAP_EDEFAULT;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__MINIFIED_BOOTSRAP:
+				return minifiedBootsrap != MINIFIED_BOOTSRAP_EDEFAULT;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION_NAME:
+				return EXTENSION_NAME_EDEFAULT == null ? extensionName != null : !EXTENSION_NAME_EDEFAULT.equals(extensionName);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__CREATION_DATE:
+				return CREATION_DATE_EDEFAULT == null ? creationDate != null : !CREATION_DATE_EDEFAULT.equals(creationDate);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__AUTHOR:
+				return AUTHOR_EDEFAULT == null ? author != null : !AUTHOR_EDEFAULT.equals(author);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__AUTHOR_EMAIL:
+				return AUTHOR_EMAIL_EDEFAULT == null ? authorEmail != null : !AUTHOR_EMAIL_EDEFAULT.equals(authorEmail);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__AUTHOR_URL:
+				return AUTHOR_URL_EDEFAULT == null ? authorURL != null : !AUTHOR_URL_EDEFAULT.equals(authorURL);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__COPYRIGHT:
+				return COPYRIGHT_EDEFAULT == null ? copyright != null : !COPYRIGHT_EDEFAULT.equals(copyright);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__LICENSE:
+				return LICENSE_EDEFAULT == null ? license != null : !LICENSE_EDEFAULT.equals(license);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__VERSION:
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLE_PREFIX:
+				return DATABASE_TABLE_PREFIX_EDEFAULT == null ? databaseTablePrefix != null : !DATABASE_TABLE_PREFIX_EDEFAULT.equals(databaseTablePrefix);
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__COMPONENT_NAME:
+				return COMPONENT_NAME_EDEFAULT == null ? getComponentName() != null : !COMPONENT_NAME_EDEFAULT.equals(getComponentName());
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLES:
+				return databaseTables != null && !databaseTables.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL___GET_ASSOCIATION_TABLE_NAME__GENCLASS_GENCLASS:
+				return getAssociationTableName((GenClass)arguments.get(0), (GenClass)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -440,10 +1383,32 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 		result.append(extensionType);
 		result.append(", joomlaVersion: ");
 		result.append(joomlaVersion);
+		result.append(", customCSSFiles: ");
+		result.append(customCSSFiles);
+		result.append(", useBootstrap: ");
+		result.append(useBootstrap);
+		result.append(", minifiedBootsrap: ");
+		result.append(minifiedBootsrap);
 		result.append(", extensionName: ");
 		result.append(extensionName);
-		result.append(", CSS: ");
-		result.append(css);
+		result.append(", creationDate: ");
+		result.append(creationDate);
+		result.append(", author: ");
+		result.append(author);
+		result.append(", authorEmail: ");
+		result.append(authorEmail);
+		result.append(", authorURL: ");
+		result.append(authorURL);
+		result.append(", copyright: ");
+		result.append(copyright);
+		result.append(", license: ");
+		result.append(license);
+		result.append(", version: ");
+		result.append(version);
+		result.append(", description: ");
+		result.append(description);
+		result.append(", databaseTablePrefix: ");
+		result.append(databaseTablePrefix);
 		result.append(')');
 		return result.toString();
 	}

@@ -95,6 +95,190 @@ public class JoomlaGenItemProviderAdapterFactory extends JoomlaGenAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.joomlagen.GenPackage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GenPackageItemProvider genPackageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.joomlagen.GenPackage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGenPackageAdapter() {
+		if (genPackageItemProvider == null) {
+			genPackageItemProvider = new GenPackageItemProvider(this);
+		}
+
+		return genPackageItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.joomlagen.GenClass} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GenClassItemProvider genClassItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.joomlagen.GenClass}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGenClassAdapter() {
+		if (genClassItemProvider == null) {
+			genClassItemProvider = new GenClassItemProvider(this);
+		}
+
+		return genClassItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.joomlagen.GenAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GenAttributeItemProvider genAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.joomlagen.GenAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGenAttributeAdapter() {
+		if (genAttributeItemProvider == null) {
+			genAttributeItemProvider = new GenAttributeItemProvider(this);
+		}
+
+		return genAttributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.joomlagen.GenReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GenReferenceItemProvider genReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.joomlagen.GenReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGenReferenceAdapter() {
+		if (genReferenceItemProvider == null) {
+			genReferenceItemProvider = new GenReferenceItemProvider(this);
+		}
+
+		return genReferenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.joomlagen.DatabaseTable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DatabaseTableItemProvider databaseTableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.joomlagen.DatabaseTable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDatabaseTableAdapter() {
+		if (databaseTableItemProvider == null) {
+			databaseTableItemProvider = new DatabaseTableItemProvider(this);
+		}
+
+		return databaseTableItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.joomlagen.GenOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GenOperationItemProvider genOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.joomlagen.GenOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGenOperationAdapter() {
+		if (genOperationItemProvider == null) {
+			genOperationItemProvider = new GenOperationItemProvider(this);
+		}
+
+		return genOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.joomlagen.GenParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GenParameterItemProvider genParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.joomlagen.GenParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGenParameterAdapter() {
+		if (genParameterItemProvider == null) {
+			genParameterItemProvider = new GenParameterItemProvider(this);
+		}
+
+		return genParameterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.joomlagen.GenDataType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GenDataTypeItemProvider genDataTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.joomlagen.GenDataType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGenDataTypeAdapter() {
+		if (genDataTypeItemProvider == null) {
+			genDataTypeItemProvider = new GenDataTypeItemProvider(this);
+		}
+
+		return genDataTypeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -194,6 +378,14 @@ public class JoomlaGenItemProviderAdapterFactory extends JoomlaGenAdapterFactory
 	 */
 	public void dispose() {
 		if (joomlaGenModelItemProvider != null) joomlaGenModelItemProvider.dispose();
+		if (genPackageItemProvider != null) genPackageItemProvider.dispose();
+		if (genClassItemProvider != null) genClassItemProvider.dispose();
+		if (genAttributeItemProvider != null) genAttributeItemProvider.dispose();
+		if (genReferenceItemProvider != null) genReferenceItemProvider.dispose();
+		if (databaseTableItemProvider != null) databaseTableItemProvider.dispose();
+		if (genOperationItemProvider != null) genOperationItemProvider.dispose();
+		if (genParameterItemProvider != null) genParameterItemProvider.dispose();
+		if (genDataTypeItemProvider != null) genDataTypeItemProvider.dispose();
 	}
 
 }

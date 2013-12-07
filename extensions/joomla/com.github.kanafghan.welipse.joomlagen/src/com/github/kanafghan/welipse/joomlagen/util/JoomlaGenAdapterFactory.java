@@ -72,6 +72,50 @@ public class JoomlaGenAdapterFactory extends AdapterFactoryImpl {
 				return createJoomlaGenModelAdapter();
 			}
 			@Override
+			public Adapter caseGenPackage(GenPackage object) {
+				return createGenPackageAdapter();
+			}
+			@Override
+			public Adapter caseGenClassifier(GenClassifier object) {
+				return createGenClassifierAdapter();
+			}
+			@Override
+			public Adapter caseGenClass(GenClass object) {
+				return createGenClassAdapter();
+			}
+			@Override
+			public Adapter caseGenTypedElement(GenTypedElement object) {
+				return createGenTypedElementAdapter();
+			}
+			@Override
+			public Adapter caseGenFeature(GenFeature object) {
+				return createGenFeatureAdapter();
+			}
+			@Override
+			public Adapter caseGenAttribute(GenAttribute object) {
+				return createGenAttributeAdapter();
+			}
+			@Override
+			public Adapter caseGenReference(GenReference object) {
+				return createGenReferenceAdapter();
+			}
+			@Override
+			public Adapter caseDatabaseTable(DatabaseTable object) {
+				return createDatabaseTableAdapter();
+			}
+			@Override
+			public Adapter caseGenOperation(GenOperation object) {
+				return createGenOperationAdapter();
+			}
+			@Override
+			public Adapter caseGenParameter(GenParameter object) {
+				return createGenParameterAdapter();
+			}
+			@Override
+			public Adapter caseGenDataType(GenDataType object) {
+				return createGenDataTypeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -102,6 +146,160 @@ public class JoomlaGenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJoomlaGenModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.joomlagen.GenPackage <em>Gen Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.joomlagen.GenPackage
+	 * @generated
+	 */
+	public Adapter createGenPackageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.joomlagen.GenClassifier <em>Gen Classifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.joomlagen.GenClassifier
+	 * @generated
+	 */
+	public Adapter createGenClassifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.joomlagen.GenClass <em>Gen Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.joomlagen.GenClass
+	 * @generated
+	 */
+	public Adapter createGenClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.joomlagen.GenTypedElement <em>Gen Typed Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.joomlagen.GenTypedElement
+	 * @generated
+	 */
+	public Adapter createGenTypedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.joomlagen.GenFeature <em>Gen Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.joomlagen.GenFeature
+	 * @generated
+	 */
+	public Adapter createGenFeatureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.joomlagen.GenAttribute <em>Gen Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.joomlagen.GenAttribute
+	 * @generated
+	 */
+	public Adapter createGenAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.joomlagen.GenReference <em>Gen Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.joomlagen.GenReference
+	 * @generated
+	 */
+	public Adapter createGenReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.joomlagen.DatabaseTable <em>Database Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.joomlagen.DatabaseTable
+	 * @generated
+	 */
+	public Adapter createDatabaseTableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.joomlagen.GenOperation <em>Gen Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.joomlagen.GenOperation
+	 * @generated
+	 */
+	public Adapter createGenOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.joomlagen.GenParameter <em>Gen Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.joomlagen.GenParameter
+	 * @generated
+	 */
+	public Adapter createGenParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.joomlagen.GenDataType <em>Gen Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.joomlagen.GenDataType
+	 * @generated
+	 */
+	public Adapter createGenDataTypeAdapter() {
 		return null;
 	}
 

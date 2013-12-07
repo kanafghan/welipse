@@ -14,13 +14,117 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="joomlagen.ecore#//JoomlaVersion">
       <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//JoomlaVersion/J25"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="joomlagen.ecore#//FormFieldType">
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//FormFieldType/Text"/>
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//FormFieldType/Textarea"/>
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//FormFieldType/File"/>
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//FormFieldType/Password"/>
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//FormFieldType/Hidden"/>
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//FormFieldType/Radio"/>
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//FormFieldType/List"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="joomlagen.ecore#//DatabaseColumnType">
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//DatabaseColumnType/INT"/>
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//DatabaseColumnType/FLOAT"/>
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//DatabaseColumnType/DOUBLE"/>
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//DatabaseColumnType/VARCHAR"/>
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//DatabaseColumnType/TEXT"/>
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//DatabaseColumnType/DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//DatabaseColumnType/TIMESTAMP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="joomlagen.ecore#//ForeignKeyGeneration">
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//ForeignKeyGeneration/GenerateInOther"/>
+      <genEnumLiterals ecoreEnumLiteral="joomlagen.ecore#//ForeignKeyGeneration/GenerateInThis"/>
+    </genEnums>
     <genClasses ecoreClass="joomlagen.ecore#//JoomlaGenModel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/extensionType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/joomlaVersion"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/extensionName"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//JoomlaGenModel/extension"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//JoomlaGenModel/datamodel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/CSS"/>
+      <genFeatures createChild="false" propertyCategory="Manifest" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/extensionType"/>
+      <genFeatures createChild="false" propertyCategory="Manifest" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/joomlaVersion"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="General" propertySortChoices="true"
+          ecoreFeature="ecore:EReference joomlagen.ecore#//JoomlaGenModel/webmodel"/>
+      <genFeatures createChild="false" propertyCategory="General" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/customCSSFiles"/>
+      <genFeatures children="true" createChild="false" propertyCategory="General"
+          propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//JoomlaGenModel/datamodel"/>
+      <genFeatures createChild="false" propertyCategory="General" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/useBootstrap"/>
+      <genFeatures createChild="false" propertyCategory="General" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/minifiedBootsrap"/>
+      <genFeatures createChild="false" propertyCategory="Manifest" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/extensionName"/>
+      <genFeatures createChild="false" propertyCategory="Manifest" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/creationDate"/>
+      <genFeatures createChild="false" propertyCategory="Manifest" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/author"/>
+      <genFeatures createChild="false" propertyCategory="Manifest" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/authorEmail"/>
+      <genFeatures createChild="false" propertyCategory="Manifest" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/authorURL"/>
+      <genFeatures createChild="false" propertyCategory="Manifest" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/copyright"/>
+      <genFeatures createChild="false" propertyCategory="Manifest" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/license"/>
+      <genFeatures createChild="false" propertyCategory="Manifest" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/version"/>
+      <genFeatures createChild="false" propertyCategory="Manifest" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/description"/>
+      <genFeatures createChild="false" propertyCategory="Database" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/databaseTablePrefix"/>
+      <genFeatures createChild="false" propertyCategory="General" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/componentName"/>
+      <genFeatures property="None" children="true" createChild="false" propertyCategory="Database"
+          ecoreFeature="ecore:EReference joomlagen.ecore#//JoomlaGenModel/databaseTables"/>
+      <genOperations ecoreOperation="joomlagen.ecore#//JoomlaGenModel/getAssociationTableName">
+        <genParameters ecoreParameter="joomlagen.ecore#//JoomlaGenModel/getAssociationTableName/cls1"/>
+        <genParameters ecoreParameter="joomlagen.ecore#//JoomlaGenModel/getAssociationTableName/cls2"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="joomlagen.ecore#//GenPackage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenPackage/ecorePackage"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenPackage/genClassifiers"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference joomlagen.ecore#//GenPackage/genModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenPackage/genClasses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenPackage/genDataTypes"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="joomlagen.ecore#//GenClassifier">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenClassifier/genPackage"/>
+    </genClasses>
+    <genClasses ecoreClass="joomlagen.ecore#//GenClass">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenClass/ecoreClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenClass/genFeatures"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenClass/generateContentManager"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenClass/itemMVCName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenClass/listMVCName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenClass/databaseTableName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenClass/genOperations"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="joomlagen.ecore#//GenTypedElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenTypedElement/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="joomlagen.ecore#//GenFeature">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference joomlagen.ecore#//GenFeature/genClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenFeature/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenFeature/formFieldLabel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenFeature/formFieldDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenFeature/nullable"/>
+    </genClasses>
+    <genClasses ecoreClass="joomlagen.ecore#//GenAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenAttribute/formFieldType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenAttribute/databaseColumnType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenAttribute/ecoreAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="joomlagen.ecore#//GenReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenReference/ecoreReference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenReference/opposite"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenReference/databaseColumnGeneration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenReference/oneToMany"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenReference/manyToMany"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenReference/many"/>
+    </genClasses>
+    <genClasses ecoreClass="joomlagen.ecore#//DatabaseTable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//DatabaseTable/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//DatabaseTable/genClass"/>
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference joomlagen.ecore#//DatabaseTable/columns"/>
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference joomlagen.ecore#//DatabaseTable/foreignKeys"/>
+    </genClasses>
+    <genClasses ecoreClass="joomlagen.ecore#//GenOperation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenOperation/genParameters"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference joomlagen.ecore#//GenOperation/genClass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenOperation/ecoreOperation"/>
+    </genClasses>
+    <genClasses ecoreClass="joomlagen.ecore#//GenParameter">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference joomlagen.ecore#//GenParameter/genOperation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenParameter/ecoreParameter"/>
+    </genClasses>
+    <genClasses ecoreClass="joomlagen.ecore#//GenDataType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenDataType/ecoreDataType"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -31,6 +31,78 @@ public interface JoomlaGenFactory extends EFactory {
 	JoomlaGenModel createJoomlaGenModel();
 
 	/**
+	 * Returns a new object of class '<em>Gen Package</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Gen Package</em>'.
+	 * @generated
+	 */
+	GenPackage createGenPackage();
+
+	/**
+	 * Returns a new object of class '<em>Gen Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Gen Class</em>'.
+	 * @generated
+	 */
+	GenClass createGenClass();
+
+	/**
+	 * Returns a new object of class '<em>Gen Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Gen Attribute</em>'.
+	 * @generated
+	 */
+	GenAttribute createGenAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Gen Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Gen Reference</em>'.
+	 * @generated
+	 */
+	GenReference createGenReference();
+
+	/**
+	 * Returns a new object of class '<em>Database Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Database Table</em>'.
+	 * @generated
+	 */
+	DatabaseTable createDatabaseTable();
+
+	/**
+	 * Returns a new object of class '<em>Gen Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Gen Operation</em>'.
+	 * @generated
+	 */
+	GenOperation createGenOperation();
+
+	/**
+	 * Returns a new object of class '<em>Gen Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Gen Parameter</em>'.
+	 * @generated
+	 */
+	GenParameter createGenParameter();
+
+	/**
+	 * Returns a new object of class '<em>Gen Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Gen Data Type</em>'.
+	 * @generated
+	 */
+	GenDataType createGenDataType();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
