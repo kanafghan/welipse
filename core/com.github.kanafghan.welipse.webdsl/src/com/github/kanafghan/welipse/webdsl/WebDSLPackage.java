@@ -653,13 +653,13 @@ public interface WebDSLPackage extends EPackage {
 	int LINK__PAGE = NAVIGATION_ELEMENT__PAGE;
 
 	/**
-	 * The feature id for the '<em><b>Content</b></em>' containment reference.
+	 * The feature id for the '<em><b>Source</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__CONTENT = NAVIGATION_ELEMENT_FEATURE_COUNT + 0;
+	int LINK__SOURCE = NAVIGATION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Link</em>' class.
@@ -708,13 +708,13 @@ public interface WebDSLPackage extends EPackage {
 	int INTERNAL_LINK__PAGE = LINK__PAGE;
 
 	/**
-	 * The feature id for the '<em><b>Content</b></em>' containment reference.
+	 * The feature id for the '<em><b>Source</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_LINK__CONTENT = LINK__CONTENT;
+	int INTERNAL_LINK__SOURCE = LINK__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -726,13 +726,22 @@ public interface WebDSLPackage extends EPackage {
 	int INTERNAL_LINK__TARGET = LINK_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Actual Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_LINK__ACTUAL_PARAMETERS = LINK_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Internal Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_LINK_FEATURE_COUNT = LINK_FEATURE_COUNT + 1;
+	int INTERNAL_LINK_FEATURE_COUNT = LINK_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Internal Link</em>' class.
@@ -772,13 +781,13 @@ public interface WebDSLPackage extends EPackage {
 	int EXTERNAL_LINK__PAGE = LINK__PAGE;
 
 	/**
-	 * The feature id for the '<em><b>Content</b></em>' containment reference.
+	 * The feature id for the '<em><b>Source</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_LINK__CONTENT = LINK__CONTENT;
+	int EXTERNAL_LINK__SOURCE = LINK__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' containment reference.
@@ -1961,6 +1970,61 @@ public interface WebDSLPackage extends EPackage {
 	int REAL_CONSTANT_OPERATION_COUNT = CONSTANT_EXP_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.ActualParameterImpl <em>Actual Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.ActualParameterImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getActualParameter()
+	 * @generated
+	 */
+	int ACTUAL_PARAMETER = 30;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUAL_PARAMETER__IDENTIFIER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Formal Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUAL_PARAMETER__FORMAL_PARAMETER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUAL_PARAMETER__VALUE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Actual Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUAL_PARAMETER_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Actual Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUAL_PARAMETER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.ArithmeticOperator <em>Arithmetic Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1968,7 +2032,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getArithmeticOperator()
 	 * @generated
 	 */
-	int ARITHMETIC_OPERATOR = 30;
+	int ARITHMETIC_OPERATOR = 31;
 
 	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.StringOperator <em>String Operator</em>}' enum.
@@ -1978,7 +2042,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStringOperator()
 	 * @generated
 	 */
-	int STRING_OPERATOR = 31;
+	int STRING_OPERATOR = 32;
 
 
 	/**
@@ -1989,7 +2053,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getBooleanOperator()
 	 * @generated
 	 */
-	int BOOLEAN_OPERATOR = 32;
+	int BOOLEAN_OPERATOR = 33;
 
 	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.ComparisonOperator <em>Comparison Operator</em>}' enum.
@@ -1999,7 +2063,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getComparisonOperator()
 	 * @generated
 	 */
-	int COMPARISON_OPERATOR = 33;
+	int COMPARISON_OPERATOR = 34;
 
 
 	/**
@@ -2335,15 +2399,15 @@ public interface WebDSLPackage extends EPackage {
 	EClass getLink();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.Link#getContent <em>Content</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.Link#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Content</em>'.
-	 * @see com.github.kanafghan.welipse.webdsl.Link#getContent()
+	 * @return the meta object for the containment reference '<em>Source</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Link#getSource()
 	 * @see #getLink()
 	 * @generated
 	 */
-	EReference getLink_Content();
+	EReference getLink_Source();
 
 	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.InternalLink <em>Internal Link</em>}'.
@@ -2365,6 +2429,17 @@ public interface WebDSLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getInternalLink_Target();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.github.kanafghan.welipse.webdsl.InternalLink#getActualParameters <em>Actual Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Actual Parameters</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.InternalLink#getActualParameters()
+	 * @see #getInternalLink()
+	 * @generated
+	 */
+	EReference getInternalLink_ActualParameters();
 
 	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.ExternalLink <em>External Link</em>}'.
@@ -2828,6 +2903,49 @@ public interface WebDSLPackage extends EPackage {
 	EAttribute getRealConstant_Value();
 
 	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.ActualParameter <em>Actual Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Actual Parameter</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ActualParameter
+	 * @generated
+	 */
+	EClass getActualParameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.ActualParameter#getIdentifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Identifier</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ActualParameter#getIdentifier()
+	 * @see #getActualParameter()
+	 * @generated
+	 */
+	EAttribute getActualParameter_Identifier();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.webdsl.ActualParameter#getFormalParameter <em>Formal Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Formal Parameter</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ActualParameter#getFormalParameter()
+	 * @see #getActualParameter()
+	 * @generated
+	 */
+	EReference getActualParameter_FormalParameter();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.ActualParameter#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Value</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ActualParameter#getValue()
+	 * @see #getActualParameter()
+	 * @generated
+	 */
+	EReference getActualParameter_Value();
+
+	/**
 	 * Returns the meta object for enum '{@link com.github.kanafghan.welipse.webdsl.ArithmeticOperator <em>Arithmetic Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3157,12 +3275,12 @@ public interface WebDSLPackage extends EPackage {
 		EClass LINK = eINSTANCE.getLink();
 
 		/**
-		 * The meta object literal for the '<em><b>Content</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Source</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LINK__CONTENT = eINSTANCE.getLink_Content();
+		EReference LINK__SOURCE = eINSTANCE.getLink_Source();
 
 		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.InternalLinkImpl <em>Internal Link</em>}' class.
@@ -3181,6 +3299,14 @@ public interface WebDSLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INTERNAL_LINK__TARGET = eINSTANCE.getInternalLink_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Actual Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERNAL_LINK__ACTUAL_PARAMETERS = eINSTANCE.getInternalLink_ActualParameters();
 
 		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ExternalLinkImpl <em>External Link</em>}' class.
@@ -3573,6 +3699,40 @@ public interface WebDSLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute REAL_CONSTANT__VALUE = eINSTANCE.getRealConstant_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ActualParameterImpl <em>Actual Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.ActualParameterImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getActualParameter()
+		 * @generated
+		 */
+		EClass ACTUAL_PARAMETER = eINSTANCE.getActualParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTUAL_PARAMETER__IDENTIFIER = eINSTANCE.getActualParameter_Identifier();
+
+		/**
+		 * The meta object literal for the '<em><b>Formal Parameter</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTUAL_PARAMETER__FORMAL_PARAMETER = eINSTANCE.getActualParameter_FormalParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTUAL_PARAMETER__VALUE = eINSTANCE.getActualParameter_Value();
 
 		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.ArithmeticOperator <em>Arithmetic Operator</em>}' enum.

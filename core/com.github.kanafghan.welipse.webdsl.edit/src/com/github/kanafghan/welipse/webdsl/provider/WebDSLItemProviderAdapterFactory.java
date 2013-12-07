@@ -532,6 +532,29 @@ public class WebDSLItemProviderAdapterFactory extends WebDSLAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.ActualParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActualParameterItemProvider actualParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.ActualParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActualParameterAdapter() {
+		if (actualParameterItemProvider == null) {
+			actualParameterItemProvider = new ActualParameterItemProvider(this);
+		}
+
+		return actualParameterItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -650,6 +673,7 @@ public class WebDSLItemProviderAdapterFactory extends WebDSLAdapterFactory imple
 		if (booleanOperationItemProvider != null) booleanOperationItemProvider.dispose();
 		if (comparisonOperationItemProvider != null) comparisonOperationItemProvider.dispose();
 		if (realConstantItemProvider != null) realConstantItemProvider.dispose();
+		if (actualParameterItemProvider != null) actualParameterItemProvider.dispose();
 	}
 
 }

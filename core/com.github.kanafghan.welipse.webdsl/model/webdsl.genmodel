@@ -70,10 +70,11 @@
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Image/static"/>
     </genClasses>
     <genClasses image="false" ecoreClass="webdsl.ecore#//Link">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Link/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Link/source"/>
     </genClasses>
     <genClasses ecoreClass="webdsl.ecore#//InternalLink">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//InternalLink/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//InternalLink/actualParameters"/>
     </genClasses>
     <genClasses ecoreClass="webdsl.ecore#//ExternalLink">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//ExternalLink/target"/>
@@ -139,6 +140,11 @@
     </genClasses>
     <genClasses ecoreClass="webdsl.ecore#//RealConstant">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//RealConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//ActualParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//ActualParameter/identifier"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//ActualParameter/formalParameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//ActualParameter/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

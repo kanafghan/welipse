@@ -188,6 +188,10 @@ public class WebDSLAdapterFactory extends AdapterFactoryImpl {
 				return createRealConstantAdapter();
 			}
 			@Override
+			public Adapter caseActualParameter(ActualParameter object) {
+				return createActualParameterAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -624,6 +628,20 @@ public class WebDSLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRealConstantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.ActualParameter <em>Actual Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.ActualParameter
+	 * @generated
+	 */
+	public Adapter createActualParameterAdapter() {
 		return null;
 	}
 

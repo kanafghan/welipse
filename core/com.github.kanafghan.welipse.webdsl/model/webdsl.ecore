@@ -53,12 +53,14 @@
         changeable="false" volatile="true" transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Link" abstract="true" eSuperTypes="#//NavigationElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="content" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//PageElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InternalLink" eSuperTypes="#//Link">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//PageElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actualParameters" upperBound="-1"
+        eType="#//ActualParameter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalLink" eSuperTypes="#//Link">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
@@ -154,5 +156,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RealConstant" eSuperTypes="#//ConstantExp">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualParameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formalParameter" eType="#//Parameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Expression"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

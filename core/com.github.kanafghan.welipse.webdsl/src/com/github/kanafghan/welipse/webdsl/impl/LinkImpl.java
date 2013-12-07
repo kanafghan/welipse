@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.LinkImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.LinkImpl#getSource <em>Source</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,15 +29,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public abstract class LinkImpl extends NavigationElementImpl implements Link {
 	/**
-	 * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference.
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContent()
+	 * @see #getSource()
 	 * @generated
 	 * @ordered
 	 */
-	protected PageElement content;
-
+	protected PageElement source;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,8 +61,8 @@ public abstract class LinkImpl extends NavigationElementImpl implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PageElement getContent() {
-		return content;
+	public PageElement getSource() {
+		return source;
 	}
 
 	/**
@@ -71,11 +70,11 @@ public abstract class LinkImpl extends NavigationElementImpl implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContent(PageElement newContent, NotificationChain msgs) {
-		PageElement oldContent = content;
-		content = newContent;
+	public NotificationChain basicSetSource(PageElement newSource, NotificationChain msgs) {
+		PageElement oldSource = source;
+		source = newSource;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDSLPackage.LINK__CONTENT, oldContent, newContent);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDSLPackage.LINK__SOURCE, oldSource, newSource);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -86,18 +85,18 @@ public abstract class LinkImpl extends NavigationElementImpl implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContent(PageElement newContent) {
-		if (newContent != content) {
+	public void setSource(PageElement newSource) {
+		if (newSource != source) {
 			NotificationChain msgs = null;
-			if (content != null)
-				msgs = ((InternalEObject)content).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDSLPackage.LINK__CONTENT, null, msgs);
-			if (newContent != null)
-				msgs = ((InternalEObject)newContent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDSLPackage.LINK__CONTENT, null, msgs);
-			msgs = basicSetContent(newContent, msgs);
+			if (source != null)
+				msgs = ((InternalEObject)source).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDSLPackage.LINK__SOURCE, null, msgs);
+			if (newSource != null)
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDSLPackage.LINK__SOURCE, null, msgs);
+			msgs = basicSetSource(newSource, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WebDSLPackage.LINK__CONTENT, newContent, newContent));
+			eNotify(new ENotificationImpl(this, Notification.SET, WebDSLPackage.LINK__SOURCE, newSource, newSource));
 	}
 
 	/**
@@ -108,8 +107,8 @@ public abstract class LinkImpl extends NavigationElementImpl implements Link {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case WebDSLPackage.LINK__CONTENT:
-				return basicSetContent(null, msgs);
+			case WebDSLPackage.LINK__SOURCE:
+				return basicSetSource(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -122,8 +121,8 @@ public abstract class LinkImpl extends NavigationElementImpl implements Link {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case WebDSLPackage.LINK__CONTENT:
-				return getContent();
+			case WebDSLPackage.LINK__SOURCE:
+				return getSource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -136,8 +135,8 @@ public abstract class LinkImpl extends NavigationElementImpl implements Link {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case WebDSLPackage.LINK__CONTENT:
-				setContent((PageElement)newValue);
+			case WebDSLPackage.LINK__SOURCE:
+				setSource((PageElement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -151,8 +150,8 @@ public abstract class LinkImpl extends NavigationElementImpl implements Link {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case WebDSLPackage.LINK__CONTENT:
-				setContent((PageElement)null);
+			case WebDSLPackage.LINK__SOURCE:
+				setSource((PageElement)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -166,8 +165,8 @@ public abstract class LinkImpl extends NavigationElementImpl implements Link {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case WebDSLPackage.LINK__CONTENT:
-				return content != null;
+			case WebDSLPackage.LINK__SOURCE:
+				return source != null;
 		}
 		return super.eIsSet(featureID);
 	}

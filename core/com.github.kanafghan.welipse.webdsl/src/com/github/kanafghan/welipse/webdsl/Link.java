@@ -11,7 +11,7 @@ package com.github.kanafghan.welipse.webdsl;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.github.kanafghan.welipse.webdsl.Link#getContent <em>Content</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.Link#getSource <em>Source</em>}</li>
  * </ul>
  * </p>
  *
@@ -21,29 +21,29 @@ package com.github.kanafghan.welipse.webdsl;
  */
 public interface Link extends NavigationElement {
 	/**
-	 * Returns the value of the '<em><b>Content</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Content</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Source</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Content</em>' containment reference.
-	 * @see #setContent(PageElement)
-	 * @see com.github.kanafghan.welipse.webdsl.WebDSLPackage#getLink_Content()
+	 * @return the value of the '<em>Source</em>' containment reference.
+	 * @see #setSource(PageElement)
+	 * @see com.github.kanafghan.welipse.webdsl.WebDSLPackage#getLink_Source()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	PageElement getContent();
+	PageElement getSource();
 
 	/**
-	 * Sets the value of the '{@link com.github.kanafghan.welipse.webdsl.Link#getContent <em>Content</em>}' containment reference.
+	 * Sets the value of the '{@link com.github.kanafghan.welipse.webdsl.Link#getSource <em>Source</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Content</em>' containment reference.
-	 * @see #getContent()
+	 * @param value the new value of the '<em>Source</em>' containment reference.
+	 * @see #getSource()
 	 * @generated
 	 */
-	void setContent(PageElement value);
+	void setSource(PageElement value);
 
 } // Link

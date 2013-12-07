@@ -2,6 +2,7 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
+import com.github.kanafghan.welipse.webdsl.ActualParameter;
 import com.github.kanafghan.welipse.webdsl.ArithmeticOperation;
 import com.github.kanafghan.welipse.webdsl.ArithmeticOperator;
 import com.github.kanafghan.welipse.webdsl.BasicOperation;
@@ -263,6 +264,13 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * @generated
 	 */
 	private EClass realConstantEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actualParameterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -640,7 +648,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLink_Content() {
+	public EReference getLink_Source() {
 		return (EReference)linkEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -660,6 +668,15 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 */
 	public EReference getInternalLink_Target() {
 		return (EReference)internalLinkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInternalLink_ActualParameters() {
+		return (EReference)internalLinkEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1063,6 +1080,42 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getActualParameter() {
+		return actualParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActualParameter_Identifier() {
+		return (EAttribute)actualParameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActualParameter_FormalParameter() {
+		return (EReference)actualParameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActualParameter_Value() {
+		return (EReference)actualParameterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getArithmeticOperator() {
 		return arithmeticOperatorEEnum;
 	}
@@ -1161,10 +1214,11 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		createEAttribute(imageEClass, IMAGE__STATIC);
 
 		linkEClass = createEClass(LINK);
-		createEReference(linkEClass, LINK__CONTENT);
+		createEReference(linkEClass, LINK__SOURCE);
 
 		internalLinkEClass = createEClass(INTERNAL_LINK);
 		createEReference(internalLinkEClass, INTERNAL_LINK__TARGET);
+		createEReference(internalLinkEClass, INTERNAL_LINK__ACTUAL_PARAMETERS);
 
 		externalLinkEClass = createEClass(EXTERNAL_LINK);
 		createEReference(externalLinkEClass, EXTERNAL_LINK__TARGET);
@@ -1229,6 +1283,11 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 
 		realConstantEClass = createEClass(REAL_CONSTANT);
 		createEAttribute(realConstantEClass, REAL_CONSTANT__VALUE);
+
+		actualParameterEClass = createEClass(ACTUAL_PARAMETER);
+		createEAttribute(actualParameterEClass, ACTUAL_PARAMETER__IDENTIFIER);
+		createEReference(actualParameterEClass, ACTUAL_PARAMETER__FORMAL_PARAMETER);
+		createEReference(actualParameterEClass, ACTUAL_PARAMETER__VALUE);
 
 		// Create enums
 		arithmeticOperatorEEnum = createEEnum(ARITHMETIC_OPERATOR);
@@ -1334,10 +1393,11 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		initEAttribute(getImage_Static(), ecorePackage.getEBoolean(), "static", null, 0, 1, Image.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkEClass, Link.class, "Link", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLink_Content(), this.getPageElement(), null, "content", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLink_Source(), this.getPageElement(), null, "source", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(internalLinkEClass, InternalLink.class, "InternalLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInternalLink_Target(), this.getPageElement(), null, "target", null, 1, 1, InternalLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInternalLink_ActualParameters(), this.getActualParameter(), null, "actualParameters", null, 0, -1, InternalLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(externalLinkEClass, ExternalLink.class, "ExternalLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExternalLink_Target(), this.getExpression(), null, "target", null, 1, 1, ExternalLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1407,6 +1467,11 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 
 		initEClass(realConstantEClass, RealConstant.class, "RealConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRealConstant_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, RealConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(actualParameterEClass, ActualParameter.class, "ActualParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getActualParameter_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, ActualParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActualParameter_FormalParameter(), this.getParameter(), null, "formalParameter", null, 0, 1, ActualParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActualParameter_Value(), this.getExpression(), null, "value", null, 1, 1, ActualParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(arithmeticOperatorEEnum, ArithmeticOperator.class, "ArithmeticOperator");

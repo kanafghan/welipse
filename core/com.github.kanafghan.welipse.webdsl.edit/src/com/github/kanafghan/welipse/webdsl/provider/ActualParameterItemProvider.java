@@ -3,14 +3,20 @@
 package com.github.kanafghan.welipse.webdsl.provider;
 
 
+import com.github.kanafghan.welipse.webdsl.ActualParameter;
+import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
+import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.domain.EditingDomain;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -22,18 +28,13 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import com.github.kanafghan.welipse.webdsl.Page;
-import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
-import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
-import com.github.kanafghan.welipse.webdsl.expressions.ExpressionsAnalyzer;
-
 /**
- * This is the item provider adapter for a {@link com.github.kanafghan.welipse.webdsl.Page} object.
+ * This is the item provider adapter for a {@link com.github.kanafghan.welipse.webdsl.ActualParameter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PageItemProvider
+public class ActualParameterItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -47,7 +48,7 @@ public class PageItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PageItemProvider(AdapterFactory adapterFactory) {
+	public ActualParameterItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,27 +63,26 @@ public class PageItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addParameterPropertyDescriptor(object);
-			addVariablePropertyDescriptor(object);
+			addIdentifierPropertyDescriptor(object);
+			addFormalParameterPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Identifier feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addIdentifierPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Page_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Page_name_feature", "_UI_Page_type"),
-				 WebDSLPackage.Literals.PAGE__NAME,
+				 getString("_UI_ActualParameter_identifier_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ActualParameter_identifier_feature", "_UI_ActualParameter_type"),
+				 WebDSLPackage.Literals.ACTUAL_PARAMETER__IDENTIFIER,
 				 true,
 				 false,
 				 false,
@@ -92,63 +92,23 @@ public class PageItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Parameter feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	protected void addParameterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Page_parameter_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Page_parameter_feature", "_UI_Page_type"),
-				 WebDSLPackage.Literals.PAGE__PARAMETER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null)
-			{
-
-				@Override
-				public void setPropertyValue(Object object, Object value) {
-					super.setPropertyValue(object, value);
-					
-					// get the declaration of the parameter
-					if (value instanceof String && object instanceof Page) {
-						String expression = (String) value;
-						Page page = (Page) object;
-						EditingDomain editingDomain = getEditingDomain(page);
-						
-						// parse, initialize, analyze and add the parameter to the page
-						ExpressionsAnalyzer evaluator = new ExpressionsAnalyzer(editingDomain, page, expression);
-						evaluator.analyzeParameter();
-					}
-				}
-			});
-	}
-
-	/**
-	 * This adds a property descriptor for the Variable feature.
+	 * This adds a property descriptor for the Formal Parameter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addVariablePropertyDescriptor(Object object) {
+	protected void addFormalParameterPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Page_variable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Page_variable_feature", "_UI_Page_type"),
-				 WebDSLPackage.Literals.PAGE__VARIABLE,
+				 getString("_UI_ActualParameter_formalParameter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ActualParameter_formalParameter_feature", "_UI_ActualParameter_type"),
+				 WebDSLPackage.Literals.ACTUAL_PARAMETER__FORMAL_PARAMETER,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -165,9 +125,7 @@ public class PageItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(WebDSLPackage.Literals.PAGE__ELEMENTS);
-			childrenFeatures.add(WebDSLPackage.Literals.PAGE__PARAMETERS);
-			childrenFeatures.add(WebDSLPackage.Literals.PAGE__VARIABLES);
+			childrenFeatures.add(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -186,14 +144,14 @@ public class PageItemProvider
 	}
 
 	/**
-	 * This returns Page.gif.
+	 * This returns ActualParameter.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Page"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ActualParameter"));
 	}
 
 	/**
@@ -204,10 +162,10 @@ public class PageItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Page)object).getName();
+		String label = ((ActualParameter)object).getIdentifier();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Page_type") :
-			getString("_UI_Page_type") + " " + label;
+			getString("_UI_ActualParameter_type") :
+			getString("_UI_ActualParameter_type") + " " + label;
 	}
 
 	/**
@@ -221,15 +179,11 @@ public class PageItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Page.class)) {
-			case WebDSLPackage.PAGE__NAME:
-			case WebDSLPackage.PAGE__PARAMETER:
-			case WebDSLPackage.PAGE__VARIABLE:
+		switch (notification.getFeatureID(ActualParameter.class)) {
+			case WebDSLPackage.ACTUAL_PARAMETER__IDENTIFIER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case WebDSLPackage.PAGE__ELEMENTS:
-			case WebDSLPackage.PAGE__PARAMETERS:
-			case WebDSLPackage.PAGE__VARIABLES:
+			case WebDSLPackage.ACTUAL_PARAMETER__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -249,38 +203,58 @@ public class PageItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.PAGE__ELEMENTS,
-				 WebDSLFactory.eINSTANCE.createList()));
+				(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE,
+				 WebDSLFactory.eINSTANCE.createVariableExp()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.PAGE__ELEMENTS,
-				 WebDSLFactory.eINSTANCE.createText()));
+				(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE,
+				 WebDSLFactory.eINSTANCE.createArithmeticOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.PAGE__ELEMENTS,
-				 WebDSLFactory.eINSTANCE.createImage()));
+				(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE,
+				 WebDSLFactory.eINSTANCE.createStructuralExp()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.PAGE__ELEMENTS,
-				 WebDSLFactory.eINSTANCE.createInternalLink()));
+				(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE,
+				 WebDSLFactory.eINSTANCE.createClassifierOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.PAGE__ELEMENTS,
-				 WebDSLFactory.eINSTANCE.createExternalLink()));
+				(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE,
+				 WebDSLFactory.eINSTANCE.createIntegerConstant()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.PAGE__PARAMETERS,
-				 WebDSLFactory.eINSTANCE.createParameter()));
+				(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE,
+				 WebDSLFactory.eINSTANCE.createStringConstant()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.PAGE__VARIABLES,
-				 WebDSLFactory.eINSTANCE.createVariableInitialization()));
+				(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE,
+				 WebDSLFactory.eINSTANCE.createStringOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE,
+				 WebDSLFactory.eINSTANCE.createBooleanConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE,
+				 WebDSLFactory.eINSTANCE.createBooleanOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE,
+				 WebDSLFactory.eINSTANCE.createComparisonOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE,
+				 WebDSLFactory.eINSTANCE.createRealConstant()));
 	}
 
 	/**

@@ -74,7 +74,7 @@ public class LinkItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(WebDSLPackage.Literals.LINK__CONTENT);
+			childrenFeatures.add(WebDSLPackage.Literals.LINK__SOURCE);
 		}
 		return childrenFeatures;
 	}
@@ -118,7 +118,7 @@ public class LinkItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Link.class)) {
-			case WebDSLPackage.LINK__CONTENT:
+			case WebDSLPackage.LINK__SOURCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -138,27 +138,27 @@ public class LinkItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LINK__CONTENT,
+				(WebDSLPackage.Literals.LINK__SOURCE,
 				 WebDSLFactory.eINSTANCE.createList()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LINK__CONTENT,
+				(WebDSLPackage.Literals.LINK__SOURCE,
 				 WebDSLFactory.eINSTANCE.createText()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LINK__CONTENT,
+				(WebDSLPackage.Literals.LINK__SOURCE,
 				 WebDSLFactory.eINSTANCE.createImage()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LINK__CONTENT,
+				(WebDSLPackage.Literals.LINK__SOURCE,
 				 WebDSLFactory.eINSTANCE.createInternalLink()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LINK__CONTENT,
+				(WebDSLPackage.Literals.LINK__SOURCE,
 				 WebDSLFactory.eINSTANCE.createExternalLink()));
 	}
 

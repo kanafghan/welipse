@@ -2,16 +2,22 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
+import com.github.kanafghan.welipse.webdsl.ActualParameter;
 import com.github.kanafghan.welipse.webdsl.InternalLink;
 import com.github.kanafghan.welipse.webdsl.PageElement;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.InternalLinkImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.InternalLinkImpl#getActualParameters <em>Actual Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,6 +43,16 @@ public class InternalLinkImpl extends LinkImpl implements InternalLink {
 	 * @ordered
 	 */
 	protected PageElement target;
+
+	/**
+	 * The cached value of the '{@link #getActualParameters() <em>Actual Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActualParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ActualParameter> actualParameters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -99,12 +116,40 @@ public class InternalLinkImpl extends LinkImpl implements InternalLink {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ActualParameter> getActualParameters() {
+		if (actualParameters == null) {
+			actualParameters = new EObjectContainmentEList<ActualParameter>(ActualParameter.class, this, WebDSLPackage.INTERNAL_LINK__ACTUAL_PARAMETERS);
+		}
+		return actualParameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case WebDSLPackage.INTERNAL_LINK__ACTUAL_PARAMETERS:
+				return ((InternalEList<?>)getActualParameters()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case WebDSLPackage.INTERNAL_LINK__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
+			case WebDSLPackage.INTERNAL_LINK__ACTUAL_PARAMETERS:
+				return getActualParameters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -114,11 +159,16 @@ public class InternalLinkImpl extends LinkImpl implements InternalLink {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case WebDSLPackage.INTERNAL_LINK__TARGET:
 				setTarget((PageElement)newValue);
+				return;
+			case WebDSLPackage.INTERNAL_LINK__ACTUAL_PARAMETERS:
+				getActualParameters().clear();
+				getActualParameters().addAll((Collection<? extends ActualParameter>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -135,6 +185,9 @@ public class InternalLinkImpl extends LinkImpl implements InternalLink {
 			case WebDSLPackage.INTERNAL_LINK__TARGET:
 				setTarget((PageElement)null);
 				return;
+			case WebDSLPackage.INTERNAL_LINK__ACTUAL_PARAMETERS:
+				getActualParameters().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -149,6 +202,8 @@ public class InternalLinkImpl extends LinkImpl implements InternalLink {
 		switch (featureID) {
 			case WebDSLPackage.INTERNAL_LINK__TARGET:
 				return target != null;
+			case WebDSLPackage.INTERNAL_LINK__ACTUAL_PARAMETERS:
+				return actualParameters != null && !actualParameters.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
