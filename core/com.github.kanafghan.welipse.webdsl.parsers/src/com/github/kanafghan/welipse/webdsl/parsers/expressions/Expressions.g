@@ -182,7 +182,7 @@ term6 returns [Expression result]
 
 term7 returns [Expression result]
 	:	op1 = term6 { $result = $op1.result; } 
-		(	'.concat(' op2 = term6 ')'
+		(	'.' 'concat(' op2 = term6 ')'
 			{
 				StringOperation e = WebDSLFactory.eINSTANCE.createStringOperation();
 				e.getOperands().add($op1.result);
@@ -195,7 +195,7 @@ term7 returns [Expression result]
 	
 term8 returns [Expression result]
 	:	op = term7 { $result = $op.result; }
-		(	'.length'
+		(	'.' 'length'
 			{
 				StringOperation e = WebDSLFactory.eINSTANCE.createStringOperation();
 				e.getOperands().add($op.result);

@@ -17,10 +17,13 @@ public class Tester {
 			"1+2*2-5",
 			"2*3/4+5-(3+(-2))",
 			"player.name",
+			"c.c1",
 			"(1+(2+(3+(4+5))))+6",
 			"8/2",
 			"1*(2*3)*(4*5)",
-			"x >= player.scores(true)"
+			"x >= player.scores(true)",
+			"\"hello\".length",
+			"\"hello\".concat(\" world\")"
 		};
 		// Test cases for creating Variables
 		String[] vars = {
