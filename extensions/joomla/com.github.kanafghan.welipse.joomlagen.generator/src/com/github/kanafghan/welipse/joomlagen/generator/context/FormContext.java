@@ -1,13 +1,13 @@
 package com.github.kanafghan.welipse.joomlagen.generator.context;
 
-import org.eclipse.emf.ecore.EClass;
+import com.github.kanafghan.welipse.joomlagen.GenClass;
 
 public class FormContext {
 	
 	final private Context context;
-	final private EClass model;
+	final private GenClass model;
 	
-	public FormContext(Context context, EClass model) {
+	public FormContext(Context context, GenClass model) {
 		super();
 		this.context = context;
 		this.model = model;
@@ -17,7 +17,7 @@ public class FormContext {
 		return context;
 	}
 
-	public EClass getModel() {
+	public GenClass getModel() {
 		return model;
 	}
 }

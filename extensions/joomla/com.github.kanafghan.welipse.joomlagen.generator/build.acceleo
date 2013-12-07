@@ -18,7 +18,7 @@
         <acceleoCompiler 
             sourceFolder="${target.folder}"
             outputFolder="${target.folder}"
-            dependencies="${target.folder}/../../com.github.kanafghan.welipse.joomlagen;${target.folder}/../../org.eclipse.emf.ecore;${target.folder}/../../com.github.kanafghan.welipse.webdsl;"
+            dependencies="${target.folder}/../../com.github.kanafghan.welipse.joomlagen;${target.folder}/../../org.eclipse.emf.ecore;${target.folder}/../../com.github.kanafghan.welipse.webdsl;${target.folder}/../../org.eclipse.emf.codegen.ecore;"
             binaryResource="false"
             packagesToRegister="">
         </acceleoCompiler>

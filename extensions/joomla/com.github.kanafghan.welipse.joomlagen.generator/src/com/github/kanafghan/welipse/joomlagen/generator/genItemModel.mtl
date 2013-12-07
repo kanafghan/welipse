@@ -1,11 +1,9 @@
 [comment encoding = UTF-8 /]
 [module genItemModel('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
-
-[template public generateItemModel(model : EClass, genModel : JoomlaGenModel)]
+[template public generateItemModel(model : GenClass, genModel : JoomlaGenModel)]
 [comment @main/]
-[file (model.name.toLower().concat('.php'), false, 'UTF-8')]
+[file (model.itemMVCName.toLower().concat('.php'), false, 'UTF-8')]
 <?php
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
@@ -14,15 +12,15 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.modelitem');
  
 /**
- * [model.name.toUpperFirst()/] Model
+ * [model.itemMVCName.toUpperFirst()/] Model
  */
-class [getComponentName(genModel)/]Model[model.name.toUpperFirst()/] extends JModelItem
+class [genModel.extensionName.toUpperFirst()/]Model[model.itemMVCName.toUpperFirst()/] extends JModelItem
 {
     /**
      * (non-PHPdoc)
      * @see JModel::getTable()
      */
-    public function getTable($type = '[model.name.toUpperFirst()/]', $prefix = '[getComponentName(genModel)/]Table', $config = array()) 
+    public function getTable($type = '[model.itemMVCName.toUpperFirst()/]', $prefix = '[genModel.extensionName.toUpperFirst()/]Table', $config = array()) 
     {
         return JTable::getInstance($type, $prefix, $config);
     }

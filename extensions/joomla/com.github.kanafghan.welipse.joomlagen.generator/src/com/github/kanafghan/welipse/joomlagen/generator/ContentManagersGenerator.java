@@ -8,10 +8,10 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EPackage;
 
+import com.github.kanafghan.welipse.joomlagen.GenClass;
+import com.github.kanafghan.welipse.joomlagen.DatabaseTable;
+import com.github.kanafghan.welipse.joomlagen.GenPackage;
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenModel;
 import com.github.kanafghan.welipse.joomlagen.generator.Utils.ControllerType;
 import com.github.kanafghan.welipse.joomlagen.generator.Utils.ModelType;
@@ -33,16 +33,31 @@ public class ContentManagersGenerator {
 				JoomlaGenModel genModel = ctx.getGenModel();
 				try {
 					if (genModel != null) {
-						EPackage dataModel = genModel.getDatamodel();
+//						EPackage dataModel = genModel.getDatamodel();
+//						if (dataModel != null) {
+//							EList<EClassifier> classifiers = dataModel.getEClassifiers();
+//							for (EClassifier classifier : classifiers) {
+//								if (classifier instanceof EClass) {
+//									EClass clazz = (EClass) classifier;
+//									generateTable(ctx, adminFolder, clazz, monitor);
+//									generateItemManager(ctx, clazz, adminFolder);
+//									generateListManager(ctx, clazz, adminFolder);
+//								}
+//							}
+//						}
+						GenPackage dataModel = genModel.getDatamodel();
 						if (dataModel != null) {
-							EList<EClassifier> classifiers = dataModel.getEClassifiers();
-							for (EClassifier classifier : classifiers) {
-								if (classifier instanceof EClass) {
-									EClass clazz = (EClass) classifier;
-									generateTable(ctx, adminFolder, clazz, monitor);
+							EList<GenClass> classes = dataModel.getGenClasses();
+							for (GenClass clazz : classes) {
+								if (clazz.isGenerateContentManager()) {
 									generateItemManager(ctx, clazz, adminFolder);
 									generateListManager(ctx, clazz, adminFolder);
 								}
+							}
+							
+							// Generate also database tables
+							for (DatabaseTable table : genModel.getDatabaseTables()) {
+								generateTable(ctx, adminFolder, table, monitor);
 							}
 						}
 					}
@@ -56,16 +71,16 @@ public class ContentManagersGenerator {
 				return new Status(Status.OK, Activator.PLUGIN_ID, "Code successfully generated!");
 			}
 			
-			private void generateTable(Context context, IFolder folder, EClass table, IProgressMonitor monitor) throws CoreException {
+			private void generateTable(Context context, IFolder folder, DatabaseTable table, IProgressMonitor monitor) throws CoreException {
 				IFolder tablesFolder = Utils.getFolder(Utils.getFolder(folder.getFolder("tables"), monitor), monitor);
-				JTableGenerator.generate(new TableContext(context, (EClass) table), tablesFolder);
+				JTableGenerator.generate(new TableContext(context, table), tablesFolder);
 			}
 			
-			private void generateItemManager(Context context, EClass entity, IFolder folder) {
+			private void generateItemManager(Context context, GenClass entity, IFolder folder) {
 				// Generate Controller (of type ControllerForm) in the 'controllers' folder
 				ControllerContext controllerCtx = new ControllerContext(context, 
 						ControllerType.ControllerForm, 
-						entity.getName().toLowerCase());
+						entity.getItemMVCName().toLowerCase());
 				controllerCtx.setModel(entity);
 				JControllerGenerator.generate(controllerCtx, folder.getFolder("controllers"));
 				
@@ -85,9 +100,9 @@ public class ContentManagersGenerator {
 				JViewGenerator.generate(viewCtx, folder.getFolder("views"));
 			}
 			
-			private void generateListManager(Context context, EClass entity, IFolder folder) {
+			private void generateListManager(Context context, GenClass entity, IFolder folder) {
 				// Generate Controller (of type JControllerAdmin) in the 'controllers' folder
-				String name = entity.getName() + Utils.MODEL_LIST_NAME_SUFFIX;
+				String name = entity.getListMVCName();
 				ControllerContext controllerCtx = new ControllerContext(context, ControllerType.ControllerAdmin, name.toLowerCase());
 				controllerCtx.setBackEndController(true);
 				controllerCtx.setModel(entity);

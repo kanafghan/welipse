@@ -5,7 +5,7 @@
 
 [template public generateBackEndEntry(genModel : JoomlaGenModel)]
 [comment @main/]
-[file (getExtensionName(genModel).toLower().concat('.php'), false, 'UTF-8')]
+[file (genModel.extensionName.toLower().concat('.php'), false, 'UTF-8')]
 <?php
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.controller');
  
 // Get an instance of the main controller
-$controller = JController::getInstance('[getComponentName(genModel)/]');
+$controller = JController::getInstance('[genModel.extensionName.toUpperFirst()/]');
  
 // Get the task
 $jinput = JFactory::getApplication()->input;

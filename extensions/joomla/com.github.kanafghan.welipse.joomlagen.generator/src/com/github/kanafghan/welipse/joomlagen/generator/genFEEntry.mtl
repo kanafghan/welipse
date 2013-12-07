@@ -5,25 +5,41 @@
 
 [template public generateFrontEndEntry(genModel : JoomlaGenModel)]
 [comment @main/]
-[file (getExtensionName(genModel).toLower().concat('.php'), false, 'UTF-8')]
+[file (genModel.extensionName.toLower().concat('.php'), false, 'UTF-8')]
 <?php
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-[for (cssFile : String | genModel.CSS.tokenize(';'))]
+[if (genModel.useBootstrap)]
 JHTML::_(
-		'stylesheet',
-		'[getComponentName(genModel)/]/[getFileName(cssFile)/]',
-		array(),
-		true
+	'stylesheet',
+	'[genModel.componentName/]/bootstrap[if (genModel.minifiedBootsrap)].min[/if].css',
+	array(),
+	true
+);
+JHTML::_(
+	'stylesheet',
+	'[genModel.componentName/]/bootstrap-theme[if (genModel.minifiedBootsrap)].min[/if].css',
+	array(),
+	true
+);
+[/if]
+	[if (not genModel.customCSSFiles.oclIsUndefined())]
+[for (cssFile : String | genModel.customCSSFiles.tokenize(';'))]
+JHTML::_(
+	'stylesheet',
+	'[genModel.componentName/]/[getFileName(cssFile)/]',
+	array(),
+	true
 );	
 [/for]
+	[/if]
 
 // import joomla controller library
 jimport('joomla.application.component.controller');
  
 // Get an instance of the main controller
-$controller = JController::getInstance('[getComponentName(genModel)/]');
+$controller = JController::getInstance('[genModel.extensionName.toUpperFirst()/]');
  
 // Perform the Request task
 $input = JFactory::getApplication()->input;

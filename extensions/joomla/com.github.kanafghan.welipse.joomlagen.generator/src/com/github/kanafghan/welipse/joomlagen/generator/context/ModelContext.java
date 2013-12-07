@@ -1,19 +1,18 @@
 package com.github.kanafghan.welipse.joomlagen.generator.context;
 
-import org.eclipse.emf.ecore.EClass;
-
+import com.github.kanafghan.welipse.joomlagen.GenClass;
 import com.github.kanafghan.welipse.joomlagen.generator.Utils;
 import com.github.kanafghan.welipse.joomlagen.generator.Utils.ModelType;
 
 public class ModelContext {
 	
 	final private Context context;
-	final private EClass model;
+	final private GenClass model;
 	
 	private Utils.ModelType type;
 	private boolean isBackEndModel;
 	
-	public ModelContext(Context context, EClass model, Utils.ModelType type) {
+	public ModelContext(Context context, GenClass model, Utils.ModelType type) {
 		super();
 		this.context = context;
 		this.model = model;
@@ -25,7 +24,7 @@ public class ModelContext {
 		return context;
 	}
 
-	public EClass getModel() {
+	public GenClass getModel() {
 		return model;
 	}
 

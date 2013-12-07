@@ -4,38 +4,56 @@
 [template public generateInstallSQL(genModel : JoomlaGenModel)]
 [comment @main/]
 [file ('install.mysql.utf8.sql', false, 'UTF-8')]
-[for (table : EClassifier | genModel.datamodel.oclAsType(EPackage).eClassifiers)]
-	[if (table.oclIsKindOf(EClass) and table.oclAsType(EClass).eAllStructuralFeatures->size() > 0)]
-CREATE TABLE IF NOT EXISTS [table.name/] (
+[for (table : DatabaseTable | genModel.databaseTables)]
+CREATE TABLE IF NOT EXISTS [genModel.databaseTablePrefix.concat(table.name)/] (
 	id int(11) NOT NULL AUTO_INCREMENT,
-	[generateTableFields(table.oclAsType(EClass))/]
-	PRIMARY KEY (`id`)
+	[generateTableColumns(table)/]
+	PRIMARY KEY (`id`),
+	[generateTableForeignKeys(table, genModel)/]
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
-	[/if]
 
 [/for]
 
-// <%startUserCode%> before
-//TODO enter custom SQL here (don't remove the above and the below lines)
-// <%endUserCode%>
+-- [protected ('Custom SQL')]
+-- Enter custom SQL here (don't remove the above and the below lines)
+-- [/protected]
 
 [/file]
 [/template]
 
-[template public generateTableFields (table : EClass) ]
-[table.eAllAttributes.generateField()->sep(',\n')/]
+[template public generateTableColumns (table : DatabaseTable) post (trim())]
+[for (column : GenAttribute | table.columns)]
+[column.name/] [generateTableColumnType(column)/][if (not column.nullable)] NOT NULL[/if],
+[/for]
+[for (column : GenReference | table.foreignKeys)]
+[column.name/] int(11),
+[/for]
 [/template]
 
-[template public generateField (field : EAttribute) post (substituteAll('\\n*', '\\1'))]
-[field.name/] 
-[if (field.oclIsKindOf(EString))]
-	varchar(250)
-[elseif (field.oclIsKindOf(EInt))]
+[template public generateTableColumnType (column : GenAttribute) post (trim())]
+[if (column.databaseColumnType = DatabaseColumnType::INT)]
 	int(11)
-[elseif (field.oclIsKindOf(EDate))]
+[elseif (column.databaseColumnType = DatabaseColumnType::VARCHAR)]
+	varchar(255)
+[elseif (column.databaseColumnType = DatabaseColumnType::DATE)]
 	date
-[else]
-	varchar(20)
+[elseif (column.databaseColumnType = DatabaseColumnType::TIMESTAMP)]
+	timestamp
+[elseif (column.databaseColumnType = DatabaseColumnType::FLOAT)]
+	float
+[elseif (column.databaseColumnType = DatabaseColumnType::DOUBLE)]
+	double
+[elseif (column.databaseColumnType = DatabaseColumnType::TEXT)]
+	text
 [/if]
-	NOT NULL
+[/template]
+
+[template public generateTableForeignKeys (table : DatabaseTable, genModel : JoomlaGenModel) post (trim())]
+[for (reference : GenReference | table.foreignKeys)]
+[generateForeignKey(reference, genModel)/],
+[/for]
+[/template]
+
+[template public generateForeignKey(reference : GenReference, genModel : JoomlaGenModel) post (trim())]
+FOREIGN KEY ([reference.name/]) REFERENCES [genModel.databaseTablePrefix.concat(reference.type.oclAsType(GenClass).databaseTableName)/](id)
 [/template]

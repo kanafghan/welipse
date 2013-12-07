@@ -3,7 +3,7 @@
 
 [import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
 
-[template public genEditView(model : EClass, genModel : JoomlaGenModel)]
+[template public genEditView(model : GenClass, genModel : JoomlaGenModel)]
 
 [comment @main/]
 [file ('view.html.php', false, 'UTF-8')]
@@ -15,16 +15,16 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.view');
 
 /**
- * [model.name.toUpperFirst()/] View
+ * [model.itemMVCName.toUpperFirst()/] View
  */
-class [getComponentName(genModel)/]View[model.name.toUpperFirst()/] extends JView
+class [genModel.extensionName.toUpperFirst()/]View[model.itemMVCName.toUpperFirst()/] extends JView
 {
 	protected $form;
 	protected $item;
 	protected $state;
 
 	/**
-	 * [model.name.toUpperFirst()/] view display method
+	 * [model.itemMVCName.toUpperFirst()/] view display method
 	 * @return void
 	 */
 	function display($tpl = null) 
@@ -56,20 +56,20 @@ class [getComponentName(genModel)/]View[model.name.toUpperFirst()/] extends JVie
 		JRequest::setVar('hidemainmenu', true);
 		$isNew = ($this->item->id == 0);
 
-		JToolBarHelper::title(JText::_('[model.name.toUpperFirst()/] Manager [ '[' /]'. ($isNew ? 'New' : 'Edit') .'[ ']' /]'));
+		JToolBarHelper::title(JText::_('[genModel.componentName.toUpperFirst()/] Manager [ '[' /]'. ($isNew ? 'New' : 'Edit') .'[ ']' /]'));
 		
-		JToolBarHelper::apply('[model.name.toLower()/].apply');
-		JToolBarHelper::save('[model.name.toLower()/].save');
+		JToolBarHelper::apply('[model.itemMVCName.toLower()/].apply');
+		JToolBarHelper::save('[model.itemMVCName.toLower()/].save');
 		
 		if (!$isNew) {
-			JToolBarHelper::save2copy('[model.name.toLower()/].save2copy');
+			JToolBarHelper::save2copy('[model.itemMVCName.toLower()/].save2copy');
 		}
 		
 		if (empty($this->item->id)) {
-			JToolBarHelper::cancel('[model.name.toLower()/].cancel');
+			JToolBarHelper::cancel('[model.itemMVCName.toLower()/].cancel');
 		}
 		else {
-			JToolBarHelper::cancel('[model.name.toLower()/].cancel', 'JTOOLBAR_CLOSE');
+			JToolBarHelper::cancel('[model.itemMVCName.toLower()/].cancel', 'JTOOLBAR_CLOSE');
 		}
 	}
 [/file]

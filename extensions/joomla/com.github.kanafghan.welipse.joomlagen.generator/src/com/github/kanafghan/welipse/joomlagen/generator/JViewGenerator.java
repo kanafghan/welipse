@@ -22,9 +22,9 @@ public class JViewGenerator {
 	public static void generate(ViewContext context, IFolder folder) {
 		String name = Utils.getPageName(context.getPage());
 		if (context.isBackEndView()) {
-			name = context.getModel().getName();
+			name = context.getModel().getItemMVCName();
 			if (context.getModelType() == ModelType.ModelList) {
-				name += Utils.MODEL_LIST_NAME_SUFFIX;
+				name = context.getModel().getListMVCName(); //name += Utils.MODEL_LIST_NAME_SUFFIX;
 			}
 		}
 		name = name.toLowerCase();

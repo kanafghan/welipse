@@ -3,9 +3,9 @@
 
 [import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
 
-[template public generateModel(model : EClass, genModel : JoomlaGenModel)]
+[template public generateModel(model : GenClass, genModel : JoomlaGenModel)]
 [comment @main/]
-[file (model.name.toLower().concat('.php'), false, 'UTF-8')]
+[file (model.itemMVCName.toLower().concat('.php'), false, 'UTF-8')]
 <?php
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
@@ -14,87 +14,158 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.model');
  
 /**
- * [model.name.toUpperFirst().concat('List')/] Model
+ * [model.itemMVCName.toUpperFirst()/] Model
  */
-class [getComponentName(genModel)/]Model[model.name.toUpperFirst()/] extends JModel
-{ 
-[let listVariable : String = model.name.toLower().concat('List')]
+class [genModel.extensionName.toUpperFirst()/]Model[model.itemMVCName.toUpperFirst()/] extends JModel
+{
+[for (feature : GenFeature | model.genFeatures)]
+[if (feature.oclIsKindOf(GenAttribute))]
+ 	public $[feature.name/];
+[/if]
+[/for]
+
     /**
-     * @var array [listVariable/]
+     * (non-PHPdoc)
+     * @see JModel::__construct()
      */
-    protected [listVariable/];
+    public function __construct($config = array())
+    {
+        parent::__construct($config);
+
+        if (array_key_exists('requestVar', $config))
+        {
+            $this->initialize($config[ '[' /]'requestVar'[ ']' /] );
+        }
+        if (array_key_exists('id', $config))
+        {
+            $this->initialize(null, $config[ '[' /]'id'[ ']' /] );
+        }
+    }
+
+    public function initialize($var, $id = 0) 
+    {
+        if ($var) 
+        {
+            // load the row based on the request
+            $jinput = JFactory::getApplication()->input;
+            $id = $jinput->get($var, 1, 'INT');
+        }
+
+        // Get a TablePlayers instance
+        $table = $this->getTable();
+
+        // Load the row
+        $table->load($id);
+
+        // Initialize
+        foreach ($table->getProperties() as $key => $value)
+        {
+            $this->$key = $value;
+        }
+    }
 
     /**
      * (non-PHPdoc)
      * @see JModel::getTable()
      */
-    public function getTable($type = '[model.name.toUpperFirst()/]', $prefix = '[getComponentName(genModel)/]Table', $config = array()) 
+    public function getTable($type = '[model.databaseTableName.toUpperFirst()/]', $prefix = '[getComponentName(genModel)/]Table', $config = array()) 
     {
         return JTable::getInstance($type, $prefix, $config);
     }
 
-    /**
-     * Retrieve and return an instance of [model.name.toUpperFirst()/]
+[for (feature : GenFeature | model.genFeatures)]
+[if (feature.oclIsKindOf(GenReference))]
+[let reference : GenReference = feature.oclAsType(GenReference)]
+	/**
+     * Retrieve and return instance(s) of [reference.type.oclAsType(GenClass).itemMVCName.toUpperFirst()/]
      *
      * @param  int    The id of the instance to be retrieved
-     * @return object The instance of [model.name.toUpperFirst()/]
+     * @return object The instance of [reference.type.oclAsType(GenClass).itemMVCName.toUpperFirst()/]
      */
-    public function get[model.name.toUpperFirst()/]($id = 1) 
+    public function get[reference.name.toUpperFirst()/]([if (not reference.ecoreReference.oclAsType(EReference).derived and not reference.many)]$id = 0[/if]) 
     {
-        if (!is_array($this->[listVariable/]))
+	[if (reference.ecoreReference.oclAsType(EReference).derived)]
+		[protected ('Implementation of reference.name')]
+		//TODO Auto-generated function needs implementation 
+		[/protected]
+	[else]
+		if (!isset($this->[reference.name/]Instance[if (reference.many)]s[/if])) 
         {
-            $this->[listVariable/] = array();
-        }
-
-        if (!isset($this->[listVariable/][ '[' /]$id[ ']' /] )) 
-        {
-            // request the selected id
-            $jinput = JFactory::getApplication()->input;
-            $id = $jinput->get('id', $id, 'INT');
-
-            // Get an instance of the table corresponding to this model
-            $table = $this->getTable();
-
-            // Load the record
-            $table->load($id);
-
-            // Assign the instance
-            $this->[listVariable/][ '[' /]$id[ ']' /]  = JArrayHelper::toObject($table->getProperties());
-        }
-
-        return $this->[listVariable/][ '[' /]$id[ ']' /];
+			if (isset($this->[reference.name/])) 
+			{
+				$this->[reference.name/]Instance = JModel::getInstance('[reference.type.oclAsType(GenClass).itemMVCName.toUpperFirst()/]', '[genModel.extensionName.toUpperFirst()/]Model', $config = array('id' => $this->[reference.name/]));
+			} else {
+	            $ids = array();
+	            $this->[reference.name/]Instance[if (reference.many)]s = array()[else] = null[/if];
+	            $db = $this->getDbo();
+	            $query = $db->getQuery(true);
+	
+	            $query->select('a.id');
+	            $query->from('[genModel.databaseTablePrefix.concat(reference.type.oclAsType(GenClass).databaseTableName)/] AS a');
+	  		[if (reference.manyToMany)]
+				$query->join('LEFT', '[genModel.getAssociationTableName(reference.genClass, reference.type.oclAsType(GenClass))/] AS b ON b.[reference.name/] = a.id');
+				$query->join('LEFT', '[genModel.databaseTablePrefix.concat(model.databaseTableName)/] AS c ON c.id = b.[reference.opposite.name/]');
+				$query->where('c.id = '. (int) $this->id);
+			[else]
+				$query->join('LEFT', '[genModel.databaseTablePrefix.concat(model.databaseTableName)/] AS b ON b.id = a.[reference.name/]');
+	            $query->where('b.id = '. (int) $this->id);
+			[/if]
+	
+	            $db->setQuery($query);
+	            try {
+	                $ids = $db->loadObjectList();
+	            } catch(JDatabaseException $e) {
+	                $this->setError($e->getMessage);
+	                return false;
+	            }
+			[if (reference.many)]
+	            foreach ($ids as $obj) {
+	                $instance = JModel::getInstance('[reference.type.oclAsType(GenClass).itemMVCName.toUpperFirst()/]', '[genModel.extensionName.toUpperFirst()/]Model', $config = array('id' => $obj->id));
+	                array_push($this->[reference.name/]Instances, $instance);
+	            }
+			[else]
+				$this->[reference.name/]Instance = JModel::getInstance('[reference.type.oclAsType(GenClass).itemMVCName.toUpperFirst()/]', '[genModel.extensionName.toUpperFirst()/]Model', $config = array('id' => $ids[ '[' /]0[ ']' /]->id));
+			[/if]
+			}
+		}
+		
+        return $this->[reference.name/]Instance[if (reference.many)]s[/if];
+	[/if]
     }
+[/let]
+[/if]
 
-[for (operation : EOperation | model.eOperations)]
+[/for]
+
+[for (operation : GenOperation | model.genOperations)]
     /**
      * <!-- user-docs-start -->
      * <!-- user-docs-end -->
-[for (parameter : EParameter | operation.eParameters)]
-     * @param	[parameter.eType.name/] $[parameter.name/]
+[for (parameter : GenParameter | operation.genParameters)]
+     * @param	[parameter.ecoreParameter.oclAsType(EParameter).eType/] $[parameter.ecoreParameter.oclAsType(EParameter).name/]
 [/for]
-     * @return [operation.eType.name/]
+     * @return [operation.ecoreOperation.oclAsType(EOperation).eType.name/]
      */
-    public function [operation.name/]([generateOperationParameters(operation)/]) 
+    public function [operation.ecoreOperation.oclAsType(EOperation).name/]([generateOperationParameters(operation)/]) 
     {
-		// <%startUserCode%> before
+		[protected ('Implementation of operation.name')]			
     	//TODO Auto-generated function needs implementation
     	[generateOperationReturnStatement(operation)/]
-		// <%endUserCode%>
-    }	
+		[/protected]
+    }
 [/for]
-[/let]
 }
 [/file]
 [/template]
 
-[template public generateOperationParameters (operation : EOperation) post (trim())]
-[operation.eParameters.generateParameter()->sep(',')/]
+[template public generateOperationParameters (operation : GenOperation) post (trim())]
+[operation.genParameters.generateParameter()->sep(',')/]
 [/template]
 
-[template public generateOperationReturnStatement (operation : EOperation) post (trim())]
-return [if (operation.upperBound = -1)]array()[else][if (operation.eType.oclIsKindOf(EInt))]0[elseif (operation.eType.oclIsKindOf(EBoolean))]false[else]''[/if][/if];
+[template public generateOperationReturnStatement (operation : GenOperation) post (trim())]
+return [if (operation.ecoreOperation.oclAsType(EOperation).upperBound = -1)]array()[else][if (operation.ecoreOperation.oclAsType(EOperation).eType.oclIsKindOf(EInt))]0[elseif (operation.ecoreOperation.oclAsType(EOperation).eType.oclIsKindOf(EBoolean))]false[else]''[/if][/if];
 [/template]
 
-[template public generateParameter (parameter : EParameter) ]
-$[parameter.name/]
+[template public generateParameter (parameter : GenParameter) ]
+$[parameter.ecoreParameter.oclAsType(EParameter).name/]
 [/template]

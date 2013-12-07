@@ -1,9 +1,7 @@
 [comment encoding = UTF-8 /]
 [module genListView('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
-
-[template public genListView(model : EClass, genModel : JoomlaGenModel)]
+[template public genListView(view : GenClass, genModel : JoomlaGenModel)]
 
 [comment @main/]
 [file ('view.html.php', false, 'UTF-8')]
@@ -15,16 +13,16 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.view');
 
 /**
- * [model.name.toUpperFirst()/] View
+ * [view.listMVCName.toUpperFirst()/] View
  */
-class [getComponentName(genModel)/]View[model.name.toUpperFirst().concat('List')/] extends JView
+class [genModel.extensionName.toUpperFirst()/]View[view.listMVCName.toUpperFirst()/] extends JView
 {
 	protected $items;
 	protected $pagination;
 	protected $state;
 
 	/**
-	 * [model.name.toUpperFirst()/] view display method
+	 * [view.listMVCName.toUpperFirst()/] view display method
 	 * @return void
 	 */
 	function display($tpl = null) 
@@ -53,11 +51,11 @@ class [getComponentName(genModel)/]View[model.name.toUpperFirst().concat('List')
 	 */
 	protected function addToolbar()
 	{
-		JToolBarHelper::title(JText::_('[model.name.toUpperFirst()/] Manager'));
+		JToolBarHelper::title(JText::_('[view.listMVCName.toUpperFirst()/] Manager'));
 		
-		JToolBarHelper::addNew('[model.name.toLower()/].add');
-		JToolBarHelper::editList('[model.name.toLower()/].edit');
-		JToolBarHelper::deleteList('', '[model.name.toLower().concat('list')/].delete', 'JTOOLBAR_DELETE');
+		JToolBarHelper::addNew('[view.itemMVCName.toLower()/].add');
+		JToolBarHelper::editList('[view.itemMVCName.toLower()/].edit');
+		JToolBarHelper::deleteList('', '[view.listMVCName.toLower()/].delete', 'JTOOLBAR_DELETE');
 	}
 [/file]
 

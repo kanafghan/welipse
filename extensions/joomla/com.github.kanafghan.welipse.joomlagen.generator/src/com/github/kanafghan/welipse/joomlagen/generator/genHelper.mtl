@@ -1,8 +1,6 @@
 [comment encoding = UTF-8 /]
 [module genHelper('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
-
 [template public generateHelper(genModel : JoomlaGenModel, name : String, generateLinkbar : Boolean)]
 [comment @main /]
 [file (name.toLower().concat('.php'), false, 'UTF-8')]
@@ -24,22 +22,20 @@ class [name/]Helper
 	 */
 	public static function addSubmenu($vName)
 	{
-[for (view : EClassifier | genModel.datamodel.oclAsType(EPackage).eClassifiers)]
-	[if (view.oclIsKindOf(EClass))]
-	[let v : EClass = view.oclAsType(EClass)]
+	[for (view : GenClass | genModel.datamodel.genClasses)]
+		[if (view.generateContentManager)]
 		JSubMenuHelper::addEntry(
-			JText::_('[v.name.toUpperFirst()/]'),
-			'index.php?option=[getComponent(genModel)/]&view=[v.name.toLower().concat('list')/]',
-			$vName == '[v.name.toLower().concat('list')/]'
+			JText::_('[view.listMVCName.toUpperFirst()/]'),
+			'index.php?option=[genModel.componentName/]&view=[view.listMVCName/]',
+			$vName == '[view.listMVCName/]'
 		);
-	[/let]
-	[/if]
-[/for]
+		[/if]
+	[/for]
 	}
 [/if]
 
-	// [protected ('custom helper scripts')]
-	//TODO enter custom code here (don't remove the above and the below lines)
+	// [protected ('custom-helper-scripts')]
+	// Enter custom code here (don't remove the above and the below lines)
  	// [/protected]
 }
 [/file]

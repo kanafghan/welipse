@@ -1,7 +1,7 @@
 [comment encoding = UTF-8 /]
 [module Page2View('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
+[import com::github::kanafghan::welipse::joomlagen::generator::Expression2PHP /]
 
 [template public generateJView(page : Page, genModel : JoomlaGenModel)]
 
@@ -17,25 +17,43 @@ jimport('joomla.application.component.view');
 /**
  * [page.name.toUpperFirst()/] View
  */
-class [getComponentName(genModel)/]View[page.name.toUpperFirst()/] extends JView
+class [genModel.extensionName.toUpperFirst()/]View[page.name.toUpperFirst()/] extends JView
 {
+	//[protected ('Fields')]
+	// Custom code (don't remove above and below lines)
+	//[/protected]
+	
 	/**
 	 * [page.name.toUpperFirst()/] view display method
 	 * @return void
 	 */
 	function display($tpl = null) 
 	{
-	[if (genModel.datamodel.oclAsType(EPackage).eClassifiers.eContents(EClass)->size() > 0)]
+	[if (page.parameters->size() > 0)]
 		// Include other needed models
 		JModel::addIncludePath(JPATH_COMPONENT.DS.'models');
 	[/if]
 
-	[for (model : EClass | genModel.datamodel.oclAsType(EPackage).eClassifiers.eContents(EClass))]
-		$[model.name.toLower()/]Model = JModel::getInstance('[model.name.toUpperFirst()/]', '[getComponent(genModel)/]Model');
-		$this->assignRef('[model.name.toLower()/]Model', $[model.name.toLower()/]Model);
-		$this->assignRef('[model.name.toLower()/]', $[model.name.toLower()/]Model->get[model.name.toUpperFirst()/]());
+	[for (param : Parameter | page.parameters)]
+		$[param.var/] = JModel::getInstance('[param.type.oclAsType(EClass).name/]', '[genModel.extensionName.toUpperFirst()/]Model');
+		$this->assignRef('[param.var/]', $[param.var/]);
+
 	[/for]
+
+	[for (variable : VariableInitialization | page.variables)]
+		$this->assignRef('[variable.var/]', [generateExpression(variable.initExp)/]);
+	[/for]
+
+		//[protected ('Display')]
+		// Custom code (don't remove above and below lines)
+		//[/protected]
+
+		parent::display($tpl);
 	}
+
+	//[protected ('Functions')]
+	// Custom code (don't remove above and below lines)
+	//[/protected]	
 }
 [/file]
 

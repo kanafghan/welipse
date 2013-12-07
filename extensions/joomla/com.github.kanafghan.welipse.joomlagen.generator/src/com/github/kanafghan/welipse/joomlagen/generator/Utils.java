@@ -25,8 +25,19 @@ public class Utils {
 		Model, ModelItem, ModelList, ModelForm, ModelAdmin
 	}
 	
+	/**
+	 * @deprecated
+	 */
 	public static final String SQL_TABLE_NAME_PREFIX = "#__";
+	
+	/**
+	 * @deprecated
+	 */
 	public static final String MODEL_LIST_NAME_SUFFIX = "List";
+	
+	/**
+	 * @deprecated
+	 */
 	public static final String CSS_FILES_SEPARATOR = ";";
 	
 	private static int counter;
@@ -49,13 +60,23 @@ public class Utils {
 		return id;
 	}
 	
+	/**
+	 * @deprecated Use {@link JoomlaGenModel.getExtensionName()}
+	 * @param joomlaGenModel
+	 * @return
+	 */
 	public static synchronized String getExtensionName(JoomlaGenModel joomlaGenModel) {
 		if (joomlaGenModel.getExtensionName().isEmpty()) {
-			return joomlaGenModel.getExtension().getName();
+//			return joomlaGenModel.getExtension().getName();
 		}
 		return joomlaGenModel.getExtensionName();
 	}
 	
+	/**
+	 * @deprecated Use {@link JoomlaGenModel.getComponentName()}
+	 * @param joomlaGenModel
+	 * @return
+	 */
 	public static synchronized String getComponent(JoomlaGenModel joomlaGenModel) {
 		return "com_"+ getExtensionName(joomlaGenModel).toLowerCase();
 	}
@@ -67,6 +88,11 @@ public class Utils {
 		return word;
 	}
 	
+	/**
+	 * @deprecated Use {@link JoomlaGenModel.getExtensionName().toUpperFirst()}
+	 * @param joomlaGenModel
+	 * @return
+	 */
 	public static synchronized String getComponentName(JoomlaGenModel joomlaGenModel) {
 		return toUpperFirst(getExtensionName(joomlaGenModel));
 	}

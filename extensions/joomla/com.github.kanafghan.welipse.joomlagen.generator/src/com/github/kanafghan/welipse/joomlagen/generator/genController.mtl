@@ -1,11 +1,9 @@
 [comment encoding = UTF-8 /]
 [module genController('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
-
-[template public generateController(genModel : JoomlaGenModel, isMain : Boolean, isBackEnd : Boolean)]
+[template public generateController (controller : GenClass, genModel : JoomlaGenModel)]
 [comment @main/]
-[file ('controller.php', false, 'UTF-8')]
+[file (controller.itemMVCName.toLower().concat('.php'), false, 'UTF-8')]
 <?php
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
@@ -14,48 +12,15 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.controller');
  
 /**
-[if (isMain)]
- * Main controller for [getComponentName(genModel)/] component
-[else]
- * ? controller	
-[/if]
+ * [controller.itemMVCName.toUpperFirst()/] controller	
  * 
  */
-class [getComponentName(genModel)/]Controller[if (not isMain)][/if] extends JController
+class [genModel.extensionName.toUpperFirst()/]Controller[controller.itemMVCName.toUpperFirst()/] extends JController
 {
-[if (isMain)]
-	/**
-     * (non-PHPdoc)
-     * @see JController::display()
-     */
-    function display($cachable = false, $urlparams = false) 
-    {
-		// set default view if not set
-		$input = JFactory::getApplication()->input;
-		$input->set('view', $input->getCmd('view', '[getDefaultView(genModel, isBackEnd)/]'));
 
-	[if (isBackEnd)]
-		require_once JPATH_COMPONENT.'/helpers/[getComponentName(genModel).toLower()/].php';		
-	    	  
-	   	// load the submenu.
-	    [getComponentName(genModel)/]Helper::addSubmenu($input->getCmd('view', '[getDefaultView(genModel, isBackEnd)/]'));			
-	[/if]
-    
-		// call parent behavior
-		parent::display($cachable, $urlparams);
-    }
-[/if]
+	[protected ('Custom')]
+	// Enter custom code here (don't remove the above and below lines!)
+	[/protected]
 }
 [/file]
 [/template]
-
-[comment TODO not used template /]
-[template public generateControllerFileName(controller : EClass, isMain : Boolean) ]
-[if (isMain)]controller.php[else][controller.name.toLower().concat('.php')/][/if]
-[/template]
-
-[template public getDefaultView(genModel : JoomlaGenModel, isBackEnd : Boolean) ]
-[if (isBackEnd)][getDefaultBackEndView(genModel).name.toLower().concat('list')/][else][genModel.extension.oclAsType(Website).home.name/][/if]
-[/template]
-
-[query public getDefaultBackEndView (genModel : JoomlaGenModel) : EClass = genModel.datamodel.oclAsType(EPackage).eClassifiers->current(EClass) /]

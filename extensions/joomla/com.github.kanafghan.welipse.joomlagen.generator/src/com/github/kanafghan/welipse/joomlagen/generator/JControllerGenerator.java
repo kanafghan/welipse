@@ -22,7 +22,7 @@ public class JControllerGenerator {
 	public static void generate(ControllerContext context, IFolder folder) {
 		final ControllerContext controllerContext = context;
 		final File targetFolder = new File(folder.getLocationURI());
-		final List<Object> arguments = new ArrayList<Object>(2);
+		final List<Object> arguments = new ArrayList<Object>(3);
 		
 		final Job job = new Job("Generating Joomla! Controller.") {
 			@Override
@@ -30,15 +30,17 @@ public class JControllerGenerator {
 				AbstractAcceleoGenerator generator = null;
 				try {
 					if (controllerContext.isMain()) {
-						arguments.add(new Boolean(controllerContext.isMain()));
 						arguments.add(new Boolean(controllerContext.isBackEndController()));
-						generator = new GenController(controllerContext.getContext().getGenModel(), targetFolder, arguments);
+						generator = new GenMainController(controllerContext.getContext().getGenModel(), targetFolder, arguments);
 					} else if (controllerContext.getType() == ControllerType.ControllerForm) {
 						arguments.add(controllerContext.getContext().getGenModel());
 						generator = new GenFormController(controllerContext.getModel(), targetFolder, arguments);
-					} else {
+					} else if (controllerContext.getType() == ControllerType.ControllerAdmin) {						
 						arguments.add(controllerContext.getContext().getGenModel());
 						generator = new GenAdminController(controllerContext.getModel(), targetFolder, arguments);
+					} else {
+						arguments.add(controllerContext.getContext().getGenModel());
+						generator = new GenController(controllerContext.getModel(), targetFolder, arguments);
 					}
 					
 					generator.doGenerate(BasicMonitor.toMonitor(monitor));

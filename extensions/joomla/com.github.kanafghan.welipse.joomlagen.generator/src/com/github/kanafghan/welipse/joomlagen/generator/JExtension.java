@@ -24,13 +24,13 @@ public abstract class JExtension {
 	
 	protected String getHomePageName() {
 		String result = "";
-		Website website = joomlaGenModel.getExtension();
-		if (website != null) {
-			Page homePage = website.getHome();
-			if (homePage != null) {
-				result = homePage.getName();
-			}			
-		}
+//		Website website = joomlaGenModel.getExtension();
+//		if (website != null) {
+//			Page homePage = website.getHome();
+//			if (homePage != null) {
+//				result = homePage.getName();
+//			}			
+//		}
 		return result;
 	}
 }

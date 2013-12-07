@@ -3,9 +3,9 @@
 
 [import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
 
-[template public generateAdminController(controller : EClass, genModel : JoomlaGenModel)]
+[template public generateAdminController(controller : GenClass, genModel : JoomlaGenModel)]
 [comment @main/]
-[file (controller.name.toLower().concat('.php'), false, 'UTF-8')]
+[file (controller.itemMVCName.toLower().concat('.php'), false, 'UTF-8')]
 <?php
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
@@ -14,15 +14,15 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.controlleradmin');
  
 /**
- * [controller.name/] controller	
+ * [controller.itemMVCName/] controller	
  */
-class [getComponentName(genModel)/]Controller[controller.name.toUpperFirst()/] extends JControllerAdmin
+class [genModel.extensionName.toUpperFirst()/]Controller[controller.itemMVCName.toUpperFirst()/] extends JControllerAdmin
 {
 	/**
 	 * (non-PHPdoc)
 	 * @see JController::getModel()
 	 */
-	public function getModel($name = '[controller.name.toUpperFirst()/]', $prefix = '[getComponentName(genModel)/]Model', $config = array('ignore_request' => true))
+	public function getModel($name = '[controller.itemMVCName.toUpperFirst()/]', $prefix = '[genModel.extensionName.toUpperFirst()/]Model', $config = array('ignore_request' => true))
 	{
 		return parent::getModel($name, $prefix, $config);
 	}

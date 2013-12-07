@@ -1,6 +1,6 @@
 package com.github.kanafghan.welipse.joomlagen.generator.context;
 
-import org.eclipse.emf.ecore.EClass;
+import com.github.kanafghan.welipse.joomlagen.GenClass;
 
 import com.github.kanafghan.welipse.joomlagen.generator.Utils.ModelType;
 import com.github.kanafghan.welipse.webdsl.Page;
@@ -9,12 +9,12 @@ public class ViewContext {
 	
 	final private Context context;
 	final private Page page;
-	final private EClass model;
+	final private GenClass model;
 	
 	private ModelType modelType;
 	private boolean isBackEndView;
 	
-	public ViewContext(Context context, Page page, EClass model) {
+	public ViewContext(Context context, Page page, GenClass model) {
 		super();
 		this.context = context;
 		this.page = page;
@@ -31,7 +31,7 @@ public class ViewContext {
 		return page;
 	}
 	
-	public EClass getModel() {
+	public GenClass getModel() {
 		return model;
 	}
 

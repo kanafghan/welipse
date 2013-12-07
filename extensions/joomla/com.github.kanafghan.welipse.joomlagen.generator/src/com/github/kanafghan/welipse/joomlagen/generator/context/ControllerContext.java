@@ -1,6 +1,6 @@
 package com.github.kanafghan.welipse.joomlagen.generator.context;
 
-import org.eclipse.emf.ecore.EClass;
+import com.github.kanafghan.welipse.joomlagen.GenClass;
 
 import com.github.kanafghan.welipse.joomlagen.generator.Utils;
 import com.github.kanafghan.welipse.joomlagen.generator.Utils.ControllerType;
@@ -12,7 +12,7 @@ public class ControllerContext {
 	private boolean isMain;
 	private String name;
 	private ControllerType type;
-	private EClass model;
+	private GenClass model;
 	private boolean isBackEndController;
 	
 	public ControllerContext(Context context, boolean isBackEndController) {
@@ -72,11 +72,11 @@ public class ControllerContext {
 		this.name = name;
 	}
 
-	public EClass getModel() {
+	public GenClass getModel() {
 		return model;
 	}
 
-	public void setModel(EClass model) {
+	public void setModel(GenClass model) {
 		this.model = model;
 	}
 }

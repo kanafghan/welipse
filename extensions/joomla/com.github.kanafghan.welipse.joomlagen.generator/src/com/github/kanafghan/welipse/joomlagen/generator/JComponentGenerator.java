@@ -33,7 +33,7 @@ public class JComponentGenerator {
 				
 				// Create/get the project
 				IWorkspace workspace = ResourcesPlugin.getWorkspace();
-				IProject project = workspace.getRoot().getProject("com_"+ Utils.getExtensionName(genModel).toLowerCase());
+				IProject project = workspace.getRoot().getProject(genModel.getComponentName());
 				
 				try {
 					if (!project.exists()) {
@@ -110,7 +110,7 @@ public class JComponentGenerator {
 			}
 			
 			private void getStaticImages(JoomlaGenModel genModel, IFolder folder, IProgressMonitor monitor) throws CoreException {
-				Website extension = genModel.getExtension();
+				Website extension = genModel.getWebmodel(); //genModel.getExtension();
 				if (extension != null) {
 					EList<Page> pages = extension.getPages();
 					for (Page page : pages) {
@@ -149,9 +149,9 @@ public class JComponentGenerator {
 			}
 			
 			private void getStyles(JoomlaGenModel genModel, IFolder folder, IProgressMonitor monitor) throws CoreException {
-				String css = genModel.getCSS();
-				if (!css.isEmpty()) {
-					String[] paths = css.split(Utils.CSS_FILES_SEPARATOR);
+				String css = genModel.getCustomCSSFiles(); //genModel.getCSS();
+				if (css != null && !css.isEmpty()) {
+					String[] paths = css.split(";");
 					for (String path: paths) {
 						String fileName = Utils.getFileName(path);
 						IFile localCSS = folder.getFile(fileName);

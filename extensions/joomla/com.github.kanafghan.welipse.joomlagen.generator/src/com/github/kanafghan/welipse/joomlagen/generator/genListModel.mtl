@@ -1,11 +1,9 @@
 [comment encoding = UTF-8 /]
 [module genListModel('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
-
-[template public generateListModel(model : EClass, genModel : JoomlaGenModel)]
+[template public generateListModel(model : GenClass, genModel : JoomlaGenModel)]
 [comment @main/]
-[file (model.name.toLower().concat('list.php'), false, 'UTF-8')]
+[file (model.listMVCName.toLower().concat('list.php'), false, 'UTF-8')]
 <?php
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
@@ -14,15 +12,15 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.modellist');
  
 /**
- * [model.name.toUpperFirst().concat('List')/] Model
+ * [model.listMVCName.toUpperFirst().concat('List')/] Model
  */
-class [getComponentName(genModel)/]Model[model.name.toUpperFirst().concat('List')/] extends JModelList
+class [genModel.extensionName.toUpperFirst()/]Model[model.listMVCName.toUpperFirst().concat('List')/] extends JModelList
 {
     /**
      * (non-PHPdoc)
      * @see JModel::getTable()
      */
-    public function getTable($type = '[model.name.toUpperFirst()/]', $prefix = '[getComponentName(genModel)/]Table', $config = array()) 
+    public function getTable($type = '[model.listMVCName.toUpperFirst()/]', $prefix = '[genModel.extensionName.toUpperFirst()/]Table', $config = array()) 
     {
         return JTable::getInstance($type, $prefix, $config);
     }
@@ -37,7 +35,7 @@ class [getComponentName(genModel)/]Model[model.name.toUpperFirst().concat('List'
         $query = $db->getQuery(true);
 
         $query->select('a.*');
-        $query->from('[getTableName(model, genModel)/] AS a');
+        $query->from('[model.databaseTableName/] AS a');
 
         return $query;
     }

@@ -3,7 +3,7 @@
 
 [import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
 
-[template public genEditTemplate(model : EClass, genModel : JoomlaGenModel)]
+[template public genEditTemplate(model : GenClass, genModel : JoomlaGenModel)]
 
 [comment @main /]
 [file ('edit.php', false, 'UTF-8')]
@@ -15,30 +15,41 @@ JHtml::_('behavior.tooltip');
 JHtml::_('behavior.formvalidation');
 JHtml::_('behavior.keepalive');
 ?>
-<form action="<?php echo JRoute::_('index.php?option=[getComponent(genModel)/]&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="[model.name/]-form" class="form-validate">
+[protected ('Pre Form')]
+<!-- Insert custom code here (do not remove the line above and below!) -->
+[/protected]
+<form action="<?php echo JRoute::_('index.php?option=[genModel.componentName/]&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="[model.itemMVCName/]-form" class="form-validate">
 	<div class="width-60 fltlft">
 		<fieldset class="adminform">
-			<legend><?php echo empty($this->item->id) ? "New [model.name/]" : "Details of ". $this->item->id; ?></legend>
+			<legend><?php echo empty($this->item->id) ? "New [model.itemMVCName.toUpperFirst()/]" : "Details of ". $this->item->id; ?></legend>
 			<ul class="adminformlist">
-			[for (field : EAttribute | model.eAllAttributes)]
+			[for (field : GenFeature | model.genFeatures)]
 				<li>
-					<?php echo $this->form->getLabel('[field.name/]'); ?>
-					<?php echo $this->form->getInput('[field.name/]'); ?>
+					<?php echo $this->form->getLabel('[field.name.toLower()/]'); ?>
+					<?php echo $this->form->getInput('[field.name.toLower()/]'); ?>
 				</li>
 			[/for]
 				<li>
 					<?php echo $this->form->getLabel('id'); ?>
 					<?php echo $this->form->getInput('id'); ?>
 				</li>
+				[protected ('Form-1')]
+				<!-- Insert custom code here (do not remove the line above and below!) -->
+				[/protected]
 			</ul>
 		</fieldset>
 	</div>
-
+	[protected ('Form-2')]
+		<!-- Insert custom code here (do not remove the line above and below!) -->
+	[/protected]
 	<input type="hidden" name="task" value="" />
 	<?php echo JHtml::_('form.token'); ?>
 		
 <div class="clr"></div>
 </form>
+[protected ('Post Form')]
+<!-- Insert custom code here (do not remove the line above and below!) -->
+[/protected]
 [/file]
 	
 [/template]

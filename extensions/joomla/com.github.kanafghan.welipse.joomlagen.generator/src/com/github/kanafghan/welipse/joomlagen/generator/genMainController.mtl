@@ -1,0 +1,56 @@
+[comment encoding = UTF-8 /]
+[module genMainController('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[template public generateMainController (genModel : JoomlaGenModel, isBackEnd : Boolean)]
+[comment @main/]
+[file ('controller.php', false, 'UTF-8')]
+<?php
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
+ 
+// import Joomla controller library
+jimport('joomla.application.component.controller');
+ 
+/**
+ * Main controller for [genModel.extensionName.toUpperFirst()/] component
+ * 
+ */
+class [genModel.extensionName.toUpperFirst()/]Controller extends JController
+{
+
+	/**
+     * (non-PHPdoc)
+     * @see JController::display()
+     */
+    function display($cachable = false, $urlparams = false) 
+    {
+		// set default view if not set
+		$input = JFactory::getApplication()->input;
+		$input->set('view', $input->getCmd('view', '[getDefaultView(genModel, isBackEnd)/]'));
+
+	[if (isBackEnd)]
+		require_once JPATH_COMPONENT.'/helpers/[genModel.extensionName.toLower()/].php';		
+	    	  
+	   	// load the submenu.
+	    [genModel.extensionName.toUpperFirst()/]Helper::addSubmenu($input->getCmd('view', '[getDefaultView(genModel, isBackEnd)/]'));			
+	[/if]
+    
+		[protected ('Display')]
+		// Enter custom code here (don't remove the above and below lines!)
+		[/protected]
+		// call parent behavior
+		parent::display($cachable, $urlparams);
+    }
+
+	[protected ('End')]
+	// Enter custom code here (don't remove the above and below lines!)
+	[/protected]
+}
+[/file]
+[/template]
+
+[template public getDefaultView (genModel : JoomlaGenModel, isBackEnd : Boolean) ]
+[if (isBackEnd)][getDefaultBackEndView(genModel).name.toLower()/][else][genModel.webmodel.oclAsType(Website).home.name.toLower()/][/if]
+[/template]
+
+[query public getDefaultBackEndView (genModel : JoomlaGenModel) : EClass = genModel.datamodel.genClasses->current(EClass) /]

@@ -1,7 +1,9 @@
 [comment encoding = UTF-8 /]
 [module Page2HTML('http://github.com/kanafghan/welipse/webdsl/1.0', 'http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[import com::github::kanafghan::welipse::joomlagen::generator::PageElement2HTML /]
+[import com::github::kanafghan::welipse::joomlagen::generator::common::common /]
+[import com::github::kanafghan::welipse::joomlagen::generator::Expression2PHP /]
+[import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
 
 [template public generatePage(page : Page, genModel : JoomlaGenModel)]
 
@@ -10,10 +12,130 @@
 <?php
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
+
+// Parameters of the page
+[for (param : Parameter | page.parameters)]
+$[param.var/] = $this->[param.var/];
+[/for]
+
+// Variables of the page
+[for (variable : VariableInitialization | page.variables)]
+$[variable.var/] = $this->[variable.var/];
+[/for]
 ?>
 	[for (element : PageElement | page.elements)]
 		[generatePageElement(element, genModel)/]
 	[/for]
 [/file]
 
+[/template]
+
+
+[template public generatePageElement(element : PageElement, genModel : JoomlaGenModel)]
+	[if (element.oclIsKindOf(Text))]
+		[generateText(element.oclAsType(Text))/]
+	[/if]
+	[if (element.oclIsKindOf(Image))]
+		[generateImage(element.oclAsType(Image), genModel)/]
+	[/if]
+	[if (element.oclIsKindOf(Link))]
+		[generateLink(element.oclAsType(Link), genModel)/]
+	[/if]
+	[if (element.oclIsKindOf(List))]
+		[generateList(element.oclAsType(List), genModel)/]
+	[/if]
+[/template]
+
+
+[template public generateText(txt : Text)]
+	[if (txt._static)]
+		[generateStaticText(txt)/]
+	[/if]
+	[if (not txt._static)]
+		[generateDynamicText(txt)/]
+	[/if]
+[/template]
+
+[template protected generateStaticText(sTxt : Text) post (trim())]
+<p[generateAttributes(sTxt)/]>
+	<?php echo [sTxt.content/]; ?>
+</p>
+[/template]
+
+[template protected generateDynamicText(dTxt : Text) post (trim())]
+<p[generateAttributes(dTxt)/]>
+	<?php echo [generateExpression(dTxt.content)/]; ?>
+</p>
+[/template]
+
+[template public generateImage(img : Image, genModel : JoomlaGenModel)]
+	[if (img._static)]
+		[generateStaticImage(img, genModel)/]
+	[/if]
+	[if (not img._static)]
+		[generateDynamicImage(img, genModel)/]
+	[/if]
+[/template]
+
+[template protected generateStaticImage(sImg : Image, genModel : JoomlaGenModel) post (trim())]
+	<img src="[generateStaticImageSource(sImg, genModel)/]"[generateAttributes(sImg)/]>
+[/template]
+
+[template protected generateDynamicImage (dImg : Image, genModel : JoomlaGenModel) post (trim())]
+	<img src="[generateDynamicImageSource(dImg, genModel)/]"[generateAttributes(dImg)/]>
+[/template]
+
+[template public generateStaticImageSource(img : Image, genModel : JoomlaGenModel) post (trim())]
+[if (img.referenced)][img.source/][else]<?php echo JURI:base(); ?>media/[genModel.componentName/]/images/[generateExpression(img.source)/][/if]
+[/template]
+
+[comment TODO complete the implementation (the case for image source not being URL is missing) /]
+[template public generateDynamicImageSource (dImg : Image, genModel : JoomlaGenModel) post (trim())]
+[if (dImg.referenced)]<?php echo $this->"+[getObjectName(dImg.source.oclAsType(ETypedElement))/]+"->"+[getObjectAttributeName(dImg.source.oclAsType(ETypedElement))/]+"; ?>[else][/if]
+[/template]
+
+[template public generateList(list : List, genModel : JoomlaGenModel)]
+<?php
+$list = [generateExpression(list.collection)/];
+if ($list && is_array($list)):
+?>
+<div[generateAttributes(list)/]>
+<?php
+	foreach ($list as $[list.iteratorVariable.var/]):
+?>
+	[for (element : PageElement | list.elements)]
+		[generatePageElement(element, genModel)/]
+	[/for]
+<?php
+	endforeach;
+?>
+</div>
+<?php
+endif;
+?>
+[/template]
+
+[template public generateLink(link : Link, genModel : JoomlaGenModel)]
+	[if (link.oclIsKindOf(InternalLink))]
+		[generateInternalLink(link.oclAsType(InternalLink), genModel)/]
+	[/if]
+	[if (link.oclIsKindOf(ExternalLink))]
+		[generateExternalLink(link.oclAsType(ExternalLink), genModel)/]
+	[/if]
+[/template]
+
+[template public generateInternalLink(link : InternalLink, genModel : JoomlaGenModel) ]
+<a href="[buildInternalURL(link, genModel)/]"[generateAttributes(link)/]>[generatePageElement(link.source, genModel)/]</a>
+[/template]
+
+[template public generateExternalLink(link : ExternalLink, genModel : JoomlaGenModel) ]
+<a href="[generateExpression(link.target)/]"[generateAttributes(link)/]>[generatePageElement(link.source, genModel)/]</a>
+[/template]
+
+[template public buildInternalURL(link : InternalLink, genModel : JoomlaGenModel) post (trim())]
+?option=[genModel.componentName/]&view=[link.target.page.name/]&[link.actualParameters.generateActualParameter()->sep('&')/][if (link.target.name.size() > 0)]#[link.target.name/][/if]
+[/template]
+
+[template public generateActualParameter (parameter : ActualParameter) post (trim())]
+[parameter.identifier/]=<?php echo [generateExpression(parameter.value)/]; ?>
 [/template]

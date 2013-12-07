@@ -1,11 +1,9 @@
 [comment encoding = UTF-8 /]
 [module genTable('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
-
-[template public generateTable(model : EClass, genModel : JoomlaGenModel)]
+[template public generateTable(table : DatabaseTable, genModel : JoomlaGenModel)]
 [comment @main/]
-[file (model.name.toLower().concat('.php'), false, 'UTF-8')]
+[file (table.name.toLower().concat('.php'), false, 'UTF-8')]
 <?php
 // No direct access
 defined('_JEXEC') or die('Restricted access');
@@ -14,9 +12,9 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.database.table');
  
 /**
- * [model.name.toUpperFirst()/] Table class
+ * [table.name.toUpperFirst()/] Table class
  */
-class [getComponent(genModel)/]Table[model.name.toUpperFirst()/] extends JTable
+class [genModel.extensionName.toUpperFirst()/]Table[table.name.toUpperFirst()/] extends JTable
 {
     /**
      * Constructor
@@ -25,7 +23,7 @@ class [getComponent(genModel)/]Table[model.name.toUpperFirst()/] extends JTable
      */
     function __construct(&$db) 
     {
-    	parent::__construct('[getTableName(model, genModel)/]', 'id', $db);
+    	parent::__construct('[genModel.databaseTablePrefix.concat(table.name)/]', 'id', $db);
     }
 }
 [/file]

@@ -5,20 +5,22 @@
 
 [template public generateManifest(genModel : JoomlaGenModel)]
 [comment @main/]
-[file (getExtensionName(genModel).concat('.xml'), false, 'UTF-8')]
+[file (genModel.extensionName.concat('.xml'), false, 'UTF-8')]
 <?xml version="1.0" encoding="UTF-8"?>
-<extension type="component" version="2.5.0" method="upgrade">
-	<name>[getExtensionName(genModel)/]</name>
-	<creationDate>September 2013</creationDate>
-	<author>Ismail Faizi</author>
-	<authorEmail>kanafghan@gmail.com</authorEmail>
-	<authorUrl>http://www.hamwatanet.com</authorUrl>
-	<copyright>Copyright IF, All rights are reserved.</copyright>
-	<license>see license.txt</license>
-	<version>0.0.1</version>
-	<description>Generated component for Joomla!</description>
+<extension type="[genModel.extensionType.toString()/]" version="2.5.0" method="upgrade">
+	<name>[genModel.extensionName/]</name>
+	<creationDate>[genModel.creationDate/]</creationDate>
+	<author>[genModel.author/]</author>
+	<authorEmail>[genModel.authorEmail/]</authorEmail>
+	<authorUrl>[genModel.authorURL/]</authorUrl>
+	<copyright>[genModel.copyright/]</copyright>
+	<license>[genModel.license/]</license>
+	<version>[genModel.version/]</version>
+	<description>[genModel.description/]</description>
+	[protected ('Metadata')]
+	<!-- Enter custom Configuration here (don't remove the above and the below lines) -->
+	[/protected]
 
-[if (not genModel.datamodel.oclIsUndefined())]
 	<install>
 		<sql>
 			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
@@ -34,18 +36,20 @@
 			<schemapath type="mysql">sql/updates/mysql</schemapath>
 		</schemas>
 	</update>
-[/if]
     
 	<files folder="site">
 		<filename>index.html</filename>
-		<filename>[getExtensionName(genModel).toLower()/].php</filename>
+		<filename>[genModel.extensionName.toLower()/].php</filename>
 		<filename>controller.php</filename>
 		<folder>models</folder>
 		<folder>views</folder>
 		<folder>controllers</folder>
-	</files> 
+		[protected ('Site')]
+		<!-- Enter custom Configuration here (don't remove the above and the below lines) -->
+		[/protected]
+	</files>
 	
-    <media destination="[getComponent(genModel)/]" folder="media">
+    <media destination="[genModel.componentName/]" folder="media">
         <filename>index.html</filename>
         <folder>images</folder>
         <folder>css</folder>
@@ -54,11 +58,14 @@
 
 	<administration>
 		<!-- Administration Menu Section -->
-		<menu>[getExtensionName(genModel).toUpperFirst()/]</menu>
+		<menu>[genModel.extensionName.toUpperFirst()/]</menu>
+		[protected ('Menu')]
+		<!-- Enter custom Configuration here (don't remove the above and the below lines) -->
+		[/protected]
 		<!-- Administration Main File Copy Section -->
 		<files folder="admin">
 			<filename>index.html</filename>
-			<filename>[getExtensionName(genModel).toLower()/].php</filename>
+			<filename>[genModel.extensionName.toLower()/].php</filename>
 			<filename>controller.php</filename>
 			<folder>models</folder>
 			<folder>views</folder>
@@ -66,8 +73,15 @@
 			<folder>helpers</folder>
 			<folder>sql</folder>
 			<folder>tables</folder>
+			[protected ('Admin')]
+			<!-- Enter custom Configuration here (don't remove the above and the below lines) -->
+			[/protected]
 		</files>
 	</administration>       
+
+	[protected ('End of File')]
+	<!-- Enter custom Configuration here (don't remove the above and the below lines) -->
+	[/protected]
 
 </extension>
 [/file]
