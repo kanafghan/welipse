@@ -11,13 +11,13 @@
 defined('_JEXEC') or die('Restricted access');
 
 [if (genModel.useBootstrap)]
-JHTML::_(
+JHtml::_(
 	'stylesheet',
 	'[genModel.componentName/]/bootstrap[if (genModel.minifiedBootsrap)].min[/if].css',
 	array(),
 	true
 );
-JHTML::_(
+JHtml::_(
 	'stylesheet',
 	'[genModel.componentName/]/bootstrap-theme[if (genModel.minifiedBootsrap)].min[/if].css',
 	array(),

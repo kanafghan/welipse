@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -20,6 +21,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
+import org.osgi.framework.Bundle;
 
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenModel;
 import com.github.kanafghan.welipse.joomlagen.generator.context.Context;
@@ -59,7 +61,7 @@ public class JComponentGenerator {
 					
 					// Generate extension manifest
 					ManifestGenerator.generate(new Context(genModel), project);
-				} catch (CoreException e) {
+				} catch (Exception e) {
 					return new Status(Status.ERROR, Activator.PLUGIN_ID, 
 						"An exception occurred during the code generation! Please check the error view. "
 						+ e.getMessage(), e);
@@ -69,7 +71,7 @@ public class JComponentGenerator {
 				return new Status(Status.OK, Activator.PLUGIN_ID, "Code successfully generated!");
 			}
 
-			private void buildComponentFolderStructure(JoomlaGenModel genModel, IProject project, IProgressMonitor monitor) throws CoreException {
+			private void buildComponentFolderStructure(JoomlaGenModel genModel, IProject project, IProgressMonitor monitor) throws CoreException, IOException {
 				// Create folder for Front-End (FE)
 				Utils.getFolder(project.getFolder("site"), monitor);
 				
@@ -90,6 +92,8 @@ public class JComponentGenerator {
 				getStaticImages(genModel, imagesFolder, monitor);
 				// Get all CSS files
 				getStyles(genModel, cssFolder, monitor);
+				// Add Bootstrap (if enabled)
+				addBootstrap(genModel, cssFolder, monitor);
 				// Get all the images within the initial data archive
 				getInitialDataImages(genModel, imagesFolder, monitor);
 				
@@ -122,6 +126,29 @@ public class JComponentGenerator {
 				Utils.getFolder(project.getFolder("admin/helpers"), monitor);
 			}
 						
+			private void addBootstrap(JoomlaGenModel genModel, IFolder cssFolder, IProgressMonitor monitor) throws CoreException, IOException {
+				// Is Bootstrap enabled
+				if (genModel.isUseBootstrap()) {
+					Activator activator = Activator.getDefault();
+					if (activator != null) {						
+						Bundle bundle = activator.getBundle();
+						if (bundle != null) {
+							// The minified version or the normal one
+							String mini = genModel.isMinifiedBootsrap() ? ".min" : "";
+
+							URL bootstrap = bundle.getEntry("resources/bootstrap/css/bootstrap"+ mini +".css");
+							if (bootstrap != null) {								
+								copyFile("bootsrap"+ mini +".css", bootstrap.openStream(), cssFolder, monitor);
+							}
+							URL bootstrapTheme = bundle.getEntry("resources/bootstrap/css/bootstrap-theme"+ mini +".css");
+							if (bootstrapTheme != null) {								
+								copyFile("bootsrap-theme"+ mini +".css", bootstrapTheme.openStream(), cssFolder, monitor);							
+							}
+						}
+					}
+				}
+			}
+
 			private void getInitialDataImages(JoomlaGenModel genModel, IFolder imagesFolder, IProgressMonitor monitor) throws CoreException {
 				// Do we have any data to process?
 				String data = genModel.getInitialData();
