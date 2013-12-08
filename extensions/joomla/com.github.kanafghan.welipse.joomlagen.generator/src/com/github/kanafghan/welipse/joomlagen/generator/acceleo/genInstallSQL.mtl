@@ -1,6 +1,8 @@
 [comment encoding = UTF-8 /]
 [module genInstallSQL('http://www.eclipse.org/emf/2002/Ecore', '/com.github.kanafghan.welipse.joomlagen/model/joomlagen.ecore')]
 
+[import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::InitialData2SQLService /]
+
 [template public generateInstallSQL(genModel : JoomlaGenModel)]
 [comment @main/]
 [file ('install.mysql.utf8.sql', false, 'UTF-8')]
@@ -13,6 +15,8 @@ CREATE TABLE IF NOT EXISTS [genModel.databaseTablePrefix.concat(table.name)/] (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 [/for]
+
+[generateInsertSQL(genModel)/]
 
 -- [protected ('Custom SQL')]
 -- Enter custom SQL here (don't remove the above and the below lines)
@@ -50,10 +54,18 @@ CREATE TABLE IF NOT EXISTS [genModel.databaseTablePrefix.concat(table.name)/] (
 
 [template public generateTableForeignKeys (table : DatabaseTable, genModel : JoomlaGenModel) post (trim())]
 [for (reference : GenReference | table.foreignKeys)]
-[generateForeignKey(reference, genModel)/],
+[generateForeignKey(reference, table, genModel)/],
 [/for]
 [/template]
 
-[template public generateForeignKey(reference : GenReference, genModel : JoomlaGenModel) post (trim())]
-FOREIGN KEY ([reference.name/]) REFERENCES [genModel.databaseTablePrefix.concat(reference.type.oclAsType(GenClass).databaseTableName)/](id)
+[template public generateForeignKey(reference : GenReference, table : DatabaseTable, genModel : JoomlaGenModel) post (trim())]
+FOREIGN KEY ([reference.name/]) REFERENCES [getReferencedTableName(reference, table, genModel)/](id)
+[/template]
+
+[template public getReferencedTableName (reference : GenReference, table : DatabaseTable, genModel : JoomlaGenModel) post (trim())]
+[if (reference.type.oclAsType(GenClass).ecoreClass.oclAsType(EClass) = table.genClass.ecoreClass.oclAsType(EClass))]
+[genModel.databaseTablePrefix.concat(reference.genClass.databaseTableName)/]
+[else]
+[genModel.databaseTablePrefix.concat(reference.type.oclAsType(GenClass).databaseTableName)/]
+[/if]
 [/template]

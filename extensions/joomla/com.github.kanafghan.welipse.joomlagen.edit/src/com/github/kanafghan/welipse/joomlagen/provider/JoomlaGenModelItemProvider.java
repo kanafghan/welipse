@@ -75,6 +75,7 @@ public class JoomlaGenModelItemProvider
 			addDescriptionPropertyDescriptor(object);
 			addDatabaseTablePrefixPropertyDescriptor(object);
 			addComponentNamePropertyDescriptor(object);
+			addInitialDataPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -410,6 +411,28 @@ public class JoomlaGenModelItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Initial Data feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInitialDataPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JoomlaGenModel_initialData_feature"),
+				 getString("_UI_JoomlaGenModel_initialData_description"),
+				 JoomlaGenPackage.Literals.JOOMLA_GEN_MODEL__INITIAL_DATA,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_GeneralPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -559,6 +582,7 @@ public class JoomlaGenModelItemProvider
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DESCRIPTION:
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLE_PREFIX:
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__COMPONENT_NAME:
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__INITIAL_DATA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:

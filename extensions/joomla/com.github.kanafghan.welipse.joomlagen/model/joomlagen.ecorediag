@@ -7,6 +7,10 @@
         <element xmi:type="ecore:EAttribute" href="joomlagen.ecore#//JoomlaGenModel/extensionType"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_l12rsVd3EeO4oa5Jr9nn-w"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="__KszYF_jEeOOtNf5WJ5sBw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="joomlagen.ecore#//JoomlaGenModel/initialData"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__KszYV_jEeOOtNf5WJ5sBw"/>
+      </children>
       <children xmi:type="notation:Node" xmi:id="_l12rsld3EeO4oa5Jr9nn-w" type="2001">
         <element xmi:type="ecore:EAttribute" href="joomlagen.ecore#//JoomlaGenModel/joomlaVersion"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_l12rs1d3EeO4oa5Jr9nn-w"/>
@@ -233,7 +237,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_A5K5UVd-EeO4oa5Jr9nn-w" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="joomlagen.ecore#//GenClass"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_A5K5Uld-EeO4oa5Jr9nn-w" x="415" y="330"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_A5K5Uld-EeO4oa5Jr9nn-w" x="415" y="345"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_FjTGIFd-EeO4oa5Jr9nn-w" type="1001">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FjrgoFd-EeO4oa5Jr9nn-w" source="Shortcut">
@@ -252,7 +256,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_FjTGIVd-EeO4oa5Jr9nn-w" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FjTGIld-EeO4oa5Jr9nn-w" x="650" y="310" height="38"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FjTGIld-EeO4oa5Jr9nn-w" x="645" y="325" height="38"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_qU-zUFeAEeO4oa5Jr9nn-w" type="1001">
     <children xmi:type="notation:Node" xmi:id="_qU_aYFeAEeO4oa5Jr9nn-w" type="4001"/>
@@ -808,7 +812,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_SWQwYVeAEeO4oa5Jr9nn-w" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_SWQwYleAEeO4oa5Jr9nn-w" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="joomlagen.ecore#//GenPackage/genClasses"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SWQwY1eAEeO4oa5Jr9nn-w" points="[-6, 16, 262, -276]$[-171, 16, 97, -276]$[-171, 241, 97, -51]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SWQwY1eAEeO4oa5Jr9nn-w" points="[-6, -9, 262, -316]$[-171, -9, 97, -316]$[-171, 256, 97, -51]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SWSlkFeAEeO4oa5Jr9nn-w" id="(0.06862745098039216,0.46511627906976744)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SWSlkVeAEeO4oa5Jr9nn-w" id="(0.17647058823529413,0.5116279069767442)"/>
   </edges>
@@ -1342,7 +1346,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_AkBNsV6aEeOOtNf5WJ5sBw" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_AkBNsl6aEeOOtNf5WJ5sBw" fontName="Segoe UI"/>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_AkBNs16aEeOOtNf5WJ5sBw" points="[-7, -6, 110, 108]$[-7, -56, 110, 58]$[-119, -56, -2, 58]$[-119, -105, -2, 9]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_AkBNs16aEeOOtNf5WJ5sBw" points="[-7, -6, 110, 108]$[-7, -51, 110, 63]$[-119, -51, -2, 63]$[-119, -105, -2, 9]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AkCb0F6aEeOOtNf5WJ5sBw" id="(0.49019607843137253,0.16279069767441862)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AkCb0V6aEeOOtNf5WJ5sBw" id="(0.5294117647058824,0.7906976744186046)"/>
   </edges>

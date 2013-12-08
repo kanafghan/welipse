@@ -59,6 +59,8 @@
       <genFeatures createChild="false" propertyCategory="General" ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/componentName"/>
       <genFeatures property="None" children="true" createChild="false" propertyCategory="Database"
           ecoreFeature="ecore:EReference joomlagen.ecore#//JoomlaGenModel/databaseTables"/>
+      <genFeatures createChild="false" propertyCategory="General" propertyDescription="Specify the path of a .zip archive that contains the initial data for the application."
+          ecoreFeature="ecore:EAttribute joomlagen.ecore#//JoomlaGenModel/initialData"/>
       <genOperations ecoreOperation="joomlagen.ecore#//JoomlaGenModel/getAssociationTableName">
         <genParameters ecoreParameter="joomlagen.ecore#//JoomlaGenModel/getAssociationTableName/cls1"/>
         <genParameters ecoreParameter="joomlagen.ecore#//JoomlaGenModel/getAssociationTableName/cls2"/>

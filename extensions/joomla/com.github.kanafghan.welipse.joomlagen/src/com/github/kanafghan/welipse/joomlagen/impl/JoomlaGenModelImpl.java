@@ -67,6 +67,7 @@ import com.github.kanafghan.welipse.webdsl.Website;
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getDatabaseTablePrefix <em>Database Table Prefix</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getComponentName <em>Component Name</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getDatabaseTables <em>Database Tables</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl#getInitialData <em>Initial Data</em>}</li>
  * </ul>
  * </p>
  *
@@ -412,6 +413,26 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EList<DatabaseTable> databaseTables;
+
+	/**
+	 * The default value of the '{@link #getInitialData() <em>Initial Data</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialData()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String INITIAL_DATA_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getInitialData() <em>Initial Data</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialData()
+	 * @generated
+	 * @ordered
+	 */
+	protected String initialData = INITIAL_DATA_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -860,6 +881,27 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getInitialData() {
+		return initialData;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialData(String newInitialData) {
+		String oldInitialData = initialData;
+		initialData = newInitialData;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__INITIAL_DATA, oldInitialData, initialData));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String getAssociationTableName(GenClass cls1, GenClass cls2) {
@@ -1161,6 +1203,8 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 				return getComponentName();
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLES:
 				return getDatabaseTables();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__INITIAL_DATA:
+				return getInitialData();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1232,6 +1276,9 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 				getDatabaseTables().clear();
 				getDatabaseTables().addAll((Collection<? extends DatabaseTable>)newValue);
 				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__INITIAL_DATA:
+				setInitialData((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1301,6 +1348,9 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLES:
 				getDatabaseTables().clear();
 				return;
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__INITIAL_DATA:
+				setInitialData(INITIAL_DATA_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1351,6 +1401,8 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 				return COMPONENT_NAME_EDEFAULT == null ? getComponentName() != null : !COMPONENT_NAME_EDEFAULT.equals(getComponentName());
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLES:
 				return databaseTables != null && !databaseTables.isEmpty();
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__INITIAL_DATA:
+				return INITIAL_DATA_EDEFAULT == null ? initialData != null : !INITIAL_DATA_EDEFAULT.equals(initialData);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1409,6 +1461,8 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 		result.append(description);
 		result.append(", databaseTablePrefix: ");
 		result.append(databaseTablePrefix);
+		result.append(", initialData: ");
+		result.append(initialData);
 		result.append(')');
 		return result.toString();
 	}

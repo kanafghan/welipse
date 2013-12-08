@@ -240,13 +240,22 @@ public interface JoomlaGenPackage extends EPackage {
 	int JOOMLA_GEN_MODEL__DATABASE_TABLES = 18;
 
 	/**
+	 * The feature id for the '<em><b>Initial Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOOMLA_GEN_MODEL__INITIAL_DATA = 19;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL_FEATURE_COUNT = 19;
+	int JOOMLA_GEN_MODEL_FEATURE_COUNT = 20;
 
 	/**
 	 * The operation id for the '<em>Get Association Table Name</em>' operation.
@@ -1308,6 +1317,17 @@ public interface JoomlaGenPackage extends EPackage {
 	EReference getJoomlaGenModel_DatabaseTables();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getInitialData <em>Initial Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Initial Data</em>'.
+	 * @see com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getInitialData()
+	 * @see #getJoomlaGenModel()
+	 * @generated
+	 */
+	EAttribute getJoomlaGenModel_InitialData();
+
+	/**
 	 * Returns the meta object for the '{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getAssociationTableName(com.github.kanafghan.welipse.joomlagen.GenClass, com.github.kanafghan.welipse.joomlagen.GenClass) <em>Get Association Table Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2088,6 +2108,14 @@ public interface JoomlaGenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference JOOMLA_GEN_MODEL__DATABASE_TABLES = eINSTANCE.getJoomlaGenModel_DatabaseTables();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Data</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOOMLA_GEN_MODEL__INITIAL_DATA = eINSTANCE.getJoomlaGenModel_InitialData();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Association Table Name</b></em>' operation.

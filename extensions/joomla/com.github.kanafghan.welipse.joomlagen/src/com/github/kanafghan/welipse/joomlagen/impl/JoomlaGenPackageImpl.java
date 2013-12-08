@@ -382,6 +382,15 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getJoomlaGenModel_InitialData() {
+		return (EAttribute)joomlaGenModelEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getJoomlaGenModel__GetAssociationTableName__GenClass_GenClass() {
 		return joomlaGenModelEClass.getEOperations().get(0);
 	}
@@ -947,6 +956,7 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 		createEAttribute(joomlaGenModelEClass, JOOMLA_GEN_MODEL__DATABASE_TABLE_PREFIX);
 		createEAttribute(joomlaGenModelEClass, JOOMLA_GEN_MODEL__COMPONENT_NAME);
 		createEReference(joomlaGenModelEClass, JOOMLA_GEN_MODEL__DATABASE_TABLES);
+		createEAttribute(joomlaGenModelEClass, JOOMLA_GEN_MODEL__INITIAL_DATA);
 		createEOperation(joomlaGenModelEClass, JOOMLA_GEN_MODEL___GET_ASSOCIATION_TABLE_NAME__GENCLASS_GENCLASS);
 
 		genPackageEClass = createEClass(GEN_PACKAGE);
@@ -1075,9 +1085,10 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 		initEAttribute(getJoomlaGenModel_License(), ecorePackage.getEString(), "license", "see license.txt", 0, 1, JoomlaGenModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJoomlaGenModel_Version(), ecorePackage.getEString(), "version", "0.0.1", 0, 1, JoomlaGenModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJoomlaGenModel_Description(), ecorePackage.getEString(), "description", "Automatically generated Joomla! extension by Welipse.", 0, 1, JoomlaGenModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJoomlaGenModel_DatabaseTablePrefix(), ecorePackage.getEString(), "databaseTablePrefix", null, 0, 1, JoomlaGenModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJoomlaGenModel_DatabaseTablePrefix(), ecorePackage.getEString(), "databaseTablePrefix", "#__", 0, 1, JoomlaGenModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJoomlaGenModel_ComponentName(), ecorePackage.getEString(), "componentName", null, 0, 1, JoomlaGenModel.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getJoomlaGenModel_DatabaseTables(), this.getDatabaseTable(), null, "databaseTables", null, 0, -1, JoomlaGenModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJoomlaGenModel_InitialData(), ecorePackage.getEString(), "initialData", null, 0, 1, JoomlaGenModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getJoomlaGenModel__GetAssociationTableName__GenClass_GenClass(), ecorePackage.getEString(), "getAssociationTableName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGenClass(), "cls1", 0, 1, IS_UNIQUE, IS_ORDERED);

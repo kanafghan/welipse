@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getDatabaseTablePrefix <em>Database Table Prefix</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getComponentName <em>Component Name</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getDatabaseTables <em>Database Tables</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getInitialData <em>Initial Data</em>}</li>
  * </ul>
  * </p>
  *
@@ -395,6 +396,7 @@ public interface JoomlaGenModel extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Database Table Prefix</b></em>' attribute.
+	 * The default value is <code>"#__"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Database Table Prefix</em>' attribute isn't clear,
@@ -404,7 +406,7 @@ public interface JoomlaGenModel extends EObject {
 	 * @return the value of the '<em>Database Table Prefix</em>' attribute.
 	 * @see #setDatabaseTablePrefix(String)
 	 * @see com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage#getJoomlaGenModel_DatabaseTablePrefix()
-	 * @model
+	 * @model default="#__"
 	 * @generated
 	 */
 	String getDatabaseTablePrefix();
@@ -460,6 +462,32 @@ public interface JoomlaGenModel extends EObject {
 	 * @generated
 	 */
 	EList<DatabaseTable> getDatabaseTables();
+
+	/**
+	 * Returns the value of the '<em><b>Initial Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Initial Data</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Initial Data</em>' attribute.
+	 * @see #setInitialData(String)
+	 * @see com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage#getJoomlaGenModel_InitialData()
+	 * @model
+	 * @generated
+	 */
+	String getInitialData();
+
+	/**
+	 * Sets the value of the '{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getInitialData <em>Initial Data</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Initial Data</em>' attribute.
+	 * @see #getInitialData()
+	 * @generated
+	 */
+	void setInitialData(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

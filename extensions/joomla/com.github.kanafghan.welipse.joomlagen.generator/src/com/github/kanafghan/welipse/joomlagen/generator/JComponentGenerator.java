@@ -2,6 +2,11 @@ package com.github.kanafghan.welipse.joomlagen.generator;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -85,6 +90,8 @@ public class JComponentGenerator {
 				getStaticImages(genModel, imagesFolder, monitor);
 				// Get all CSS files
 				getStyles(genModel, cssFolder, monitor);
+				// Get all the images within the initial data archive
+				getInitialDataImages(genModel, imagesFolder, monitor);
 				
 				// Create folder for Back-End (BE)
 				Utils.getFolder(project.getFolder("admin"), monitor);
@@ -108,9 +115,48 @@ public class JComponentGenerator {
 				// Create 'helpers' folder
 				Utils.getFolder(project.getFolder("admin/helpers"), monitor);
 			}
-			
+						
+			private void getInitialDataImages(JoomlaGenModel genModel, IFolder imagesFolder, IProgressMonitor monitor) throws CoreException {
+				// Do we have any data to process?
+				String data = genModel.getInitialData();
+				if (data == null || data.isEmpty()) {
+					return;
+				}
+				
+				ZipFile zf = null;
+				try {
+					zf = new ZipFile(data);
+					
+					Enumeration<? extends ZipEntry> entry = zf.entries();
+					while (entry.hasMoreElements()) {
+						ZipEntry ze = entry.nextElement();
+						if (!ze.isDirectory()) {					
+							String name = ze.getName();
+							if (name.toLowerCase().matches(".*(.jpg|.jpeg|.png|.gif)+")) {
+								String[] path = name.split("/");
+								copyFile(path[path.length-1], zf.getInputStream(ze), imagesFolder, monitor);
+							}
+						}
+					}
+				} catch (Exception e) {
+					throw new CoreException(new Status(
+							Status.ERROR,
+							Activator.PLUGIN_ID,
+							"Could not copy images within initial data archive to media/images folder: "+ e.getMessage()));
+				} finally {
+					if (zf != null) {
+						try {
+							zf.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}	
+				
+			}
+
 			private void getStaticImages(JoomlaGenModel genModel, IFolder folder, IProgressMonitor monitor) throws CoreException {
-				Website extension = genModel.getWebmodel(); //genModel.getExtension();
+				Website extension = genModel.getWebmodel();
 				if (extension != null) {
 					EList<Page> pages = extension.getPages();
 					for (Page page : pages) {
@@ -121,26 +167,16 @@ public class JComponentGenerator {
 								if (!sImg.isStatic())
 									continue;
 
-								String imgName = Utils.getFileName(sImg
-										.getSource().toString());
-
-								// Create a copy of the image
-								IFile localImg = folder.getFile(imgName);
-								if (!localImg.exists()) {
-									FileInputStream fileStream;
-									try {
-										fileStream = new FileInputStream(
-												sImg.getSource().toString());
-										localImg.create(fileStream, true,
-												monitor);
-									} catch (FileNotFoundException e) {
-										throw new CoreException(new Status(
-												Status.ERROR,
-												Activator.PLUGIN_ID,
-												"Image at location: "
-														+ sImg.getSource()
-														+ " does not exist."));
-									}
+								String imgName = Utils.getFileName(sImg.getSource().toString());
+								try {
+									copyFile(imgName, new FileInputStream(sImg.getSource().toString()), folder, monitor);
+								} catch (FileNotFoundException e) {
+									throw new CoreException(new Status(
+											Status.ERROR,
+											Activator.PLUGIN_ID,
+											"Image at location: "
+													+ sImg.getSource()
+													+ " does not exist."));
 								}
 							}
 						}
@@ -149,27 +185,29 @@ public class JComponentGenerator {
 			}
 			
 			private void getStyles(JoomlaGenModel genModel, IFolder folder, IProgressMonitor monitor) throws CoreException {
-				String css = genModel.getCustomCSSFiles(); //genModel.getCSS();
+				String css = genModel.getCustomCSSFiles();
 				if (css != null && !css.isEmpty()) {
 					String[] paths = css.split(";");
 					for (String path: paths) {
 						String fileName = Utils.getFileName(path);
-						IFile localCSS = folder.getFile(fileName);
-						if (!localCSS.exists()) {
-							FileInputStream fileStream;
-							try {
-								fileStream = new FileInputStream(path);
-								localCSS.create(fileStream, true, monitor);
-							} catch (FileNotFoundException e) {
-								throw new CoreException(new Status(
-										Status.ERROR,
-										Activator.PLUGIN_ID,
-										"CSS file at location: "
-												+ path
-												+ " does not exist."));
-							}
+						try {
+							copyFile(fileName, new FileInputStream(path), folder, monitor);
+						} catch (FileNotFoundException e) {
+							throw new CoreException(new Status(
+									Status.ERROR,
+									Activator.PLUGIN_ID,
+									"CSS file at location: "
+											+ path
+											+ " does not exist."));
 						}
 					}
+				}
+			}
+			
+			private void copyFile(String fileName, InputStream source, IFolder destination, IProgressMonitor monitor) throws CoreException {
+				IFile localFile = destination.getFile(fileName);
+				if (!localFile.exists()) {
+					localFile.create(source, true, monitor);
 				}
 			}
 		};
