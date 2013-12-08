@@ -225,6 +225,11 @@ public class ListItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(WebDSLPackage.Literals.LIST__COLLECTION,
 				 WebDSLFactory.eINSTANCE.createVariableExp()));
 

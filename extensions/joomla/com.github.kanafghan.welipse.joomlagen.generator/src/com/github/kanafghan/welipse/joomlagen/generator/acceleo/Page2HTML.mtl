@@ -44,6 +44,18 @@ $[variable.var/] = $this->[variable.var/];
 	[if (element.oclIsKindOf(List))]
 		[generateList(element.oclAsType(List), genModel)/]
 	[/if]
+	[if (element.oclIsKindOf(Group))]
+		[generateGroup(element.oclAsType(Group), genModel)/]
+	[/if]
+[/template]
+
+
+[template public generateGroup(group : Group, genModel : JoomlaGenModel)]
+<div[generateAttributes(group)/]>
+[for (element : PageElement | group.elements)]
+	[generatePageElement(element, genModel)/]
+[/for]
+</div>
 [/template]
 
 

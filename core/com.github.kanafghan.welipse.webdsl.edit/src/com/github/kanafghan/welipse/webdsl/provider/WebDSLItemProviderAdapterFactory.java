@@ -555,6 +555,29 @@ public class WebDSLItemProviderAdapterFactory extends WebDSLAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.Group} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GroupItemProvider groupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.Group}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGroupAdapter() {
+		if (groupItemProvider == null) {
+			groupItemProvider = new GroupItemProvider(this);
+		}
+
+		return groupItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -674,6 +697,7 @@ public class WebDSLItemProviderAdapterFactory extends WebDSLAdapterFactory imple
 		if (comparisonOperationItemProvider != null) comparisonOperationItemProvider.dispose();
 		if (realConstantItemProvider != null) realConstantItemProvider.dispose();
 		if (actualParameterItemProvider != null) actualParameterItemProvider.dispose();
+		if (groupItemProvider != null) groupItemProvider.dispose();
 	}
 
 }

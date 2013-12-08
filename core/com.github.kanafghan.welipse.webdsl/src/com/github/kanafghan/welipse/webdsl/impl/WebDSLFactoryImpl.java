@@ -78,6 +78,7 @@ public class WebDSLFactoryImpl extends EFactoryImpl implements WebDSLFactory {
 			case WebDSLPackage.COMPARISON_OPERATION: return createComparisonOperation();
 			case WebDSLPackage.REAL_CONSTANT: return createRealConstant();
 			case WebDSLPackage.ACTUAL_PARAMETER: return createActualParameter();
+			case WebDSLPackage.GROUP: return createGroup();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -333,6 +334,16 @@ public class WebDSLFactoryImpl extends EFactoryImpl implements WebDSLFactory {
 	public ActualParameter createActualParameter() {
 		ActualParameterImpl actualParameter = new ActualParameterImpl();
 		return actualParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Group createGroup() {
+		GroupImpl group = new GroupImpl();
+		return group;
 	}
 
 	/**

@@ -2025,6 +2025,79 @@ public interface WebDSLPackage extends EPackage {
 	int ACTUAL_PARAMETER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.GroupImpl <em>Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.GroupImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getGroup()
+	 * @generated
+	 */
+	int GROUP = 31;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__NAME = PRESENTATION_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__PAGE = PRESENTATION_ELEMENT__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__CLASS = PRESENTATION_ELEMENT__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__EXPRESSION = PRESENTATION_ELEMENT__EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__ELEMENTS = PRESENTATION_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP_FEATURE_COUNT = PRESENTATION_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP_OPERATION_COUNT = PRESENTATION_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.ArithmeticOperator <em>Arithmetic Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2032,7 +2105,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getArithmeticOperator()
 	 * @generated
 	 */
-	int ARITHMETIC_OPERATOR = 31;
+	int ARITHMETIC_OPERATOR = 32;
 
 	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.StringOperator <em>String Operator</em>}' enum.
@@ -2042,7 +2115,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStringOperator()
 	 * @generated
 	 */
-	int STRING_OPERATOR = 32;
+	int STRING_OPERATOR = 33;
 
 
 	/**
@@ -2053,7 +2126,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getBooleanOperator()
 	 * @generated
 	 */
-	int BOOLEAN_OPERATOR = 33;
+	int BOOLEAN_OPERATOR = 34;
 
 	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.ComparisonOperator <em>Comparison Operator</em>}' enum.
@@ -2063,7 +2136,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getComparisonOperator()
 	 * @generated
 	 */
-	int COMPARISON_OPERATOR = 34;
+	int COMPARISON_OPERATOR = 35;
 
 
 	/**
@@ -2946,6 +3019,27 @@ public interface WebDSLPackage extends EPackage {
 	EReference getActualParameter_Value();
 
 	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Group <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Group</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Group
+	 * @generated
+	 */
+	EClass getGroup();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.github.kanafghan.welipse.webdsl.Group#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Group#getElements()
+	 * @see #getGroup()
+	 * @generated
+	 */
+	EReference getGroup_Elements();
+
+	/**
 	 * Returns the meta object for enum '{@link com.github.kanafghan.welipse.webdsl.ArithmeticOperator <em>Arithmetic Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3733,6 +3827,24 @@ public interface WebDSLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTUAL_PARAMETER__VALUE = eINSTANCE.getActualParameter_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.GroupImpl <em>Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.GroupImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getGroup()
+		 * @generated
+		 */
+		EClass GROUP = eINSTANCE.getGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GROUP__ELEMENTS = eINSTANCE.getGroup_Elements();
 
 		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.ArithmeticOperator <em>Arithmetic Operator</em>}' enum.

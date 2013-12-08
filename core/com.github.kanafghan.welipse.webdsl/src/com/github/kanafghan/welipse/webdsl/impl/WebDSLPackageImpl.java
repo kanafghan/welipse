@@ -15,6 +15,7 @@ import com.github.kanafghan.welipse.webdsl.ComparisonOperator;
 import com.github.kanafghan.welipse.webdsl.ConstantExp;
 import com.github.kanafghan.welipse.webdsl.Expression;
 import com.github.kanafghan.welipse.webdsl.ExternalLink;
+import com.github.kanafghan.welipse.webdsl.Group;
 import com.github.kanafghan.welipse.webdsl.Image;
 import com.github.kanafghan.welipse.webdsl.IntegerConstant;
 import com.github.kanafghan.welipse.webdsl.InternalLink;
@@ -271,6 +272,13 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * @generated
 	 */
 	private EClass actualParameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass groupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1116,6 +1124,24 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGroup() {
+		return groupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGroup_Elements() {
+		return (EReference)groupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getArithmeticOperator() {
 		return arithmeticOperatorEEnum;
 	}
@@ -1289,6 +1315,9 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		createEReference(actualParameterEClass, ACTUAL_PARAMETER__FORMAL_PARAMETER);
 		createEReference(actualParameterEClass, ACTUAL_PARAMETER__VALUE);
 
+		groupEClass = createEClass(GROUP);
+		createEReference(groupEClass, GROUP__ELEMENTS);
+
 		// Create enums
 		arithmeticOperatorEEnum = createEEnum(ARITHMETIC_OPERATOR);
 		stringOperatorEEnum = createEEnum(STRING_OPERATOR);
@@ -1352,6 +1381,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		booleanOperationEClass.getESuperTypes().add(this.getBasicOperation());
 		comparisonOperationEClass.getESuperTypes().add(this.getBasicOperation());
 		realConstantEClass.getESuperTypes().add(this.getConstantExp());
+		groupEClass.getESuperTypes().add(this.getPresentationElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(websiteEClass, Website.class, "Website", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1472,6 +1502,9 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		initEAttribute(getActualParameter_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, ActualParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActualParameter_FormalParameter(), this.getParameter(), null, "formalParameter", null, 0, 1, ActualParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActualParameter_Value(), this.getExpression(), null, "value", null, 1, 1, ActualParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGroup_Elements(), this.getPageElement(), null, "elements", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(arithmeticOperatorEEnum, ArithmeticOperator.class, "ArithmeticOperator");

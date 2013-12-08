@@ -146,5 +146,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//ActualParameter/formalParameter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//ActualParameter/value"/>
     </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//Group">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Group/elements"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

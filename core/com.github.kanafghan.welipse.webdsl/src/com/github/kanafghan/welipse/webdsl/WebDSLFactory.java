@@ -211,6 +211,15 @@ public interface WebDSLFactory extends EFactory {
 	ActualParameter createActualParameter();
 
 	/**
+	 * Returns a new object of class '<em>Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Group</em>'.
+	 * @generated
+	 */
+	Group createGroup();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

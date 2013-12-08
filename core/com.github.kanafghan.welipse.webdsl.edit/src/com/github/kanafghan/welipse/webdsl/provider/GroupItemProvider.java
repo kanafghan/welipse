@@ -3,7 +3,7 @@
 package com.github.kanafghan.welipse.webdsl.provider;
 
 
-import com.github.kanafghan.welipse.webdsl.Link;
+import com.github.kanafghan.welipse.webdsl.Group;
 import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 
@@ -24,13 +24,13 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.github.kanafghan.welipse.webdsl.Link} object.
+ * This is the item provider adapter for a {@link com.github.kanafghan.welipse.webdsl.Group} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class LinkItemProvider
-	extends NavigationElementItemProvider
+public class GroupItemProvider
+	extends PresentationElementItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -43,7 +43,7 @@ public class LinkItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LinkItemProvider(AdapterFactory adapterFactory) {
+	public GroupItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -74,7 +74,7 @@ public class LinkItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(WebDSLPackage.Literals.LINK__SOURCE);
+			childrenFeatures.add(WebDSLPackage.Literals.GROUP__ELEMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -93,6 +93,17 @@ public class LinkItemProvider
 	}
 
 	/**
+	 * This returns Group.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Group"));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,10 +111,10 @@ public class LinkItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Link)object).getName();
+		String label = ((Group)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Link_type") :
-			getString("_UI_Link_type") + " " + label;
+			getString("_UI_Group_type") :
+			getString("_UI_Group_type") + " " + label;
 	}
 
 	/**
@@ -117,8 +128,8 @@ public class LinkItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Link.class)) {
-			case WebDSLPackage.LINK__SOURCE:
+		switch (notification.getFeatureID(Group.class)) {
+			case WebDSLPackage.GROUP__ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -138,32 +149,32 @@ public class LinkItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LINK__SOURCE,
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
 				 WebDSLFactory.eINSTANCE.createList()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LINK__SOURCE,
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
 				 WebDSLFactory.eINSTANCE.createText()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LINK__SOURCE,
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
 				 WebDSLFactory.eINSTANCE.createImage()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LINK__SOURCE,
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
 				 WebDSLFactory.eINSTANCE.createInternalLink()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LINK__SOURCE,
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
 				 WebDSLFactory.eINSTANCE.createExternalLink()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(WebDSLPackage.Literals.LINK__SOURCE,
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
 				 WebDSLFactory.eINSTANCE.createGroup()));
 	}
 
