@@ -13,6 +13,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.BasicMonitor;
 
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenTable;
 import com.github.kanafghan.welipse.joomlagen.generator.context.TableContext;
 
 public class JTableGenerator {

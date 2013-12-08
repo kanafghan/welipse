@@ -1,7 +1,7 @@
 [comment encoding = UTF-8 /]
 [module genManifest('http://github.com/kanafghan/welipse/joomlagen/1.0')]
 
-[import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
+[import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::UtilsServices /]
 
 [template public generateManifest(genModel : JoomlaGenModel)]
 [comment @main/]

@@ -15,6 +15,10 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.BasicMonitor;
 
 import com.github.kanafghan.welipse.joomlagen.generator.Utils.ControllerType;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenAdminController;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenController;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenFormController;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenMainController;
 import com.github.kanafghan.welipse.joomlagen.generator.context.ControllerContext;
 
 public class JControllerGenerator {

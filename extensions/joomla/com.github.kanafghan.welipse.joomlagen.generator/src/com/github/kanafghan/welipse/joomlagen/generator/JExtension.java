@@ -1,9 +1,12 @@
 package com.github.kanafghan.welipse.joomlagen.generator;
 
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenModel;
-import com.github.kanafghan.welipse.webdsl.Page;
-import com.github.kanafghan.welipse.webdsl.Website;
 
+/**
+ * 
+ * @author KanAfghan
+ * @deprecated will be removed (was used with JET)
+ */
 public abstract class JExtension {
 	
 	protected JoomlaGenModel joomlaGenModel;

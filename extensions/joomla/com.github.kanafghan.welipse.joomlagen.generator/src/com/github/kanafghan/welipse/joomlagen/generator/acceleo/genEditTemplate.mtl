@@ -1,7 +1,7 @@
 [comment encoding = UTF-8 /]
 [module genEditTemplate('/com.github.kanafghan.welipse.webdsl/model/webdsl.ecore', '/com.github.kanafghan.welipse.joomlagen/model/joomlagen.ecore', 'http://www.eclipse.org/emf/2002/Ecore')/]
 
-[import com::github::kanafghan::welipse::joomlagen::generator::common::UtilsServices /]
+[import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::UtilsServices /]
 
 [template public genEditTemplate(model : GenClass, genModel : JoomlaGenModel)]
 

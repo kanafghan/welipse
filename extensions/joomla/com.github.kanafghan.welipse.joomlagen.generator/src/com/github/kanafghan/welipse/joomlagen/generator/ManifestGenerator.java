@@ -15,6 +15,7 @@ import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.BasicMonitor;
 
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenManifest;
 import com.github.kanafghan.welipse.joomlagen.generator.context.Context;
 
 public class ManifestGenerator {

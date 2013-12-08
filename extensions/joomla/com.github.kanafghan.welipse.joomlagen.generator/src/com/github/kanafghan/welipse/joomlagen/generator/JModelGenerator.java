@@ -14,6 +14,11 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.BasicMonitor;
 
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenAdminModel;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenFormModel;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenItemModel;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenListModel;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenModel;
 import com.github.kanafghan.welipse.joomlagen.generator.context.ModelContext;
 
 public class JModelGenerator {

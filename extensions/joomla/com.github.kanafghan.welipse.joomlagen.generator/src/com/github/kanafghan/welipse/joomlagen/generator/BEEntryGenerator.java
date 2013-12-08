@@ -14,6 +14,7 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.BasicMonitor;
 
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenModel;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenBEEntry;
 import com.github.kanafghan.welipse.joomlagen.generator.context.Context;
 
 public class BEEntryGenerator {

@@ -15,6 +15,12 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.BasicMonitor;
 
 import com.github.kanafghan.welipse.joomlagen.generator.Utils.ModelType;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenEditTemplate;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenEditView;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenListTemplate;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenListView;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.Page2HTML;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.Page2View;
 import com.github.kanafghan.welipse.joomlagen.generator.context.ViewContext;
 
 public class JViewGenerator {

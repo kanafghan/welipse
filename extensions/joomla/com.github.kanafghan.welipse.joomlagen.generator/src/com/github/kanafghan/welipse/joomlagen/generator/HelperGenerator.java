@@ -13,6 +13,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.BasicMonitor;
 
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenHelper;
 import com.github.kanafghan.welipse.joomlagen.generator.context.HelperContext;
 
 public class HelperGenerator {
