@@ -2,6 +2,7 @@
 [module genManifest('http://github.com/kanafghan/welipse/joomlagen/1.0')]
 
 [import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::UtilsServices /]
+[import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::common /]
 
 [template public generateManifest(genModel : JoomlaGenModel)]
 [comment @main/]
@@ -17,9 +18,7 @@
 	<license>[genModel.license/]</license>
 	<version>[genModel.version/]</version>
 	<description>[genModel.description/]</description>
-	[protected ('Metadata')]
-	<!-- Enter custom Configuration here (don't remove the above and the below lines) -->
-	[/protected]
+	[generateHTMLProtectedRegion('Metadata')/]
 
 	<install>
 		<sql>
@@ -44,9 +43,7 @@
 		<folder>models</folder>
 		<folder>views</folder>
 		<folder>controllers</folder>
-		[protected ('Site')]
-		<!-- Enter custom Configuration here (don't remove the above and the below lines) -->
-		[/protected]
+		[generateHTMLProtectedRegion('Site')/]
 	</files>
 	
     <media destination="[genModel.componentName/]" folder="media">
@@ -59,9 +56,7 @@
 	<administration>
 		<!-- Administration Menu Section -->
 		<menu>[genModel.extensionName.toUpperFirst()/]</menu>
-		[protected ('Menu')]
-		<!-- Enter custom Configuration here (don't remove the above and the below lines) -->
-		[/protected]
+		[generateHTMLProtectedRegion('admin-menu')/]
 		<!-- Administration Main File Copy Section -->
 		<files folder="admin">
 			<filename>index.html</filename>
@@ -73,15 +68,11 @@
 			<folder>helpers</folder>
 			<folder>sql</folder>
 			<folder>tables</folder>
-			[protected ('Admin')]
-			<!-- Enter custom Configuration here (don't remove the above and the below lines) -->
-			[/protected]
+			[generateHTMLProtectedRegion('Admin')/]
 		</files>
 	</administration>       
 
-	[protected ('End of File')]
-	<!-- Enter custom Configuration here (don't remove the above and the below lines) -->
-	[/protected]
+	[generateHTMLProtectedRegion('end')/]
 
 </extension>
 [/file]

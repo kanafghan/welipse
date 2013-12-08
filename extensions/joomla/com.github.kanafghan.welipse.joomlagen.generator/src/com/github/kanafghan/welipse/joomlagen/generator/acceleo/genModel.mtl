@@ -2,6 +2,7 @@
 [module genModel('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
 [import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::UtilsServices /]
+[import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::common /]
 
 [template public generateModel(model : GenClass, genModel : JoomlaGenModel)]
 [comment @main/]
@@ -85,9 +86,7 @@ class [genModel.extensionName.toUpperFirst()/]Model[model.itemMVCName.toUpperFir
     public function get[reference.name.toUpperFirst()/]([if (not reference.ecoreReference.oclAsType(EReference).derived and not reference.many)]$id = 0[/if]) 
     {
 	[if (reference.ecoreReference.oclAsType(EReference).derived)]
-		[protected ('Implementation of reference.name')]
-		//TODO Auto-generated function needs implementation 
-		[/protected]
+		[generatePHPProtectedRegion('Implementation of reference.name')/]
 	[else]
 		if (!isset($this->[reference.name/]Instance[if (reference.many)]s[/if])) 
         {
@@ -148,10 +147,10 @@ class [genModel.extensionName.toUpperFirst()/]Model[model.itemMVCName.toUpperFir
      */
     public function [operation.ecoreOperation.oclAsType(EOperation).name/]([generateOperationParameters(operation)/]) 
     {
-		[protected ('Implementation of operation.name')]			
+		//[protected ('Implementation of '.concat(operation.ecoreOperation.oclAsType(EOperation).name))]			
     	//TODO Auto-generated function needs implementation
     	[generateOperationReturnStatement(operation)/]
-		[/protected]
+		//[/protected]
     }
 [/for]
 }

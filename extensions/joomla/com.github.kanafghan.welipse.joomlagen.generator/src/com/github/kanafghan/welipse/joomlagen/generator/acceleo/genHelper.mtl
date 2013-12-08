@@ -1,6 +1,8 @@
 [comment encoding = UTF-8 /]
 [module genHelper('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
+[import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::common /]
+
 [template public generateHelper(genModel : JoomlaGenModel, name : String, generateLinkbar : Boolean)]
 [comment @main /]
 [file (name.toLower().concat('.php'), false, 'UTF-8')]
@@ -22,6 +24,7 @@ class [name/]Helper
 	 */
 	public static function addSubmenu($vName)
 	{
+[if (not genModel.datamodel.oclIsUndefined())]
 	[for (view : GenClass | genModel.datamodel.genClasses)]
 		[if (view.generateContentManager)]
 		JSubMenuHelper::addEntry(
@@ -31,12 +34,11 @@ class [name/]Helper
 		);
 		[/if]
 	[/for]
+[/if]
 	}
 [/if]
 
-	// [protected ('custom-helper-scripts')]
-	// Enter custom code here (don't remove the above and the below lines)
- 	// [/protected]
+	[generatePHPProtectedRegion('Custom')/]
 }
 [/file]
 [/template]

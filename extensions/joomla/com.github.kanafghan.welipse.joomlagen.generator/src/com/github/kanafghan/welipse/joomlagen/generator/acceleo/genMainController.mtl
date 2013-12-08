@@ -1,6 +1,8 @@
 [comment encoding = UTF-8 /]
 [module genMainController('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
+[import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::common /]
+
 [template public generateMainController (genModel : JoomlaGenModel, isBackEnd : Boolean)]
 [comment @main/]
 [file ('controller.php', false, 'UTF-8')]
@@ -35,16 +37,13 @@ class [genModel.extensionName.toUpperFirst()/]Controller extends JController
 	    [genModel.extensionName.toUpperFirst()/]Helper::addSubmenu($input->getCmd('view', '[getDefaultView(genModel, isBackEnd)/]'));			
 	[/if]
     
-		[protected ('Display')]
-		// Enter custom code here (don't remove the above and below lines!)
-		[/protected]
+		[generatePHPProtectedRegion('Display')/]
+
 		// call parent behavior
 		parent::display($cachable, $urlparams);
     }
 
-	[protected ('End')]
-	// Enter custom code here (don't remove the above and below lines!)
-	[/protected]
+	[generatePHPProtectedRegion('End')/]
 }
 [/file]
 [/template]

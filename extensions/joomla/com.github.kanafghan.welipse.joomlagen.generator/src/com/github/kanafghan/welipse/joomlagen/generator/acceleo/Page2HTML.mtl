@@ -70,7 +70,7 @@ $[variable.var/] = $this->[variable.var/];
 
 [template protected generateStaticText(sTxt : Text) post (trim())]
 <p[generateAttributes(sTxt)/]>
-	<?php echo [sTxt.content/]; ?>
+	<?php echo '[sTxt.content.oclAsType(StringConstant).value/]'; ?>
 </p>
 [/template]
 

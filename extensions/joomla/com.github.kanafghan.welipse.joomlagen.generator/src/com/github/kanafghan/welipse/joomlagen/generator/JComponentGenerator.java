@@ -54,7 +54,7 @@ public class JComponentGenerator {
 					// Generate extension Back-End (BE)
 					JBEGenerator.generate(new Context(genModel), project);
 					
-					// Generate SQL install
+					// Generate install SQL
 					InstallGenerator.generate(new Context(genModel), project);
 					
 					// Generate extension manifest
@@ -111,6 +111,12 @@ public class JComponentGenerator {
 				
 				// Create 'sql' folder
 				Utils.getFolder(project.getFolder("admin/sql"), monitor);
+				
+				// Create 'updates' folder
+				Utils.getFolder(project.getFolder("admin/sql/updates"), monitor);
+				
+				// Create 'mysql' update folder
+				Utils.getFolder(project.getFolder("admin/sql/updates/mysql"), monitor);
 				
 				// Create 'helpers' folder
 				Utils.getFolder(project.getFolder("admin/helpers"), monitor);

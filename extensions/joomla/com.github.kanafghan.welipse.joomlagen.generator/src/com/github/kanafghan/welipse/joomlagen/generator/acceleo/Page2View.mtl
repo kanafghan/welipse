@@ -2,6 +2,7 @@
 [module Page2View('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
 [import com::github::kanafghan::welipse::joomlagen::generator::acceleo::Expression2PHP /]
+[import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::common /]
 
 [template public generateJView(page : Page, genModel : JoomlaGenModel)]
 
@@ -19,9 +20,7 @@ jimport('joomla.application.component.view');
  */
 class [genModel.extensionName.toUpperFirst()/]View[page.name.toUpperFirst()/] extends JView
 {
-	//[protected ('Fields')]
-	// Custom code (don't remove above and below lines)
-	//[/protected]
+	[generatePHPProtectedRegion('Fields')/]
 	
 	/**
 	 * [page.name.toUpperFirst()/] view display method
@@ -44,16 +43,12 @@ class [genModel.extensionName.toUpperFirst()/]View[page.name.toUpperFirst()/] ex
 		$this->assignRef('[variable.var/]', [generateExpression(variable.initExp)/]);
 	[/for]
 
-		//[protected ('Display')]
-		// Custom code (don't remove above and below lines)
-		//[/protected]
+		[generatePHPProtectedRegion('Display')/]
 
 		parent::display($tpl);
 	}
 
-	//[protected ('Functions')]
-	// Custom code (don't remove above and below lines)
-	//[/protected]	
+	[generatePHPProtectedRegion('Functions')/]
 }
 [/file]
 
