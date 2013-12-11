@@ -5,7 +5,6 @@ package com.github.kanafghan.welipse.joomlagen.impl;
 import com.github.kanafghan.welipse.joomlagen.DatabaseColumnType;
 import com.github.kanafghan.welipse.joomlagen.DatabaseTable;
 import com.github.kanafghan.welipse.joomlagen.ExtensionType;
-import com.github.kanafghan.welipse.joomlagen.ForeignKeyGeneration;
 import com.github.kanafghan.welipse.joomlagen.FormFieldType;
 import com.github.kanafghan.welipse.joomlagen.GenAttribute;
 import com.github.kanafghan.welipse.joomlagen.GenClass;
@@ -21,16 +20,13 @@ import com.github.kanafghan.welipse.joomlagen.JoomlaGenFactory;
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenModel;
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage;
 import com.github.kanafghan.welipse.joomlagen.JoomlaVersion;
-
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -152,13 +148,6 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 	 * @generated
 	 */
 	private EEnum databaseColumnTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum foreignKeyGenerationEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -679,17 +668,8 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGenReference_DatabaseColumnGeneration() {
-		return (EAttribute)genReferenceEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getGenReference_ManyToMany() {
-		return (EAttribute)genReferenceEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)genReferenceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -698,7 +678,7 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 	 * @generated
 	 */
 	public EAttribute getGenReference_Many() {
-		return (EAttribute)genReferenceEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)genReferenceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -707,7 +687,7 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 	 * @generated
 	 */
 	public EAttribute getGenReference_OneToMany() {
-		return (EAttribute)genReferenceEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)genReferenceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -904,15 +884,6 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getForeignKeyGeneration() {
-		return foreignKeyGenerationEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public JoomlaGenFactory getJoomlaGenFactory() {
 		return (JoomlaGenFactory)getEFactoryInstance();
 	}
@@ -996,7 +967,6 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 		genReferenceEClass = createEClass(GEN_REFERENCE);
 		createEReference(genReferenceEClass, GEN_REFERENCE__ECORE_REFERENCE);
 		createEReference(genReferenceEClass, GEN_REFERENCE__OPPOSITE);
-		createEAttribute(genReferenceEClass, GEN_REFERENCE__DATABASE_COLUMN_GENERATION);
 		createEAttribute(genReferenceEClass, GEN_REFERENCE__ONE_TO_MANY);
 		createEAttribute(genReferenceEClass, GEN_REFERENCE__MANY_TO_MANY);
 		createEAttribute(genReferenceEClass, GEN_REFERENCE__MANY);
@@ -1024,7 +994,6 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 		joomlaVersionEEnum = createEEnum(JOOMLA_VERSION);
 		formFieldTypeEEnum = createEEnum(FORM_FIELD_TYPE);
 		databaseColumnTypeEEnum = createEEnum(DATABASE_COLUMN_TYPE);
-		foreignKeyGenerationEEnum = createEEnum(FOREIGN_KEY_GENERATION);
 	}
 
 	/**
@@ -1087,7 +1056,7 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 		initEAttribute(getJoomlaGenModel_Description(), ecorePackage.getEString(), "description", "Automatically generated Joomla! extension by Welipse.", 0, 1, JoomlaGenModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJoomlaGenModel_DatabaseTablePrefix(), ecorePackage.getEString(), "databaseTablePrefix", "#__", 0, 1, JoomlaGenModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJoomlaGenModel_ComponentName(), ecorePackage.getEString(), "componentName", null, 0, 1, JoomlaGenModel.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getJoomlaGenModel_DatabaseTables(), this.getDatabaseTable(), null, "databaseTables", null, 0, -1, JoomlaGenModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoomlaGenModel_DatabaseTables(), this.getDatabaseTable(), null, "databaseTables", null, 0, -1, JoomlaGenModel.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJoomlaGenModel_InitialData(), ecorePackage.getEString(), "initialData", null, 0, 1, JoomlaGenModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getJoomlaGenModel__GetAssociationTableName__GenClass_GenClass(), ecorePackage.getEString(), "getAssociationTableName", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1131,7 +1100,6 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 		initEClass(genReferenceEClass, GenReference.class, "GenReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGenReference_EcoreReference(), theEcorePackage.getEReference(), null, "ecoreReference", null, 1, 1, GenReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGenReference_Opposite(), this.getGenReference(), null, "opposite", null, 0, 1, GenReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGenReference_DatabaseColumnGeneration(), this.getForeignKeyGeneration(), "databaseColumnGeneration", "GenerateInOther", 0, 1, GenReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenReference_OneToMany(), ecorePackage.getEBoolean(), "oneToMany", null, 0, 1, GenReference.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenReference_ManyToMany(), ecorePackage.getEBoolean(), "manyToMany", null, 0, 1, GenReference.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenReference_Many(), ecorePackage.getEBoolean(), "many", null, 0, 1, GenReference.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1178,10 +1146,6 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 		addEEnumLiteral(databaseColumnTypeEEnum, DatabaseColumnType.TEXT);
 		addEEnumLiteral(databaseColumnTypeEEnum, DatabaseColumnType.DATE);
 		addEEnumLiteral(databaseColumnTypeEEnum, DatabaseColumnType.TIMESTAMP);
-
-		initEEnum(foreignKeyGenerationEEnum, ForeignKeyGeneration.class, "ForeignKeyGeneration");
-		addEEnumLiteral(foreignKeyGenerationEEnum, ForeignKeyGeneration.GENERATE_IN_OTHER);
-		addEEnumLiteral(foreignKeyGenerationEEnum, ForeignKeyGeneration.GENERATE_IN_THIS);
 
 		// Create resource
 		createResource(eNS_URI);

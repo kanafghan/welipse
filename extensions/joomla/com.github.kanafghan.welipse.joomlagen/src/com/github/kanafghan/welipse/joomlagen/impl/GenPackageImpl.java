@@ -5,7 +5,9 @@ package com.github.kanafghan.welipse.joomlagen.impl;
 import com.github.kanafghan.welipse.joomlagen.GenClass;
 import com.github.kanafghan.welipse.joomlagen.GenClassifier;
 import com.github.kanafghan.welipse.joomlagen.GenDataType;
+import com.github.kanafghan.welipse.joomlagen.GenOperation;
 import com.github.kanafghan.welipse.joomlagen.GenPackage;
+import com.github.kanafghan.welipse.joomlagen.GenParameter;
 import com.github.kanafghan.welipse.joomlagen.GenReference;
 import com.github.kanafghan.welipse.joomlagen.GenFeature;
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenModel;
@@ -410,6 +412,43 @@ public class GenPackageImpl extends MinimalEObjectImpl.Container implements GenP
 				genClass.initialize(eClass);
 				genClass.setDatabaseTableName(getDatabaseTableName(eClass));
 				getGenClasses().add(eClassIndex++, genClass);
+				getGenClassifiers().add(genClass);
+				eClassifierToGenClassifierMap.put(eClass, genClass);
+			}
+		}
+		
+		// Set the type of the features, operations and parameters
+		// and also set the opposite references
+		for (GenClass genClass : getGenClasses()) {
+			for (GenFeature genFeature : genClass.getGenFeatures()) {
+				genFeature.setType(getGenClassifier(genFeature.getEcoreFeature().getEType()));
+				// Set the opposite references
+				if (genFeature instanceof GenReference) {
+					GenReference genReference = (GenReference) genFeature;
+					if (genReference.getEcoreReference().getEOpposite() != null) {
+						if (genReference.getOpposite() == null) {							
+							GenReference opposite = getGenReference(genReference.getEcoreReference().getEOpposite());
+							genReference.setOpposite(opposite);
+							opposite.setOpposite(genReference);
+						}
+					}
+				}
+			}
+			
+			for (GenOperation genOperation : genClass.getGenOperations()) {
+				// Set the type of the operation
+				EClassifier type = genOperation.getEcoreOperation().getEType(); 
+				if (type != null) {
+					genOperation.setType(getGenClassifier(type));
+				}
+				
+				// Set the type of the parameters
+				for (GenParameter genParameter : genOperation.getGenParameters()) {
+					type = genParameter.getEcoreParameter().getEType();
+					if (type != null) {
+						genParameter.setType(getGenClassifier(type));
+					}
+				}
 			}
 		}
 	}
@@ -436,40 +475,52 @@ public class GenPackageImpl extends MinimalEObjectImpl.Container implements GenP
 	
 	@Override
 	public GenClassifier getGenClassifier(EClassifier ecoreClassifier) {
+		if (ecoreClassifier == null) {
+			throw new Error("Got null instead of EClassifier instance.");
+		}
+		
 		GenClassifier genClassifier = eClassifierToGenClassifierMap.get(ecoreClassifier);
 		
 		if (genClassifier == null) {
-			for (GenClassifier cls : getGenClassifiers()) {
-				if (cls.getEcoreClassifier() == ecoreClassifier) {
-					eClassifierToGenClassifierMap.put(cls.getEcoreClassifier(), cls);
-					return cls;
-				}
-			}
-			
-			for (EClassifier eClassifier : getEcorePackage().getEClassifiers()) {
-				if (eClassifier instanceof EClass) {
-					EClass cls = (EClass) eClassifier;
-					if (cls == ecoreClassifier) {
-						GenClass genClass = JoomlaGenFactory.eINSTANCE.createGenClass();
-						eClassifierToGenClassifierMap.put(cls, genClass);
-						getGenClasses().add(genClass);
-						genClass.setGenPackage(this);
-						genClass.initialize(cls);
-						genClass.setDatabaseTableName(getDatabaseTableName(cls));
-						return genClass;
-					}
-				} else if (eClassifier instanceof EDataType) {
-					EDataType eDataType = (EDataType) eClassifier;
-					if (eDataType == ecoreClassifier) {
-						GenDataType genDataType = JoomlaGenFactory.eINSTANCE.createGenDataType();
-						genDataType.setEcoreDataType(eDataType);
-						genDataType.setGenPackage(this);
-						getGenDataTypes().add(genDataType);
-						eClassifierToGenClassifierMap.put(eDataType, genDataType);
-						return genDataType;
+			if (ecoreClassifier instanceof EDataType) {
+				EDataType eDataType = (EDataType) ecoreClassifier;
+				GenDataType genDataType = JoomlaGenFactory.eINSTANCE.createGenDataType();
+				genDataType.setEcoreDataType(eDataType);
+				genDataType.setGenPackage(this);
+				getGenDataTypes().add(genDataType);
+				eClassifierToGenClassifierMap.put(eDataType, genDataType);
+				return genDataType;
+			} else {
+				// Look after it among the GenClasses	
+				for (GenClassifier cls : getGenClassifiers()) {
+					if (cls.getEcoreClassifier() == ecoreClassifier) {
+						eClassifierToGenClassifierMap.put(cls.getEcoreClassifier(), cls);
+						return cls;
 					}
 				}
+				
+				// Now, look after it among EClasses
+				for (EClassifier eClassifier : getEcorePackage().getEClassifiers()) {
+					if (eClassifier instanceof EClass) {
+						EClass cls = (EClass) eClassifier;
+						if (cls == ecoreClassifier) {
+							GenClass genClass = JoomlaGenFactory.eINSTANCE.createGenClass();
+							eClassifierToGenClassifierMap.put(cls, genClass);
+							getGenClasses().add(genClass);
+							getGenClassifiers().add(genClass);
+							genClass.setGenPackage(this);
+							genClass.initialize(cls);
+							genClass.setDatabaseTableName(getDatabaseTableName(cls));
+							return genClass;
+						}
+					}
+				}
 			}
+		}
+		
+		// If we still could not find it throw an error
+		if (genClassifier == null) {
+			throw new Error("Could not find the EClassifier: "+ ecoreClassifier.getName());
 		}
 		
 		return genClassifier;
@@ -488,6 +539,7 @@ public class GenPackageImpl extends MinimalEObjectImpl.Container implements GenP
 					}
 				}
 			} else {
+				//TODO this is probably not needed in the new approach
 				GenReference genReference = JoomlaGenFactory.eINSTANCE.createGenReference();
 				genReference.setGenClass(genClass);
 				genReference.initialize(eReference);

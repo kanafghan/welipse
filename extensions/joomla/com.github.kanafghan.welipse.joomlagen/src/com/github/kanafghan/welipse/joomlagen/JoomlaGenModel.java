@@ -458,7 +458,7 @@ public interface JoomlaGenModel extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Database Tables</em>' containment reference list.
 	 * @see com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage#getJoomlaGenModel_DatabaseTables()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" derived="true"
 	 * @generated
 	 */
 	EList<DatabaseTable> getDatabaseTables();

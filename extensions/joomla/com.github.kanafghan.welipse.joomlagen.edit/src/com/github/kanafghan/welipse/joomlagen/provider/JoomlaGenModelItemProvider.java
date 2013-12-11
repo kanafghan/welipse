@@ -445,7 +445,6 @@ public class JoomlaGenModelItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(JoomlaGenPackage.Literals.JOOMLA_GEN_MODEL__DATAMODEL);
-			childrenFeatures.add(JoomlaGenPackage.Literals.JOOMLA_GEN_MODEL__DATABASE_TABLES);
 		}
 		return childrenFeatures;
 	}
@@ -582,11 +581,11 @@ public class JoomlaGenModelItemProvider
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DESCRIPTION:
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLE_PREFIX:
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__COMPONENT_NAME:
+			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLES:
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__INITIAL_DATA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATAMODEL:
-			case JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

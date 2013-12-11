@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.github.kanafghan.welipse.joomlagen.GenAttribute;
 import com.github.kanafghan.welipse.joomlagen.GenClass;
-import com.github.kanafghan.welipse.joomlagen.GenClassifier;
 import com.github.kanafghan.welipse.joomlagen.GenFeature;
 import com.github.kanafghan.welipse.joomlagen.GenOperation;
 import com.github.kanafghan.welipse.joomlagen.GenReference;
@@ -563,16 +562,6 @@ public class GenClassImpl extends GenClassifierImpl implements GenClass {
 			setItemMVCName(eClass.getName());
 			setListMVCName(eClass.getName().concat("List"));
 		}
-	}
-
-	@Override
-	public GenClassifier computeType(EClassifier ecoreClassifier) {
-		return getGenPackage().getGenClassifier(ecoreClassifier);
-	}
-
-	@Override
-	public GenReference getOppositeReference(EReference eReference) {
-		return getGenPackage().getGenReference(eReference);
 	}
 
 } //GenClassImpl

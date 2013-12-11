@@ -293,7 +293,6 @@ public class GenAttributeImpl extends GenFeatureImpl implements GenAttribute {
 	public void initialize(EAttribute eAttribute) {
 		if (getEcoreAttribute() != eAttribute) {
 			setEcoreAttribute(eAttribute);
-			setType(getGenClass().computeType(eAttribute.getEType()));
 			setFormFieldLabel(getName());
 			setFormFieldDescription("Specify the value of "+ getName());
 			setFormFieldType(computeFormFieldType());

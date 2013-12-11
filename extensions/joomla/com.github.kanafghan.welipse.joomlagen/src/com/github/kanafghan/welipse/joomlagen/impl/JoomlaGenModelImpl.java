@@ -941,9 +941,9 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 	private void createDatabaseTableForeignKey(DatabaseTable table, GenReference reference) {
 		if (!reference.getEcoreReference().isDerived()) {					
 			// Check whether we have already processed this reference
-			GenReference processedRef = genReferences.get(reference.getName());
+			GenReference processedRef = genReferences.get(getReferenceID(reference));
 			if (processedRef == null) {	
-				genReferences.put(reference.getName(), reference);
+				genReferences.put(getReferenceID(reference), reference);
 				if (reference.isManyToMany()) {
 					// Apply the Association Table pattern
 					applyAssociationTablePattern(table, reference);
@@ -955,11 +955,15 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 					table.getForeignKeys().add(reference);
 					// Remember the opposite reference (if any)
 					if (reference.getOpposite() != null) {
-						genReferences.put(reference.getOpposite().getName(), reference.getOpposite());
+						genReferences.put(getReferenceID(reference.getOpposite()), reference.getOpposite());
 					}
 				}
 			}
 		}	
+	}
+
+	private String getReferenceID(GenReference reference) {
+		return reference.getGenClass().getDatabaseTableName() +"_"+ reference.getName();
 	}
 
 	private void applyForeignKeyAssociationPattern(DatabaseTable table, GenReference reference) {
@@ -979,7 +983,7 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 			
 			// Remember the opposite reference (if any)
 			if (reference.getOpposite() != null) {
-				genReferences.put(reference.getOpposite().getName(), reference.getOpposite());
+				genReferences.put(getReferenceID(reference.getOpposite()), reference.getOpposite());
 			}
 		} else {
 			if (reference.getOpposite() != null) {
@@ -987,7 +991,7 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 				table.getForeignKeys().add(reference.getOpposite());
 				
 				// Remember the opposite reference
-				genReferences.put(reference.getOpposite().getName(), reference.getOpposite());
+				genReferences.put(getReferenceID(reference.getOpposite()), reference.getOpposite());
 			}
 		}
 	}
@@ -1001,7 +1005,7 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 		assocTable.getForeignKeys().add(reference.getOpposite());
 		
 		// Remember the opposite reference
-		genReferences.put(reference.getOpposite().getName(), reference.getOpposite());	
+		genReferences.put(getReferenceID(reference.getOpposite()), reference.getOpposite());	
 	}
 
 	private void createDatabaseTableColumn(DatabaseTable table, GenAttribute attribute) {
@@ -1019,11 +1023,23 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 		String tableName = generateAssociationTableName(cls, refCls);
 		DatabaseTable table = tables.get(tableName);
 		if (table == null) {
+			
 			table = JoomlaGenFactory.eINSTANCE.createDatabaseTable();
-			GenClass genClass = JoomlaGenFactory.eINSTANCE.createGenClass();
-			genClass.setDatabaseTableName(tableName);
-			genClass.setGenerateContentManager(false);
-			getDatamodel().getGenClasses().add(genClass);
+			
+			// Create (or find) the GenClass for this association table
+			GenClass genClass = null;
+			for (GenClass genCls : getDatamodel().getGenClasses()) {
+				if (genCls.getDatabaseTableName().equals(tableName)) {
+					genClass = genCls;
+				}
+			}
+			// If we could not find it, create one
+			if (genClass == null) {				
+				genClass = JoomlaGenFactory.eINSTANCE.createGenClass();
+				genClass.setDatabaseTableName(tableName);
+				genClass.setGenerateContentManager(false);
+				getDatamodel().getGenClasses().add(genClass);
+			}
 			table.setGenClass(genClass);
 			getDatabaseTables().add(table);
 			tables.put(tableName, table);

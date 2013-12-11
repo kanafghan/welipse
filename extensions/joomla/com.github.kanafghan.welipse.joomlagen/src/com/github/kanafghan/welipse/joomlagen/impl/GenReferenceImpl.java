@@ -2,16 +2,15 @@
  */
 package com.github.kanafghan.welipse.joomlagen.impl;
 
-import com.github.kanafghan.welipse.joomlagen.ForeignKeyGeneration;
-import com.github.kanafghan.welipse.joomlagen.GenReference;
-import com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import com.github.kanafghan.welipse.joomlagen.GenReference;
+import com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.GenReferenceImpl#getEcoreReference <em>Ecore Reference</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.GenReferenceImpl#getOpposite <em>Opposite</em>}</li>
- *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.GenReferenceImpl#getDatabaseColumnGeneration <em>Database Column Generation</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.GenReferenceImpl#isOneToMany <em>One To Many</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.GenReferenceImpl#isManyToMany <em>Many To Many</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.GenReferenceImpl#isMany <em>Many</em>}</li>
@@ -51,26 +49,6 @@ public class GenReferenceImpl extends GenFeatureImpl implements GenReference {
 	 * @ordered
 	 */
 	protected GenReference opposite;
-
-	/**
-	 * The default value of the '{@link #getDatabaseColumnGeneration() <em>Database Column Generation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDatabaseColumnGeneration()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final ForeignKeyGeneration DATABASE_COLUMN_GENERATION_EDEFAULT = ForeignKeyGeneration.GENERATE_IN_OTHER;
-
-	/**
-	 * The cached value of the '{@link #getDatabaseColumnGeneration() <em>Database Column Generation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDatabaseColumnGeneration()
-	 * @generated
-	 * @ordered
-	 */
-	protected ForeignKeyGeneration databaseColumnGeneration = DATABASE_COLUMN_GENERATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isOneToMany() <em>One To Many</em>}' attribute.
@@ -200,27 +178,6 @@ public class GenReferenceImpl extends GenFeatureImpl implements GenReference {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ForeignKeyGeneration getDatabaseColumnGeneration() {
-		return databaseColumnGeneration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDatabaseColumnGeneration(ForeignKeyGeneration newDatabaseColumnGeneration) {
-		ForeignKeyGeneration oldDatabaseColumnGeneration = databaseColumnGeneration;
-		databaseColumnGeneration = newDatabaseColumnGeneration == null ? DATABASE_COLUMN_GENERATION_EDEFAULT : newDatabaseColumnGeneration;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.GEN_REFERENCE__DATABASE_COLUMN_GENERATION, oldDatabaseColumnGeneration, databaseColumnGeneration));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean isManyToMany() {
@@ -300,8 +257,6 @@ public class GenReferenceImpl extends GenFeatureImpl implements GenReference {
 			case JoomlaGenPackage.GEN_REFERENCE__OPPOSITE:
 				if (resolve) return getOpposite();
 				return basicGetOpposite();
-			case JoomlaGenPackage.GEN_REFERENCE__DATABASE_COLUMN_GENERATION:
-				return getDatabaseColumnGeneration();
 			case JoomlaGenPackage.GEN_REFERENCE__ONE_TO_MANY:
 				return isOneToMany();
 			case JoomlaGenPackage.GEN_REFERENCE__MANY_TO_MANY:
@@ -325,9 +280,6 @@ public class GenReferenceImpl extends GenFeatureImpl implements GenReference {
 				return;
 			case JoomlaGenPackage.GEN_REFERENCE__OPPOSITE:
 				setOpposite((GenReference)newValue);
-				return;
-			case JoomlaGenPackage.GEN_REFERENCE__DATABASE_COLUMN_GENERATION:
-				setDatabaseColumnGeneration((ForeignKeyGeneration)newValue);
 				return;
 			case JoomlaGenPackage.GEN_REFERENCE__ONE_TO_MANY:
 				setOneToMany((Boolean)newValue);
@@ -356,9 +308,6 @@ public class GenReferenceImpl extends GenFeatureImpl implements GenReference {
 			case JoomlaGenPackage.GEN_REFERENCE__OPPOSITE:
 				setOpposite((GenReference)null);
 				return;
-			case JoomlaGenPackage.GEN_REFERENCE__DATABASE_COLUMN_GENERATION:
-				setDatabaseColumnGeneration(DATABASE_COLUMN_GENERATION_EDEFAULT);
-				return;
 			case JoomlaGenPackage.GEN_REFERENCE__ONE_TO_MANY:
 				setOneToMany(ONE_TO_MANY_EDEFAULT);
 				return;
@@ -384,8 +333,6 @@ public class GenReferenceImpl extends GenFeatureImpl implements GenReference {
 				return ecoreReference != null;
 			case JoomlaGenPackage.GEN_REFERENCE__OPPOSITE:
 				return opposite != null;
-			case JoomlaGenPackage.GEN_REFERENCE__DATABASE_COLUMN_GENERATION:
-				return databaseColumnGeneration != DATABASE_COLUMN_GENERATION_EDEFAULT;
 			case JoomlaGenPackage.GEN_REFERENCE__ONE_TO_MANY:
 				return isOneToMany() != ONE_TO_MANY_EDEFAULT;
 			case JoomlaGenPackage.GEN_REFERENCE__MANY_TO_MANY:
@@ -394,22 +341,6 @@ public class GenReferenceImpl extends GenFeatureImpl implements GenReference {
 				return isMany() != MANY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (databaseColumnGeneration: ");
-		result.append(databaseColumnGeneration);
-		result.append(')');
-		return result.toString();
 	}
 
 	/**
@@ -429,14 +360,9 @@ public class GenReferenceImpl extends GenFeatureImpl implements GenReference {
 	public void initialize(EReference eReference) {
 		if (getEcoreReference() != eReference) {
 			setEcoreReference(eReference);
-			setType(getGenClass().computeType(eReference.getEType()));
-			setDatabaseColumnGeneration(ForeignKeyGeneration.GENERATE_IN_OTHER);
 			setFormFieldLabel(getName());
 			setFormFieldDescription("Spacify the value of "+ getName());
 			setNullable(true);
-			if (eReference.getEOpposite() != null) {
-				setOpposite(getGenClass().getOppositeReference(eReference.getEOpposite()));
-			}
 		}
 	}
 

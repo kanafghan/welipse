@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.GenReference#getEcoreReference <em>Ecore Reference</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.GenReference#getOpposite <em>Opposite</em>}</li>
- *   <li>{@link com.github.kanafghan.welipse.joomlagen.GenReference#getDatabaseColumnGeneration <em>Database Column Generation</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.GenReference#isOneToMany <em>One To Many</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.GenReference#isManyToMany <em>Many To Many</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.GenReference#isMany <em>Many</em>}</li>
@@ -77,36 +76,6 @@ public interface GenReference extends GenFeature {
 	 * @generated
 	 */
 	void setOpposite(GenReference value);
-
-	/**
-	 * Returns the value of the '<em><b>Database Column Generation</b></em>' attribute.
-	 * The default value is <code>"GenerateInOther"</code>.
-	 * The literals are from the enumeration {@link com.github.kanafghan.welipse.joomlagen.ForeignKeyGeneration}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Database Column Generation</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Database Column Generation</em>' attribute.
-	 * @see com.github.kanafghan.welipse.joomlagen.ForeignKeyGeneration
-	 * @see #setDatabaseColumnGeneration(ForeignKeyGeneration)
-	 * @see com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage#getGenReference_DatabaseColumnGeneration()
-	 * @model default="GenerateInOther"
-	 * @generated
-	 */
-	ForeignKeyGeneration getDatabaseColumnGeneration();
-
-	/**
-	 * Sets the value of the '{@link com.github.kanafghan.welipse.joomlagen.GenReference#getDatabaseColumnGeneration <em>Database Column Generation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Database Column Generation</em>' attribute.
-	 * @see com.github.kanafghan.welipse.joomlagen.ForeignKeyGeneration
-	 * @see #getDatabaseColumnGeneration()
-	 * @generated
-	 */
-	void setDatabaseColumnGeneration(ForeignKeyGeneration value);
 
 	/**
 	 * Returns the value of the '<em><b>Many To Many</b></em>' attribute.

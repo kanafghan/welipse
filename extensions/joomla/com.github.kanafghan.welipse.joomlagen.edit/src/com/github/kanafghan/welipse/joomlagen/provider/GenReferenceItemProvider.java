@@ -59,7 +59,6 @@ public class GenReferenceItemProvider
 
 			addEcoreReferencePropertyDescriptor(object);
 			addOppositePropertyDescriptor(object);
-			addDatabaseColumnGenerationPropertyDescriptor(object);
 			addOneToManyPropertyDescriptor(object);
 			addManyToManyPropertyDescriptor(object);
 			addManyPropertyDescriptor(object);
@@ -107,28 +106,6 @@ public class GenReferenceItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Database Column Generation feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDatabaseColumnGenerationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GenReference_databaseColumnGeneration_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GenReference_databaseColumnGeneration_feature", "_UI_GenReference_type"),
-				 JoomlaGenPackage.Literals.GEN_REFERENCE__DATABASE_COLUMN_GENERATION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -236,7 +213,6 @@ public class GenReferenceItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GenReference.class)) {
-			case JoomlaGenPackage.GEN_REFERENCE__DATABASE_COLUMN_GENERATION:
 			case JoomlaGenPackage.GEN_REFERENCE__ONE_TO_MANY:
 			case JoomlaGenPackage.GEN_REFERENCE__MANY_TO_MANY:
 			case JoomlaGenPackage.GEN_REFERENCE__MANY:

@@ -301,6 +301,10 @@ public class GenOperationImpl extends GenTypedElementImpl implements GenOperatio
 
 	@Override
 	public void initialize(EOperation eOperation) {
+		if (getEcoreOperation() != eOperation) {
+			setEcoreOperation(eOperation);
+		}
+		
 		List<EParameter> parameters = eOperation.getEParameters();
 		LOOP: for (int i = 0; i < parameters.size(); ++i) {
 			EParameter parameter = parameters.get(i);
@@ -321,11 +325,6 @@ public class GenOperationImpl extends GenTypedElementImpl implements GenOperatio
 			getGenParameters().add(i, genParameter);
 			genParameter.setGenOperation(this);
 			genParameter.initialize(parameter);
-		}
-		
-		if (getEcoreOperation() != eOperation) {
-			setEcoreOperation(eOperation);
-			setType(getGenClass().computeType(eOperation.getEType()));
 		}
 	}
 

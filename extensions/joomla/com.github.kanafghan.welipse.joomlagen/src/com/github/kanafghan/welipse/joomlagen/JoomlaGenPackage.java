@@ -796,22 +796,13 @@ public interface JoomlaGenPackage extends EPackage {
 	int GEN_REFERENCE__OPPOSITE = GEN_FEATURE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Database Column Generation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GEN_REFERENCE__DATABASE_COLUMN_GENERATION = GEN_FEATURE_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>One To Many</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_REFERENCE__ONE_TO_MANY = GEN_FEATURE_FEATURE_COUNT + 3;
+	int GEN_REFERENCE__ONE_TO_MANY = GEN_FEATURE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Many To Many</b></em>' attribute.
@@ -820,7 +811,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_REFERENCE__MANY_TO_MANY = GEN_FEATURE_FEATURE_COUNT + 4;
+	int GEN_REFERENCE__MANY_TO_MANY = GEN_FEATURE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -829,7 +820,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_REFERENCE__MANY = GEN_FEATURE_FEATURE_COUNT + 5;
+	int GEN_REFERENCE__MANY = GEN_FEATURE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Gen Reference</em>' class.
@@ -838,7 +829,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_REFERENCE_FEATURE_COUNT = GEN_FEATURE_FEATURE_COUNT + 6;
+	int GEN_REFERENCE_FEATURE_COUNT = GEN_FEATURE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Gen Reference</em>' class.
@@ -1118,17 +1109,6 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 */
 	int DATABASE_COLUMN_TYPE = 15;
-
-	/**
-	 * The meta object id for the '{@link com.github.kanafghan.welipse.joomlagen.ForeignKeyGeneration <em>Foreign Key Generation</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.github.kanafghan.welipse.joomlagen.ForeignKeyGeneration
-	 * @see com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenPackageImpl#getForeignKeyGeneration()
-	 * @generated
-	 */
-	int FOREIGN_KEY_GENERATION = 16;
-
 
 	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel <em>Model</em>}'.
@@ -1672,17 +1652,6 @@ public interface JoomlaGenPackage extends EPackage {
 	EReference getGenReference_Opposite();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.joomlagen.GenReference#getDatabaseColumnGeneration <em>Database Column Generation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Database Column Generation</em>'.
-	 * @see com.github.kanafghan.welipse.joomlagen.GenReference#getDatabaseColumnGeneration()
-	 * @see #getGenReference()
-	 * @generated
-	 */
-	EAttribute getGenReference_DatabaseColumnGeneration();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.joomlagen.GenReference#isManyToMany <em>Many To Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1937,16 +1906,6 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getDatabaseColumnType();
-
-	/**
-	 * Returns the meta object for enum '{@link com.github.kanafghan.welipse.joomlagen.ForeignKeyGeneration <em>Foreign Key Generation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Foreign Key Generation</em>'.
-	 * @see com.github.kanafghan.welipse.joomlagen.ForeignKeyGeneration
-	 * @generated
-	 */
-	EEnum getForeignKeyGeneration();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2388,14 +2347,6 @@ public interface JoomlaGenPackage extends EPackage {
 		EReference GEN_REFERENCE__OPPOSITE = eINSTANCE.getGenReference_Opposite();
 
 		/**
-		 * The meta object literal for the '<em><b>Database Column Generation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GEN_REFERENCE__DATABASE_COLUMN_GENERATION = eINSTANCE.getGenReference_DatabaseColumnGeneration();
-
-		/**
 		 * The meta object literal for the '<em><b>Many To Many</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2602,16 +2553,6 @@ public interface JoomlaGenPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum DATABASE_COLUMN_TYPE = eINSTANCE.getDatabaseColumnType();
-
-		/**
-		 * The meta object literal for the '{@link com.github.kanafghan.welipse.joomlagen.ForeignKeyGeneration <em>Foreign Key Generation</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.github.kanafghan.welipse.joomlagen.ForeignKeyGeneration
-		 * @see com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenPackageImpl#getForeignKeyGeneration()
-		 * @generated
-		 */
-		EEnum FOREIGN_KEY_GENERATION = eINSTANCE.getForeignKeyGeneration();
 
 	}
 

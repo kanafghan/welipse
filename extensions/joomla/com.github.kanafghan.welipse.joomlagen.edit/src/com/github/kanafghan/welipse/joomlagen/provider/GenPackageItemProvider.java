@@ -125,7 +125,6 @@ public class GenPackageItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(JoomlaGenPackage.Literals.GEN_PACKAGE__GEN_CLASSES);
-			childrenFeatures.add(JoomlaGenPackage.Literals.GEN_PACKAGE__GEN_DATA_TYPES);
 		}
 		return childrenFeatures;
 	}
@@ -177,8 +176,10 @@ public class GenPackageItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GenPackage.class)) {
-			case JoomlaGenPackage.GEN_PACKAGE__GEN_CLASSES:
 			case JoomlaGenPackage.GEN_PACKAGE__GEN_DATA_TYPES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case JoomlaGenPackage.GEN_PACKAGE__GEN_CLASSES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -200,11 +201,6 @@ public class GenPackageItemProvider
 			(createChildParameter
 				(JoomlaGenPackage.Literals.GEN_PACKAGE__GEN_CLASSES,
 				 JoomlaGenFactory.eINSTANCE.createGenClass()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JoomlaGenPackage.Literals.GEN_PACKAGE__GEN_DATA_TYPES,
-				 JoomlaGenFactory.eINSTANCE.createGenDataType()));
 	}
 
 	/**

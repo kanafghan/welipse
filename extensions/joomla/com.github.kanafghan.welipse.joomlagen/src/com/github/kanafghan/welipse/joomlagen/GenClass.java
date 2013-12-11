@@ -4,8 +4,6 @@ package com.github.kanafghan.welipse.joomlagen;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -198,9 +196,5 @@ public interface GenClass extends GenClassifier {
 	EList<GenOperation> getGenOperations();
 	
 	void initialize(EClass eClass);
-	
-	GenClassifier computeType(EClassifier ecoreClassifier);
-	
-	GenReference getOppositeReference(EReference eReference);
 
 } // GenClass

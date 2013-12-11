@@ -87,8 +87,6 @@ public class JoomlaGenFactoryImpl extends EFactoryImpl implements JoomlaGenFacto
 				return createFormFieldTypeFromString(eDataType, initialValue);
 			case JoomlaGenPackage.DATABASE_COLUMN_TYPE:
 				return createDatabaseColumnTypeFromString(eDataType, initialValue);
-			case JoomlaGenPackage.FOREIGN_KEY_GENERATION:
-				return createForeignKeyGenerationFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -110,8 +108,6 @@ public class JoomlaGenFactoryImpl extends EFactoryImpl implements JoomlaGenFacto
 				return convertFormFieldTypeToString(eDataType, instanceValue);
 			case JoomlaGenPackage.DATABASE_COLUMN_TYPE:
 				return convertDatabaseColumnTypeToString(eDataType, instanceValue);
-			case JoomlaGenPackage.FOREIGN_KEY_GENERATION:
-				return convertForeignKeyGenerationToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -284,26 +280,6 @@ public class JoomlaGenFactoryImpl extends EFactoryImpl implements JoomlaGenFacto
 	 * @generated
 	 */
 	public String convertDatabaseColumnTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ForeignKeyGeneration createForeignKeyGenerationFromString(EDataType eDataType, String initialValue) {
-		ForeignKeyGeneration result = ForeignKeyGeneration.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertForeignKeyGenerationToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
