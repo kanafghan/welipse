@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS [genModel.databaseTablePrefix.concat(table.name)/] (
 [column.name/] [generateTableColumnType(column)/][if (not column.nullable)] NOT NULL[/if],
 [/for]
 [for (column : GenReference | table.foreignKeys)]
-[column.name/] int(11),
+[generateForeignKeyName(column, table)/] int(11),
 [/for]
 [/template]
 
@@ -59,11 +59,19 @@ CREATE TABLE IF NOT EXISTS [genModel.databaseTablePrefix.concat(table.name)/] (
 [/template]
 
 [template public generateForeignKey(reference : GenReference, table : DatabaseTable, genModel : JoomlaGenModel) post (trim())]
-FOREIGN KEY ([reference.name/]) REFERENCES [getReferencedTableName(reference, table, genModel)/](id)
+FOREIGN KEY ([generateForeignKeyName(reference, table)/]) REFERENCES [generateReferencedTableName(reference, table, genModel)/](id)
 [/template]
 
-[template public getReferencedTableName (reference : GenReference, table : DatabaseTable, genModel : JoomlaGenModel) post (trim())]
-[if (reference.type.oclAsType(GenClass).ecoreClass.oclAsType(EClass) = table.genClass.ecoreClass.oclAsType(EClass))]
+[template public generateForeignKeyName(reference : GenReference, table : DatabaseTable) post (trim())]
+[if (reference.genClass.databaseTableName = table.name)]
+[reference.name/]
+[else]
+[reference.genClass.databaseTableName/]_[reference.name/]
+[/if]
+[/template]
+
+[template public generateReferencedTableName (reference : GenReference, table : DatabaseTable, genModel : JoomlaGenModel) post (trim())]
+[if (not table.genClass.ecoreClass.oclIsUndefined() and reference.type.oclAsType(GenClass).databaseTableName = table.name)]
 [genModel.databaseTablePrefix.concat(reference.genClass.databaseTableName)/]
 [else]
 [genModel.databaseTablePrefix.concat(reference.type.oclAsType(GenClass).databaseTableName)/]

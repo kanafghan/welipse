@@ -1,7 +1,6 @@
 [comment encoding = UTF-8 /]
 [module genModel('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::UtilsServices /]
 [import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::common /]
 
 [template public generateModel(model : GenClass, genModel : JoomlaGenModel)]
@@ -69,7 +68,7 @@ class [genModel.extensionName.toUpperFirst()/]Model[model.itemMVCName.toUpperFir
      * (non-PHPdoc)
      * @see JModel::getTable()
      */
-    public function getTable($type = '[model.databaseTableName.toUpperFirst()/]', $prefix = '[getComponentName(genModel)/]Table', $config = array()) 
+    public function getTable($type = '[model.databaseTableName.toUpperFirst()/]', $prefix = '[genModel.extensionName.toUpperFirst()/]Table', $config = array()) 
     {
         return JTable::getInstance($type, $prefix, $config);
     }
@@ -86,7 +85,7 @@ class [genModel.extensionName.toUpperFirst()/]Model[model.itemMVCName.toUpperFir
     public function get[reference.name.toUpperFirst()/]([if (not reference.ecoreReference.oclAsType(EReference).derived and not reference.many)]$id = 0[/if]) 
     {
 	[if (reference.ecoreReference.oclAsType(EReference).derived)]
-		[generatePHPProtectedRegion('Implementation of reference.name')/]
+		[generatePHPProtectedRegion('Implementation of '.concat(reference.name))/]
 	[else]
 		if (!isset($this->[reference.name/]Instance[if (reference.many)]s[/if])) 
         {
@@ -102,11 +101,11 @@ class [genModel.extensionName.toUpperFirst()/]Model[model.itemMVCName.toUpperFir
 	            $query->select('a.id');
 	            $query->from('[genModel.databaseTablePrefix.concat(reference.type.oclAsType(GenClass).databaseTableName)/] AS a');
 	  		[if (reference.manyToMany)]
-				$query->join('LEFT', '[genModel.getAssociationTableName(reference.genClass, reference.type.oclAsType(GenClass))/] AS b ON b.[reference.name/] = a.id');
-				$query->join('LEFT', '[genModel.databaseTablePrefix.concat(model.databaseTableName)/] AS c ON c.id = b.[reference.opposite.name/]');
+				$query->join('LEFT', '[genModel.getAssociationTableName(reference.genClass, reference.type.oclAsType(GenClass))/] AS b ON b.[reference.genClass.databaseTableName/]_[reference.name/] = a.id');
+				$query->join('LEFT', '[genModel.databaseTablePrefix.concat(model.databaseTableName)/] AS c ON c.id = b.[reference.opposite.genClass.databaseTableName/]_[reference.opposite.name/]');
 				$query->where('c.id = '. (int) $this->id);
 			[else]
-				$query->join('LEFT', '[genModel.databaseTablePrefix.concat(model.databaseTableName)/] AS b ON b.id = a.[reference.name/]');
+				$query->join('LEFT', '[genModel.databaseTablePrefix.concat(model.databaseTableName)/] AS b ON b.id = a.[reference.genClass.databaseTableName/]_[reference.name/]');
 	            $query->where('b.id = '. (int) $this->id);
 			[/if]
 	
