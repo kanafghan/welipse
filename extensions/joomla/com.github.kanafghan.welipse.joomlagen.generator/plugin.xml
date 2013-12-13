@@ -15,13 +15,13 @@
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="false"
-            locationURI="popup:org.eclipse.ui.popup.any?before=additions">
+            locationURI="popup:com.github.kanafghan.welipse.joomlagen.presentation.JoomlaGenEditorID?before=additions">
          <command
                commandId="com.github.kanafghan.welipse.joomlagen.generator.command.GenerateCode"
                label="Generate Code"
                style="push">
             <visibleWhen
-                  checkEnabled="true">
+                  checkEnabled="false">
                <with
                      variable="activeMenuSelection">
                   <iterate>
