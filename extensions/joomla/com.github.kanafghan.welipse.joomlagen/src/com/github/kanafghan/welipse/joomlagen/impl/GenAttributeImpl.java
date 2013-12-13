@@ -302,7 +302,7 @@ public class GenAttributeImpl extends GenFeatureImpl implements GenAttribute {
 	}
 
 	private DatabaseColumnType computeDatabaseColumnType() {
-		String t = getEcoreAttribute().getEType().eClass().getName();
+		String t = getEcoreAttribute().getEType().getName();
 		if (t.equals("EBoolean") || t.equals("EInt")) {
 			return DatabaseColumnType.INT;
 		} else if (t.equals("EDouble")) {
@@ -322,6 +322,33 @@ public class GenAttributeImpl extends GenFeatureImpl implements GenAttribute {
 		}
 			
 		return FormFieldType.TEXT;
+	}
+
+	@Override
+	public boolean reconcile(GenAttribute oldGenAttributeVersion) {
+		if (getEcoreAttribute().getName().equals(oldGenAttributeVersion.getEcoreAttribute().getName())) {
+			reconcileSettings(oldGenAttributeVersion);
+			return true;
+		}
+		return false;
+	}
+
+	protected void reconcileSettings(GenAttribute oldGenAttributeVersion) {
+		setFormFieldLabel(oldGenAttributeVersion.getFormFieldLabel());
+		setFormFieldDescription(oldGenAttributeVersion.getFormFieldDescription());
+		setFormFieldType(oldGenAttributeVersion.getFormFieldType());
+		setDatabaseColumnType(oldGenAttributeVersion.getDatabaseColumnType());
+		setNullable(oldGenAttributeVersion.isNullable());
+		setType(oldGenAttributeVersion.getType());
+	}
+
+	@Override
+	public boolean reconcile() {
+		EAttribute eAttribute = getEcoreAttribute();
+		if (eAttribute == null || eAttribute.eIsProxy() || eAttribute.eResource() == null) {
+			return false;
+		}
+		return true;
 	}
 
 } //GenAttributeImpl

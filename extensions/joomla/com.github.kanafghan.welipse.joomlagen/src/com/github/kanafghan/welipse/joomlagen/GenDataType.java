@@ -46,5 +46,9 @@ public interface GenDataType extends GenClassifier {
 	 * @generated
 	 */
 	void setEcoreDataType(EDataType value);
+	
+	boolean reconcile();
+	
+	boolean reconcile(GenDataType oldGenDataTypeVersion);
 
 } // GenDataType

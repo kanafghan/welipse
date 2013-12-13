@@ -3,6 +3,7 @@
 package com.github.kanafghan.welipse.joomlagen.impl;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -561,6 +562,88 @@ public class GenClassImpl extends GenClassifierImpl implements GenClass {
 			setGenerateContentManager(true);
 			setItemMVCName(eClass.getName());
 			setListMVCName(eClass.getName().concat("List"));
+		}
+	}
+
+	@Override
+	public boolean reconcile(GenClass oldGenClassVersion) {
+		if (getEcoreClass().getName().equals(oldGenClassVersion.getEcoreClass().getName())) {
+			for (GenFeature genFeature : getGenFeatures()) {
+				if (genFeature instanceof GenAttribute) {					
+					GenAttribute genAttribute = (GenAttribute) genFeature;
+					for (GenFeature oldGenFeatureVersion : oldGenClassVersion.getGenFeatures()) {
+						if (oldGenFeatureVersion instanceof GenAttribute) {
+							GenAttribute oldGenAttributeVersion = (GenAttribute) oldGenFeatureVersion;
+							if (genAttribute.reconcile(oldGenAttributeVersion)) {
+								break;
+							}
+						}
+					}
+				}
+				
+				if (genFeature instanceof GenReference) {					
+					GenReference genReference = (GenReference) genFeature;
+					for (GenFeature oldGenFeatureVersion : oldGenClassVersion.getGenFeatures()) {
+						if (oldGenFeatureVersion instanceof GenReference) {
+							GenReference oldGenReferenceVersion = (GenReference) oldGenFeatureVersion;
+							if (genReference.reconcile(oldGenReferenceVersion)) {
+								break;
+							}
+						}
+					}
+				}				
+			}
+			
+			for (GenOperation genOperation : getGenOperations()) {
+				for (GenOperation oldGenOperationVersion : oldGenClassVersion.getGenOperations()) {
+					if (genOperation.reconcile(oldGenOperationVersion)) {
+						break;
+					}
+				}
+			}
+			
+			reconcileSettings(oldGenClassVersion);
+			return true;
+		}
+		return false;
+	}
+
+	protected void reconcileSettings(GenClass oldGenClassVersion) {
+		setDatabaseTableName(oldGenClassVersion.getDatabaseTableName());
+		setGenerateContentManager(oldGenClassVersion.isGenerateContentManager());
+		setItemMVCName(oldGenClassVersion.getItemMVCName());
+		setListMVCName(oldGenClassVersion.getListMVCName());
+	}
+
+	@Override
+	public boolean reconcile() {
+		EClass eClass = getEcoreClass();
+		if (eClass == null || eClass.eIsProxy() || eClass.eResource() == null) {
+			return false;
+		} else {		
+			for (Iterator<GenFeature> i = getGenFeatures().iterator(); i.hasNext(); ) {
+				GenFeature genFeature = i.next();
+				if (genFeature instanceof GenAttribute) {
+					GenAttribute genAttribute = (GenAttribute) genFeature;
+					if (!genAttribute.reconcile()) {
+						i.remove();
+					}
+				} else if (genFeature instanceof GenReference) {
+					GenReference genReference = (GenReference) genFeature;
+					if (!genReference.reconcile()) {
+						i.remove();
+					}
+				}
+			}
+			
+			for (Iterator<GenOperation> i = getGenOperations().iterator(); i.hasNext();) {
+				GenOperation genOperation = i.next();
+				if (!genOperation.reconcile()) {
+					i.remove();
+				}
+			}
+			
+			return true;
 		}
 	}
 

@@ -108,5 +108,9 @@ public interface GenAttribute extends GenFeature {
 	void setEcoreAttribute(EAttribute value);
 	
 	void initialize(EAttribute eAttribute);
+	
+	boolean reconcile();
+	
+	boolean reconcile(GenAttribute oldGenAttributeVersion);
 
 } // GenAttribute

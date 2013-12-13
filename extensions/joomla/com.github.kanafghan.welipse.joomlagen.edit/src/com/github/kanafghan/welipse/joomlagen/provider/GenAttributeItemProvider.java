@@ -122,7 +122,7 @@ public class GenAttributeItemProvider
 				 getString("_UI_GenAttribute_ecoreAttribute_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GenAttribute_ecoreAttribute_feature", "_UI_GenAttribute_type"),
 				 JoomlaGenPackage.Literals.GEN_ATTRIBUTE__ECORE_ATTRIBUTE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,

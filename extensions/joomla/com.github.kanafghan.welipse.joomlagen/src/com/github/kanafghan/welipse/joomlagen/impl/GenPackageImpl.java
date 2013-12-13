@@ -16,6 +16,7 @@ import com.github.kanafghan.welipse.joomlagen.JoomlaGenFactory;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -450,6 +451,14 @@ public class GenPackageImpl extends MinimalEObjectImpl.Container implements GenP
 					}
 				}
 			}
+			
+			//TODO build the inheritance hierarchy for GenClasses
+//			for (EClass superClass : genClass.getEcoreClass().getESuperTypes()) {
+//				GenClassifier superGenClassifier = getGenClassifier(superClass);
+//				if (superGenClassifier != null) {
+//					...
+//				}
+//			}
 		}
 	}
 
@@ -549,6 +558,75 @@ public class GenPackageImpl extends MinimalEObjectImpl.Container implements GenP
 		}
 		
 		return null;
+	}
+
+	@Override
+	public boolean reconcile(GenPackage oldGenPackageVersion) {
+		if (getEcorePackage().getName().equals(oldGenPackageVersion.getEcorePackage().getName())) {
+			for (GenClassifier genClassifier : getGenClassifiers()) {
+				for (GenClassifier oldGenClassifierVersion : oldGenPackageVersion.getGenClassifiers()) {
+					if (genClassifier instanceof GenClass) {
+						GenClass genClass = (GenClass) genClassifier;
+						if (oldGenClassifierVersion instanceof GenClass) {
+							GenClass oldGenClassVersion = (GenClass) oldGenClassifierVersion;
+							if (genClass.reconcile(oldGenClassVersion)) break;
+						}
+					}
+					
+					if (genClassifier instanceof GenDataType) {
+						GenDataType genDataType = (GenDataType) genClassifier;
+						if (oldGenClassifierVersion instanceof GenDataType) {
+							GenDataType oldGenDataTypeVersion = (GenDataType) oldGenClassifierVersion;
+							if (genDataType.reconcile(oldGenDataTypeVersion)) break;
+						}
+					}
+				}
+			}
+			
+			reconcileSettings(oldGenPackageVersion);
+			return true;
+		}
+		return false;
+	}
+
+	private void reconcileSettings(GenPackage oldGenPackageVersion) {
+		// No settings to be reconciled at the moment
+	}
+
+	@Override
+	public boolean reconcile() {
+		EPackage ePackage = getEcorePackage();
+		if (ePackage == null || ePackage.eIsProxy() || ePackage.eResource() == null) {			
+			return false;
+		} else {
+			for (Iterator<GenClass> i = getGenClasses().iterator(); i.hasNext(); ) {
+				GenClass genClass = i.next();
+				if (!genClass.reconcile()) {
+					removeGenClassifier(genClass);
+					i.remove();
+				}
+			}
+			
+			for (Iterator<GenDataType> i = getGenDataTypes().iterator(); i.hasNext(); ) {
+				GenDataType genDataType = i.next();
+				if (!genDataType.reconcile()) {
+					removeGenClassifier(genDataType);
+					i.remove();
+				}
+			}
+			
+			initialize(ePackage);
+			return true;
+		}
+	}
+
+	private void removeGenClassifier(GenClassifier genClassifier) {
+		for (Iterator<GenClassifier> i = getGenClassifiers().iterator(); i.hasNext(); ) {
+			GenClassifier classifier = i.next();
+			if (classifier.equals(genClassifier)) {
+				i.remove();
+			}
+		}
 	}
 
 } //GenPackageImpl

@@ -260,4 +260,23 @@ public class GenParameterImpl extends GenTypedElementImpl implements GenParamete
 		}
 	}
 
+	@Override
+	public boolean reconcile(GenParameter oldGenParameterVersion) {
+		reconcileSettings(oldGenParameterVersion);
+		return true;
+	}
+
+	protected void reconcileSettings(GenParameter oldGenParameterVersion) {
+		setType(oldGenParameterVersion.getType());
+	}
+
+	@Override
+	public boolean reconcile() {
+		EParameter eParameter = getEcoreParameter();
+		if (eParameter == null || eParameter.eIsProxy() || eParameter.eResource() == null) {
+			return true;
+		}
+		return false;
+	}
+
 } //GenParameterImpl

@@ -366,4 +366,30 @@ public class GenReferenceImpl extends GenFeatureImpl implements GenReference {
 		}
 	}
 
+	@Override
+	public boolean reconcile(GenReference oldGenReferenceVersion) {
+		if (getEcoreReference().getName().equals(oldGenReferenceVersion.getEcoreReference().getName())) {
+			reconsileSettings(oldGenReferenceVersion);
+			return true;
+		}
+		return false;
+	}
+
+	protected void reconsileSettings(GenReference oldGenReferenceVersion) {
+		setFormFieldDescription(oldGenReferenceVersion.getFormFieldDescription());
+		setFormFieldLabel(oldGenReferenceVersion.getFormFieldLabel());
+		setNullable(oldGenReferenceVersion.isNullable());
+		setOpposite(oldGenReferenceVersion.getOpposite());
+		setType(oldGenReferenceVersion.getType());
+	}
+
+	@Override
+	public boolean reconcile() {
+		EReference eReference = getEcoreReference();
+		if (eReference == null || eReference.eIsProxy() || eReference.eResource() == null) {
+			return false;
+		}
+		return true;
+	}
+
 } //GenReferenceImpl

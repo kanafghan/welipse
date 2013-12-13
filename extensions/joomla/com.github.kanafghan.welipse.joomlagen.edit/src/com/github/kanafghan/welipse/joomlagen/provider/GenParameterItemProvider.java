@@ -73,7 +73,7 @@ public class GenParameterItemProvider
 				 getString("_UI_GenParameter_ecoreParameter_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GenParameter_ecoreParameter_feature", "_UI_GenParameter_type"),
 				 JoomlaGenPackage.Literals.GEN_PARAMETER__ECORE_PARAMETER,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,

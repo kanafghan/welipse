@@ -157,4 +157,21 @@ public class GenDataTypeImpl extends GenClassifierImpl implements GenDataType {
 		return getEcoreDataType();
 	}
 
+	@Override
+	public boolean reconcile(GenDataType oldGenDataTypeVersion) {
+		if (getEcoreDataType().getName().equals(oldGenDataTypeVersion.getEcoreDataType().getName())) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean reconcile() {
+		EDataType eDataType = getEcoreDataType();
+		if (eDataType == null || eDataType.eIsProxy() || eDataType.eResource() == null) {
+			return false;
+		}
+		return true;
+	}
+
 } //GenDataTypeImpl

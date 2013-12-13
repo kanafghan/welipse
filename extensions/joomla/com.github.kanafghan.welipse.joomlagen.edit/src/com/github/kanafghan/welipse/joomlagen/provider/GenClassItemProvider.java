@@ -83,7 +83,7 @@ public class GenClassItemProvider
 				 getString("_UI_GenClass_ecoreClass_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GenClass_ecoreClass_feature", "_UI_GenClass_type"),
 				 JoomlaGenPackage.Literals.GEN_CLASS__ECORE_CLASS,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,

@@ -98,5 +98,9 @@ public interface GenOperation extends GenTypedElement {
 	void setEcoreOperation(EOperation value);
 	
 	void initialize(EOperation eOperation);
+	
+	boolean reconcile();
+	
+	boolean reconcile(GenOperation oldGenOperationVersion);
 
 } // GenOperation

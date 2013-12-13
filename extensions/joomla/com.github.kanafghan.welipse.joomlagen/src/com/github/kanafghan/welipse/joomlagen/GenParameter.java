@@ -77,5 +77,9 @@ public interface GenParameter extends GenTypedElement {
 	void setEcoreParameter(EParameter value);
 	
 	void initialize(EParameter eParameter);
+	
+	boolean reconcile();
+	
+	boolean reconcile(GenParameter oldGenParameterVersion);
 
 } // GenParameter

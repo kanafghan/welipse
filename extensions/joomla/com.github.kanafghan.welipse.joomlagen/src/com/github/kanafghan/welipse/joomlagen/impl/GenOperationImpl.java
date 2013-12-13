@@ -9,6 +9,7 @@ import com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage;
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenFactory;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -325,6 +326,40 @@ public class GenOperationImpl extends GenTypedElementImpl implements GenOperatio
 			getGenParameters().add(i, genParameter);
 			genParameter.setGenOperation(this);
 			genParameter.initialize(parameter);
+		}
+	}
+
+	@Override
+	public boolean reconcile(GenOperation oldGenOperationVersion) {
+		if (getEcoreOperation().getName().equals(oldGenOperationVersion.getEcoreOperation().getName())
+				&& getGenParameters().size() == oldGenOperationVersion.getGenParameters().size()) {
+			
+			//TODO we also need to check that old parameters have the same type as
+			// the corresponding parameter
+			
+			for (int i=0; i < getGenParameters().size(); i++) {
+				GenParameter genParameter = getGenParameters().get(i);
+				GenParameter oldGenParameterVersion = oldGenOperationVersion.getGenParameters().get(i);
+				genParameter.reconcile(oldGenParameterVersion);
+			}
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean reconcile() {
+		EOperation eOperation = getEcoreOperation();
+		if (eOperation == null || eOperation.eIsProxy() || eOperation.eResource() == null) {
+			return false;
+		} else {
+			for (Iterator<GenParameter> i = getGenParameters().iterator(); i.hasNext(); ) {
+				GenParameter genParameter = i.next();
+				if (!genParameter.reconcile()) {
+					i.remove();
+				}
+			}
+			return true;
 		}
 	}
 

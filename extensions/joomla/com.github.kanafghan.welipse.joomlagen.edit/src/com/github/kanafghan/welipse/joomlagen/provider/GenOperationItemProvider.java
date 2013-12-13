@@ -78,7 +78,7 @@ public class GenOperationItemProvider
 				 getString("_UI_GenOperation_ecoreOperation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GenOperation_ecoreOperation_feature", "_UI_GenOperation_type"),
 				 JoomlaGenPackage.Literals.GEN_OPERATION__ECORE_OPERATION,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,

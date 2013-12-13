@@ -80,7 +80,7 @@ public class GenReferenceItemProvider
 				 getString("_UI_GenReference_ecoreReference_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GenReference_ecoreReference_feature", "_UI_GenReference_type"),
 				 JoomlaGenPackage.Literals.GEN_REFERENCE__ECORE_REFERENCE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,

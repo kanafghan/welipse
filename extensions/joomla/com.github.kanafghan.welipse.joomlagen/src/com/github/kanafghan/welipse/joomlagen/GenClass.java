@@ -196,5 +196,9 @@ public interface GenClass extends GenClassifier {
 	EList<GenOperation> getGenOperations();
 	
 	void initialize(EClass eClass);
+	
+	boolean reconcile();
+	
+	boolean reconcile(GenClass oldGenClassVersion);
 
 } // GenClass

@@ -3,9 +3,7 @@
 package com.github.kanafghan.welipse.joomlagen.presentation;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -19,12 +17,9 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -77,15 +72,16 @@ import com.github.kanafghan.welipse.webdsl.Website;
 public class JoomlaGenModelWizard extends Wizard implements INewWizard {
 	/**
 	 * The supported extensions for created files.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc --> 
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(Arrays.asList(JoomlagenEditorPlugin.INSTANCE.getString("_UI_JoomlaGenEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
-	 * A formatted list of supported file extensions, suitable for display. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * A formatted list of supported file extensions, suitable for display. 
+	 * <!-- begin-user-doc --> 
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -108,16 +104,18 @@ public class JoomlaGenModelWizard extends Wizard implements INewWizard {
 	protected JoomlaGenFactory joomlaGenFactory = joomlaGenPackage.getJoomlaGenFactory();
 
 	/**
-	 * This is the file creation page. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * This is the file creation page. 
+	 * <!-- begin-user-doc --> 
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	protected JoomlaGenModelWizardNewFileCreationPage newFileCreationPage;
 
 	/**
-	 * This is the web model selection page. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * This is the web model selection page. 
+	 * <!-- begin-user-doc --> 
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
@@ -138,87 +136,65 @@ public class JoomlaGenModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected IWorkbench workbench;
-
-	/**
-	 * Caches the names of the types that can be created as the root object.
-	 * <!-- begin-user-doc --> 
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected List<String> initialObjectNames;
+	
+	protected boolean reload;
+	protected JoomlaGenModel originalGenModel;
 
 	/**
 	 * This just records the information.
 	 * <!-- begin-user-doc --> 
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(JoomlagenEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(JoomlagenEditorPlugin.INSTANCE.getImage("full/wizban/NewJoomlaGen")));
-	}
 
-	/**
-	 * Returns the names of the types that can be created as the root object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Collection<String> getInitialObjectNames() {
-		if (initialObjectNames == null) {
-			initialObjectNames = new ArrayList<String>();
-			for (EClassifier eClassifier : joomlaGenPackage.getEClassifiers()) {
-				if (eClassifier instanceof EClass) {
-					EClass eClass = (EClass)eClassifier;
-					if (!eClass.isAbstract()) {
-						initialObjectNames.add(eClass.getName());
-					}
+		if (selection != null && !selection.isEmpty()) {
+			Object selected = selection.getFirstElement();
+			if (selected instanceof IFile) {
+				IFile file = (IFile) selected;
+				if (file.getFileExtension().equals("joomlagen")) {
+					setReload(true);
+					loadOriginalGenModel(file);
 				}
 			}
-			Collections.sort(initialObjectNames, CommonPlugin.INSTANCE.getComparator());
+		} else {
+			setReload(false);
 		}
-		return initialObjectNames;
+		
+		if (isReload()) {
+			setWindowTitle(JoomlagenEditorPlugin.INSTANCE.getString("_UI_Wizard_label_reload"));	
+		} else {			
+			setWindowTitle(JoomlagenEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		}
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(JoomlagenEditorPlugin.INSTANCE.getImage("full/wizban/NewJoomlaGen")));
+	}
+	
+	protected void loadOriginalGenModel(IFile modelFile) {
+		ResourceSet resourceSet = new ResourceSetImpl();
+		URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
+		Resource resource = resourceSet.getResource(fileURI, true);
+		EList<EObject> contents = resource.getContents();
+		
+		if (!contents.isEmpty()) {
+			EObject model = contents.get(0);
+			if (model instanceof JoomlaGenModel) {
+				originalGenModel = (JoomlaGenModel) model;
+				//TODO fix this
+//				originalGenModel.reconcile();
+			}
+		}
 	}
 
-	/**
-	 * Returns the names of the types that can be created as the root object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	// protected Collection<String> getInitialObjectNames() {
-	// if (initialObjectNames == null) {
-	// initialObjectNames = new ArrayList<String>();
-	// for (EClassifier eClassifier : joomlaGenPackage.getEClassifiers()) {
-	// if (eClassifier instanceof EClass) {
-	// EClass eClass = (EClass)eClassifier;
-	// if (!eClass.isAbstract()) {
-	// initialObjectNames.add(eClass.getName());
-	// }
-	// }
-	// }
-	// Collections.sort(initialObjectNames,
-	// CommonPlugin.INSTANCE.getComparator());
-	// }
-	// return initialObjectNames;
-	// }
+	public boolean isReload() {
+		return reload;
+	}
 
-	/**
-	 * Create a new model. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	// protected EObject createInitialModel() {
-	// EClass eClass =
-	// (EClass)joomlaGenPackage.getEClassifier(webModelSelectionPage.getInitialObjectName());
-	// EObject rootObject = joomlaGenFactory.create(eClass);
-	// return rootObject;
-	// }
+	public void setReload(boolean reload) {
+		this.reload = reload;
+	}
 
-	
-	
 	/**
 	 * Do the work after everything is specified.
 	 * <!-- begin-user-doc --> 
@@ -239,30 +215,35 @@ public class JoomlaGenModelWizard extends Wizard implements INewWizard {
 					@Override
 					protected void execute(IProgressMonitor progressMonitor) {
 						try {
-							// Create a resource set
-							//
-							ResourceSet resourceSet = new ResourceSetImpl();
+							Resource resource = null;
+							EObject genModel = webModelImporterPage.getGenModel();
+							if (genModel != null) {
+								if (isReload()) {
+									((JoomlaGenModel) genModel).reconcile(originalGenModel);
+								}
+								
+								resource = genModel.eResource();
+								if (resource == null) {
+									// Create a resource set
+									//
+									ResourceSet resourceSet = new ResourceSetImpl();
 
-							// Get the URI of the model file.
-							//
-							URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
+									// Get the URI of the model file.
+									//
+									URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
 
-							// Create a resource for this file.
-							//
-							Resource resource = resourceSet.createResource(fileURI);
-
-							// Add the initial model object to the contents.
-							//
-							EObject rootObject = webModelImporterPage.getGenModel();
-							if (rootObject != null) {
-								resource.getContents().add(rootObject);
-							}
-
-							// Save the contents of the resource to the file system.
-							//
-							Map<Object, Object> options = new HashMap<Object, Object>();
-							options.put(XMLResource.OPTION_ENCODING, "UTF-8");
-							resource.save(options);
+									// Create a resource for this file.
+									//
+									resource = resourceSet.createResource(fileURI);
+									resource.getContents().add(genModel);
+								}
+								
+								// Save the contents of the resource to the file system.
+								//
+								Map<Object, Object> options = new HashMap<Object, Object>();
+								options.put(XMLResource.OPTION_ENCODING, "UTF-8");
+								resource.save(options);
+							}							
 						}
 						catch (Exception exception) {
 							JoomlagenEditorPlugin.INSTANCE.log(exception);
@@ -396,7 +377,22 @@ public class JoomlaGenModelWizard extends Wizard implements INewWizard {
 			setPageComplete(false);
 			genModel = JoomlaGenFactory.eINSTANCE.createJoomlaGenModel();
 		}
-
+		
+		@Deprecated
+		public void initGenModel(IFile modelFile) {
+			ResourceSet resourceSet = new ResourceSetImpl();
+			URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
+			Resource resource = resourceSet.getResource(fileURI, true);
+			EList<EObject> contents = resource.getContents();
+			
+			if (!contents.isEmpty()) {
+				EObject model = contents.get(0);
+				if (model instanceof JoomlaGenModel) {
+					genModel = (JoomlaGenModel) model;
+				}
+			}
+		}
+		
 		/**
 		 * <!-- begin-user-doc --> 
 		 * <!-- end-user-doc -->
@@ -404,71 +400,6 @@ public class JoomlaGenModelWizard extends Wizard implements INewWizard {
 		 * @generated NOT
 		 */
 		public void createControl(Composite parent) {
-			// Composite composite = new Composite(parent, SWT.NONE); {
-			// GridLayout layout = new GridLayout();
-			// layout.numColumns = 1;
-			// layout.verticalSpacing = 12;
-			// composite.setLayout(layout);
-			//
-			// GridData data = new GridData();
-			// data.verticalAlignment = GridData.FILL;
-			// data.grabExcessVerticalSpace = true;
-			// data.horizontalAlignment = GridData.FILL;
-			// composite.setLayoutData(data);
-			// }
-			//
-			// Label containerLabel = new Label(composite, SWT.LEFT);
-			// {
-			// containerLabel.setText(JoomlagenEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
-			//
-			// GridData data = new GridData();
-			// data.horizontalAlignment = GridData.FILL;
-			// containerLabel.setLayoutData(data);
-			// }
-			//
-			// initialObjectField = new Combo(composite, SWT.BORDER);
-			// {
-			// GridData data = new GridData();
-			// data.horizontalAlignment = GridData.FILL;
-			// data.grabExcessHorizontalSpace = true;
-			// initialObjectField.setLayoutData(data);
-			// }
-
-			// for (String objectName : getInitialObjectNames()) {
-			// initialObjectField.add(getLabel(objectName));
-			// }
-
-			// if (initialObjectField.getItemCount() == 1) {
-			// initialObjectField.select(0);
-			// }
-			// initialObjectField.addModifyListener(validator);
-			//
-			// Label encodingLabel = new Label(composite, SWT.LEFT);
-			// {
-			// encodingLabel.setText(JoomlagenEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
-			//
-			// GridData data = new GridData();
-			// data.horizontalAlignment = GridData.FILL;
-			// encodingLabel.setLayoutData(data);
-			// }
-			// encodingField = new Combo(composite, SWT.BORDER);
-			// {
-			// GridData data = new GridData();
-			// data.horizontalAlignment = GridData.FILL;
-			// data.grabExcessHorizontalSpace = true;
-			// encodingField.setLayoutData(data);
-			// }
-			//
-			// for (String encoding : getEncodings()) {
-			// encodingField.add(encoding);
-			// }
-			//
-			// encodingField.select(0);
-			// encodingField.addModifyListener(validator);
-			//
-			// setPageComplete(validatePage());
-			// setControl(composite);
-
 			Composite composite = new Composite(parent, SWT.NONE);
 			composite.setLayoutData(new GridData(GridData.FILL_BOTH
 					| GridData.GRAB_VERTICAL));
@@ -553,7 +484,7 @@ public class JoomlaGenModelWizard extends Wizard implements INewWizard {
 			}
 
 			uriText = new Text(uriComposite, SWT.SINGLE | SWT.BORDER);
-			setURIText("");
+			setURIText(getInitialURI());
 			if (uriText.getText().length() > 0) {
 				uriText.selectAll();
 			}
@@ -576,6 +507,33 @@ public class JoomlaGenModelWizard extends Wizard implements INewWizard {
 			adjustLoadButton();
 		}
 
+		private String getInitialURI() {			
+			if (selection != null && !selection.isEmpty()) {
+				Object selected = selection.getFirstElement();
+				if (selected instanceof IFile) {
+					IFile file = (IFile) selected;
+					if (file.getFileExtension().equals("webdsl")) {
+						return URI.createPlatformResourceURI(file.getFullPath().toString(), true).toString();
+					} else if (file.getFileExtension().equals("joomlagen")) {
+						if (originalGenModel != null) {
+							Website webmodel = originalGenModel.getWebmodel();
+							if (webmodel != null) {
+								Resource resource = webmodel.eResource();
+								if (resource != null) {
+									URI uri = resource.getURI();
+									if (uri != null) {										
+										return uri.toString();
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			
+			return "";
+		}
+
 		protected void adjustLoadButton() {
 			if (loadButton != null) {
 				String text = uriText.getText();
@@ -584,7 +542,9 @@ public class JoomlaGenModelWizard extends Wizard implements INewWizard {
 		}
 
 		protected void setURIText(String uri) {
-			uriText.setText(uri.trim());
+			if (uriText != null && uri != null) {				
+				uriText.setText(uri.trim());
+			}
 		}
 
 		@Override
@@ -622,7 +582,9 @@ public class JoomlaGenModelWizard extends Wizard implements INewWizard {
 							if (object instanceof Website) {
 								Website webModel = (Website) object;
 								genModel.setWebmodel(webModel);
-								genModel.setExtensionName(webModel.getName());
+								if (genModel.getExtensionName() == null || genModel.getExtensionName().isEmpty()) {									
+									genModel.setExtensionName(webModel.getName());
+								}
 								setPageComplete(true);
 							} else {
 								throw new Exception("First object is not of type Website: "
@@ -722,6 +684,17 @@ public class JoomlaGenModelWizard extends Wizard implements INewWizard {
 			return false;
 		}
 
+		@Override
+		public void dispose() {
+			browseFileSystemButton = null;
+			browseWorkspaceButton = null;
+			filterExtensions = null;
+			genModel = null;
+			loadButton = null;
+			uriText = null;
+			super.dispose();
+		}
+
 		protected String[] getFilterExtensions() {
 			if (filterExtensions == null) {
 				filterExtensions = new String[] { "*.webdsl" };
@@ -766,47 +739,73 @@ public class JoomlaGenModelWizard extends Wizard implements INewWizard {
 	 */
 	@Override
 	public void addPages() {
-		// Create a page, set the title, and the initial model file name.
-		//
-		newFileCreationPage = new JoomlaGenModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(JoomlagenEditorPlugin.INSTANCE.getString("_UI_JoomlaGenModelWizard_label"));
-		newFileCreationPage.setDescription(JoomlagenEditorPlugin.INSTANCE.getString("_UI_JoomlaGenModelWizard_description"));
-		newFileCreationPage.setFileName(JoomlagenEditorPlugin.INSTANCE.getString("_UI_JoomlaGenEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
-		addPage(newFileCreationPage);
-
-		// Try and get the resource selection to determine a current directory for the file dialog.
-		//
-		if (selection != null && !selection.isEmpty()) {
-			// Get the resource...
+		if (!isReload()) {
+			// Create a page, set the title, and the initial model file name.
 			//
-			Object selectedElement = selection.iterator().next();
-			if (selectedElement instanceof IResource) {
-				// Get the resource parent, if its a file.
+			newFileCreationPage = new JoomlaGenModelWizardNewFileCreationPage(
+					"Whatever", selection);
+			newFileCreationPage.setTitle(JoomlagenEditorPlugin.INSTANCE
+					.getString("_UI_JoomlaGenModelWizard_label"));
+			newFileCreationPage.setDescription(JoomlagenEditorPlugin.INSTANCE
+					.getString("_UI_JoomlaGenModelWizard_description"));
+			newFileCreationPage.setFileName(JoomlagenEditorPlugin.INSTANCE
+					.getString("_UI_JoomlaGenEditorFilenameDefaultBase")
+					+ "."
+					+ FILE_EXTENSIONS.get(0));
+			addPage(newFileCreationPage);
+			
+			// Try and get the resource selection to determine a current directory for the file dialog.
+			//
+			if (selection != null && !selection.isEmpty()) {
+				// Get the resource...
 				//
-				IResource selectedResource = (IResource)selectedElement;
-				if (selectedResource.getType() == IResource.FILE) {
-					selectedResource = selectedResource.getParent();
-				}
-
-				// This gives us a directory...
-				//
-				if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
-					// Set this for the container.
+				Object selectedElement = selection.iterator().next();
+				if (selectedElement instanceof IResource) {
+					String guessedFileName = null;
+					
+					// Get the resource parent, if its a file.
 					//
-					newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
-
-					// Make up a unique new name here.
-					//
-					String defaultModelBaseFilename = JoomlagenEditorPlugin.INSTANCE.getString("_UI_JoomlaGenEditorFilenameDefaultBase");
-					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
-					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
-						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
+					IResource selectedResource = (IResource) selectedElement;
+					if (selectedResource.getType() == IResource.FILE) {
+						selectedResource = selectedResource.getParent();
+						
+						// Extract the file name for the genenerator model name
+						IFile file = (IFile) selectedElement;
+						String fileName = file.getName();
+						String fileExtension = file.getFileExtension();
+						
+						guessedFileName = fileName.substring(0, fileName.indexOf(fileExtension)-1);
 					}
-					newFileCreationPage.setFileName(modelFilename);
+
+					// This gives us a directory...
+					//
+					if (selectedResource instanceof IFolder
+							|| selectedResource instanceof IProject) {
+						// Set this for the container.
+						//
+						newFileCreationPage
+								.setContainerFullPath(selectedResource
+										.getFullPath());
+
+						// Make up a unique new name here.
+						//
+						String defaultModelBaseFilename = guessedFileName != null ? guessedFileName : JoomlagenEditorPlugin.INSTANCE
+								.getString("_UI_JoomlaGenEditorFilenameDefaultBase");
+						String defaultModelFilenameExtension = FILE_EXTENSIONS
+								.get(0);
+						String modelFilename = defaultModelBaseFilename + "."
+								+ defaultModelFilenameExtension;
+						for (int i = 1; ((IContainer) selectedResource)
+								.findMember(modelFilename) != null; ++i) {
+							modelFilename = defaultModelBaseFilename + i + "."
+									+ defaultModelFilenameExtension;
+						}
+						newFileCreationPage.setFileName(modelFilename);
+					}
 				}
 			}
 		}
+		
 		webModelImporterPage = new JoomlaGenModelWizardWebModelImporterPage("WebModelImporterPage");
 		webModelImporterPage.setTitle(JoomlagenEditorPlugin.INSTANCE.getString("_UI_JoomlaGenModelWizard_label"));
 		webModelImporterPage.setDescription(JoomlagenEditorPlugin.INSTANCE.getString("_UI_Wizard_webmodel_importer_description"));
@@ -817,9 +816,12 @@ public class JoomlaGenModelWizard extends Wizard implements INewWizard {
 	 * Get the file from the page.
 	 * <!-- begin-user-doc --> 
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public IFile getModelFile() {
+		if (isReload()) {
+			return (IFile) selection.getFirstElement();
+		}
 		return newFileCreationPage.getModelFile();
 	}
 

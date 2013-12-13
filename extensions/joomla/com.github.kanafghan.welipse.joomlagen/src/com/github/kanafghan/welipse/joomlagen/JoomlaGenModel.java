@@ -578,5 +578,12 @@ public interface JoomlaGenModel extends EObject {
 	 * @generated
 	 */
 	void setMinifiedBootsrap(boolean value);
+	
+	boolean reconcile();
+	
+	/**
+	 * Restore all the corresponding settings of the old version into this version.
+	 */
+	boolean reconcile(JoomlaGenModel oldGenModelVersion);
 
 } // JoomlaGenModel

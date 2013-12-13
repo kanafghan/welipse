@@ -156,5 +156,9 @@ public interface GenReference extends GenFeature {
 	void setOneToMany(boolean value);
 	
 	void initialize(EReference eReference);
+	
+	boolean reconcile();
+	
+	boolean reconcile(GenReference oldGenReferenceVersion);
 
 } // GenReference

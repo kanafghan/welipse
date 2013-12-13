@@ -138,5 +138,9 @@ public interface GenPackage extends EObject {
 	GenClassifier getGenClassifier(EClassifier ecoreClassifier);
 
 	GenReference getGenReference(EReference eReference);
+	
+	boolean reconcile();
+	
+	boolean reconcile(GenPackage oldGenPackageVersion);
 
 } // GenPackage

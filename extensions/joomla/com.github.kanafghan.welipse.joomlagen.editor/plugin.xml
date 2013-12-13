@@ -33,5 +33,39 @@
             contributorClass="com.github.kanafghan.welipse.joomlagen.presentation.JoomlaGenActionBarContributor">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="com.github.kanafghan.welipse.ui.popups"
+            defaultHandler="com.github.kanafghan.welipse.joomlagen.handler.ReloadGenModelHandler"
+            description="Reload the Joomla! Generator Model"
+            id="com.github.kanafghan.welipse.joomlagen.editor.command.ReloadGenModel"
+            name="Reload Gen Model">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer?endof=additions">
+         <command
+               commandId="com.github.kanafghan.welipse.joomlagen.editor.command.ReloadGenModel"
+               label="&amp;Reload..."
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate>
+                  <adapt
+                        type="org.eclipse.core.resources.IResource">
+                     <test
+                           property="org.eclipse.core.resources.name"
+                           value="*.joomlagen">
+                     </test>
+                  </adapt>
+               </iterate>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
 
 </plugin>

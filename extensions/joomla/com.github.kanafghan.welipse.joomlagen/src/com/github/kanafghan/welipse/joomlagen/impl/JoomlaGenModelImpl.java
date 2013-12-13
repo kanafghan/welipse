@@ -558,9 +558,9 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 								if (!contents.isEmpty()) {
 									EObject object = contents.get(0);
 									if (object instanceof EPackage) {
-										GenPackage dm = JoomlaGenFactory.eINSTANCE
-												.createGenPackage();
-										dm.initialize((EPackage) object);
+										EPackage ePackage = (EPackage) object;							
+										GenPackage dm = JoomlaGenFactory.eINSTANCE.createGenPackage();
+										dm.initialize(ePackage);
 										setDatamodel(dm);
 									}
 								}
@@ -854,8 +854,8 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 		if (databaseTables == null) {
 			databaseTables = new EObjectContainmentEList<DatabaseTable>(DatabaseTable.class, this, JoomlaGenPackage.JOOMLA_GEN_MODEL__DATABASE_TABLES);
 			
-			// Generate database tables if datamodel is provided 
-			if (getDatamodel() != null) {	
+			// Generate database tables for the provided datamodel 
+			if (reconcile()) {
 				List<GenClass> classes = new ArrayList<GenClass>(getDatamodel().getGenClasses());
 				for (GenClass genClass : classes) {
 					DatabaseTable table = tables.get(genClass.getDatabaseTableName());
@@ -872,6 +872,10 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 						}
 					}
 					databaseTables.add(table);
+				}
+			} else {
+				if (getDatamodel() != null) {					
+					throw new Error("Could not reconcile the datamodel.");
 				}
 			}
 		}
@@ -1481,6 +1485,50 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 		result.append(initialData);
 		result.append(')');
 		return result.toString();
+	}
+
+	@Override
+	public boolean reconcile(JoomlaGenModel oldGenModelVersion) {
+		boolean result = false;
+		
+		if (oldGenModelVersion != null) {
+			if (getDatamodel() != null && oldGenModelVersion.getDatamodel() != null) {
+				if (getDatamodel().reconcile(oldGenModelVersion.getDatamodel())) {
+					result = true;
+				}
+			}
+			
+			reconcileSettings(oldGenModelVersion);
+		}
+		
+		return result;
+	}
+
+	protected void reconcileSettings(JoomlaGenModel oldGenModelVersion) {
+		setAuthor(oldGenModelVersion.getAuthor());
+		setAuthorEmail(oldGenModelVersion.getAuthorEmail());
+		setAuthorURL(oldGenModelVersion.getAuthorURL());
+		setCopyright(oldGenModelVersion.getCopyright());
+		setCreationDate(oldGenModelVersion.getCreationDate());
+		setCustomCSSFiles(oldGenModelVersion.getCustomCSSFiles());
+		setDatabaseTablePrefix(oldGenModelVersion.getDatabaseTablePrefix());
+		setDescription(oldGenModelVersion.getDescription());
+		setExtensionName(oldGenModelVersion.getExtensionName());
+		setExtensionType(oldGenModelVersion.getExtensionType());
+		setInitialData(oldGenModelVersion.getInitialData());
+		setJoomlaVersion(oldGenModelVersion.getJoomlaVersion());
+		setLicense(oldGenModelVersion.getLicense());
+		setMinifiedBootsrap(oldGenModelVersion.isMinifiedBootsrap());
+		setUseBootstrap(oldGenModelVersion.isUseBootstrap());
+		setVersion(oldGenModelVersion.getVersion());
+	}
+
+	@Override
+	public boolean reconcile() {
+		if (getDatamodel() != null) {
+			return getDatamodel().reconcile();
+		}
+		return false;
 	}
 
 } //JoomlaGenModelImpl

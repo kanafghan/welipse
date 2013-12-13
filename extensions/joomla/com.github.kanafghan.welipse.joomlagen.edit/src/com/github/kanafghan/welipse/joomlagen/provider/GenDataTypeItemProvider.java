@@ -73,7 +73,7 @@ public class GenDataTypeItemProvider
 				 getString("_UI_GenDataType_ecoreDataType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GenDataType_ecoreDataType_feature", "_UI_GenDataType_type"),
 				 JoomlaGenPackage.Literals.GEN_DATA_TYPE__ECORE_DATA_TYPE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
