@@ -71,6 +71,10 @@
         <element xmi:type="ecore:EAttribute" href="webdsl.ecore#//VariableDeclaration/classifier"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_q1EbwU80EeOoONXk7Ml0-A"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_qefHcGQfEeOFyv4sbQEZpQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="webdsl.ecore#//VariableDeclaration/declaration"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_qefHcWQfEeOFyv4sbQEZpQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_bYfbkjmUEeONybKtzXtUVA"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_bYfbkzmUEeONybKtzXtUVA"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_bYfblDmUEeONybKtzXtUVA"/>
@@ -551,7 +555,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_vztlwTmYEeONybKtzXtUVA" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_vztlwjmYEeONybKtzXtUVA" fontName="Segoe UI"/>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vztlwzmYEeONybKtzXtUVA" points="[1, 0, -126, 66]$[1, -26, -126, 40]$[160, -26, 33, 40]$[160, -66, 33, 0]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vztlwzmYEeONybKtzXtUVA" points="[2, 0, -128, 49]$[2, -15, -128, 34]$[170, -15, 40, 34]$[170, -49, 40, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vzwpEDmYEeONybKtzXtUVA" id="(0.6666666666666666,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__lEp8EUCEeO1jr6179YJKg" id="(0.2462686567164179,1.0)"/>
   </edges>

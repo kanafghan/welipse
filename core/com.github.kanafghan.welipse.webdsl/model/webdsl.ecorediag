@@ -252,7 +252,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_hh8btEvgEeO4yevPyWNobg"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_hh9CwEvgEeO4yevPyWNobg" type="5002">
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_hh9CwUvgEeO4yevPyWNobg"/>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_hh9CwUvgEeO4yevPyWNobg" collapsed="true"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_hh9CwkvgEeO4yevPyWNobg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_hh9Cw0vgEeO4yevPyWNobg"/>
     </children>

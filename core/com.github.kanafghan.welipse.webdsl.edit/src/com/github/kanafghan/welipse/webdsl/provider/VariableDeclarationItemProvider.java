@@ -61,6 +61,7 @@ public class VariableDeclarationItemProvider
 			addVarPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addClassifierPropertyDescriptor(object);
+			addDeclarationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -132,6 +133,28 @@ public class VariableDeclarationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Declaration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDeclarationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_VariableDeclaration_declaration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDeclaration_declaration_feature", "_UI_VariableDeclaration_type"),
+				 WebDSLPackage.Literals.VARIABLE_DECLARATION__DECLARATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns VariableDeclaration.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,6 +193,7 @@ public class VariableDeclarationItemProvider
 		switch (notification.getFeatureID(VariableDeclaration.class)) {
 			case WebDSLPackage.VARIABLE_DECLARATION__VAR:
 			case WebDSLPackage.VARIABLE_DECLARATION__CLASSIFIER:
+			case WebDSLPackage.VARIABLE_DECLARATION__DECLARATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

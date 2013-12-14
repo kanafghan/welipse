@@ -1010,13 +1010,22 @@ public interface WebDSLPackage extends EPackage {
 	int VARIABLE_DECLARATION__CLASSIFIER = 2;
 
 	/**
+	 * The feature id for the '<em><b>Declaration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DECLARATION__DECLARATION = 3;
+
+	/**
 	 * The number of structural features of the '<em>Variable Declaration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_DECLARATION_FEATURE_COUNT = 3;
+	int VARIABLE_DECLARATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Initialize</em>' operation.
@@ -1072,6 +1081,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE_INITIALIZATION__CLASSIFIER = VARIABLE_DECLARATION__CLASSIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Declaration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_INITIALIZATION__DECLARATION = VARIABLE_DECLARATION__DECLARATION;
 
 	/**
 	 * The feature id for the '<em><b>Init Exp</b></em>' containment reference.
@@ -1639,6 +1657,15 @@ public interface WebDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER__CLASSIFIER = VARIABLE_DECLARATION__CLASSIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Declaration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__DECLARATION = VARIABLE_DECLARATION__DECLARATION;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -2651,6 +2678,17 @@ public interface WebDSLPackage extends EPackage {
 	EAttribute getVariableDeclaration_Classifier();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.VariableDeclaration#getDeclaration <em>Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Declaration</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.VariableDeclaration#getDeclaration()
+	 * @see #getVariableDeclaration()
+	 * @generated
+	 */
+	EAttribute getVariableDeclaration_Declaration();
+
+	/**
 	 * Returns the meta object for the '{@link com.github.kanafghan.welipse.webdsl.VariableDeclaration#initialize(com.github.kanafghan.welipse.webdsl.Page) <em>Initialize</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3515,6 +3553,14 @@ public interface WebDSLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VARIABLE_DECLARATION__CLASSIFIER = eINSTANCE.getVariableDeclaration_Classifier();
+
+		/**
+		 * The meta object literal for the '<em><b>Declaration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VARIABLE_DECLARATION__DECLARATION = eINSTANCE.getVariableDeclaration_Declaration();
 
 		/**
 		 * The meta object literal for the '<em><b>Initialize</b></em>' operation.

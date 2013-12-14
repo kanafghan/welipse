@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.github.kanafghan.welipse.webdsl.VariableDeclaration#getVar <em>Var</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.VariableDeclaration#getType <em>Type</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.VariableDeclaration#getClassifier <em>Classifier</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.VariableDeclaration#getDeclaration <em>Declaration</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,6 +102,32 @@ public interface VariableDeclaration extends EObject {
 	 * @generated
 	 */
 	void setClassifier(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Declaration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Declaration</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Declaration</em>' attribute.
+	 * @see #setDeclaration(String)
+	 * @see com.github.kanafghan.welipse.webdsl.WebDSLPackage#getVariableDeclaration_Declaration()
+	 * @model
+	 * @generated
+	 */
+	String getDeclaration();
+
+	/**
+	 * Sets the value of the '{@link com.github.kanafghan.welipse.webdsl.VariableDeclaration#getDeclaration <em>Declaration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Declaration</em>' attribute.
+	 * @see #getDeclaration()
+	 * @generated
+	 */
+	void setDeclaration(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

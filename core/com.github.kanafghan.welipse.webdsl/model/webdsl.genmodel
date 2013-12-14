@@ -60,11 +60,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//List/iteratorVariable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//List/variable"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="webdsl.ecore#//Text">
+    <genClasses ecoreClass="webdsl.ecore#//Text">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Text/content"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Text/static"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="webdsl.ecore#//Image">
+    <genClasses ecoreClass="webdsl.ecore#//Image">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Image/referenced"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Image/source"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Image/static"/>
@@ -94,6 +94,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//VariableDeclaration/var"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//VariableDeclaration/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//VariableDeclaration/classifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//VariableDeclaration/declaration"/>
       <genOperations ecoreOperation="webdsl.ecore#//VariableDeclaration/initialize">
         <genParameters ecoreParameter="webdsl.ecore#//VariableDeclaration/initialize/page"/>
       </genOperations>

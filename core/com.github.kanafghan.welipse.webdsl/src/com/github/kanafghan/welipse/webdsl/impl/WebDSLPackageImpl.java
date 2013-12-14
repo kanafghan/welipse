@@ -809,6 +809,15 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getVariableDeclaration_Declaration() {
+		return (EAttribute)variableDeclarationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getVariableDeclaration__Initialize__Page() {
 		return variableDeclarationEClass.getEOperations().get(0);
 	}
@@ -1263,6 +1272,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__VAR);
 		createEReference(variableDeclarationEClass, VARIABLE_DECLARATION__TYPE);
 		createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__CLASSIFIER);
+		createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__DECLARATION);
 		createEOperation(variableDeclarationEClass, VARIABLE_DECLARATION___INITIALIZE__PAGE);
 
 		variableInitializationEClass = createEClass(VARIABLE_INITIALIZATION);
@@ -1449,6 +1459,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		initEAttribute(getVariableDeclaration_Var(), theEcorePackage.getEString(), "var", null, 1, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVariableDeclaration_Type(), theEcorePackage.getEClassifier(), null, "type", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVariableDeclaration_Classifier(), theEcorePackage.getEString(), "classifier", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVariableDeclaration_Declaration(), theEcorePackage.getEString(), "declaration", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getVariableDeclaration__Initialize__Page(), null, "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getPage(), "page", 0, 1, IS_UNIQUE, IS_ORDERED);

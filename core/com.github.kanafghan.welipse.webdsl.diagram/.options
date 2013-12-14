@@ -1,0 +1,7 @@
+# Tracing options for the com.github.kanafghan.welipse.webdsl.diagram plug-in
+
+# Common issues
+com.github.kanafghan.welipse.webdsl.diagram/debug=false
+
+# Visual IDs
+com.github.kanafghan.welipse.webdsl.diagram/debug/visualID=false

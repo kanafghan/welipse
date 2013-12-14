@@ -31,6 +31,7 @@ import com.github.kanafghan.welipse.webdsl.etc.ExpressionUtils;
  *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.VariableDeclarationImpl#getVar <em>Var</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.VariableDeclarationImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.VariableDeclarationImpl#getClassifier <em>Classifier</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.VariableDeclarationImpl#getDeclaration <em>Declaration</em>}</li>
  * </ul>
  * </p>
  *
@@ -86,6 +87,26 @@ public abstract class VariableDeclarationImpl extends MinimalEObjectImpl.Contain
 	 * @ordered
 	 */
 	protected String classifier = CLASSIFIER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDeclaration() <em>Declaration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeclaration()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DECLARATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDeclaration() <em>Declaration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeclaration()
+	 * @generated
+	 * @ordered
+	 */
+	protected String declaration = DECLARATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,6 +210,27 @@ public abstract class VariableDeclarationImpl extends MinimalEObjectImpl.Contain
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDeclaration() {
+		return declaration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDeclaration(String newDeclaration) {
+		String oldDeclaration = declaration;
+		declaration = newDeclaration;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WebDSLPackage.VARIABLE_DECLARATION__DECLARATION, oldDeclaration, declaration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void initialize(Page page) {
@@ -251,6 +293,8 @@ public abstract class VariableDeclarationImpl extends MinimalEObjectImpl.Contain
 				return basicGetType();
 			case WebDSLPackage.VARIABLE_DECLARATION__CLASSIFIER:
 				return getClassifier();
+			case WebDSLPackage.VARIABLE_DECLARATION__DECLARATION:
+				return getDeclaration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -271,6 +315,9 @@ public abstract class VariableDeclarationImpl extends MinimalEObjectImpl.Contain
 				return;
 			case WebDSLPackage.VARIABLE_DECLARATION__CLASSIFIER:
 				setClassifier((String)newValue);
+				return;
+			case WebDSLPackage.VARIABLE_DECLARATION__DECLARATION:
+				setDeclaration((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -293,6 +340,9 @@ public abstract class VariableDeclarationImpl extends MinimalEObjectImpl.Contain
 			case WebDSLPackage.VARIABLE_DECLARATION__CLASSIFIER:
 				setClassifier(CLASSIFIER_EDEFAULT);
 				return;
+			case WebDSLPackage.VARIABLE_DECLARATION__DECLARATION:
+				setDeclaration(DECLARATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -311,6 +361,8 @@ public abstract class VariableDeclarationImpl extends MinimalEObjectImpl.Contain
 				return type != null;
 			case WebDSLPackage.VARIABLE_DECLARATION__CLASSIFIER:
 				return CLASSIFIER_EDEFAULT == null ? classifier != null : !CLASSIFIER_EDEFAULT.equals(classifier);
+			case WebDSLPackage.VARIABLE_DECLARATION__DECLARATION:
+				return DECLARATION_EDEFAULT == null ? declaration != null : !DECLARATION_EDEFAULT.equals(declaration);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -344,6 +396,8 @@ public abstract class VariableDeclarationImpl extends MinimalEObjectImpl.Contain
 		result.append(var);
 		result.append(", classifier: ");
 		result.append(classifier);
+		result.append(", declaration: ");
+		result.append(declaration);
 		result.append(')');
 		return result.toString();
 	}

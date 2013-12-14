@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/com.github.kanafghan.welipse.webdsl/model/webdsl.genmodel
+gmf_dashboard/domainModel=platform\:/resource/com.github.kanafghan.welipse.webdsl/model/webdsl.ecore
+gmf_dashboard/generationModel=platform\:/resource/com.github.kanafghan.welipse.webdsl/model/webdsl.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/com.github.kanafghan.welipse.webdsl/model/webdsl.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/com.github.kanafghan.welipse.webdsl/model/webdsl.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/com.github.kanafghan.welipse.webdsl/model/webdsl.gmftool
