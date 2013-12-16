@@ -10,13 +10,14 @@
 CREATE TABLE IF NOT EXISTS [genModel.databaseTablePrefix.concat(table.name)/] (
 	id int(11) NOT NULL AUTO_INCREMENT,
 	[generateTableColumns(table)/]
-	PRIMARY KEY (`id`),
-	[generateTableForeignKeys(table, genModel)/]
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 [/for]
 
 [generateInsertSQL(genModel)/]
+
+[generateForeignKeys(genModel)/]
 
 -- [protected ('Custom SQL')]
 -- Enter custom SQL here (don't remove the above and the below lines)
@@ -52,14 +53,30 @@ CREATE TABLE IF NOT EXISTS [genModel.databaseTablePrefix.concat(table.name)/] (
 [/if]
 [/template]
 
+[template public generateForeignKeys (genModel : JoomlaGenModel) ]
+[for (table : DatabaseTable | genModel.databaseTables)]
+[if (table.foreignKeys->size() > 0)]
+-- FOREIGN KEY constraints of [genModel.databaseTablePrefix.concat(table.name)/] table
+[for (reference : GenReference | table.foreignKeys)]
+[generateForeignKey(reference, table, genModel)/]
+[/for]
+-- END FOREIGN KEY constraints
+
+[/if]
+[/for]
+[/template]
+
 [template public generateTableForeignKeys (table : DatabaseTable, genModel : JoomlaGenModel) post (trim())]
 [for (reference : GenReference | table.foreignKeys)]
 [generateForeignKey(reference, table, genModel)/],
 [/for]
 [/template]
 
-[template public generateForeignKey(reference : GenReference, table : DatabaseTable, genModel : JoomlaGenModel) post (trim())]
-FOREIGN KEY ([generateForeignKeyName(reference, table)/]) REFERENCES [generateReferencedTableName(reference, table, genModel)/](id)
+[template public generateForeignKey(reference : GenReference, table : DatabaseTable, genModel : JoomlaGenModel)]
+ALTER TABLE [genModel.databaseTablePrefix.concat(table.name)/] 
+ADD FOREIGN KEY ([generateForeignKeyName(reference, table)/]) 
+REFERENCES [generateReferencedTableName(reference, table, genModel)/](id);
+
 [/template]
 
 [template public generateForeignKeyName(reference : GenReference, table : DatabaseTable) post (trim())]

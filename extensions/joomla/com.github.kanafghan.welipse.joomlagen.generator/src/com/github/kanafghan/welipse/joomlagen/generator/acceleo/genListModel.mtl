@@ -3,7 +3,7 @@
 
 [template public generateListModel(model : GenClass, genModel : JoomlaGenModel)]
 [comment @main/]
-[file (model.listMVCName.toLower().concat('list.php'), false, 'UTF-8')]
+[file (model.listMVCName.toLower().concat('.php'), false, 'UTF-8')]
 <?php
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
@@ -12,15 +12,15 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.modellist');
  
 /**
- * [model.listMVCName.toUpperFirst().concat('List')/] Model
+ * [model.listMVCName.toUpperFirst()/] Model
  */
-class [genModel.extensionName.toUpperFirst()/]Model[model.listMVCName.toUpperFirst().concat('List')/] extends JModelList
+class [genModel.extensionName.toUpperFirst()/]Model[model.listMVCName.toUpperFirst()/] extends JModelList
 {
     /**
      * (non-PHPdoc)
      * @see JModel::getTable()
      */
-    public function getTable($type = '[model.listMVCName.toUpperFirst()/]', $prefix = '[genModel.extensionName.toUpperFirst()/]Table', $config = array()) 
+    public function getTable($type = '[model.databaseTableName/]', $prefix = '[genModel.extensionName.toUpperFirst()/]Table', $config = array()) 
     {
         return JTable::getInstance($type, $prefix, $config);
     }
@@ -35,7 +35,7 @@ class [genModel.extensionName.toUpperFirst()/]Model[model.listMVCName.toUpperFir
         $query = $db->getQuery(true);
 
         $query->select('a.*');
-        $query->from('[model.databaseTableName/] AS a');
+        $query->from('[genModel.databaseTablePrefix.concat(model.databaseTableName)/] AS a');
 
         return $query;
     }

@@ -138,11 +138,11 @@ public class JComponentGenerator {
 
 							URL bootstrap = bundle.getEntry("resources/bootstrap/css/bootstrap"+ mini +".css");
 							if (bootstrap != null) {								
-								copyFile("bootsrap"+ mini +".css", bootstrap.openStream(), cssFolder, monitor);
+								copyFile("bootstrap"+ mini +".css", bootstrap.openStream(), cssFolder, monitor);
 							}
 							URL bootstrapTheme = bundle.getEntry("resources/bootstrap/css/bootstrap-theme"+ mini +".css");
 							if (bootstrapTheme != null) {								
-								copyFile("bootsrap-theme"+ mini +".css", bootstrapTheme.openStream(), cssFolder, monitor);							
+								copyFile("bootstrap-theme"+ mini +".css", bootstrapTheme.openStream(), cssFolder, monitor);							
 							}
 						}
 					}

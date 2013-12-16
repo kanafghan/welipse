@@ -1,7 +1,7 @@
 [comment encoding = UTF-8 /]
 [module Expression2PHP('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[template public generateExpression(expression : Expression)]
+[template public generateExpression(expression : Expression) post (trim())]
 [if (expression.oclIsKindOf(ConstantExp))]
 	[generateConstantExpression(expression.oclAsType(ConstantExp))/]
 [/if]
@@ -28,7 +28,7 @@
 [/if]
 [/template]
 
-[template public generateVariableExpression(variable : VariableExp)]
+[template public generateVariableExpression(variable : VariableExp) post (trim())]
 $[variable.var/]
 [/template]
 
@@ -37,10 +37,14 @@ $[variable.var/]
 	[generateVariableExpression(expression.source.oclAsType(VariableExp))/]->[expression.identifier/]([generateOperationArguments(expression.oclAsType(ClassifierOperation))/])
 [/if]
 [if (expression.oclIsKindOf(StructuralExp))]
-	[generateVariableExpression(expression.source.oclAsType(VariableExp))/]->[expression.identifier/]
+	[generateStructuralExpression(expression.oclAsType(StructuralExp))/]
 [/if]
 [/template]
 
 [template public generateOperationArguments (operation : ClassifierOperation) post (trim())]
 [operation.arguments.generateExpression()->sep(',')/]
+[/template]
+
+[template public generateStructuralExpression (expression : StructuralExp) post (trim())]
+[generateVariableExpression(expression.source.oclAsType(VariableExp))/]->[if (expression.feature.oclAsType(EStructuralFeature).oclIsKindOf(EAttribute))][expression.identifier/][else]get[expression.identifier.toUpperFirst()/]()[/if]
 [/template]

@@ -57,6 +57,7 @@ class [genModel.extensionName.toUpperFirst()/]View[view.listMVCName.toUpperFirst
 		JToolBarHelper::editList('[view.itemMVCName.toLower()/].edit');
 		JToolBarHelper::deleteList('', '[view.listMVCName.toLower()/].delete', 'JTOOLBAR_DELETE');
 	}
+}
 [/file]
 
 [/template]

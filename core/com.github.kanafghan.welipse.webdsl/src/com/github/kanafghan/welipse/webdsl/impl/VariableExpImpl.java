@@ -2,12 +2,8 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
-import com.github.kanafghan.welipse.webdsl.Page;
-import com.github.kanafghan.welipse.webdsl.Parameter;
-import com.github.kanafghan.welipse.webdsl.VariableDeclaration;
-import com.github.kanafghan.welipse.webdsl.VariableExp;
-import com.github.kanafghan.welipse.webdsl.VariableInitialization;
-import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -15,6 +11,16 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import com.github.kanafghan.welipse.webdsl.Group;
+import com.github.kanafghan.welipse.webdsl.List;
+import com.github.kanafghan.welipse.webdsl.Page;
+import com.github.kanafghan.welipse.webdsl.PageElement;
+import com.github.kanafghan.welipse.webdsl.Parameter;
+import com.github.kanafghan.welipse.webdsl.VariableDeclaration;
+import com.github.kanafghan.welipse.webdsl.VariableExp;
+import com.github.kanafghan.welipse.webdsl.VariableInitialization;
+import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -253,6 +259,7 @@ public class VariableExpImpl extends ExpressionImpl implements VariableExp {
 			if (param.getVar().equals(getVar())) {
 				setDeclaration(param);
 				found = true;
+				break;
 			}
 		}
 		
@@ -264,6 +271,19 @@ public class VariableExpImpl extends ExpressionImpl implements VariableExp {
 				if (var.getVar().equals(getVar())) {
 					setDeclaration(var);
 					found = true;
+					break;
+				}
+			}
+		}
+		
+		//TODO this is a fix to the context problem
+		if (!found) {
+			for (List list : getLists(page)) {
+				VariableDeclaration variable = list.getIteratorVariable();
+				if (variable != null && variable.getVar().equals(getVar())) {
+					setDeclaration(variable);
+					found = true;
+					break;
 				}
 			}
 		}
@@ -272,6 +292,39 @@ public class VariableExpImpl extends ExpressionImpl implements VariableExp {
 		if (!found) {
 			throw new Error("Variable '"+ getVar() +"' is not declared.");
 		}
+	}
+
+	private java.util.List<List> getLists(Page page) {
+		ArrayList<List> result = new ArrayList<List>();
+		
+		for (PageElement element : page.getElements()) {
+			if (element instanceof List) {
+				result.add((List) element);
+			}
+			result.addAll(getLists(element));
+		}
+		
+		return result;
+	}
+
+	private Collection<? extends List> getLists(PageElement element) {
+		ArrayList<List> result = new ArrayList<List>();
+		if (element instanceof List) {
+			for (PageElement elem : ((List) element).getElements()) {
+				if (elem instanceof List) {
+					result.add((List) elem);
+				}
+				result.addAll(getLists(elem));
+			}
+		} else if (element instanceof Group) {
+			for (PageElement elem : ((Group) element).getElements()) {
+				if (elem instanceof List) {
+					result.add((List) elem);
+				}
+				result.addAll(getLists(elem));
+			}
+		}
+		return result;
 	}
 
 } //VariableExpImpl

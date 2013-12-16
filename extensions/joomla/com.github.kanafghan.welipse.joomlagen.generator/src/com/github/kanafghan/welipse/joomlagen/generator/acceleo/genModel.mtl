@@ -92,7 +92,15 @@ class [genModel.extensionName.toUpperFirst()/]Model[model.itemMVCName.toUpperFir
 			if (isset($this->[reference.name/])) 
 			{
 				$this->[reference.name/]Instance = JModel::getInstance('[reference.type.oclAsType(GenClass).itemMVCName.toUpperFirst()/]', '[genModel.extensionName.toUpperFirst()/]Model', $config = array('id' => $this->[reference.name/]));
-			} else {
+			} 
+			[if (not reference.opposite.oclIsUndefined())]
+			else if (isset($this->[reference.opposite.genClass.databaseTableName/]_[reference.opposite.name/])) 
+			{
+				$this->[reference.name/]Instance = JModel::getInstance('[reference.type.oclAsType(GenClass).itemMVCName.toUpperFirst()/]', '[genModel.extensionName.toUpperFirst()/]Model', $config = array('id' => $this->[reference.opposite.genClass.databaseTableName/]_[reference.opposite.name/]));
+			}
+			[/if] 
+			else 
+			{
 	            $ids = array();
 	            $this->[reference.name/]Instance[if (reference.many)]s = array()[else] = null[/if];
 	            $db = $this->getDbo();

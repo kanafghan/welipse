@@ -49,7 +49,7 @@ class [genModel.extensionName.toUpperFirst()/]Controller extends JController
 [/template]
 
 [template public getDefaultView (genModel : JoomlaGenModel, isBackEnd : Boolean) ]
-[if (isBackEnd)][getDefaultBackEndView(genModel).name.toLower()/][else][genModel.webmodel.oclAsType(Website).home.name.toLower()/][/if]
+[if (isBackEnd)][getDefaultBackEndView(genModel).listMVCName.toLower()/][else][genModel.webmodel.oclAsType(Website).home.name.toLower()/][/if]
 [/template]
 
-[query public getDefaultBackEndView (genModel : JoomlaGenModel) : EClass = genModel.datamodel.genClasses->current(EClass) /]
+[query public getDefaultBackEndView (genModel : JoomlaGenModel) : GenClass = genModel.datamodel.genClasses->first()/]

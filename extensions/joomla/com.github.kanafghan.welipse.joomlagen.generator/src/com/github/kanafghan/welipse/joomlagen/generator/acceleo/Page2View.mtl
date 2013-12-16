@@ -34,7 +34,7 @@ class [genModel.extensionName.toUpperFirst()/]View[page.name.toUpperFirst()/] ex
 	[/if]
 
 	[for (param : Parameter | page.parameters)]
-		$[param.var/] = JModel::getInstance('[param.type.oclAsType(EClass).name/]', '[genModel.extensionName.toUpperFirst()/]Model');
+		$[param.var/] = JModel::getInstance('[param.type.oclAsType(EClass).name/]', '[genModel.extensionName.toUpperFirst()/]Model', array('requestVar' => "[param.var/]"));
 		$this->assignRef('[param.var/]', $[param.var/]);
 
 	[/for]

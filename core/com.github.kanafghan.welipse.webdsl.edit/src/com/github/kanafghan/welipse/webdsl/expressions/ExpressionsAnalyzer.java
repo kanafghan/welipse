@@ -18,6 +18,7 @@ import com.github.kanafghan.welipse.webdsl.Expression;
 import com.github.kanafghan.welipse.webdsl.ExternalLink;
 import com.github.kanafghan.welipse.webdsl.Image;
 import com.github.kanafghan.welipse.webdsl.Page;
+import com.github.kanafghan.welipse.webdsl.PageElement;
 import com.github.kanafghan.welipse.webdsl.Parameter;
 import com.github.kanafghan.welipse.webdsl.PresentationElement;
 import com.github.kanafghan.welipse.webdsl.PropertyOperation;
@@ -65,7 +66,7 @@ public class ExpressionsAnalyzer {
 					Expression e = parser.getExpression();
 					if (e != null) {
 						// Initialize the expression
-						e.initialize(element.getPage());
+						e.initialize(getPage(element));
 						
 						// Type check the expression
 						EClassifier type = e.type();
@@ -134,6 +135,14 @@ public class ExpressionsAnalyzer {
 		job.setRule(ResourcesPlugin.getWorkspace().getRoot());
 		job.setUser(true);
 		job.schedule();							
+	}
+
+	//TODO this is a fix - we should do something about the context of initialization
+	protected Page getPage(PageElement pageElement) {
+		if (pageElement.getPage() != null) {
+			return pageElement.getPage();
+		}
+		return getPage((PageElement) pageElement.eContainer());
 	}
 
 	public void analyzeVariable() {
@@ -262,7 +271,7 @@ public class ExpressionsAnalyzer {
 					Parameter iteratorVar = parser.getParameter();
 					if (iteratorVar != null) {
 						// Initialize the expression
-						iteratorVar.initialize(element.getPage());
+						iteratorVar.initialize(getPage(element));
 						
 						// Create and execute the command
 						EClass eClass = element.eClass();
