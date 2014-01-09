@@ -59,6 +59,9 @@ public class JComponentGenerator {
 					// Generate install SQL
 					InstallGenerator.generate(new Context(genModel), project);
 					
+					// Generate uninstall SQL
+					UninstallGenerator.generate(new Context(genModel), project);
+					
 					// Generate extension manifest
 					ManifestGenerator.generate(new Context(genModel), project);
 				} catch (Exception e) {

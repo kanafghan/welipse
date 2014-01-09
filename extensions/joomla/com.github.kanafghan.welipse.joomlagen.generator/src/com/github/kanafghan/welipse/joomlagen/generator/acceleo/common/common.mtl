@@ -36,3 +36,15 @@
 [/protected]
 -->
 [/template]
+
+[template public generateConstraintName (reference : GenReference, table : DatabaseTable) post (trim())]
+FK_[table.name.toLower()/]_[generateForeignKeyName(reference, table).toLower()/]
+[/template]
+
+[template public generateForeignKeyName(reference : GenReference, table : DatabaseTable) post (trim())]
+[if (reference.genClass.databaseTableName = table.name)]
+[reference.name/]
+[else]
+[reference.genClass.databaseTableName/]_[reference.name/]
+[/if]
+[/template]

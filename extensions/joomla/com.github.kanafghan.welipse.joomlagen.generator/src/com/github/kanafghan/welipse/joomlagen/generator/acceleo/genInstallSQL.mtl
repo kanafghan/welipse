@@ -1,6 +1,7 @@
 [comment encoding = UTF-8 /]
 [module genInstallSQL('http://www.eclipse.org/emf/2002/Ecore', '/com.github.kanafghan.welipse.joomlagen/model/joomlagen.ecore')]
 
+[import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::common /]
 [import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::InitialData2SQLService /]
 
 [template public generateInstallSQL(genModel : JoomlaGenModel)]
@@ -74,17 +75,10 @@ CREATE TABLE IF NOT EXISTS [genModel.databaseTablePrefix.concat(table.name)/] (
 
 [template public generateForeignKey(reference : GenReference, table : DatabaseTable, genModel : JoomlaGenModel)]
 ALTER TABLE [genModel.databaseTablePrefix.concat(table.name)/] 
-ADD FOREIGN KEY ([generateForeignKeyName(reference, table)/]) 
+ADD CONSTRAINT [generateConstraintName(reference, table)/]
+FOREIGN KEY ([generateForeignKeyName(reference, table)/]) 
 REFERENCES [generateReferencedTableName(reference, table, genModel)/](id);
 
-[/template]
-
-[template public generateForeignKeyName(reference : GenReference, table : DatabaseTable) post (trim())]
-[if (reference.genClass.databaseTableName = table.name)]
-[reference.name/]
-[else]
-[reference.genClass.databaseTableName/]_[reference.name/]
-[/if]
 [/template]
 
 [template public generateReferencedTableName (reference : GenReference, table : DatabaseTable, genModel : JoomlaGenModel) post (trim())]
@@ -94,3 +88,4 @@ REFERENCES [generateReferencedTableName(reference, table, genModel)/](id);
 [genModel.databaseTablePrefix.concat(reference.type.oclAsType(GenClass).databaseTableName)/]
 [/if]
 [/template]
+
