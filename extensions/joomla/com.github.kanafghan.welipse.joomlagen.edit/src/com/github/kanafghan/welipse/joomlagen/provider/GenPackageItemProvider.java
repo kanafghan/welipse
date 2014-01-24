@@ -6,17 +6,11 @@ package com.github.kanafghan.welipse.joomlagen.provider;
 import com.github.kanafghan.welipse.joomlagen.GenPackage;
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenFactory;
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage;
-
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -24,7 +18,6 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -34,7 +27,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class GenPackageItemProvider
-	extends ItemProviderAdapter
+	extends GenBaseItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -201,17 +194,6 @@ public class GenPackageItemProvider
 			(createChildParameter
 				(JoomlaGenPackage.Literals.GEN_PACKAGE__GEN_CLASSES,
 				 JoomlaGenFactory.eINSTANCE.createGenClass()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return JoomlagenEditPlugin.INSTANCE;
 	}
 
 }

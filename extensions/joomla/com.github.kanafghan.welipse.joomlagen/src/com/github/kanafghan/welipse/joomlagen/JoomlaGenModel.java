@@ -4,7 +4,6 @@ package com.github.kanafghan.welipse.joomlagen;
 
 import com.github.kanafghan.welipse.webdsl.Website;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +40,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface JoomlaGenModel extends EObject {
+public interface JoomlaGenModel extends GenBase {
 	/**
 	 * Returns the value of the '<em><b>Extension Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.github.kanafghan.welipse.joomlagen.ExtensionType}.

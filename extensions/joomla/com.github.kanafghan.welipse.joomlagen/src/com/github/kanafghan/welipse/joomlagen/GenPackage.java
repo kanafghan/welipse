@@ -4,7 +4,6 @@ package com.github.kanafghan.welipse.joomlagen;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -28,7 +27,7 @@ import org.eclipse.emf.ecore.EReference;
  * @model
  * @generated
  */
-public interface GenPackage extends EObject {
+public interface GenPackage extends GenBase {
 	/**
 	 * Returns the value of the '<em><b>Ecore Package</b></em>' reference.
 	 * <!-- begin-user-doc -->

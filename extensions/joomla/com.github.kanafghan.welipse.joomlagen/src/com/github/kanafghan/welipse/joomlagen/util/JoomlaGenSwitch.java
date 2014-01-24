@@ -69,18 +69,21 @@ public class JoomlaGenSwitch<T> extends Switch<T> {
 			case JoomlaGenPackage.JOOMLA_GEN_MODEL: {
 				JoomlaGenModel joomlaGenModel = (JoomlaGenModel)theEObject;
 				T result = caseJoomlaGenModel(joomlaGenModel);
+				if (result == null) result = caseGenBase(joomlaGenModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JoomlaGenPackage.GEN_PACKAGE: {
 				GenPackage genPackage = (GenPackage)theEObject;
 				T result = caseGenPackage(genPackage);
+				if (result == null) result = caseGenBase(genPackage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JoomlaGenPackage.GEN_CLASSIFIER: {
 				GenClassifier genClassifier = (GenClassifier)theEObject;
 				T result = caseGenClassifier(genClassifier);
+				if (result == null) result = caseGenBase(genClassifier);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -88,12 +91,14 @@ public class JoomlaGenSwitch<T> extends Switch<T> {
 				GenClass genClass = (GenClass)theEObject;
 				T result = caseGenClass(genClass);
 				if (result == null) result = caseGenClassifier(genClass);
+				if (result == null) result = caseGenBase(genClass);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JoomlaGenPackage.GEN_TYPED_ELEMENT: {
 				GenTypedElement genTypedElement = (GenTypedElement)theEObject;
 				T result = caseGenTypedElement(genTypedElement);
+				if (result == null) result = caseGenBase(genTypedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -101,6 +106,7 @@ public class JoomlaGenSwitch<T> extends Switch<T> {
 				GenFeature genFeature = (GenFeature)theEObject;
 				T result = caseGenFeature(genFeature);
 				if (result == null) result = caseGenTypedElement(genFeature);
+				if (result == null) result = caseGenBase(genFeature);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -109,6 +115,7 @@ public class JoomlaGenSwitch<T> extends Switch<T> {
 				T result = caseGenAttribute(genAttribute);
 				if (result == null) result = caseGenFeature(genAttribute);
 				if (result == null) result = caseGenTypedElement(genAttribute);
+				if (result == null) result = caseGenBase(genAttribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -117,6 +124,7 @@ public class JoomlaGenSwitch<T> extends Switch<T> {
 				T result = caseGenReference(genReference);
 				if (result == null) result = caseGenFeature(genReference);
 				if (result == null) result = caseGenTypedElement(genReference);
+				if (result == null) result = caseGenBase(genReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -130,6 +138,7 @@ public class JoomlaGenSwitch<T> extends Switch<T> {
 				GenOperation genOperation = (GenOperation)theEObject;
 				T result = caseGenOperation(genOperation);
 				if (result == null) result = caseGenTypedElement(genOperation);
+				if (result == null) result = caseGenBase(genOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -137,6 +146,7 @@ public class JoomlaGenSwitch<T> extends Switch<T> {
 				GenParameter genParameter = (GenParameter)theEObject;
 				T result = caseGenParameter(genParameter);
 				if (result == null) result = caseGenTypedElement(genParameter);
+				if (result == null) result = caseGenBase(genParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -144,6 +154,13 @@ public class JoomlaGenSwitch<T> extends Switch<T> {
 				GenDataType genDataType = (GenDataType)theEObject;
 				T result = caseGenDataType(genDataType);
 				if (result == null) result = caseGenClassifier(genDataType);
+				if (result == null) result = caseGenBase(genDataType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoomlaGenPackage.GEN_BASE: {
+				GenBase genBase = (GenBase)theEObject;
+				T result = caseGenBase(genBase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -328,6 +345,21 @@ public class JoomlaGenSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGenDataType(GenDataType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gen Base</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gen Base</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGenBase(GenBase object) {
 		return null;
 	}
 

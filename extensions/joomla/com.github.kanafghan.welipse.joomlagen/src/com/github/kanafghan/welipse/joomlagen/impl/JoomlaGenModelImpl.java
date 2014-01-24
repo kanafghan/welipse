@@ -13,6 +13,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
@@ -20,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -30,6 +30,7 @@ import com.github.kanafghan.welipse.joomlagen.DatabaseTable;
 import com.github.kanafghan.welipse.joomlagen.ExtensionType;
 import com.github.kanafghan.welipse.joomlagen.GenAttribute;
 import com.github.kanafghan.welipse.joomlagen.GenClass;
+import com.github.kanafghan.welipse.joomlagen.GenClassifier;
 import com.github.kanafghan.welipse.joomlagen.GenFeature;
 import com.github.kanafghan.welipse.joomlagen.GenPackage;
 import com.github.kanafghan.welipse.joomlagen.GenReference;
@@ -73,7 +74,7 @@ import com.github.kanafghan.welipse.webdsl.Website;
  *
  * @generated
  */
-public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements JoomlaGenModel {
+public class JoomlaGenModelImpl extends GenBaseImpl implements JoomlaGenModel {
 	/**
 	 * The default value of the '{@link #getExtensionType() <em>Extension Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -1529,6 +1530,45 @@ public class JoomlaGenModelImpl extends MinimalEObjectImpl.Container implements 
 			return getDatamodel().reconcile();
 		}
 		return false;
+	}
+
+	@Override
+	public JoomlaGenModel getGenModel() {
+		return this;
+	}
+	
+	Map<EClassifier, GenClassifier> eClassifierToGenClassifierMap;
+	
+	@Override
+	protected GenClass findGenClass(EClass eClass) {
+		if (eClassifierToGenClassifierMap == null) {
+			eClassifierToGenClassifierMap = new HashMap<EClassifier, GenClassifier>();
+		} else {
+			GenClass result = (GenClass) eClassifierToGenClassifierMap
+					.get(eClass);
+			if (result != null) {
+				return result;
+			}
+		}
+
+		EPackage ePackage = eClass.getEPackage();
+		GenPackage genPackage = getDatamodel();
+		if (genPackage != null) {
+			EPackage targetEPackage = genPackage.getEcorePackage();
+			EClassifier targetEClassifier = targetEPackage == ePackage ? eClass
+					: targetEPackage.getEClassifier(eClass.getName());
+			EList<GenClass> genClasses = genPackage.getGenClasses();
+			GenClass[] genClassesData = (GenClass[]) ((BasicEList<GenClass>) genClasses)
+					.data();
+			for (int i = 0, size = genClasses.size(); i < size; ++i) {
+				GenClass genClass = genClassesData[i];
+				if (targetEClassifier == genClass.getEcoreClass()) {
+					eClassifierToGenClassifierMap.put(eClass, genClass);
+					return genClass;
+				}
+			}
+		}
+		return null;
 	}
 
 } //JoomlaGenModelImpl

@@ -86,6 +86,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenClass/listMVCName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joomlagen.ecore#//GenClass/databaseTableName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenClass/genOperations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference joomlagen.ecore#//GenClass/labelFeature"/>
     </genClasses>
     <genClasses image="false" ecoreClass="joomlagen.ecore#//GenTypedElement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joomlagen.ecore#//GenTypedElement/type"/>
@@ -134,5 +135,6 @@
       <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference joomlagen.ecore#//GenDataType/ecoreDataType"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="joomlagen.ecore#//GenBase"/>
   </genPackages>
 </genmodel:GenModel>

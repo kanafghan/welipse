@@ -2,6 +2,8 @@
  */
 package com.github.kanafghan.welipse.joomlagen;
 
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
@@ -20,6 +22,7 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.GenClass#getListMVCName <em>List MVC Name</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.GenClass#getDatabaseTableName <em>Database Table Name</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.GenClass#getGenOperations <em>Gen Operations</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.GenClass#getLabelFeature <em>Label Feature</em>}</li>
  * </ul>
  * </p>
  *
@@ -195,10 +198,38 @@ public interface GenClass extends GenClassifier {
 	 */
 	EList<GenOperation> getGenOperations();
 	
+	/**
+	 * Returns the value of the '<em><b>Label Feature</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Label Feature</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Label Feature</em>' reference.
+	 * @see #setLabelFeature(GenFeature)
+	 * @see com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage#getGenClass_LabelFeature()
+	 * @model
+	 * @generated
+	 */
+	GenFeature getLabelFeature();
+
+	/**
+	 * Sets the value of the '{@link com.github.kanafghan.welipse.joomlagen.GenClass#getLabelFeature <em>Label Feature</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Label Feature</em>' reference.
+	 * @see #getLabelFeature()
+	 * @generated
+	 */
+	void setLabelFeature(GenFeature value);
+
 	void initialize(EClass eClass);
 	
 	boolean reconcile();
 	
 	boolean reconcile(GenClass oldGenClassVersion);
+	
+	List<GenClass> getAllBaseGenClasses();
 
 } // GenClass

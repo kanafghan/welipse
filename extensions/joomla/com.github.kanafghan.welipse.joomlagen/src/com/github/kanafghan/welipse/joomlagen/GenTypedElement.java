@@ -2,7 +2,6 @@
  */
 package com.github.kanafghan.welipse.joomlagen;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface GenTypedElement extends EObject {
+public interface GenTypedElement extends GenBase {
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' reference.
@@ -47,4 +46,9 @@ public interface GenTypedElement extends EObject {
 	 * @generated
 	 */
 	void setType(GenClassifier value);
+	
+	boolean isListType();
+	
+	boolean isMapType();
+	
 } // GenTypedElement

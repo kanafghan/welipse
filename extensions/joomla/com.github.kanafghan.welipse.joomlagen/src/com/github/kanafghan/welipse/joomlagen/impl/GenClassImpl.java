@@ -4,6 +4,8 @@ package com.github.kanafghan.welipse.joomlagen.impl;
 
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -41,6 +43,7 @@ import com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage;
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.GenClassImpl#getListMVCName <em>List MVC Name</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.GenClassImpl#getDatabaseTableName <em>Database Table Name</em>}</li>
  *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.GenClassImpl#getGenOperations <em>Gen Operations</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.joomlagen.impl.GenClassImpl#getLabelFeature <em>Label Feature</em>}</li>
  * </ul>
  * </p>
  *
@@ -156,6 +159,16 @@ public class GenClassImpl extends GenClassifierImpl implements GenClass {
 	 * @ordered
 	 */
 	protected EList<GenOperation> genOperations;
+
+	/**
+	 * The cached value of the '{@link #getLabelFeature() <em>Label Feature</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabelFeature()
+	 * @generated
+	 * @ordered
+	 */
+	protected GenFeature labelFeature;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -327,6 +340,103 @@ public class GenClassImpl extends GenClassifierImpl implements GenClass {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GenFeature getLabelFeatureGen() {
+		if (labelFeature != null && labelFeature.eIsProxy()) {
+			InternalEObject oldLabelFeature = (InternalEObject)labelFeature;
+			labelFeature = (GenFeature)eResolveProxy(oldLabelFeature);
+			if (labelFeature != oldLabelFeature) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JoomlaGenPackage.GEN_CLASS__LABEL_FEATURE, oldLabelFeature, labelFeature));
+			}
+		}
+		return labelFeature;
+	}
+
+	public GenFeature getLabelFeature() {
+		/*
+		 * NOTE: the following implementation is inspired by:
+		 * org.eclipse.emf.codegen.ecore.genmodel.impl.GenClassImpl.getLabelFeature()
+		 */
+		GenFeature labelFeature = getLabelFeatureGen();
+		if (labelFeature != null)
+			return labelFeature;
+
+		Locale locale = Locale.getDefault();
+		for (GenFeature feature : getLabelFeatureCandidates()) {
+			if (!feature.isListType()) {
+				String featureName = feature.getName();
+				if (featureName != null) {
+					if (featureName.equalsIgnoreCase("name")) {
+						labelFeature = feature;
+					} else if (featureName.equalsIgnoreCase("id")) {
+						if (labelFeature == null
+								|| !labelFeature.getName().toLowerCase(locale)
+										.endsWith("name")) {
+							labelFeature = feature;
+						}
+					} else if (featureName.toLowerCase(locale).endsWith("name")) {
+						if (labelFeature == null
+								|| !labelFeature.getName().toLowerCase(locale)
+										.endsWith("name")
+								&& !labelFeature.getName().equalsIgnoreCase(
+										"id")) {
+							labelFeature = feature;
+						}
+					} else if (featureName.toLowerCase(locale).indexOf("name") != -1) {
+						if (labelFeature == null
+								|| labelFeature.getName().toLowerCase(locale)
+										.indexOf("name") == -1
+								&& !labelFeature.getName().equalsIgnoreCase(
+										"id")) {
+							labelFeature = feature;
+						}
+					} else if (labelFeature == null) {
+						labelFeature = feature;
+					}
+				}
+			}
+		}
+
+		return labelFeature;
+	}	
+	
+	public List<GenFeature> getLabelFeatureCandidates() {
+		return collectGenFeatures(getAllBaseGenClasses(), getGenFeatures(),
+				new GenFeatureFilter() {
+					public boolean accept(GenFeature genFeature) {
+						return !genFeature.isReferenceType()
+								&& !genFeature.isListType()
+								&& !genFeature.isMapType();
+					}
+				});
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenFeature basicGetLabelFeature() {
+		return labelFeature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLabelFeature(GenFeature newLabelFeature) {
+		GenFeature oldLabelFeature = labelFeature;
+		labelFeature = newLabelFeature;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.GEN_CLASS__LABEL_FEATURE, oldLabelFeature, labelFeature));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -378,6 +488,9 @@ public class GenClassImpl extends GenClassifierImpl implements GenClass {
 				return getDatabaseTableName();
 			case JoomlaGenPackage.GEN_CLASS__GEN_OPERATIONS:
 				return getGenOperations();
+			case JoomlaGenPackage.GEN_CLASS__LABEL_FEATURE:
+				if (resolve) return getLabelFeature();
+				return basicGetLabelFeature();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -414,6 +527,9 @@ public class GenClassImpl extends GenClassifierImpl implements GenClass {
 				getGenOperations().clear();
 				getGenOperations().addAll((Collection<? extends GenOperation>)newValue);
 				return;
+			case JoomlaGenPackage.GEN_CLASS__LABEL_FEATURE:
+				setLabelFeature((GenFeature)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -447,6 +563,9 @@ public class GenClassImpl extends GenClassifierImpl implements GenClass {
 			case JoomlaGenPackage.GEN_CLASS__GEN_OPERATIONS:
 				getGenOperations().clear();
 				return;
+			case JoomlaGenPackage.GEN_CLASS__LABEL_FEATURE:
+				setLabelFeature((GenFeature)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -473,6 +592,8 @@ public class GenClassImpl extends GenClassifierImpl implements GenClass {
 				return DATABASE_TABLE_NAME_EDEFAULT == null ? databaseTableName != null : !DATABASE_TABLE_NAME_EDEFAULT.equals(databaseTableName);
 			case JoomlaGenPackage.GEN_CLASS__GEN_OPERATIONS:
 				return genOperations != null && !genOperations.isEmpty();
+			case JoomlaGenPackage.GEN_CLASS__LABEL_FEATURE:
+				return labelFeature != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -645,6 +766,11 @@ public class GenClassImpl extends GenClassifierImpl implements GenClass {
 			
 			return true;
 		}
+	}
+
+	@Override
+	public List<GenClass> getAllBaseGenClasses() {
+		return collectGenClasses(getEcoreClass().getEAllSuperTypes(), null);
 	}
 
 } //GenClassImpl

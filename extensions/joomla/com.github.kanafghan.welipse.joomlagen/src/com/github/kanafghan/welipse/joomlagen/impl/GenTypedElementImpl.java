@@ -2,16 +2,17 @@
  */
 package com.github.kanafghan.welipse.joomlagen.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.ETypedElement;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import com.github.kanafghan.welipse.joomlagen.GenClassifier;
 import com.github.kanafghan.welipse.joomlagen.GenTypedElement;
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class GenTypedElementImpl extends MinimalEObjectImpl.Container implements GenTypedElement {
+public abstract class GenTypedElementImpl extends GenBaseImpl implements GenTypedElement {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -151,6 +152,35 @@ public abstract class GenTypedElementImpl extends MinimalEObjectImpl.Container i
 				return type != null;
 		}
 		return super.eIsSet(featureID);
+	}
+	
+	public abstract ETypedElement getEcoreTypedElement();
+	
+	public boolean isListType() {
+		ETypedElement eTypedElement = getEcoreTypedElement();
+		return eTypedElement.isMany()
+				|| isFeatureMapType()
+				|| eTypedElement.getUpperBound() == ETypedElement.UNSPECIFIED_MULTIPLICITY
+				&& eTypedElement instanceof EStructuralFeature;
+//				&& XMLTypePackage.eNS_URI.equals(getExtendedMetaData()
+//						.getNamespace((EStructuralFeature) eTypedElement));
+	}
+	
+	public boolean isFeatureMapType() {
+		EClassifier type = getEcoreTypedElement().getEType();
+		return type != null
+				&& isFeatureMapEntry(getEcoreTypedElement().getEType()
+						.getInstanceClassName());
+	}
+	
+	protected static boolean isFeatureMapEntry(String name) {
+		return "org.eclipse.emf.ecore.util.FeatureMap.Entry".equals(name)
+				|| "org.eclipse.emf.ecore.util.FeatureMap$Entry".equals(name);
+	}
+
+	@Override
+	public boolean isMapType() {
+		return isListType(); //TODO this is not complete!
 	}
 
 } //GenTypedElementImpl

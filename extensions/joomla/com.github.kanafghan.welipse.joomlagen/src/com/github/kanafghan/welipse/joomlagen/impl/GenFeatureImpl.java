@@ -9,6 +9,7 @@ import com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -403,5 +404,20 @@ public abstract class GenFeatureImpl extends GenTypedElementImpl implements GenF
 
 	@Override
 	public abstract EStructuralFeature getEcoreFeature();
+
+	@Override
+	public boolean isReferenceType() {
+		return getEcoreFeature() instanceof EReference;
+	}
+
+	@Override
+	public boolean isMapType() {
+		return isContains() && super.isMapType();
+	}
+
+	@Override
+	public boolean isContains() {
+		return isReferenceType() && ((EReference)getEcoreFeature()).isContainment();
+	}
 
 } //GenFeatureImpl

@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EParameter;
+import org.eclipse.emf.ecore.ETypedElement;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -361,6 +362,11 @@ public class GenOperationImpl extends GenTypedElementImpl implements GenOperatio
 			}
 			return true;
 		}
+	}
+
+	@Override
+	public ETypedElement getEcoreTypedElement() {
+		return getEcoreOperation();
 	}
 
 } //GenOperationImpl

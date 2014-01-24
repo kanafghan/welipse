@@ -160,5 +160,9 @@ public interface GenFeature extends GenTypedElement {
 	void setNullable(boolean value);
 	
 	EStructuralFeature getEcoreFeature();
+	
+	boolean isReferenceType();
+	
+	boolean isContains();
 
 } // GenFeature

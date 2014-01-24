@@ -5,14 +5,12 @@ package com.github.kanafghan.welipse.joomlagen.impl;
 import com.github.kanafghan.welipse.joomlagen.GenClassifier;
 import com.github.kanafghan.welipse.joomlagen.GenPackage;
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class GenClassifierImpl extends MinimalEObjectImpl.Container implements GenClassifier {
+public abstract class GenClassifierImpl extends GenBaseImpl implements GenClassifier {
 	/**
 	 * The cached value of the '{@link #getGenPackage() <em>Gen Package</em>}' reference.
 	 * <!-- begin-user-doc -->

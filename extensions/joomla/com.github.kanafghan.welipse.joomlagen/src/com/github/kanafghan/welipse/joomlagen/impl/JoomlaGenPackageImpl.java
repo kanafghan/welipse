@@ -7,6 +7,7 @@ import com.github.kanafghan.welipse.joomlagen.DatabaseTable;
 import com.github.kanafghan.welipse.joomlagen.ExtensionType;
 import com.github.kanafghan.welipse.joomlagen.FormFieldType;
 import com.github.kanafghan.welipse.joomlagen.GenAttribute;
+import com.github.kanafghan.welipse.joomlagen.GenBase;
 import com.github.kanafghan.welipse.joomlagen.GenClass;
 import com.github.kanafghan.welipse.joomlagen.GenClassifier;
 import com.github.kanafghan.welipse.joomlagen.GenDataType;
@@ -120,6 +121,13 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 	 * @generated
 	 */
 	private EClass genDataTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass genBaseEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -533,6 +541,15 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getGenClass_LabelFeature() {
+		return (EReference)genClassEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGenTypedElement() {
 		return genTypedElementEClass;
 	}
@@ -821,6 +838,15 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGenBase() {
+		return genBaseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getJoomlaGenModel_Datamodel() {
 		return (EReference)joomlaGenModelEClass.getEStructuralFeatures().get(4);
 	}
@@ -948,6 +974,7 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 		createEAttribute(genClassEClass, GEN_CLASS__LIST_MVC_NAME);
 		createEAttribute(genClassEClass, GEN_CLASS__DATABASE_TABLE_NAME);
 		createEReference(genClassEClass, GEN_CLASS__GEN_OPERATIONS);
+		createEReference(genClassEClass, GEN_CLASS__LABEL_FEATURE);
 
 		genTypedElementEClass = createEClass(GEN_TYPED_ELEMENT);
 		createEReference(genTypedElementEClass, GEN_TYPED_ELEMENT__TYPE);
@@ -989,6 +1016,8 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 		genDataTypeEClass = createEClass(GEN_DATA_TYPE);
 		createEReference(genDataTypeEClass, GEN_DATA_TYPE__ECORE_DATA_TYPE);
 
+		genBaseEClass = createEClass(GEN_BASE);
+
 		// Create enums
 		extensionTypeEEnum = createEEnum(EXTENSION_TYPE);
 		joomlaVersionEEnum = createEEnum(JOOMLA_VERSION);
@@ -1028,7 +1057,11 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		joomlaGenModelEClass.getESuperTypes().add(this.getGenBase());
+		genPackageEClass.getESuperTypes().add(this.getGenBase());
+		genClassifierEClass.getESuperTypes().add(this.getGenBase());
 		genClassEClass.getESuperTypes().add(this.getGenClassifier());
+		genTypedElementEClass.getESuperTypes().add(this.getGenBase());
 		genFeatureEClass.getESuperTypes().add(this.getGenTypedElement());
 		genAttributeEClass.getESuperTypes().add(this.getGenFeature());
 		genReferenceEClass.getESuperTypes().add(this.getGenFeature());
@@ -1081,6 +1114,7 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 		initEAttribute(getGenClass_ListMVCName(), ecorePackage.getEString(), "listMVCName", null, 0, 1, GenClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenClass_DatabaseTableName(), ecorePackage.getEString(), "databaseTableName", null, 0, 1, GenClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGenClass_GenOperations(), this.getGenOperation(), this.getGenOperation_GenClass(), "genOperations", null, 0, -1, GenClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGenClass_LabelFeature(), this.getGenFeature(), null, "labelFeature", null, 0, 1, GenClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(genTypedElementEClass, GenTypedElement.class, "GenTypedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGenTypedElement_Type(), this.getGenClassifier(), null, "type", null, 0, 1, GenTypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1121,6 +1155,8 @@ public class JoomlaGenPackageImpl extends EPackageImpl implements JoomlaGenPacka
 
 		initEClass(genDataTypeEClass, GenDataType.class, "GenDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGenDataType_EcoreDataType(), theEcorePackage.getEDataType(), null, "ecoreDataType", null, 1, 1, GenDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(genBaseEClass, GenBase.class, "GenBase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(extensionTypeEEnum, ExtensionType.class, "ExtensionType");

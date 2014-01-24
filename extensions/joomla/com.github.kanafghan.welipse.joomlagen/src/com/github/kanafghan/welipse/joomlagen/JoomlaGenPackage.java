@@ -59,6 +59,34 @@ public interface JoomlaGenPackage extends EPackage {
 	JoomlaGenPackage eINSTANCE = com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.joomlagen.impl.GenBaseImpl <em>Gen Base</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.joomlagen.impl.GenBaseImpl
+	 * @see com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenPackageImpl#getGenBase()
+	 * @generated
+	 */
+	int GEN_BASE = 12;
+
+	/**
+	 * The number of structural features of the '<em>Gen Base</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GEN_BASE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Gen Base</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GEN_BASE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenModelImpl <em>Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,7 +103,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__EXTENSION_TYPE = 0;
+	int JOOMLA_GEN_MODEL__EXTENSION_TYPE = GEN_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Joomla Version</b></em>' attribute.
@@ -84,7 +112,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__JOOMLA_VERSION = 1;
+	int JOOMLA_GEN_MODEL__JOOMLA_VERSION = GEN_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Webmodel</b></em>' reference.
@@ -93,7 +121,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__WEBMODEL = 2;
+	int JOOMLA_GEN_MODEL__WEBMODEL = GEN_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Custom CSS Files</b></em>' attribute.
@@ -102,7 +130,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__CUSTOM_CSS_FILES = 3;
+	int JOOMLA_GEN_MODEL__CUSTOM_CSS_FILES = GEN_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Datamodel</b></em>' containment reference.
@@ -111,7 +139,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__DATAMODEL = 4;
+	int JOOMLA_GEN_MODEL__DATAMODEL = GEN_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Use Bootstrap</b></em>' attribute.
@@ -120,7 +148,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__USE_BOOTSTRAP = 5;
+	int JOOMLA_GEN_MODEL__USE_BOOTSTRAP = GEN_BASE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Minified Bootsrap</b></em>' attribute.
@@ -129,7 +157,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__MINIFIED_BOOTSRAP = 6;
+	int JOOMLA_GEN_MODEL__MINIFIED_BOOTSRAP = GEN_BASE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Extension Name</b></em>' attribute.
@@ -138,7 +166,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__EXTENSION_NAME = 7;
+	int JOOMLA_GEN_MODEL__EXTENSION_NAME = GEN_BASE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Creation Date</b></em>' attribute.
@@ -147,7 +175,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__CREATION_DATE = 8;
+	int JOOMLA_GEN_MODEL__CREATION_DATE = GEN_BASE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Author</b></em>' attribute.
@@ -156,7 +184,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__AUTHOR = 9;
+	int JOOMLA_GEN_MODEL__AUTHOR = GEN_BASE_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Author Email</b></em>' attribute.
@@ -165,7 +193,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__AUTHOR_EMAIL = 10;
+	int JOOMLA_GEN_MODEL__AUTHOR_EMAIL = GEN_BASE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Author URL</b></em>' attribute.
@@ -174,7 +202,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__AUTHOR_URL = 11;
+	int JOOMLA_GEN_MODEL__AUTHOR_URL = GEN_BASE_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Copyright</b></em>' attribute.
@@ -183,7 +211,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__COPYRIGHT = 12;
+	int JOOMLA_GEN_MODEL__COPYRIGHT = GEN_BASE_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>License</b></em>' attribute.
@@ -192,7 +220,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__LICENSE = 13;
+	int JOOMLA_GEN_MODEL__LICENSE = GEN_BASE_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -201,7 +229,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__VERSION = 14;
+	int JOOMLA_GEN_MODEL__VERSION = GEN_BASE_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -210,7 +238,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__DESCRIPTION = 15;
+	int JOOMLA_GEN_MODEL__DESCRIPTION = GEN_BASE_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Database Table Prefix</b></em>' attribute.
@@ -219,7 +247,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__DATABASE_TABLE_PREFIX = 16;
+	int JOOMLA_GEN_MODEL__DATABASE_TABLE_PREFIX = GEN_BASE_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Component Name</b></em>' attribute.
@@ -228,7 +256,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__COMPONENT_NAME = 17;
+	int JOOMLA_GEN_MODEL__COMPONENT_NAME = GEN_BASE_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Database Tables</b></em>' containment reference list.
@@ -237,7 +265,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__DATABASE_TABLES = 18;
+	int JOOMLA_GEN_MODEL__DATABASE_TABLES = GEN_BASE_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Initial Data</b></em>' attribute.
@@ -246,7 +274,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL__INITIAL_DATA = 19;
+	int JOOMLA_GEN_MODEL__INITIAL_DATA = GEN_BASE_FEATURE_COUNT + 19;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -255,7 +283,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL_FEATURE_COUNT = 20;
+	int JOOMLA_GEN_MODEL_FEATURE_COUNT = GEN_BASE_FEATURE_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Get Association Table Name</em>' operation.
@@ -264,7 +292,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL___GET_ASSOCIATION_TABLE_NAME__GENCLASS_GENCLASS = 0;
+	int JOOMLA_GEN_MODEL___GET_ASSOCIATION_TABLE_NAME__GENCLASS_GENCLASS = GEN_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -273,7 +301,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOOMLA_GEN_MODEL_OPERATION_COUNT = 1;
+	int JOOMLA_GEN_MODEL_OPERATION_COUNT = GEN_BASE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.joomlagen.impl.GenPackageImpl <em>Gen Package</em>}' class.
@@ -292,7 +320,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_PACKAGE__ECORE_PACKAGE = 0;
+	int GEN_PACKAGE__ECORE_PACKAGE = GEN_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Gen Classifiers</b></em>' reference list.
@@ -301,7 +329,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_PACKAGE__GEN_CLASSIFIERS = 1;
+	int GEN_PACKAGE__GEN_CLASSIFIERS = GEN_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Gen Model</b></em>' container reference.
@@ -310,7 +338,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_PACKAGE__GEN_MODEL = 2;
+	int GEN_PACKAGE__GEN_MODEL = GEN_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Gen Classes</b></em>' containment reference list.
@@ -319,7 +347,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_PACKAGE__GEN_CLASSES = 3;
+	int GEN_PACKAGE__GEN_CLASSES = GEN_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Gen Data Types</b></em>' containment reference list.
@@ -328,7 +356,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_PACKAGE__GEN_DATA_TYPES = 4;
+	int GEN_PACKAGE__GEN_DATA_TYPES = GEN_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Gen Package</em>' class.
@@ -337,7 +365,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_PACKAGE_FEATURE_COUNT = 5;
+	int GEN_PACKAGE_FEATURE_COUNT = GEN_BASE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Gen Package</em>' class.
@@ -346,7 +374,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_PACKAGE_OPERATION_COUNT = 0;
+	int GEN_PACKAGE_OPERATION_COUNT = GEN_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.joomlagen.impl.GenClassifierImpl <em>Gen Classifier</em>}' class.
@@ -365,7 +393,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_CLASSIFIER__GEN_PACKAGE = 0;
+	int GEN_CLASSIFIER__GEN_PACKAGE = GEN_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Gen Classifier</em>' class.
@@ -374,7 +402,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_CLASSIFIER_FEATURE_COUNT = 1;
+	int GEN_CLASSIFIER_FEATURE_COUNT = GEN_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Gen Classifier</em>' class.
@@ -383,7 +411,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_CLASSIFIER_OPERATION_COUNT = 0;
+	int GEN_CLASSIFIER_OPERATION_COUNT = GEN_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.joomlagen.impl.GenClassImpl <em>Gen Class</em>}' class.
@@ -468,13 +496,22 @@ public interface JoomlaGenPackage extends EPackage {
 	int GEN_CLASS__GEN_OPERATIONS = GEN_CLASSIFIER_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Label Feature</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GEN_CLASS__LABEL_FEATURE = GEN_CLASSIFIER_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Gen Class</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_CLASS_FEATURE_COUNT = GEN_CLASSIFIER_FEATURE_COUNT + 7;
+	int GEN_CLASS_FEATURE_COUNT = GEN_CLASSIFIER_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Gen Class</em>' class.
@@ -502,7 +539,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_TYPED_ELEMENT__TYPE = 0;
+	int GEN_TYPED_ELEMENT__TYPE = GEN_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Gen Typed Element</em>' class.
@@ -511,7 +548,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_TYPED_ELEMENT_FEATURE_COUNT = 1;
+	int GEN_TYPED_ELEMENT_FEATURE_COUNT = GEN_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Gen Typed Element</em>' class.
@@ -520,7 +557,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEN_TYPED_ELEMENT_OPERATION_COUNT = 0;
+	int GEN_TYPED_ELEMENT_OPERATION_COUNT = GEN_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.joomlagen.impl.GenFeatureImpl <em>Gen Feature</em>}' class.
@@ -1077,7 +1114,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenPackageImpl#getExtensionType()
 	 * @generated
 	 */
-	int EXTENSION_TYPE = 12;
+	int EXTENSION_TYPE = 13;
 
 	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.joomlagen.JoomlaVersion <em>Joomla Version</em>}' enum.
@@ -1087,7 +1124,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenPackageImpl#getJoomlaVersion()
 	 * @generated
 	 */
-	int JOOMLA_VERSION = 13;
+	int JOOMLA_VERSION = 14;
 
 
 	/**
@@ -1098,7 +1135,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenPackageImpl#getFormFieldType()
 	 * @generated
 	 */
-	int FORM_FIELD_TYPE = 14;
+	int FORM_FIELD_TYPE = 15;
 
 	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.joomlagen.DatabaseColumnType <em>Database Column Type</em>}' enum.
@@ -1108,7 +1145,7 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenPackageImpl#getDatabaseColumnType()
 	 * @generated
 	 */
-	int DATABASE_COLUMN_TYPE = 15;
+	int DATABASE_COLUMN_TYPE = 16;
 
 	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel <em>Model</em>}'.
@@ -1491,6 +1528,17 @@ public interface JoomlaGenPackage extends EPackage {
 	EReference getGenClass_GenOperations();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.joomlagen.GenClass#getLabelFeature <em>Label Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Label Feature</em>'.
+	 * @see com.github.kanafghan.welipse.joomlagen.GenClass#getLabelFeature()
+	 * @see #getGenClass()
+	 * @generated
+	 */
+	EReference getGenClass_LabelFeature();
+
+	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.joomlagen.GenTypedElement <em>Gen Typed Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1833,6 +1881,16 @@ public interface JoomlaGenPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGenDataType_EcoreDataType();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.joomlagen.GenBase <em>Gen Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Gen Base</em>'.
+	 * @see com.github.kanafghan.welipse.joomlagen.GenBase
+	 * @generated
+	 */
+	EClass getGenBase();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.joomlagen.JoomlaGenModel#getDatamodel <em>Datamodel</em>}'.
@@ -2219,6 +2277,14 @@ public interface JoomlaGenPackage extends EPackage {
 		EReference GEN_CLASS__GEN_OPERATIONS = eINSTANCE.getGenClass_GenOperations();
 
 		/**
+		 * The meta object literal for the '<em><b>Label Feature</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GEN_CLASS__LABEL_FEATURE = eINSTANCE.getGenClass_LabelFeature();
+
+		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.joomlagen.impl.GenTypedElementImpl <em>Gen Typed Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2489,6 +2555,16 @@ public interface JoomlaGenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GEN_DATA_TYPE__ECORE_DATA_TYPE = eINSTANCE.getGenDataType_EcoreDataType();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.joomlagen.impl.GenBaseImpl <em>Gen Base</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.joomlagen.impl.GenBaseImpl
+		 * @see com.github.kanafghan.welipse.joomlagen.impl.JoomlaGenPackageImpl#getGenBase()
+		 * @generated
+		 */
+		EClass GEN_BASE = eINSTANCE.getGenBase();
 
 		/**
 		 * The meta object literal for the '<em><b>Datamodel</b></em>' containment reference feature.

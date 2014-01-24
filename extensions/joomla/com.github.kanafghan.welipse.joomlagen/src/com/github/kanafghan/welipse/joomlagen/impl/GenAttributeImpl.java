@@ -6,6 +6,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.ETypedElement;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -349,6 +350,11 @@ public class GenAttributeImpl extends GenFeatureImpl implements GenAttribute {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public ETypedElement getEcoreTypedElement() {
+		return getEcoreAttribute();
 	}
 
 } //GenAttributeImpl

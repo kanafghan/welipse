@@ -6,6 +6,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.ETypedElement;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -390,6 +391,11 @@ public class GenReferenceImpl extends GenFeatureImpl implements GenReference {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public ETypedElement getEcoreTypedElement() {
+		return getEcoreReference();
 	}
 
 } //GenReferenceImpl

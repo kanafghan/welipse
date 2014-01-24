@@ -3,7 +3,6 @@
 package com.github.kanafghan.welipse.joomlagen;
 
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface GenClassifier extends EObject {
+public interface GenClassifier extends GenBase {
 	/**
 	 * Returns the value of the '<em><b>Gen Package</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link com.github.kanafghan.welipse.joomlagen.GenPackage#getGenClassifiers <em>Gen Classifiers</em>}'.

@@ -65,6 +65,7 @@ public class GenClassItemProvider
 			addItemMVCNamePropertyDescriptor(object);
 			addListMVCNamePropertyDescriptor(object);
 			addDatabaseTableNamePropertyDescriptor(object);
+			addLabelFeaturePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -180,6 +181,28 @@ public class GenClassItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Label Feature feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLabelFeaturePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GenClass_labelFeature_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GenClass_labelFeature_feature", "_UI_GenClass_type"),
+				 JoomlaGenPackage.Literals.GEN_CLASS__LABEL_FEATURE,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -251,6 +274,7 @@ public class GenClassItemProvider
 			case JoomlaGenPackage.GEN_CLASS__ITEM_MVC_NAME:
 			case JoomlaGenPackage.GEN_CLASS__LIST_MVC_NAME:
 			case JoomlaGenPackage.GEN_CLASS__DATABASE_TABLE_NAME:
+			case JoomlaGenPackage.GEN_CLASS__LABEL_FEATURE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case JoomlaGenPackage.GEN_CLASS__GEN_FEATURES:
