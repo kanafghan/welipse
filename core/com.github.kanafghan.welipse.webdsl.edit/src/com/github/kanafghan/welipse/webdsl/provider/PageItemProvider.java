@@ -120,12 +120,14 @@ public class PageItemProvider
 					// get the declaration of the parameter
 					if (value instanceof String && object instanceof Page) {
 						String expression = (String) value;
-						Page page = (Page) object;
-						EditingDomain editingDomain = getEditingDomain(page);
-						
-						// parse, initialize, analyze and add the parameter to the page
-						ExpressionsAnalyzer evaluator = new ExpressionsAnalyzer(editingDomain, page, expression);
-						evaluator.analyzeParameter();
+						if (!expression.isEmpty()) {							
+							Page page = (Page) object;
+							EditingDomain editingDomain = getEditingDomain(page);
+							
+							// parse, initialize, analyze and add the parameter to the page
+							ExpressionsAnalyzer evaluator = new ExpressionsAnalyzer(editingDomain, page, expression);
+							evaluator.analyzeParameter();
+						}
 					}
 				}
 			});
@@ -135,22 +137,42 @@ public class PageItemProvider
 	 * This adds a property descriptor for the Variable feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addVariablePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Page_variable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Page_variable_feature", "_UI_Page_type"),
-				 WebDSLPackage.Literals.PAGE__VARIABLE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		 itemPropertyDescriptors.add
+         (new ItemPropertyDescriptor
+                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                  getResourceLocator(),
+                  getString("_UI_Page_variable_feature"),
+                  getString("_UI_PropertyDescriptor_description", "_UI_Page_variable_feature", "_UI_Page_type"),
+                  WebDSLPackage.Literals.PAGE__VARIABLE,
+                  true,
+                  false,
+                  false,
+                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                  null,
+                  null)
+         {
+
+                 @Override
+                 public void setPropertyValue(Object object, Object value) {
+                         super.setPropertyValue(object, value);
+                         
+                         // get the declaration of the parameter
+                         if (value instanceof String && object instanceof Page) {
+                                 String expression = (String) value;
+                                 if (!expression.isEmpty()) {                                	 
+                                	 Page page = (Page) object;
+                                	 EditingDomain editingDomain = getEditingDomain(page);
+                                	 
+                                	 // parse, initialize, analyze and add the variable to the page
+                                	 ExpressionsAnalyzer analyzer = new ExpressionsAnalyzer(editingDomain, page, expression);
+                                	 analyzer.analyzeVariable();
+                                 }
+                         }
+                 }
+         });
 	}
 
 	/**
@@ -276,6 +298,56 @@ public class PageItemProvider
 			(createChildParameter
 				(WebDSLPackage.Literals.PAGE__ELEMENTS,
 				 WebDSLFactory.eINSTANCE.createGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.PAGE__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createForm()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.PAGE__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createTextInput()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.PAGE__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.PAGE__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createButton()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.PAGE__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createSelectionList()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.PAGE__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createFileInput()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.PAGE__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createCustomAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.PAGE__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createSave()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.PAGE__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createReset()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.PAGE__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createCancel()));
 
 		newChildDescriptors.add
 			(createChildParameter

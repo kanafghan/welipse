@@ -43,6 +43,8 @@
 		<folder>models</folder>
 		<folder>views</folder>
 		<folder>controllers</folder>
+		<folder>helpers</folder>
+		<folder>welipse</folder>
 		[generateHTMLProtectedRegion('Site')/]
 	</files>
 	

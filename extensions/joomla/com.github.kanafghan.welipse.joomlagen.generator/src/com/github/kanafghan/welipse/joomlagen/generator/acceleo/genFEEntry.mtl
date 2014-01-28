@@ -34,6 +34,11 @@ JHTML::_(
 );	
 [/for]
 	[/if]
+// Require framework files
+JLoader::register('FormModel', dirname(__FILE__) .'/welipse/formmodel.php');
+
+// Require helper file
+JLoader::register('[genModel.extensionName.toUpperFirst()/]Helper', dirname(__FILE__) .'/helpers/[genModel.extensionName.toLower()/].php');
 
 // import joomla controller library
 jimport('joomla.application.component.controller');

@@ -201,6 +201,21 @@ public class ExternalLinkItemProvider
 			(createChildParameter
 				(WebDSLPackage.Literals.EXTERNAL_LINK__TARGET,
 				 WebDSLFactory.eINSTANCE.createRealConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.EXTERNAL_LINK__TARGET,
+				 WebDSLFactory.eINSTANCE.createListExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.EXTERNAL_LINK__TARGET,
+				 WebDSLFactory.eINSTANCE.createListElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.EXTERNAL_LINK__TARGET,
+				 WebDSLFactory.eINSTANCE.createWebUtilExp()));
 	}
 
 }

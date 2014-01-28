@@ -196,6 +196,74 @@ public class WebDSLAdapterFactory extends AdapterFactoryImpl {
 				return createGroupAdapter();
 			}
 			@Override
+			public Adapter caseForm(Form object) {
+				return createFormAdapter();
+			}
+			@Override
+			public Adapter caseInput(Input object) {
+				return createInputAdapter();
+			}
+			@Override
+			public Adapter caseTextInput(TextInput object) {
+				return createTextInputAdapter();
+			}
+			@Override
+			public Adapter caseAction(Action object) {
+				return createActionAdapter();
+			}
+			@Override
+			public Adapter caseFormElement(FormElement object) {
+				return createFormElementAdapter();
+			}
+			@Override
+			public Adapter caseButton(Button object) {
+				return createButtonAdapter();
+			}
+			@Override
+			public Adapter caseSelectionList(SelectionList object) {
+				return createSelectionListAdapter();
+			}
+			@Override
+			public Adapter caseFileInput(FileInput object) {
+				return createFileInputAdapter();
+			}
+			@Override
+			public Adapter caseStandardAction(StandardAction object) {
+				return createStandardActionAdapter();
+			}
+			@Override
+			public Adapter caseCustomAction(CustomAction object) {
+				return createCustomActionAdapter();
+			}
+			@Override
+			public Adapter caseSave(Save object) {
+				return createSaveAdapter();
+			}
+			@Override
+			public Adapter caseSubmit(Submit object) {
+				return createSubmitAdapter();
+			}
+			@Override
+			public Adapter caseReset(Reset object) {
+				return createResetAdapter();
+			}
+			@Override
+			public Adapter caseCancel(Cancel object) {
+				return createCancelAdapter();
+			}
+			@Override
+			public Adapter caseListExp(ListExp object) {
+				return createListExpAdapter();
+			}
+			@Override
+			public Adapter caseListElement(ListElement object) {
+				return createListElementAdapter();
+			}
+			@Override
+			public Adapter caseWebUtilExp(WebUtilExp object) {
+				return createWebUtilExpAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -660,6 +728,244 @@ public class WebDSLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.Form <em>Form</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.Form
+	 * @generated
+	 */
+	public Adapter createFormAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.Input <em>Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.Input
+	 * @generated
+	 */
+	public Adapter createInputAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.TextInput <em>Text Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.TextInput
+	 * @generated
+	 */
+	public Adapter createTextInputAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.Action <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.Action
+	 * @generated
+	 */
+	public Adapter createActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.FormElement <em>Form Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.FormElement
+	 * @generated
+	 */
+	public Adapter createFormElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.Button <em>Button</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.Button
+	 * @generated
+	 */
+	public Adapter createButtonAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.SelectionList <em>Selection List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.SelectionList
+	 * @generated
+	 */
+	public Adapter createSelectionListAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.FileInput <em>File Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.FileInput
+	 * @generated
+	 */
+	public Adapter createFileInputAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.StandardAction <em>Standard Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.StandardAction
+	 * @generated
+	 */
+	public Adapter createStandardActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.CustomAction <em>Custom Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.CustomAction
+	 * @generated
+	 */
+	public Adapter createCustomActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.Save <em>Save</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.Save
+	 * @generated
+	 */
+	public Adapter createSaveAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.Submit <em>Submit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.Submit
+	 * @generated
+	 */
+	public Adapter createSubmitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.Reset <em>Reset</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.Reset
+	 * @generated
+	 */
+	public Adapter createResetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.Cancel <em>Cancel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.Cancel
+	 * @generated
+	 */
+	public Adapter createCancelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.ListExp <em>List Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.ListExp
+	 * @generated
+	 */
+	public Adapter createListExpAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.ListElement <em>List Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.ListElement
+	 * @generated
+	 */
+	public Adapter createListElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.kanafghan.welipse.webdsl.WebUtilExp <em>Web Util Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.kanafghan.welipse.webdsl.WebUtilExp
+	 * @generated
+	 */
+	public Adapter createWebUtilExpAdapter() {
 		return null;
 	}
 

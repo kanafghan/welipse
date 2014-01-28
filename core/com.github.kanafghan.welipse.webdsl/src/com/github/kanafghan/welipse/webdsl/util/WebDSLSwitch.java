@@ -311,6 +311,170 @@ public class WebDSLSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case WebDSLPackage.FORM: {
+				Form form = (Form)theEObject;
+				T result = caseForm(form);
+				if (result == null) result = caseGroup(form);
+				if (result == null) result = casePresentationElement(form);
+				if (result == null) result = casePageElement(form);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.INPUT: {
+				Input input = (Input)theEObject;
+				T result = caseInput(input);
+				if (result == null) result = caseFormElement(input);
+				if (result == null) result = casePresentationElement(input);
+				if (result == null) result = casePageElement(input);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.TEXT_INPUT: {
+				TextInput textInput = (TextInput)theEObject;
+				T result = caseTextInput(textInput);
+				if (result == null) result = caseInput(textInput);
+				if (result == null) result = caseFormElement(textInput);
+				if (result == null) result = casePresentationElement(textInput);
+				if (result == null) result = casePageElement(textInput);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.ACTION: {
+				Action action = (Action)theEObject;
+				T result = caseAction(action);
+				if (result == null) result = caseNavigationElement(action);
+				if (result == null) result = casePageElement(action);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.FORM_ELEMENT: {
+				FormElement formElement = (FormElement)theEObject;
+				T result = caseFormElement(formElement);
+				if (result == null) result = casePresentationElement(formElement);
+				if (result == null) result = casePageElement(formElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.BUTTON: {
+				Button button = (Button)theEObject;
+				T result = caseButton(button);
+				if (result == null) result = caseFormElement(button);
+				if (result == null) result = casePresentationElement(button);
+				if (result == null) result = casePageElement(button);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.SELECTION_LIST: {
+				SelectionList selectionList = (SelectionList)theEObject;
+				T result = caseSelectionList(selectionList);
+				if (result == null) result = caseInput(selectionList);
+				if (result == null) result = caseFormElement(selectionList);
+				if (result == null) result = casePresentationElement(selectionList);
+				if (result == null) result = casePageElement(selectionList);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.FILE_INPUT: {
+				FileInput fileInput = (FileInput)theEObject;
+				T result = caseFileInput(fileInput);
+				if (result == null) result = caseInput(fileInput);
+				if (result == null) result = caseFormElement(fileInput);
+				if (result == null) result = casePresentationElement(fileInput);
+				if (result == null) result = casePageElement(fileInput);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.STANDARD_ACTION: {
+				StandardAction standardAction = (StandardAction)theEObject;
+				T result = caseStandardAction(standardAction);
+				if (result == null) result = caseSubmit(standardAction);
+				if (result == null) result = caseButton(standardAction);
+				if (result == null) result = caseFormElement(standardAction);
+				if (result == null) result = casePresentationElement(standardAction);
+				if (result == null) result = casePageElement(standardAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.CUSTOM_ACTION: {
+				CustomAction customAction = (CustomAction)theEObject;
+				T result = caseCustomAction(customAction);
+				if (result == null) result = caseSubmit(customAction);
+				if (result == null) result = caseButton(customAction);
+				if (result == null) result = caseFormElement(customAction);
+				if (result == null) result = casePresentationElement(customAction);
+				if (result == null) result = casePageElement(customAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.SAVE: {
+				Save save = (Save)theEObject;
+				T result = caseSave(save);
+				if (result == null) result = caseStandardAction(save);
+				if (result == null) result = caseSubmit(save);
+				if (result == null) result = caseButton(save);
+				if (result == null) result = caseFormElement(save);
+				if (result == null) result = casePresentationElement(save);
+				if (result == null) result = casePageElement(save);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.SUBMIT: {
+				Submit submit = (Submit)theEObject;
+				T result = caseSubmit(submit);
+				if (result == null) result = caseButton(submit);
+				if (result == null) result = caseFormElement(submit);
+				if (result == null) result = casePresentationElement(submit);
+				if (result == null) result = casePageElement(submit);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.RESET: {
+				Reset reset = (Reset)theEObject;
+				T result = caseReset(reset);
+				if (result == null) result = caseStandardAction(reset);
+				if (result == null) result = caseSubmit(reset);
+				if (result == null) result = caseButton(reset);
+				if (result == null) result = caseFormElement(reset);
+				if (result == null) result = casePresentationElement(reset);
+				if (result == null) result = casePageElement(reset);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.CANCEL: {
+				Cancel cancel = (Cancel)theEObject;
+				T result = caseCancel(cancel);
+				if (result == null) result = caseStandardAction(cancel);
+				if (result == null) result = caseSubmit(cancel);
+				if (result == null) result = caseButton(cancel);
+				if (result == null) result = caseFormElement(cancel);
+				if (result == null) result = casePresentationElement(cancel);
+				if (result == null) result = casePageElement(cancel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.LIST_EXP: {
+				ListExp listExp = (ListExp)theEObject;
+				T result = caseListExp(listExp);
+				if (result == null) result = caseExpression(listExp);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.LIST_ELEMENT: {
+				ListElement listElement = (ListElement)theEObject;
+				T result = caseListElement(listElement);
+				if (result == null) result = caseExpression(listElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebDSLPackage.WEB_UTIL_EXP: {
+				WebUtilExp webUtilExp = (WebUtilExp)theEObject;
+				T result = caseWebUtilExp(webUtilExp);
+				if (result == null) result = casePropertyOperation(webUtilExp);
+				if (result == null) result = caseOperationExp(webUtilExp);
+				if (result == null) result = caseExpression(webUtilExp);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -792,6 +956,261 @@ public class WebDSLSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGroup(Group object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Form</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Form</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseForm(Form object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Input</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInput(Input object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text Input</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTextInput(TextInput object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAction(Action object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Form Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Form Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFormElement(FormElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Button</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Button</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseButton(Button object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Selection List</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Selection List</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSelectionList(SelectionList object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>File Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>File Input</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileInput(FileInput object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Standard Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Standard Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStandardAction(StandardAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Custom Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Custom Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCustomAction(CustomAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Save</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Save</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSave(Save object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Submit</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Submit</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubmit(Submit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Reset</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Reset</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReset(Reset object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Cancel</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Cancel</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCancel(Cancel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>List Exp</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>List Exp</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseListExp(ListExp object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>List Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>List Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseListElement(ListElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Web Util Exp</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Web Util Exp</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWebUtilExp(WebUtilExp object) {
 		return null;
 	}
 

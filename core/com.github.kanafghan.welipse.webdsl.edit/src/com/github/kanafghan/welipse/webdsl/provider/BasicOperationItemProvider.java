@@ -187,6 +187,21 @@ public class BasicOperationItemProvider
 			(createChildParameter
 				(WebDSLPackage.Literals.BASIC_OPERATION__OPERANDS,
 				 WebDSLFactory.eINSTANCE.createRealConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.BASIC_OPERATION__OPERANDS,
+				 WebDSLFactory.eINSTANCE.createListExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.BASIC_OPERATION__OPERANDS,
+				 WebDSLFactory.eINSTANCE.createListElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.BASIC_OPERATION__OPERANDS,
+				 WebDSLFactory.eINSTANCE.createWebUtilExp()));
 	}
 
 }

@@ -23,7 +23,11 @@ public class Tester {
 			"1*(2*3)*(4*5)",
 			"x >= player.scores(true)",
 			"\"hello\".length",
-			"\"hello\".concat(\" world\")"
+			"\"hello\".concat(\" world\")",
+			"[]",
+			"[\"Man\", \"Woman\"]",
+			"[1 => \"Man\", 0 => \"Woman\"]",
+			"WebUtils.getAllPlayer()"
 		};
 		// Test cases for creating Variables
 		String[] vars = {
@@ -51,15 +55,27 @@ public class Tester {
 				switch (kind) {
 				case EXPRESSION:
 					Expression e = parser.getExpression();
-					System.out.println("Test Case: "+ tc +" PASSED ("+ e.toString() +")");
+					if (e != null) {						
+						System.out.println("Test Case: "+ tc +" PASSED ("+ e.toString() +")");
+					} else {
+						throw new Exception("Could not parse the expression!");
+					}
 					break;
 				case VARIABLES:
 					VariableInitialization v = parser.getVariable();
-					System.out.println("Test Case: "+ tc +" PASSED ("+ v.toString() +")");
+					if (v != null) {						
+						System.out.println("Test Case: "+ tc +" PASSED ("+ v.toString() +")");
+					} else {
+						throw new Exception("Could not parse the variable initialization!");
+					}
 					break;
 				case PARAMETERS:
 					Parameter p = parser.getParameter();
-					System.out.println("Test Case: "+ tc +" PASSED ("+ p.toString() +")");
+					if (p != null) {						
+						System.out.println("Test Case: "+ tc +" PASSED ("+ p.toString() +")");
+					} else {
+						throw new Exception("Could not parse the parameter!");
+					}
 					break;
 				default:
 					break;

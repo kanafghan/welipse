@@ -85,6 +85,12 @@ public class JComponentGenerator {
 				// Create folder for FE views
 				Utils.getFolder(project.getFolder("site/controllers"), monitor);
 				
+				// Create folder for FE helpers
+				Utils.getFolder(project.getFolder("site/helpers"), monitor);
+				
+				// Create folder for framework files
+				Utils.getFolder(project.getFolder("site/welipse"), monitor);
+				
 				// Create folders for component Media
 				Utils.getFolder(project.getFolder("media"), monitor);
 				IFolder imagesFolder = Utils.getFolder(project.getFolder("media/images"), monitor);

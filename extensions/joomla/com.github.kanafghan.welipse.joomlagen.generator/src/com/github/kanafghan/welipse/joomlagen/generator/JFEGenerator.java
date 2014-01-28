@@ -29,6 +29,15 @@ public class JFEGenerator {
 		
 		// Generate models
 		FEModelsGenerator.generate(context, feFolder.getFolder("models"));
+		
+		// Generate models
+		FEControllersGenerator.generate(context, feFolder.getFolder("controllers"));
+				
+		// Generate helpers
+		FEHelpersGenerator.generate(context, feFolder.getFolder("helpers"));
+		
+		// Generate framework
+		WelipseFrameworkGenerator.generate(context, feFolder.getFolder("welipse"));
 	}
 
 }

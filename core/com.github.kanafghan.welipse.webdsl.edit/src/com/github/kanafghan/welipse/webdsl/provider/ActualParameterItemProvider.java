@@ -255,6 +255,21 @@ public class ActualParameterItemProvider
 			(createChildParameter
 				(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE,
 				 WebDSLFactory.eINSTANCE.createRealConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE,
+				 WebDSLFactory.eINSTANCE.createListExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE,
+				 WebDSLFactory.eINSTANCE.createListElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.ACTUAL_PARAMETER__VALUE,
+				 WebDSLFactory.eINSTANCE.createWebUtilExp()));
 	}
 
 	/**

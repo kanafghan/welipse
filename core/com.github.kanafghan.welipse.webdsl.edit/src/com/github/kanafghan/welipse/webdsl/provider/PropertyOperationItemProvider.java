@@ -218,6 +218,21 @@ public class PropertyOperationItemProvider
 			(createChildParameter
 				(WebDSLPackage.Literals.PROPERTY_OPERATION__SOURCE,
 				 WebDSLFactory.eINSTANCE.createRealConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.PROPERTY_OPERATION__SOURCE,
+				 WebDSLFactory.eINSTANCE.createListExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.PROPERTY_OPERATION__SOURCE,
+				 WebDSLFactory.eINSTANCE.createListElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.PROPERTY_OPERATION__SOURCE,
+				 WebDSLFactory.eINSTANCE.createWebUtilExp()));
 	}
 
 }

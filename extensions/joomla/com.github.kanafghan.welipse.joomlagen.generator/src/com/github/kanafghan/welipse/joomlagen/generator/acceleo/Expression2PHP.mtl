@@ -1,7 +1,7 @@
 [comment encoding = UTF-8 /]
 [module Expression2PHP('http://github.com/kanafghan/welipse/joomlagen/1.0', 'http://github.com/kanafghan/welipse/webdsl/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[template public generateExpression(expression : Expression) post (trim())]
+[template public generateExpression(expression : Expression, genModel : JoomlaGenModel) post (trim())]
 [if (expression.oclIsKindOf(ConstantExp))]
 	[generateConstantExpression(expression.oclAsType(ConstantExp))/]
 [/if]
@@ -9,7 +9,13 @@
 	[generateVariableExpression(expression.oclAsType(VariableExp))/]
 [/if]
 [if (expression.oclIsKindOf(PropertyOperation))]
-	[generatePropertyOperation(expression.oclAsType(PropertyOperation))/]
+	[generatePropertyOperation(expression.oclAsType(PropertyOperation), genModel)/]
+[/if]
+[if (expression.oclIsKindOf(ListExp))]
+	[generateListExpression(expression.oclAsType(ListExp), genModel)/]
+[/if]
+[if (expression.oclIsKindOf(ListElement))]
+	[generateListElement(expression.oclAsType(ListElement), genModel)/]
 [/if]
 [/template]
 
@@ -32,19 +38,30 @@
 $[variable.var/]
 [/template]
 
-[template public generatePropertyOperation(expression : PropertyOperation) post (trim())]
+[template public generatePropertyOperation(expression : PropertyOperation, genModel : JoomlaGenModel) post (trim())]
 [if (expression.oclIsKindOf(ClassifierOperation))]
-	[generateVariableExpression(expression.source.oclAsType(VariableExp))/]->[expression.identifier/]([generateOperationArguments(expression.oclAsType(ClassifierOperation))/])
+	[generateVariableExpression(expression.source.oclAsType(VariableExp))/]->[expression.identifier/]([generateOperationArguments(expression.oclAsType(ClassifierOperation), genModel)/])
 [/if]
 [if (expression.oclIsKindOf(StructuralExp))]
 	[generateStructuralExpression(expression.oclAsType(StructuralExp))/]
 [/if]
+[if (expression.oclIsKindOf(WebUtilExp))]
+	[genModel.extensionName.toUpperFirst()/]Helper::[expression.oclAsType(WebUtilExp).identifier/]()
+[/if]
 [/template]
 
-[template public generateOperationArguments (operation : ClassifierOperation) post (trim())]
-[operation.arguments.generateExpression()->sep(',')/]
+[template public generateOperationArguments (operation : ClassifierOperation, genModel : JoomlaGenModel) post (trim())]
+[operation.arguments.generateExpression(genModel)->sep(',')/]
 [/template]
 
 [template public generateStructuralExpression (expression : StructuralExp) post (trim())]
 [generateVariableExpression(expression.source.oclAsType(VariableExp))/]->[if (expression.feature.oclAsType(EStructuralFeature).oclIsKindOf(EAttribute))][expression.identifier/][else]get[expression.identifier.toUpperFirst()/]()[/if]
+[/template]
+
+[template public generateListExpression (listExp : ListExp, genModel : JoomlaGenModel)  post (trim())]
+array([listExp.elements.generateExpression(genModel)->sep(',')/])
+[/template]
+
+[template public generateListElement (listElement : ListElement, genModel : JoomlaGenModel) post (trim())]
+[if (not listElement.key.oclIsUndefined())][generateExpression(listElement.key, genModel)/] => [/if][generateExpression(listElement.value, genModel)/]
 [/template]

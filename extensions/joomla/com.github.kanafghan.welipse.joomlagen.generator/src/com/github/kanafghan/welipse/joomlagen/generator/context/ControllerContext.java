@@ -20,7 +20,7 @@ public class ControllerContext {
 		this.context = context;
 		this.isMain = true;
 		this.name = "";
-		this.type = Utils.ControllerType.Controller;
+		this.type = Utils.ControllerType.BEController;
 		this.isBackEndController = isBackEndController;
 		this.model = null;
 	}

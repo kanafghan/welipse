@@ -230,6 +230,56 @@ public class ListItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createForm()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createTextInput()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createButton()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createSelectionList()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createFileInput()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createCustomAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createSave()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createReset()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createCancel()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(WebDSLPackage.Literals.LIST__COLLECTION,
 				 WebDSLFactory.eINSTANCE.createVariableExp()));
 
@@ -282,6 +332,21 @@ public class ListItemProvider
 			(createChildParameter
 				(WebDSLPackage.Literals.LIST__COLLECTION,
 				 WebDSLFactory.eINSTANCE.createRealConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__COLLECTION,
+				 WebDSLFactory.eINSTANCE.createListExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__COLLECTION,
+				 WebDSLFactory.eINSTANCE.createListElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LIST__COLLECTION,
+				 WebDSLFactory.eINSTANCE.createWebUtilExp()));
 
 		newChildDescriptors.add
 			(createChildParameter

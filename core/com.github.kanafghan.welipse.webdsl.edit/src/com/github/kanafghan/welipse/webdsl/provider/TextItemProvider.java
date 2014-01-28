@@ -227,5 +227,20 @@ public class TextItemProvider
 			(createChildParameter
 				(WebDSLPackage.Literals.TEXT__CONTENT,
 				 WebDSLFactory.eINSTANCE.createRealConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.TEXT__CONTENT,
+				 WebDSLFactory.eINSTANCE.createListExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.TEXT__CONTENT,
+				 WebDSLFactory.eINSTANCE.createListElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.TEXT__CONTENT,
+				 WebDSLFactory.eINSTANCE.createWebUtilExp()));
 	}
 }

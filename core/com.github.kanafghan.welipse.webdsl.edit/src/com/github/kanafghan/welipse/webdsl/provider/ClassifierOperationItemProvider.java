@@ -225,6 +225,21 @@ public class ClassifierOperationItemProvider
 			(createChildParameter
 				(WebDSLPackage.Literals.CLASSIFIER_OPERATION__ARGUMENTS,
 				 WebDSLFactory.eINSTANCE.createRealConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.CLASSIFIER_OPERATION__ARGUMENTS,
+				 WebDSLFactory.eINSTANCE.createListExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.CLASSIFIER_OPERATION__ARGUMENTS,
+				 WebDSLFactory.eINSTANCE.createListElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.CLASSIFIER_OPERATION__ARGUMENTS,
+				 WebDSLFactory.eINSTANCE.createWebUtilExp()));
 	}
 
 	/**

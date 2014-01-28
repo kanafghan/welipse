@@ -15,7 +15,7 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.BasicMonitor;
 
 import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenAdminModel;
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenFormModel;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenJFormModel;
 import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenItemModel;
 import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenListModel;
 import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenModel;
@@ -40,7 +40,7 @@ public class JModelGenerator {
 						generator = new GenAdminModel(modelContext.getModel(), targetFolder, arguments);
 						break;
 					case ModelForm:
-						generator = new GenFormModel(modelContext.getModel(), targetFolder, arguments);
+						generator = new GenJFormModel(modelContext.getModel(), targetFolder, arguments);
 						break;
 					case ModelList:
 						generator = new GenListModel(modelContext.getModel(), targetFolder, arguments);

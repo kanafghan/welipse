@@ -107,11 +107,11 @@ public class VariableInitializationItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((VariableInitialization)object).getVar();
+		String label = ((VariableInitialization)object).getDeclaration();
 		return label == null || label.length() == 0 ?
 			getString("_UI_VariableInitialization_type") :
 			getString("_UI_VariableInitialization_type") + " " + label;
@@ -201,6 +201,21 @@ public class VariableInitializationItemProvider
 			(createChildParameter
 				(WebDSLPackage.Literals.VARIABLE_INITIALIZATION__INIT_EXP,
 				 WebDSLFactory.eINSTANCE.createRealConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.VARIABLE_INITIALIZATION__INIT_EXP,
+				 WebDSLFactory.eINSTANCE.createListExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.VARIABLE_INITIALIZATION__INIT_EXP,
+				 WebDSLFactory.eINSTANCE.createListElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.VARIABLE_INITIALIZATION__INIT_EXP,
+				 WebDSLFactory.eINSTANCE.createWebUtilExp()));
 	}
 
 }

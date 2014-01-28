@@ -253,6 +253,21 @@ public class ImageItemProvider
 			(createChildParameter
 				(WebDSLPackage.Literals.IMAGE__SOURCE,
 				 WebDSLFactory.eINSTANCE.createRealConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.IMAGE__SOURCE,
+				 WebDSLFactory.eINSTANCE.createListExp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.IMAGE__SOURCE,
+				 WebDSLFactory.eINSTANCE.createListElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.IMAGE__SOURCE,
+				 WebDSLFactory.eINSTANCE.createWebUtilExp()));
 	}
 
 }

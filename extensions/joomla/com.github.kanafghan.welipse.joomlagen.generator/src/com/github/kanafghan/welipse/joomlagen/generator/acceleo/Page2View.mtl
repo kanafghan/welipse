@@ -40,7 +40,7 @@ class [genModel.extensionName.toUpperFirst()/]View[page.name.toUpperFirst()/] ex
 	[/for]
 
 	[for (variable : VariableInitialization | page.variables)]
-		$this->assignRef('[variable.var/]', [generateExpression(variable.initExp)/]);
+		$this->assignRef('[variable.var/]', [generateExpression(variable.initExp, genModel)/]);
 	[/for]
 
 		[generatePHPProtectedRegion('Display')/]

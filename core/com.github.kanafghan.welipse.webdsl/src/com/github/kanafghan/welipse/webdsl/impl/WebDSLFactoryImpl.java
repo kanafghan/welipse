@@ -79,6 +79,19 @@ public class WebDSLFactoryImpl extends EFactoryImpl implements WebDSLFactory {
 			case WebDSLPackage.REAL_CONSTANT: return createRealConstant();
 			case WebDSLPackage.ACTUAL_PARAMETER: return createActualParameter();
 			case WebDSLPackage.GROUP: return createGroup();
+			case WebDSLPackage.FORM: return createForm();
+			case WebDSLPackage.TEXT_INPUT: return createTextInput();
+			case WebDSLPackage.ACTION: return createAction();
+			case WebDSLPackage.BUTTON: return createButton();
+			case WebDSLPackage.SELECTION_LIST: return createSelectionList();
+			case WebDSLPackage.FILE_INPUT: return createFileInput();
+			case WebDSLPackage.CUSTOM_ACTION: return createCustomAction();
+			case WebDSLPackage.SAVE: return createSave();
+			case WebDSLPackage.RESET: return createReset();
+			case WebDSLPackage.CANCEL: return createCancel();
+			case WebDSLPackage.LIST_EXP: return createListExp();
+			case WebDSLPackage.LIST_ELEMENT: return createListElement();
+			case WebDSLPackage.WEB_UTIL_EXP: return createWebUtilExp();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -100,6 +113,12 @@ public class WebDSLFactoryImpl extends EFactoryImpl implements WebDSLFactory {
 				return createBooleanOperatorFromString(eDataType, initialValue);
 			case WebDSLPackage.COMPARISON_OPERATOR:
 				return createComparisonOperatorFromString(eDataType, initialValue);
+			case WebDSLPackage.SELECTION_LIST_RENDERING:
+				return createSelectionListRenderingFromString(eDataType, initialValue);
+			case WebDSLPackage.BUTTON_TYPE:
+				return createButtonTypeFromString(eDataType, initialValue);
+			case WebDSLPackage.FORM_METHOD:
+				return createFormMethodFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -121,6 +140,12 @@ public class WebDSLFactoryImpl extends EFactoryImpl implements WebDSLFactory {
 				return convertBooleanOperatorToString(eDataType, instanceValue);
 			case WebDSLPackage.COMPARISON_OPERATOR:
 				return convertComparisonOperatorToString(eDataType, instanceValue);
+			case WebDSLPackage.SELECTION_LIST_RENDERING:
+				return convertSelectionListRenderingToString(eDataType, instanceValue);
+			case WebDSLPackage.BUTTON_TYPE:
+				return convertButtonTypeToString(eDataType, instanceValue);
+			case WebDSLPackage.FORM_METHOD:
+				return convertFormMethodToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -351,6 +376,136 @@ public class WebDSLFactoryImpl extends EFactoryImpl implements WebDSLFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Form createForm() {
+		FormImpl form = new FormImpl();
+		return form;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TextInput createTextInput() {
+		TextInputImpl textInput = new TextInputImpl();
+		return textInput;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Action createAction() {
+		ActionImpl action = new ActionImpl();
+		return action;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Button createButton() {
+		ButtonImpl button = new ButtonImpl();
+		return button;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SelectionList createSelectionList() {
+		SelectionListImpl selectionList = new SelectionListImpl();
+		return selectionList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FileInput createFileInput() {
+		FileInputImpl fileInput = new FileInputImpl();
+		return fileInput;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CustomAction createCustomAction() {
+		CustomActionImpl customAction = new CustomActionImpl();
+		return customAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Save createSave() {
+		SaveImpl save = new SaveImpl();
+		return save;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reset createReset() {
+		ResetImpl reset = new ResetImpl();
+		return reset;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Cancel createCancel() {
+		CancelImpl cancel = new CancelImpl();
+		return cancel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ListExp createListExp() {
+		ListExpImpl listExp = new ListExpImpl();
+		return listExp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ListElement createListElement() {
+		ListElementImpl listElement = new ListElementImpl();
+		return listElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WebUtilExp createWebUtilExp() {
+		WebUtilExpImpl webUtilExp = new WebUtilExpImpl();
+		return webUtilExp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ArithmeticOperator createArithmeticOperatorFromString(EDataType eDataType, String initialValue) {
 		ArithmeticOperator result = ArithmeticOperator.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -423,6 +578,66 @@ public class WebDSLFactoryImpl extends EFactoryImpl implements WebDSLFactory {
 	 * @generated
 	 */
 	public String convertComparisonOperatorToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SelectionListRendering createSelectionListRenderingFromString(EDataType eDataType, String initialValue) {
+		SelectionListRendering result = SelectionListRendering.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSelectionListRenderingToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ButtonType createButtonTypeFromString(EDataType eDataType, String initialValue) {
+		ButtonType result = ButtonType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertButtonTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FormMethod createFormMethodFromString(EDataType eDataType, String initialValue) {
+		FormMethod result = FormMethod.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFormMethodToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

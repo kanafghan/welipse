@@ -165,6 +165,56 @@ public class LinkItemProvider
 			(createChildParameter
 				(WebDSLPackage.Literals.LINK__SOURCE,
 				 WebDSLFactory.eINSTANCE.createGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LINK__SOURCE,
+				 WebDSLFactory.eINSTANCE.createForm()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LINK__SOURCE,
+				 WebDSLFactory.eINSTANCE.createTextInput()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LINK__SOURCE,
+				 WebDSLFactory.eINSTANCE.createAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LINK__SOURCE,
+				 WebDSLFactory.eINSTANCE.createButton()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LINK__SOURCE,
+				 WebDSLFactory.eINSTANCE.createSelectionList()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LINK__SOURCE,
+				 WebDSLFactory.eINSTANCE.createFileInput()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LINK__SOURCE,
+				 WebDSLFactory.eINSTANCE.createCustomAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LINK__SOURCE,
+				 WebDSLFactory.eINSTANCE.createSave()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LINK__SOURCE,
+				 WebDSLFactory.eINSTANCE.createReset()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.LINK__SOURCE,
+				 WebDSLFactory.eINSTANCE.createCancel()));
 	}
 
 }

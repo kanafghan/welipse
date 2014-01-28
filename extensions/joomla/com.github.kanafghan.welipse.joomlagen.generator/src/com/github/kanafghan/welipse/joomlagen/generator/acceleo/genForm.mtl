@@ -32,8 +32,8 @@
 			class="inputbox"
 			label="[field.formFieldLabel/]"
 			description="[field.formFieldDescription/]" />		
-		</fieldset>
 [/for]
+	</fieldset>
 </form>
 [/file]
 [/template]

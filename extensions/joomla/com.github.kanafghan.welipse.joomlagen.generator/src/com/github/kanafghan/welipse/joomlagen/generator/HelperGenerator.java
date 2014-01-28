@@ -23,7 +23,7 @@ public class HelperGenerator {
 		final File targetFolder = new File(folder.getLocationURI());
 		final List<Object> arguments = new ArrayList<Object>(1);
 		arguments.add(helperContext.getName());
-		arguments.add(new Boolean(true));
+		arguments.add(new Boolean(helperContext.isGenerateLinkbar()));
 		
 		final Job job = new Job("Generating Helper.") {
 			@Override

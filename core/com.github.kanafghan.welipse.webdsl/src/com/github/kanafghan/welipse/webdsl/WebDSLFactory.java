@@ -220,6 +220,123 @@ public interface WebDSLFactory extends EFactory {
 	Group createGroup();
 
 	/**
+	 * Returns a new object of class '<em>Form</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Form</em>'.
+	 * @generated
+	 */
+	Form createForm();
+
+	/**
+	 * Returns a new object of class '<em>Text Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Text Input</em>'.
+	 * @generated
+	 */
+	TextInput createTextInput();
+
+	/**
+	 * Returns a new object of class '<em>Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Action</em>'.
+	 * @generated
+	 */
+	Action createAction();
+
+	/**
+	 * Returns a new object of class '<em>Button</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Button</em>'.
+	 * @generated
+	 */
+	Button createButton();
+
+	/**
+	 * Returns a new object of class '<em>Selection List</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Selection List</em>'.
+	 * @generated
+	 */
+	SelectionList createSelectionList();
+
+	/**
+	 * Returns a new object of class '<em>File Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>File Input</em>'.
+	 * @generated
+	 */
+	FileInput createFileInput();
+
+	/**
+	 * Returns a new object of class '<em>Custom Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Custom Action</em>'.
+	 * @generated
+	 */
+	CustomAction createCustomAction();
+
+	/**
+	 * Returns a new object of class '<em>Save</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Save</em>'.
+	 * @generated
+	 */
+	Save createSave();
+
+	/**
+	 * Returns a new object of class '<em>Reset</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Reset</em>'.
+	 * @generated
+	 */
+	Reset createReset();
+
+	/**
+	 * Returns a new object of class '<em>Cancel</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cancel</em>'.
+	 * @generated
+	 */
+	Cancel createCancel();
+
+	/**
+	 * Returns a new object of class '<em>List Exp</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>List Exp</em>'.
+	 * @generated
+	 */
+	ListExp createListExp();
+
+	/**
+	 * Returns a new object of class '<em>List Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>List Element</em>'.
+	 * @generated
+	 */
+	ListElement createListElement();
+
+	/**
+	 * Returns a new object of class '<em>Web Util Exp</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Web Util Exp</em>'.
+	 * @generated
+	 */
+	WebUtilExp createWebUtilExp();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -32,6 +32,20 @@
       <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ComparisonOperator/GreaterThanEqual"/>
       <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ComparisonOperator/LessThanEqual"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="webdsl.ecore#//SelectionListRendering">
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//SelectionListRendering/DropDown"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//SelectionListRendering/Radio"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//SelectionListRendering/Checkbox"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="webdsl.ecore#//ButtonType">
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ButtonType/Button"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ButtonType/Submit"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//ButtonType/Reset"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="webdsl.ecore#//FormMethod">
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//FormMethod/Post"/>
+      <genEnumLiterals ecoreEnumLiteral="webdsl.ecore#//FormMethod/Get"/>
+    </genEnums>
     <genClasses ecoreClass="webdsl.ecore#//Website">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Website/pages"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//Website/home"/>
@@ -150,5 +164,54 @@
     <genClasses ecoreClass="webdsl.ecore#//Group">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Group/elements"/>
     </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//Form">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Form/method"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//Input">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Input/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Input/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Input/labelExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Input/valueExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Input/required"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//TextInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//TextInput/isPassword"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//TextInput/isTextArea"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//Action">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webdsl.ecore#//Action/target"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//FormElement"/>
+    <genClasses ecoreClass="webdsl.ecore#//Button">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Button/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Button/type"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//SelectionList">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//SelectionList/rendering"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//SelectionList/isMultiple"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//SelectionList/options"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//SelectionList/optionsExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//FileInput"/>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//StandardAction"/>
+    <genClasses ecoreClass="webdsl.ecore#//CustomAction"/>
+    <genClasses ecoreClass="webdsl.ecore#//Save"/>
+    <genClasses image="false" ecoreClass="webdsl.ecore#//Submit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Submit/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Submit/performer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//Submit/validator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Submit/performerExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//Submit/validatorExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//Reset"/>
+    <genClasses ecoreClass="webdsl.ecore#//Cancel"/>
+    <genClasses ecoreClass="webdsl.ecore#//ListExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//ListExp/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//ListElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//ListElement/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//ListElement/value"/>
+    </genClasses>
+    <genClasses ecoreClass="webdsl.ecore#//WebUtilExp"/>
   </genPackages>
 </genmodel:GenModel>

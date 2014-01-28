@@ -2125,6 +2125,1724 @@ public interface WebDSLPackage extends EPackage {
 	int GROUP_OPERATION_COUNT = PRESENTATION_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.FormImpl <em>Form</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.FormImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getForm()
+	 * @generated
+	 */
+	int FORM = 32;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__NAME = GROUP__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__PAGE = GROUP__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__CLASS = GROUP__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__EXPRESSION = GROUP__EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__ELEMENTS = GROUP__ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Method</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__METHOD = GROUP_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Form</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_FEATURE_COUNT = GROUP_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Form</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_OPERATION_COUNT = GROUP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.FormElementImpl <em>Form Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.FormElementImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getFormElement()
+	 * @generated
+	 */
+	int FORM_ELEMENT = 36;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_ELEMENT__NAME = PRESENTATION_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_ELEMENT__PAGE = PRESENTATION_ELEMENT__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_ELEMENT__CLASS = PRESENTATION_ELEMENT__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_ELEMENT__EXPRESSION = PRESENTATION_ELEMENT__EXPRESSION;
+
+	/**
+	 * The number of structural features of the '<em>Form Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_ELEMENT_FEATURE_COUNT = PRESENTATION_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Form Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_ELEMENT_OPERATION_COUNT = PRESENTATION_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.InputImpl <em>Input</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.InputImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getInput()
+	 * @generated
+	 */
+	int INPUT = 33;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__NAME = FORM_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__PAGE = FORM_ELEMENT__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__CLASS = FORM_ELEMENT__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__EXPRESSION = FORM_ELEMENT__EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__LABEL = FORM_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__VALUE = FORM_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__LABEL_EXPRESSION = FORM_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__VALUE_EXPRESSION = FORM_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__REQUIRED = FORM_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_FEATURE_COUNT = FORM_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_OPERATION_COUNT = FORM_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.TextInputImpl <em>Text Input</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.TextInputImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getTextInput()
+	 * @generated
+	 */
+	int TEXT_INPUT = 34;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT__NAME = INPUT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT__PAGE = INPUT__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT__CLASS = INPUT__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT__EXPRESSION = INPUT__EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT__LABEL = INPUT__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT__VALUE = INPUT__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT__LABEL_EXPRESSION = INPUT__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT__VALUE_EXPRESSION = INPUT__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT__REQUIRED = INPUT__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Is Password</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT__IS_PASSWORD = INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Is Text Area</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT__IS_TEXT_AREA = INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Text Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT_FEATURE_COUNT = INPUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Text Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.ActionImpl <em>Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.ActionImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getAction()
+	 * @generated
+	 */
+	int ACTION = 35;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__NAME = NAVIGATION_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__PAGE = NAVIGATION_ELEMENT__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__TARGET = NAVIGATION_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_FEATURE_COUNT = NAVIGATION_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_OPERATION_COUNT = NAVIGATION_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.ButtonImpl <em>Button</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.ButtonImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getButton()
+	 * @generated
+	 */
+	int BUTTON = 37;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__NAME = FORM_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__PAGE = FORM_ELEMENT__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__CLASS = FORM_ELEMENT__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__EXPRESSION = FORM_ELEMENT__EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__VALUE = FORM_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__TYPE = FORM_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Button</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON_FEATURE_COUNT = FORM_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Button</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON_OPERATION_COUNT = FORM_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.SelectionListImpl <em>Selection List</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.SelectionListImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getSelectionList()
+	 * @generated
+	 */
+	int SELECTION_LIST = 38;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_LIST__NAME = INPUT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_LIST__PAGE = INPUT__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_LIST__CLASS = INPUT__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_LIST__EXPRESSION = INPUT__EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_LIST__LABEL = INPUT__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_LIST__VALUE = INPUT__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_LIST__LABEL_EXPRESSION = INPUT__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_LIST__VALUE_EXPRESSION = INPUT__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_LIST__REQUIRED = INPUT__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Rendering</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_LIST__RENDERING = INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Is Multiple</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_LIST__IS_MULTIPLE = INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_LIST__OPTIONS = INPUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Options Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_LIST__OPTIONS_EXPRESSION = INPUT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Selection List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_LIST_FEATURE_COUNT = INPUT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Selection List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_LIST_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.FileInputImpl <em>File Input</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.FileInputImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getFileInput()
+	 * @generated
+	 */
+	int FILE_INPUT = 39;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_INPUT__NAME = INPUT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_INPUT__PAGE = INPUT__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_INPUT__CLASS = INPUT__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_INPUT__EXPRESSION = INPUT__EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_INPUT__LABEL = INPUT__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_INPUT__VALUE = INPUT__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_INPUT__LABEL_EXPRESSION = INPUT__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_INPUT__VALUE_EXPRESSION = INPUT__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_INPUT__REQUIRED = INPUT__REQUIRED;
+
+	/**
+	 * The number of structural features of the '<em>File Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_INPUT_FEATURE_COUNT = INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>File Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_INPUT_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.SubmitImpl <em>Submit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.SubmitImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getSubmit()
+	 * @generated
+	 */
+	int SUBMIT = 43;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT__NAME = BUTTON__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT__PAGE = BUTTON__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT__CLASS = BUTTON__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT__EXPRESSION = BUTTON__EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT__VALUE = BUTTON__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT__TYPE = BUTTON__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT__ACTION = BUTTON_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Performer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT__PERFORMER = BUTTON_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Validator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT__VALIDATOR = BUTTON_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Performer Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT__PERFORMER_EXPRESSION = BUTTON_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Validator Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT__VALIDATOR_EXPRESSION = BUTTON_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Submit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT_FEATURE_COUNT = BUTTON_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Submit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT_OPERATION_COUNT = BUTTON_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.StandardActionImpl <em>Standard Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.StandardActionImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStandardAction()
+	 * @generated
+	 */
+	int STANDARD_ACTION = 40;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_ACTION__NAME = SUBMIT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_ACTION__PAGE = SUBMIT__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_ACTION__CLASS = SUBMIT__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_ACTION__EXPRESSION = SUBMIT__EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_ACTION__VALUE = SUBMIT__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_ACTION__TYPE = SUBMIT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_ACTION__ACTION = SUBMIT__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Performer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_ACTION__PERFORMER = SUBMIT__PERFORMER;
+
+	/**
+	 * The feature id for the '<em><b>Validator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_ACTION__VALIDATOR = SUBMIT__VALIDATOR;
+
+	/**
+	 * The feature id for the '<em><b>Performer Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_ACTION__PERFORMER_EXPRESSION = SUBMIT__PERFORMER_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Validator Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_ACTION__VALIDATOR_EXPRESSION = SUBMIT__VALIDATOR_EXPRESSION;
+
+	/**
+	 * The number of structural features of the '<em>Standard Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_ACTION_FEATURE_COUNT = SUBMIT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Standard Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_ACTION_OPERATION_COUNT = SUBMIT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.CustomActionImpl <em>Custom Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.CustomActionImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getCustomAction()
+	 * @generated
+	 */
+	int CUSTOM_ACTION = 41;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_ACTION__NAME = SUBMIT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_ACTION__PAGE = SUBMIT__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_ACTION__CLASS = SUBMIT__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_ACTION__EXPRESSION = SUBMIT__EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_ACTION__VALUE = SUBMIT__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_ACTION__TYPE = SUBMIT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_ACTION__ACTION = SUBMIT__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Performer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_ACTION__PERFORMER = SUBMIT__PERFORMER;
+
+	/**
+	 * The feature id for the '<em><b>Validator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_ACTION__VALIDATOR = SUBMIT__VALIDATOR;
+
+	/**
+	 * The feature id for the '<em><b>Performer Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_ACTION__PERFORMER_EXPRESSION = SUBMIT__PERFORMER_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Validator Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_ACTION__VALIDATOR_EXPRESSION = SUBMIT__VALIDATOR_EXPRESSION;
+
+	/**
+	 * The number of structural features of the '<em>Custom Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_ACTION_FEATURE_COUNT = SUBMIT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Custom Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_ACTION_OPERATION_COUNT = SUBMIT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.SaveImpl <em>Save</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.SaveImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getSave()
+	 * @generated
+	 */
+	int SAVE = 42;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAVE__NAME = STANDARD_ACTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAVE__PAGE = STANDARD_ACTION__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAVE__CLASS = STANDARD_ACTION__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAVE__EXPRESSION = STANDARD_ACTION__EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAVE__VALUE = STANDARD_ACTION__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAVE__TYPE = STANDARD_ACTION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAVE__ACTION = STANDARD_ACTION__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Performer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAVE__PERFORMER = STANDARD_ACTION__PERFORMER;
+
+	/**
+	 * The feature id for the '<em><b>Validator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAVE__VALIDATOR = STANDARD_ACTION__VALIDATOR;
+
+	/**
+	 * The feature id for the '<em><b>Performer Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAVE__PERFORMER_EXPRESSION = STANDARD_ACTION__PERFORMER_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Validator Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAVE__VALIDATOR_EXPRESSION = STANDARD_ACTION__VALIDATOR_EXPRESSION;
+
+	/**
+	 * The number of structural features of the '<em>Save</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAVE_FEATURE_COUNT = STANDARD_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Save</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAVE_OPERATION_COUNT = STANDARD_ACTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.ResetImpl <em>Reset</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.ResetImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getReset()
+	 * @generated
+	 */
+	int RESET = 44;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET__NAME = STANDARD_ACTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET__PAGE = STANDARD_ACTION__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET__CLASS = STANDARD_ACTION__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET__EXPRESSION = STANDARD_ACTION__EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET__VALUE = STANDARD_ACTION__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET__TYPE = STANDARD_ACTION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET__ACTION = STANDARD_ACTION__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Performer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET__PERFORMER = STANDARD_ACTION__PERFORMER;
+
+	/**
+	 * The feature id for the '<em><b>Validator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET__VALIDATOR = STANDARD_ACTION__VALIDATOR;
+
+	/**
+	 * The feature id for the '<em><b>Performer Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET__PERFORMER_EXPRESSION = STANDARD_ACTION__PERFORMER_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Validator Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET__VALIDATOR_EXPRESSION = STANDARD_ACTION__VALIDATOR_EXPRESSION;
+
+	/**
+	 * The number of structural features of the '<em>Reset</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET_FEATURE_COUNT = STANDARD_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Reset</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET_OPERATION_COUNT = STANDARD_ACTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.CancelImpl <em>Cancel</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.CancelImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getCancel()
+	 * @generated
+	 */
+	int CANCEL = 45;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANCEL__NAME = STANDARD_ACTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANCEL__PAGE = STANDARD_ACTION__PAGE;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANCEL__CLASS = STANDARD_ACTION__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANCEL__EXPRESSION = STANDARD_ACTION__EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANCEL__VALUE = STANDARD_ACTION__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANCEL__TYPE = STANDARD_ACTION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANCEL__ACTION = STANDARD_ACTION__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Performer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANCEL__PERFORMER = STANDARD_ACTION__PERFORMER;
+
+	/**
+	 * The feature id for the '<em><b>Validator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANCEL__VALIDATOR = STANDARD_ACTION__VALIDATOR;
+
+	/**
+	 * The feature id for the '<em><b>Performer Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANCEL__PERFORMER_EXPRESSION = STANDARD_ACTION__PERFORMER_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Validator Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANCEL__VALIDATOR_EXPRESSION = STANDARD_ACTION__VALIDATOR_EXPRESSION;
+
+	/**
+	 * The number of structural features of the '<em>Cancel</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANCEL_FEATURE_COUNT = STANDARD_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Cancel</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CANCEL_OPERATION_COUNT = STANDARD_ACTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.ListExpImpl <em>List Exp</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.ListExpImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getListExp()
+	 * @generated
+	 */
+	int LIST_EXP = 46;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_EXP__ELEMENTS = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>List Exp</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_EXP_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_EXP___TYPE = EXPRESSION___TYPE;
+
+	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_EXP___INITIALIZE__PAGE = EXPRESSION___INITIALIZE__PAGE;
+
+	/**
+	 * The number of operations of the '<em>List Exp</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_EXP_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.ListElementImpl <em>List Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.ListElementImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getListElement()
+	 * @generated
+	 */
+	int LIST_ELEMENT = 47;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_ELEMENT__KEY = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_ELEMENT__VALUE = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>List Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_ELEMENT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_ELEMENT___TYPE = EXPRESSION___TYPE;
+
+	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_ELEMENT___INITIALIZE__PAGE = EXPRESSION___INITIALIZE__PAGE;
+
+	/**
+	 * The number of operations of the '<em>List Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_ELEMENT_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.impl.WebUtilExpImpl <em>Web Util Exp</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebUtilExpImpl
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getWebUtilExp()
+	 * @generated
+	 */
+	int WEB_UTIL_EXP = 48;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEB_UTIL_EXP__SOURCE = PROPERTY_OPERATION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEB_UTIL_EXP__IDENTIFIER = PROPERTY_OPERATION__IDENTIFIER;
+
+	/**
+	 * The number of structural features of the '<em>Web Util Exp</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEB_UTIL_EXP_FEATURE_COUNT = PROPERTY_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEB_UTIL_EXP___TYPE = PROPERTY_OPERATION___TYPE;
+
+	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEB_UTIL_EXP___INITIALIZE__PAGE = PROPERTY_OPERATION___INITIALIZE__PAGE;
+
+	/**
+	 * The number of operations of the '<em>Web Util Exp</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEB_UTIL_EXP_OPERATION_COUNT = PROPERTY_OPERATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.ArithmeticOperator <em>Arithmetic Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2132,7 +3850,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getArithmeticOperator()
 	 * @generated
 	 */
-	int ARITHMETIC_OPERATOR = 32;
+	int ARITHMETIC_OPERATOR = 49;
 
 	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.StringOperator <em>String Operator</em>}' enum.
@@ -2142,7 +3860,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStringOperator()
 	 * @generated
 	 */
-	int STRING_OPERATOR = 33;
+	int STRING_OPERATOR = 50;
 
 
 	/**
@@ -2153,7 +3871,7 @@ public interface WebDSLPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getBooleanOperator()
 	 * @generated
 	 */
-	int BOOLEAN_OPERATOR = 34;
+	int BOOLEAN_OPERATOR = 51;
 
 	/**
 	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.ComparisonOperator <em>Comparison Operator</em>}' enum.
@@ -2163,7 +3881,39 @@ public interface WebDSLPackage extends EPackage {
 	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getComparisonOperator()
 	 * @generated
 	 */
-	int COMPARISON_OPERATOR = 35;
+	int COMPARISON_OPERATOR = 52;
+
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.SelectionListRendering <em>Selection List Rendering</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.SelectionListRendering
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getSelectionListRendering()
+	 * @generated
+	 */
+	int SELECTION_LIST_RENDERING = 53;
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.ButtonType <em>Button Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.ButtonType
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getButtonType()
+	 * @generated
+	 */
+	int BUTTON_TYPE = 54;
+
+
+	/**
+	 * The meta object id for the '{@link com.github.kanafghan.welipse.webdsl.FormMethod <em>Form Method</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.kanafghan.welipse.webdsl.FormMethod
+	 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getFormMethod()
+	 * @generated
+	 */
+	int FORM_METHOD = 55;
 
 
 	/**
@@ -3078,6 +4828,429 @@ public interface WebDSLPackage extends EPackage {
 	EReference getGroup_Elements();
 
 	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Form <em>Form</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Form</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Form
+	 * @generated
+	 */
+	EClass getForm();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.Form#getMethod <em>Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Method</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Form#getMethod()
+	 * @see #getForm()
+	 * @generated
+	 */
+	EAttribute getForm_Method();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Input <em>Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Input</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Input
+	 * @generated
+	 */
+	EClass getInput();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.Input#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Label</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Input#getLabel()
+	 * @see #getInput()
+	 * @generated
+	 */
+	EReference getInput_Label();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.Input#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Value</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Input#getValue()
+	 * @see #getInput()
+	 * @generated
+	 */
+	EReference getInput_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.Input#getLabelExpression <em>Label Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label Expression</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Input#getLabelExpression()
+	 * @see #getInput()
+	 * @generated
+	 */
+	EAttribute getInput_LabelExpression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.Input#getValueExpression <em>Value Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value Expression</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Input#getValueExpression()
+	 * @see #getInput()
+	 * @generated
+	 */
+	EAttribute getInput_ValueExpression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.Input#isRequired <em>Required</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Required</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Input#isRequired()
+	 * @see #getInput()
+	 * @generated
+	 */
+	EAttribute getInput_Required();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.TextInput <em>Text Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Text Input</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.TextInput
+	 * @generated
+	 */
+	EClass getTextInput();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.TextInput#isIsPassword <em>Is Password</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Password</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.TextInput#isIsPassword()
+	 * @see #getTextInput()
+	 * @generated
+	 */
+	EAttribute getTextInput_IsPassword();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.TextInput#isIsTextArea <em>Is Text Area</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Text Area</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.TextInput#isIsTextArea()
+	 * @see #getTextInput()
+	 * @generated
+	 */
+	EAttribute getTextInput_IsTextArea();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Action <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Action</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Action
+	 * @generated
+	 */
+	EClass getAction();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.github.kanafghan.welipse.webdsl.Action#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Action#getTarget()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EReference getAction_Target();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.FormElement <em>Form Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Form Element</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.FormElement
+	 * @generated
+	 */
+	EClass getFormElement();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Button <em>Button</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Button</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Button
+	 * @generated
+	 */
+	EClass getButton();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.Button#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Button#getValue()
+	 * @see #getButton()
+	 * @generated
+	 */
+	EAttribute getButton_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.Button#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Button#getType()
+	 * @see #getButton()
+	 * @generated
+	 */
+	EAttribute getButton_Type();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.SelectionList <em>Selection List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Selection List</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.SelectionList
+	 * @generated
+	 */
+	EClass getSelectionList();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.SelectionList#getRendering <em>Rendering</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rendering</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.SelectionList#getRendering()
+	 * @see #getSelectionList()
+	 * @generated
+	 */
+	EAttribute getSelectionList_Rendering();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.SelectionList#isIsMultiple <em>Is Multiple</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Multiple</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.SelectionList#isIsMultiple()
+	 * @see #getSelectionList()
+	 * @generated
+	 */
+	EAttribute getSelectionList_IsMultiple();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.SelectionList#getOptions <em>Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Options</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.SelectionList#getOptions()
+	 * @see #getSelectionList()
+	 * @generated
+	 */
+	EReference getSelectionList_Options();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.SelectionList#getOptionsExpression <em>Options Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Options Expression</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.SelectionList#getOptionsExpression()
+	 * @see #getSelectionList()
+	 * @generated
+	 */
+	EAttribute getSelectionList_OptionsExpression();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.FileInput <em>File Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>File Input</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.FileInput
+	 * @generated
+	 */
+	EClass getFileInput();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.StandardAction <em>Standard Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Standard Action</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.StandardAction
+	 * @generated
+	 */
+	EClass getStandardAction();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.CustomAction <em>Custom Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Custom Action</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.CustomAction
+	 * @generated
+	 */
+	EClass getCustomAction();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Save <em>Save</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Save</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Save
+	 * @generated
+	 */
+	EClass getSave();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Submit <em>Submit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Submit</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Submit
+	 * @generated
+	 */
+	EClass getSubmit();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.Submit#getAction <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Action</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Submit#getAction()
+	 * @see #getSubmit()
+	 * @generated
+	 */
+	EReference getSubmit_Action();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.Submit#getPerformer <em>Performer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Performer</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Submit#getPerformer()
+	 * @see #getSubmit()
+	 * @generated
+	 */
+	EReference getSubmit_Performer();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.Submit#getValidator <em>Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Validator</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Submit#getValidator()
+	 * @see #getSubmit()
+	 * @generated
+	 */
+	EReference getSubmit_Validator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.Submit#getPerformerExpression <em>Performer Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Performer Expression</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Submit#getPerformerExpression()
+	 * @see #getSubmit()
+	 * @generated
+	 */
+	EAttribute getSubmit_PerformerExpression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.Submit#getValidatorExpression <em>Validator Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Validator Expression</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Submit#getValidatorExpression()
+	 * @see #getSubmit()
+	 * @generated
+	 */
+	EAttribute getSubmit_ValidatorExpression();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Reset <em>Reset</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Reset</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Reset
+	 * @generated
+	 */
+	EClass getReset();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Cancel <em>Cancel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Cancel</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.Cancel
+	 * @generated
+	 */
+	EClass getCancel();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.ListExp <em>List Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>List Exp</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ListExp
+	 * @generated
+	 */
+	EClass getListExp();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.github.kanafghan.welipse.webdsl.ListExp#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ListExp#getElements()
+	 * @see #getListExp()
+	 * @generated
+	 */
+	EReference getListExp_Elements();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.ListElement <em>List Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>List Element</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ListElement
+	 * @generated
+	 */
+	EClass getListElement();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.ListElement#getKey <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Key</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ListElement#getKey()
+	 * @see #getListElement()
+	 * @generated
+	 */
+	EReference getListElement_Key();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.github.kanafghan.welipse.webdsl.ListElement#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Value</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ListElement#getValue()
+	 * @see #getListElement()
+	 * @generated
+	 */
+	EReference getListElement_Value();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.WebUtilExp <em>Web Util Exp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Web Util Exp</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.WebUtilExp
+	 * @generated
+	 */
+	EClass getWebUtilExp();
+
+	/**
 	 * Returns the meta object for enum '{@link com.github.kanafghan.welipse.webdsl.ArithmeticOperator <em>Arithmetic Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3116,6 +5289,36 @@ public interface WebDSLPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getComparisonOperator();
+
+	/**
+	 * Returns the meta object for enum '{@link com.github.kanafghan.welipse.webdsl.SelectionListRendering <em>Selection List Rendering</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Selection List Rendering</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.SelectionListRendering
+	 * @generated
+	 */
+	EEnum getSelectionListRendering();
+
+	/**
+	 * Returns the meta object for enum '{@link com.github.kanafghan.welipse.webdsl.ButtonType <em>Button Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Button Type</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ButtonType
+	 * @generated
+	 */
+	EEnum getButtonType();
+
+	/**
+	 * Returns the meta object for enum '{@link com.github.kanafghan.welipse.webdsl.FormMethod <em>Form Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Form Method</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.FormMethod
+	 * @generated
+	 */
+	EEnum getFormMethod();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3893,6 +6096,360 @@ public interface WebDSLPackage extends EPackage {
 		EReference GROUP__ELEMENTS = eINSTANCE.getGroup_Elements();
 
 		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.FormImpl <em>Form</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.FormImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getForm()
+		 * @generated
+		 */
+		EClass FORM = eINSTANCE.getForm();
+
+		/**
+		 * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FORM__METHOD = eINSTANCE.getForm_Method();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.InputImpl <em>Input</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.InputImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getInput()
+		 * @generated
+		 */
+		EClass INPUT = eINSTANCE.getInput();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INPUT__LABEL = eINSTANCE.getInput_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INPUT__VALUE = eINSTANCE.getInput_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Label Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT__LABEL_EXPRESSION = eINSTANCE.getInput_LabelExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Value Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT__VALUE_EXPRESSION = eINSTANCE.getInput_ValueExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT__REQUIRED = eINSTANCE.getInput_Required();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.TextInputImpl <em>Text Input</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.TextInputImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getTextInput()
+		 * @generated
+		 */
+		EClass TEXT_INPUT = eINSTANCE.getTextInput();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Password</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_INPUT__IS_PASSWORD = eINSTANCE.getTextInput_IsPassword();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Text Area</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_INPUT__IS_TEXT_AREA = eINSTANCE.getTextInput_IsTextArea();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ActionImpl <em>Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.ActionImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getAction()
+		 * @generated
+		 */
+		EClass ACTION = eINSTANCE.getAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTION__TARGET = eINSTANCE.getAction_Target();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.FormElementImpl <em>Form Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.FormElementImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getFormElement()
+		 * @generated
+		 */
+		EClass FORM_ELEMENT = eINSTANCE.getFormElement();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ButtonImpl <em>Button</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.ButtonImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getButton()
+		 * @generated
+		 */
+		EClass BUTTON = eINSTANCE.getButton();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUTTON__VALUE = eINSTANCE.getButton_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUTTON__TYPE = eINSTANCE.getButton_Type();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.SelectionListImpl <em>Selection List</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.SelectionListImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getSelectionList()
+		 * @generated
+		 */
+		EClass SELECTION_LIST = eINSTANCE.getSelectionList();
+
+		/**
+		 * The meta object literal for the '<em><b>Rendering</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SELECTION_LIST__RENDERING = eINSTANCE.getSelectionList_Rendering();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Multiple</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SELECTION_LIST__IS_MULTIPLE = eINSTANCE.getSelectionList_IsMultiple();
+
+		/**
+		 * The meta object literal for the '<em><b>Options</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SELECTION_LIST__OPTIONS = eINSTANCE.getSelectionList_Options();
+
+		/**
+		 * The meta object literal for the '<em><b>Options Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SELECTION_LIST__OPTIONS_EXPRESSION = eINSTANCE.getSelectionList_OptionsExpression();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.FileInputImpl <em>File Input</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.FileInputImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getFileInput()
+		 * @generated
+		 */
+		EClass FILE_INPUT = eINSTANCE.getFileInput();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.StandardActionImpl <em>Standard Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.StandardActionImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getStandardAction()
+		 * @generated
+		 */
+		EClass STANDARD_ACTION = eINSTANCE.getStandardAction();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.CustomActionImpl <em>Custom Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.CustomActionImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getCustomAction()
+		 * @generated
+		 */
+		EClass CUSTOM_ACTION = eINSTANCE.getCustomAction();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.SaveImpl <em>Save</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.SaveImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getSave()
+		 * @generated
+		 */
+		EClass SAVE = eINSTANCE.getSave();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.SubmitImpl <em>Submit</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.SubmitImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getSubmit()
+		 * @generated
+		 */
+		EClass SUBMIT = eINSTANCE.getSubmit();
+
+		/**
+		 * The meta object literal for the '<em><b>Action</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBMIT__ACTION = eINSTANCE.getSubmit_Action();
+
+		/**
+		 * The meta object literal for the '<em><b>Performer</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBMIT__PERFORMER = eINSTANCE.getSubmit_Performer();
+
+		/**
+		 * The meta object literal for the '<em><b>Validator</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBMIT__VALIDATOR = eINSTANCE.getSubmit_Validator();
+
+		/**
+		 * The meta object literal for the '<em><b>Performer Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SUBMIT__PERFORMER_EXPRESSION = eINSTANCE.getSubmit_PerformerExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Validator Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SUBMIT__VALIDATOR_EXPRESSION = eINSTANCE.getSubmit_ValidatorExpression();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ResetImpl <em>Reset</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.ResetImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getReset()
+		 * @generated
+		 */
+		EClass RESET = eINSTANCE.getReset();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.CancelImpl <em>Cancel</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.CancelImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getCancel()
+		 * @generated
+		 */
+		EClass CANCEL = eINSTANCE.getCancel();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ListExpImpl <em>List Exp</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.ListExpImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getListExp()
+		 * @generated
+		 */
+		EClass LIST_EXP = eINSTANCE.getListExp();
+
+		/**
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIST_EXP__ELEMENTS = eINSTANCE.getListExp_Elements();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ListElementImpl <em>List Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.ListElementImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getListElement()
+		 * @generated
+		 */
+		EClass LIST_ELEMENT = eINSTANCE.getListElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIST_ELEMENT__KEY = eINSTANCE.getListElement_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIST_ELEMENT__VALUE = eINSTANCE.getListElement_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.WebUtilExpImpl <em>Web Util Exp</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebUtilExpImpl
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getWebUtilExp()
+		 * @generated
+		 */
+		EClass WEB_UTIL_EXP = eINSTANCE.getWebUtilExp();
+
+		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.ArithmeticOperator <em>Arithmetic Operator</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3931,6 +6488,36 @@ public interface WebDSLPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum COMPARISON_OPERATOR = eINSTANCE.getComparisonOperator();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.SelectionListRendering <em>Selection List Rendering</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.SelectionListRendering
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getSelectionListRendering()
+		 * @generated
+		 */
+		EEnum SELECTION_LIST_RENDERING = eINSTANCE.getSelectionListRendering();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.ButtonType <em>Button Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.ButtonType
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getButtonType()
+		 * @generated
+		 */
+		EEnum BUTTON_TYPE = eINSTANCE.getButtonType();
+
+		/**
+		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.FormMethod <em>Form Method</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.kanafghan.welipse.webdsl.FormMethod
+		 * @see com.github.kanafghan.welipse.webdsl.impl.WebDSLPackageImpl#getFormMethod()
+		 * @generated
+		 */
+		EEnum FORM_METHOD = eINSTANCE.getFormMethod();
 
 	}
 

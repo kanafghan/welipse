@@ -81,54 +81,14 @@ public class JViewGenerator {
 	}
 
 	private static void generateView(ViewContext context, IFolder folder, String viewName) {
-//		Bundle bundle = Activator.getDefault().getBundle();
-//		final String uri = bundle.getEntry("templates/view.phpjet").toString();
-//				
-//		final ViewContext viewContext = context;
-//		final IFolder viewFolder = folder.getFolder(viewName);
-		
 		final ViewContext viewContext = context;
 		final File targetFolder = new File(folder.getFolder(viewName).getLocationURI());
 		final List<Object> arguments = new ArrayList<Object>(1);
 		arguments.add(viewContext.getContext().getGenModel());
 		
-		final Job job = new Job("Generating View.") {//"Generating codes for view: "+ viewName) {
+		final Job job = new Job("Generating View.") {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
-//				try {
-//					// Create the view folder if not exists
-//					if (!viewFolder.exists()) {
-//						viewFolder.create(true, false, monitor);
-//					}
-//					
-//					// Create/get the view file
-//					IFile viewFile = viewFolder.getFile("view.html.php");
-//					
-//					JETEmitter emitter = new JETEmitter(uri, getClass().getClassLoader());
-//					// the plugins that we have imported from in the templates
-//					emitter.addVariable("WELIPSE_WEBDSL", "com.github.kanafghan.welipse.webdsl");
-//					emitter.addVariable("WELIPSE_JOOMLAGEN", "com.github.kanafghan.welipse.joomlagen");
-//					emitter.addVariable("EMF_COMMON", "org.eclipse.emf.common");
-//					emitter.addVariable("EMF_ECORE", "org.eclipse.emf.ecore");
-//					
-//					String result = emitter.generate(monitor, new Object[] {viewContext});
-//					
-//					InputStream newContents = new ByteArrayInputStream(result.getBytes());
-//					if (viewFile.exists()) {
-//						viewFile.setContents(newContents, true, true, new SubProgressMonitor(monitor, 1));
-//					} else {
-//						viewFile.create(newContents, true, new SubProgressMonitor(monitor, 1));
-//					}
-//				} catch (JETException e) {
-//					return new Status(Status.ERROR, Activator.PLUGIN_ID, 
-//							"An exception occurred during the code generation! Please check the error view. "
-//							+ e.getMessage(), e);
-//				} catch (CoreException e) {
-//					return new Status(Status.ERROR, Activator.PLUGIN_ID, 
-//							"An exception occurred during the code generation! Please check the error view. "
-//							+ e.getMessage(), e);
-//				}
-
 				AbstractAcceleoGenerator generator = null;
 				
 				try {

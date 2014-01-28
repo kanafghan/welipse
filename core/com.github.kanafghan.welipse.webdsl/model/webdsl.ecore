@@ -73,7 +73,7 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariableExp" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" eType="#//VariableDeclaration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OperationExp" abstract="true" eSuperTypes="#//Expression"/>
@@ -81,10 +81,10 @@
     <eOperations name="initialize">
       <eParameters name="page" eType="#//Page"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClassifier"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="classifier" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="declaration" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="classifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="declaration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariableInitialization" eSuperTypes="#//VariableDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="initExp" lowerBound="1"
@@ -168,4 +168,77 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//PageElement" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Form" eSuperTypes="#//Group">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" eType="#//FormMethod"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Input" abstract="true" eSuperTypes="#//FormElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="label" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelExpression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueExpression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextInput" eSuperTypes="#//Input">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPassword" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTextArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//NavigationElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Page"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FormElement" abstract="true" eSuperTypes="#//PresentationElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//FormElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ButtonType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectionList" eSuperTypes="#//Input">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rendering" eType="#//SelectionListRendering"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMultiple" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" lowerBound="1"
+        eType="#//Expression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="optionsExpression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SelectionListRendering">
+    <eLiterals name="DropDown"/>
+    <eLiterals name="Radio" value="1"/>
+    <eLiterals name="Checkbox" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileInput" eSuperTypes="#//Input"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StandardAction" abstract="true" eSuperTypes="#//Submit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomAction" eSuperTypes="#//Submit"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ButtonType">
+    <eLiterals name="Button"/>
+    <eLiterals name="Submit" value="1"/>
+    <eLiterals name="Reset" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Save" eSuperTypes="#//StandardAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Submit" abstract="true" eSuperTypes="#//Button">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//Action"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="performer" lowerBound="1"
+        eType="#//Expression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="validator" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="performerExpression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validatorExpression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reset" eSuperTypes="#//StandardAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Cancel" eSuperTypes="#//StandardAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ListExp" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListElement" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FormMethod">
+    <eLiterals name="Post"/>
+    <eLiterals name="Get" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WebUtilExp" eSuperTypes="#//PropertyOperation"/>
 </ecore:EPackage>

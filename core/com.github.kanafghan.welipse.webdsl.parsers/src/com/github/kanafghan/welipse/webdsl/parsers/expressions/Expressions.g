@@ -19,17 +19,17 @@ evaluator returns [Expression result]
 	;
 	
 expression returns [Expression result]
-	:	term8 {$result = $term8.result;}	
+	:	term9 {$result = $term9.result;}	
 	;
 	
 term0 returns [Expression result]
 	:	variableUse {$result = $variableUse.result;}
 	|	'(' expression ')' {$result = $expression.result;}
-	|	numberConstant {$result = $numberConstant.result;}
-	|	booleanConstant {$result = $booleanConstant.result;}
-	|	stringConstant {$result = $stringConstant.result;}
+	|	constantExpression {$result = $constantExpression.result;}
 	|	classifierOperation {$result = $classifierOperation.result;}
 	|	structuralExpression {$result = $structuralExpression.result;}
+	|	listExpression {$result = $listExpression.result;}
+	|	webUtilsExpression {$result = $webUtilsExpression.result;}
 	;
 	
 term1 returns [Expression result]
@@ -205,6 +205,19 @@ term8 returns [Expression result]
 		)?
 	;
 	
+term9 returns [Expression result]
+	:	key = term8 { $result = $key.result; }
+		(
+			'=>' value = term8
+			{
+				ListElement le = WebDSLFactory.eINSTANCE.createListElement();
+				le.setKey($key.result);
+				le.setValue($value.result);
+				$result = le;
+			}
+		)?
+	;
+	
 variableUse returns [Expression result]
 	:	IDENT
 		{
@@ -233,8 +246,39 @@ classifierOperation returns [Expression result]
 				{
 					e.getArguments().add($e2.result);
 				}
-			)
-		*)? ')'
+			)*
+		)? ')'
+	;
+	
+webUtilsExpression returns [Expression result]
+	:	'WebUtils' '.' IDENT '(' ')'
+		{
+			WebUtilExp e = WebDSLFactory.eINSTANCE.createWebUtilExp();
+			e.setIdentifier($IDENT.text);
+			$result = e;
+		}
+	;
+	
+listExpression returns [Expression result]
+	:	{
+			ListExp list = WebDSLFactory.eINSTANCE.createListExp();
+			$result = list;
+		}
+		'['
+			(
+				e1 = expression
+				{
+					list.getElements().add($e1.result);
+				}
+				(
+					','
+					e2 = expression
+					{
+						list.getElements().add($e2.result);
+					}
+				)*
+			)?
+		']'
 	;
 
 structuralExpression returns [Expression result]
@@ -247,6 +291,12 @@ structuralExpression returns [Expression result]
 			e.setSource($src.result);
 			e.setIdentifier($IDENT.text);
 		}
+	;
+
+constantExpression returns [Expression result]
+	:	numberConstant {$result = $numberConstant.result;}
+	|	booleanConstant {$result = $booleanConstant.result;}
+	|	stringConstant {$result = $stringConstant.result;}
 	;
 
 numberConstant returns [Expression result]
@@ -303,6 +353,7 @@ initialization returns [VariableInitialization result]
 			VariableInitialization var = WebDSLFactory.eINSTANCE.createVariableInitialization();
 			var.setVar($v.text);
 			var.setClassifier($t.text);
+			var.setDeclaration($v.text +" : "+ $t.text);
 			var.setInitExp($e.result);
 			$result = var;
 		}
@@ -314,6 +365,7 @@ parameter returns [Parameter result]
 			Parameter p = WebDSLFactory.eINSTANCE.createParameter();
 			p.setVar($v.text);
 			p.setClassifier($t.text);
+			p.setDeclaration($v.text +" : "+ $t.text);
 			$result = p;
 		}
 	;

@@ -121,7 +121,7 @@ public class PresentationElementItemProvider
 							// parse, initialize, analyze and set the expression of the element
 							ExpressionsAnalyzer evaluator = new ExpressionsAnalyzer(
 									editingDomain, element, expression);
-							evaluator.analyzeExpression();
+							evaluator.analyzeMainExpressions();
 						}
 					}
 				}

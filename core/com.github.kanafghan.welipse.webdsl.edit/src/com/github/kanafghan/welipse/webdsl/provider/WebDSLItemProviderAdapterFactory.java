@@ -578,6 +578,305 @@ public class WebDSLItemProviderAdapterFactory extends WebDSLAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.Form} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FormItemProvider formItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.Form}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFormAdapter() {
+		if (formItemProvider == null) {
+			formItemProvider = new FormItemProvider(this);
+		}
+
+		return formItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.TextInput} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextInputItemProvider textInputItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.TextInput}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextInputAdapter() {
+		if (textInputItemProvider == null) {
+			textInputItemProvider = new TextInputItemProvider(this);
+		}
+
+		return textInputItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.Action} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActionItemProvider actionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.Action}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActionAdapter() {
+		if (actionItemProvider == null) {
+			actionItemProvider = new ActionItemProvider(this);
+		}
+
+		return actionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.Button} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ButtonItemProvider buttonItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.Button}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createButtonAdapter() {
+		if (buttonItemProvider == null) {
+			buttonItemProvider = new ButtonItemProvider(this);
+		}
+
+		return buttonItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.SelectionList} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SelectionListItemProvider selectionListItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.SelectionList}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSelectionListAdapter() {
+		if (selectionListItemProvider == null) {
+			selectionListItemProvider = new SelectionListItemProvider(this);
+		}
+
+		return selectionListItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.FileInput} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FileInputItemProvider fileInputItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.FileInput}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFileInputAdapter() {
+		if (fileInputItemProvider == null) {
+			fileInputItemProvider = new FileInputItemProvider(this);
+		}
+
+		return fileInputItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.CustomAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CustomActionItemProvider customActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.CustomAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCustomActionAdapter() {
+		if (customActionItemProvider == null) {
+			customActionItemProvider = new CustomActionItemProvider(this);
+		}
+
+		return customActionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.Save} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SaveItemProvider saveItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.Save}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSaveAdapter() {
+		if (saveItemProvider == null) {
+			saveItemProvider = new SaveItemProvider(this);
+		}
+
+		return saveItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.Reset} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResetItemProvider resetItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.Reset}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResetAdapter() {
+		if (resetItemProvider == null) {
+			resetItemProvider = new ResetItemProvider(this);
+		}
+
+		return resetItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.Cancel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CancelItemProvider cancelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.Cancel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCancelAdapter() {
+		if (cancelItemProvider == null) {
+			cancelItemProvider = new CancelItemProvider(this);
+		}
+
+		return cancelItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.ListExp} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ListExpItemProvider listExpItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.ListExp}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createListExpAdapter() {
+		if (listExpItemProvider == null) {
+			listExpItemProvider = new ListExpItemProvider(this);
+		}
+
+		return listExpItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.ListElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ListElementItemProvider listElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.ListElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createListElementAdapter() {
+		if (listElementItemProvider == null) {
+			listElementItemProvider = new ListElementItemProvider(this);
+		}
+
+		return listElementItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.kanafghan.welipse.webdsl.WebUtilExp} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WebUtilExpItemProvider webUtilExpItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.kanafghan.welipse.webdsl.WebUtilExp}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWebUtilExpAdapter() {
+		if (webUtilExpItemProvider == null) {
+			webUtilExpItemProvider = new WebUtilExpItemProvider(this);
+		}
+
+		return webUtilExpItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -698,6 +997,19 @@ public class WebDSLItemProviderAdapterFactory extends WebDSLAdapterFactory imple
 		if (realConstantItemProvider != null) realConstantItemProvider.dispose();
 		if (actualParameterItemProvider != null) actualParameterItemProvider.dispose();
 		if (groupItemProvider != null) groupItemProvider.dispose();
+		if (formItemProvider != null) formItemProvider.dispose();
+		if (textInputItemProvider != null) textInputItemProvider.dispose();
+		if (actionItemProvider != null) actionItemProvider.dispose();
+		if (buttonItemProvider != null) buttonItemProvider.dispose();
+		if (selectionListItemProvider != null) selectionListItemProvider.dispose();
+		if (fileInputItemProvider != null) fileInputItemProvider.dispose();
+		if (customActionItemProvider != null) customActionItemProvider.dispose();
+		if (saveItemProvider != null) saveItemProvider.dispose();
+		if (resetItemProvider != null) resetItemProvider.dispose();
+		if (cancelItemProvider != null) cancelItemProvider.dispose();
+		if (listExpItemProvider != null) listExpItemProvider.dispose();
+		if (listElementItemProvider != null) listElementItemProvider.dispose();
+		if (webUtilExpItemProvider != null) webUtilExpItemProvider.dispose();
 	}
 
 }

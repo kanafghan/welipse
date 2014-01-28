@@ -16,8 +16,9 @@ import org.eclipse.emf.common.util.BasicMonitor;
 
 import com.github.kanafghan.welipse.joomlagen.generator.Utils.ControllerType;
 import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenAdminController;
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenController;
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenFormController;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenBEController;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenBEFormController;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenFEController;
 import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenMainController;
 import com.github.kanafghan.welipse.joomlagen.generator.context.ControllerContext;
 
@@ -38,13 +39,16 @@ public class JControllerGenerator {
 						generator = new GenMainController(controllerContext.getContext().getGenModel(), targetFolder, arguments);
 					} else if (controllerContext.getType() == ControllerType.ControllerForm) {
 						arguments.add(controllerContext.getContext().getGenModel());
-						generator = new GenFormController(controllerContext.getModel(), targetFolder, arguments);
+						generator = new GenBEFormController(controllerContext.getModel(), targetFolder, arguments);
 					} else if (controllerContext.getType() == ControllerType.ControllerAdmin) {						
 						arguments.add(controllerContext.getContext().getGenModel());
 						generator = new GenAdminController(controllerContext.getModel(), targetFolder, arguments);
+					} else if (controllerContext.getType() == ControllerType.FEController) {
+						arguments.add(controllerContext.getContext().getGenModel());
+						generator = new GenFEController(controllerContext.getModel(), targetFolder, arguments);
 					} else {
 						arguments.add(controllerContext.getContext().getGenModel());
-						generator = new GenController(controllerContext.getModel(), targetFolder, arguments);
+						generator = new GenBEController(controllerContext.getModel(), targetFolder, arguments);
 					}
 					
 					generator.doGenerate(BasicMonitor.toMonitor(monitor));

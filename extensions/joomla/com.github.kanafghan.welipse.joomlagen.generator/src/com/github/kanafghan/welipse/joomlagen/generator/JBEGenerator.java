@@ -26,7 +26,7 @@ public class JBEGenerator {
 		JControllerGenerator.generate(ctx, beFolder);
 		
 		// Generate Main helper
-		HelperContext helperCtx = new HelperContext(context, context.getGenModel().getExtensionName().toLowerCase());
+		HelperContext helperCtx = new HelperContext(context, context.getGenModel().getExtensionName().toLowerCase(), true);
 		HelperGenerator.generate(helperCtx, beFolder.getFolder("helpers"));
 		
 		// Generate Content Managers

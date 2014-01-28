@@ -12,13 +12,21 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.emf.ecore.EClass;
 
+import com.github.kanafghan.welipse.joomlagen.GenClass;
 import com.github.kanafghan.welipse.joomlagen.JoomlaGenModel;
+import com.github.kanafghan.welipse.webdsl.ClassifierOperation;
+import com.github.kanafghan.welipse.webdsl.CustomAction;
+import com.github.kanafghan.welipse.webdsl.Expression;
+import com.github.kanafghan.welipse.webdsl.Form;
 import com.github.kanafghan.welipse.webdsl.Page;
+import com.github.kanafghan.welipse.webdsl.PageElement;
+import com.github.kanafghan.welipse.webdsl.Save;
+import com.github.kanafghan.welipse.webdsl.StandardAction;
 
 public class Utils {
 	
 	public enum ControllerType {
-		Controller, ControllerAdmin, ControllerForm 
+		FEController, ControllerAdmin, ControllerForm, BEController 
 	}
 	
 	public enum ModelType {
@@ -55,9 +63,13 @@ public class Utils {
 		return instance;
 	}
 	
-	public int generateID() {
+	public int genID() {
 		int id = ++counter;
 		return id;
+	}
+	
+	public static String generateID() {
+		return ""+ getInstance().genID();
 	}
 	
 	/**
@@ -103,9 +115,15 @@ public class Utils {
 				return page.getName();
 			}
 		}
-		return "Page"+ getInstance().generateID();
+		return "Page"+ generateID();
 	}
 	
+	/**
+	 * @deprecated Use {@link GenClass.getDatabaseTableName}
+	 * @param table
+	 * @param genModel
+	 * @return
+	 */
 	public static synchronized String getTableName(EClass table, JoomlaGenModel genModel) {
 		String name = table.getName().toLowerCase();
 		return SQL_TABLE_NAME_PREFIX +
@@ -134,5 +152,34 @@ public class Utils {
 			InputStream contents = new ByteArrayInputStream(html.getBytes());
 			index.create(contents , true, new SubProgressMonitor(monitor, 1));
 		}
+	}
+	
+	public static synchronized Expression getFormObject(Form form) {
+		for (PageElement element : form.getElements()) {
+			if (element instanceof StandardAction) {
+				if (element instanceof Save) {
+					return ((Save) element).getPerformer();
+				}
+			} else if (element instanceof CustomAction) {
+				CustomAction customAction = (CustomAction) element;
+				Expression performer = customAction.getPerformer();
+				if (performer instanceof ClassifierOperation) {
+					ClassifierOperation expression = (ClassifierOperation) performer;
+					return expression.getSource();
+				}
+			}
+		}
+		return null;
+	}
+	
+	public static synchronized Page getElementPage(PageElement pageElement) {
+		if (pageElement != null) {
+			if (pageElement.getPage() != null) {
+				return pageElement.getPage();
+			}
+			return getElementPage((PageElement) pageElement.eContainer());
+		}
+		
+		return null;
 	}
 }

@@ -176,6 +176,56 @@ public class GroupItemProvider
 			(createChildParameter
 				(WebDSLPackage.Literals.GROUP__ELEMENTS,
 				 WebDSLFactory.eINSTANCE.createGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createForm()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createTextInput()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createButton()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createSelectionList()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createFileInput()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createCustomAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createSave()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createReset()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WebDSLPackage.Literals.GROUP__ELEMENTS,
+				 WebDSLFactory.eINSTANCE.createCancel()));
 	}
 
 }

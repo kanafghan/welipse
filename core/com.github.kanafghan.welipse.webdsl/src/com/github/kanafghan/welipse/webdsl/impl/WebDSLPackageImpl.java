@@ -2,6 +2,7 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
+import com.github.kanafghan.welipse.webdsl.Action;
 import com.github.kanafghan.welipse.webdsl.ActualParameter;
 import com.github.kanafghan.welipse.webdsl.ArithmeticOperation;
 import com.github.kanafghan.welipse.webdsl.ArithmeticOperator;
@@ -9,18 +10,29 @@ import com.github.kanafghan.welipse.webdsl.BasicOperation;
 import com.github.kanafghan.welipse.webdsl.BooleanConstant;
 import com.github.kanafghan.welipse.webdsl.BooleanOperation;
 import com.github.kanafghan.welipse.webdsl.BooleanOperator;
+import com.github.kanafghan.welipse.webdsl.Button;
+import com.github.kanafghan.welipse.webdsl.ButtonType;
+import com.github.kanafghan.welipse.webdsl.Cancel;
 import com.github.kanafghan.welipse.webdsl.ClassifierOperation;
 import com.github.kanafghan.welipse.webdsl.ComparisonOperation;
 import com.github.kanafghan.welipse.webdsl.ComparisonOperator;
 import com.github.kanafghan.welipse.webdsl.ConstantExp;
+import com.github.kanafghan.welipse.webdsl.CustomAction;
 import com.github.kanafghan.welipse.webdsl.Expression;
 import com.github.kanafghan.welipse.webdsl.ExternalLink;
+import com.github.kanafghan.welipse.webdsl.FileInput;
+import com.github.kanafghan.welipse.webdsl.Form;
+import com.github.kanafghan.welipse.webdsl.FormElement;
+import com.github.kanafghan.welipse.webdsl.FormMethod;
 import com.github.kanafghan.welipse.webdsl.Group;
 import com.github.kanafghan.welipse.webdsl.Image;
+import com.github.kanafghan.welipse.webdsl.Input;
 import com.github.kanafghan.welipse.webdsl.IntegerConstant;
 import com.github.kanafghan.welipse.webdsl.InternalLink;
 import com.github.kanafghan.welipse.webdsl.Link;
 import com.github.kanafghan.welipse.webdsl.List;
+import com.github.kanafghan.welipse.webdsl.ListElement;
+import com.github.kanafghan.welipse.webdsl.ListExp;
 import com.github.kanafghan.welipse.webdsl.NavigationElement;
 import com.github.kanafghan.welipse.webdsl.OperationExp;
 import com.github.kanafghan.welipse.webdsl.Page;
@@ -29,16 +41,24 @@ import com.github.kanafghan.welipse.webdsl.Parameter;
 import com.github.kanafghan.welipse.webdsl.PresentationElement;
 import com.github.kanafghan.welipse.webdsl.PropertyOperation;
 import com.github.kanafghan.welipse.webdsl.RealConstant;
+import com.github.kanafghan.welipse.webdsl.Reset;
+import com.github.kanafghan.welipse.webdsl.Save;
+import com.github.kanafghan.welipse.webdsl.SelectionList;
+import com.github.kanafghan.welipse.webdsl.SelectionListRendering;
+import com.github.kanafghan.welipse.webdsl.StandardAction;
 import com.github.kanafghan.welipse.webdsl.StringConstant;
 import com.github.kanafghan.welipse.webdsl.StringOperation;
 import com.github.kanafghan.welipse.webdsl.StringOperator;
 import com.github.kanafghan.welipse.webdsl.StructuralExp;
+import com.github.kanafghan.welipse.webdsl.Submit;
 import com.github.kanafghan.welipse.webdsl.Text;
+import com.github.kanafghan.welipse.webdsl.TextInput;
 import com.github.kanafghan.welipse.webdsl.VariableDeclaration;
 import com.github.kanafghan.welipse.webdsl.VariableExp;
 import com.github.kanafghan.welipse.webdsl.VariableInitialization;
 import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
+import com.github.kanafghan.welipse.webdsl.WebUtilExp;
 import com.github.kanafghan.welipse.webdsl.Website;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -285,6 +305,125 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass formEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass inputEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass textInputEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass formElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass buttonEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass selectionListEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass fileInputEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass standardActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass customActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass saveEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass submitEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cancelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass listExpEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass listElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass webUtilExpEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum arithmeticOperatorEEnum = null;
 
 	/**
@@ -307,6 +446,27 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * @generated
 	 */
 	private EEnum comparisonOperatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum selectionListRenderingEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum buttonTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum formMethodEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1151,6 +1311,366 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getForm() {
+		return formEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getForm_Method() {
+		return (EAttribute)formEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInput() {
+		return inputEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInput_Label() {
+		return (EReference)inputEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInput_Value() {
+		return (EReference)inputEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInput_LabelExpression() {
+		return (EAttribute)inputEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInput_ValueExpression() {
+		return (EAttribute)inputEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInput_Required() {
+		return (EAttribute)inputEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTextInput() {
+		return textInputEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTextInput_IsPassword() {
+		return (EAttribute)textInputEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTextInput_IsTextArea() {
+		return (EAttribute)textInputEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAction() {
+		return actionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAction_Target() {
+		return (EReference)actionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFormElement() {
+		return formElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getButton() {
+		return buttonEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getButton_Value() {
+		return (EAttribute)buttonEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getButton_Type() {
+		return (EAttribute)buttonEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSelectionList() {
+		return selectionListEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSelectionList_Rendering() {
+		return (EAttribute)selectionListEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSelectionList_IsMultiple() {
+		return (EAttribute)selectionListEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSelectionList_Options() {
+		return (EReference)selectionListEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSelectionList_OptionsExpression() {
+		return (EAttribute)selectionListEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFileInput() {
+		return fileInputEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStandardAction() {
+		return standardActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCustomAction() {
+		return customActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSave() {
+		return saveEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSubmit() {
+		return submitEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSubmit_Action() {
+		return (EReference)submitEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSubmit_Performer() {
+		return (EReference)submitEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSubmit_Validator() {
+		return (EReference)submitEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSubmit_PerformerExpression() {
+		return (EAttribute)submitEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSubmit_ValidatorExpression() {
+		return (EAttribute)submitEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getReset() {
+		return resetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCancel() {
+		return cancelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getListExp() {
+		return listExpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getListExp_Elements() {
+		return (EReference)listExpEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getListElement() {
+		return listElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getListElement_Key() {
+		return (EReference)listElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getListElement_Value() {
+		return (EReference)listElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getWebUtilExp() {
+		return webUtilExpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getArithmeticOperator() {
 		return arithmeticOperatorEEnum;
 	}
@@ -1180,6 +1700,33 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 */
 	public EEnum getComparisonOperator() {
 		return comparisonOperatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSelectionListRendering() {
+		return selectionListRenderingEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getButtonType() {
+		return buttonTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getFormMethod() {
+		return formMethodEEnum;
 	}
 
 	/**
@@ -1328,11 +1875,71 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		groupEClass = createEClass(GROUP);
 		createEReference(groupEClass, GROUP__ELEMENTS);
 
+		formEClass = createEClass(FORM);
+		createEAttribute(formEClass, FORM__METHOD);
+
+		inputEClass = createEClass(INPUT);
+		createEReference(inputEClass, INPUT__LABEL);
+		createEReference(inputEClass, INPUT__VALUE);
+		createEAttribute(inputEClass, INPUT__LABEL_EXPRESSION);
+		createEAttribute(inputEClass, INPUT__VALUE_EXPRESSION);
+		createEAttribute(inputEClass, INPUT__REQUIRED);
+
+		textInputEClass = createEClass(TEXT_INPUT);
+		createEAttribute(textInputEClass, TEXT_INPUT__IS_PASSWORD);
+		createEAttribute(textInputEClass, TEXT_INPUT__IS_TEXT_AREA);
+
+		actionEClass = createEClass(ACTION);
+		createEReference(actionEClass, ACTION__TARGET);
+
+		formElementEClass = createEClass(FORM_ELEMENT);
+
+		buttonEClass = createEClass(BUTTON);
+		createEAttribute(buttonEClass, BUTTON__VALUE);
+		createEAttribute(buttonEClass, BUTTON__TYPE);
+
+		selectionListEClass = createEClass(SELECTION_LIST);
+		createEAttribute(selectionListEClass, SELECTION_LIST__RENDERING);
+		createEAttribute(selectionListEClass, SELECTION_LIST__IS_MULTIPLE);
+		createEReference(selectionListEClass, SELECTION_LIST__OPTIONS);
+		createEAttribute(selectionListEClass, SELECTION_LIST__OPTIONS_EXPRESSION);
+
+		fileInputEClass = createEClass(FILE_INPUT);
+
+		standardActionEClass = createEClass(STANDARD_ACTION);
+
+		customActionEClass = createEClass(CUSTOM_ACTION);
+
+		saveEClass = createEClass(SAVE);
+
+		submitEClass = createEClass(SUBMIT);
+		createEReference(submitEClass, SUBMIT__ACTION);
+		createEReference(submitEClass, SUBMIT__PERFORMER);
+		createEReference(submitEClass, SUBMIT__VALIDATOR);
+		createEAttribute(submitEClass, SUBMIT__PERFORMER_EXPRESSION);
+		createEAttribute(submitEClass, SUBMIT__VALIDATOR_EXPRESSION);
+
+		resetEClass = createEClass(RESET);
+
+		cancelEClass = createEClass(CANCEL);
+
+		listExpEClass = createEClass(LIST_EXP);
+		createEReference(listExpEClass, LIST_EXP__ELEMENTS);
+
+		listElementEClass = createEClass(LIST_ELEMENT);
+		createEReference(listElementEClass, LIST_ELEMENT__KEY);
+		createEReference(listElementEClass, LIST_ELEMENT__VALUE);
+
+		webUtilExpEClass = createEClass(WEB_UTIL_EXP);
+
 		// Create enums
 		arithmeticOperatorEEnum = createEEnum(ARITHMETIC_OPERATOR);
 		stringOperatorEEnum = createEEnum(STRING_OPERATOR);
 		booleanOperatorEEnum = createEEnum(BOOLEAN_OPERATOR);
 		comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
+		selectionListRenderingEEnum = createEEnum(SELECTION_LIST_RENDERING);
+		buttonTypeEEnum = createEEnum(BUTTON_TYPE);
+		formMethodEEnum = createEEnum(FORM_METHOD);
 	}
 
 	/**
@@ -1392,6 +1999,23 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		comparisonOperationEClass.getESuperTypes().add(this.getBasicOperation());
 		realConstantEClass.getESuperTypes().add(this.getConstantExp());
 		groupEClass.getESuperTypes().add(this.getPresentationElement());
+		formEClass.getESuperTypes().add(this.getGroup());
+		inputEClass.getESuperTypes().add(this.getFormElement());
+		textInputEClass.getESuperTypes().add(this.getInput());
+		actionEClass.getESuperTypes().add(this.getNavigationElement());
+		formElementEClass.getESuperTypes().add(this.getPresentationElement());
+		buttonEClass.getESuperTypes().add(this.getFormElement());
+		selectionListEClass.getESuperTypes().add(this.getInput());
+		fileInputEClass.getESuperTypes().add(this.getInput());
+		standardActionEClass.getESuperTypes().add(this.getSubmit());
+		customActionEClass.getESuperTypes().add(this.getSubmit());
+		saveEClass.getESuperTypes().add(this.getStandardAction());
+		submitEClass.getESuperTypes().add(this.getButton());
+		resetEClass.getESuperTypes().add(this.getStandardAction());
+		cancelEClass.getESuperTypes().add(this.getStandardAction());
+		listExpEClass.getESuperTypes().add(this.getExpression());
+		listElementEClass.getESuperTypes().add(this.getExpression());
+		webUtilExpEClass.getESuperTypes().add(this.getPropertyOperation());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(websiteEClass, Website.class, "Website", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1450,16 +2074,16 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		addEParameter(op, this.getPage(), "page", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(variableExpEClass, VariableExp.class, "VariableExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVariableExp_Var(), theEcorePackage.getEString(), "var", null, 1, 1, VariableExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVariableExp_Var(), ecorePackage.getEString(), "var", null, 1, 1, VariableExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVariableExp_Declaration(), this.getVariableDeclaration(), null, "declaration", null, 0, 1, VariableExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operationExpEClass, OperationExp.class, "OperationExp", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(variableDeclarationEClass, VariableDeclaration.class, "VariableDeclaration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVariableDeclaration_Var(), theEcorePackage.getEString(), "var", null, 1, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVariableDeclaration_Var(), ecorePackage.getEString(), "var", null, 1, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVariableDeclaration_Type(), theEcorePackage.getEClassifier(), null, "type", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVariableDeclaration_Classifier(), theEcorePackage.getEString(), "classifier", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVariableDeclaration_Declaration(), theEcorePackage.getEString(), "declaration", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVariableDeclaration_Classifier(), ecorePackage.getEString(), "classifier", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVariableDeclaration_Declaration(), ecorePackage.getEString(), "declaration", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getVariableDeclaration__Initialize__Page(), null, "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getPage(), "page", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1517,6 +2141,63 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGroup_Elements(), this.getPageElement(), null, "elements", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(formEClass, Form.class, "Form", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getForm_Method(), this.getFormMethod(), "method", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(inputEClass, Input.class, "Input", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInput_Label(), this.getExpression(), null, "label", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInput_Value(), this.getExpression(), null, "value", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInput_LabelExpression(), ecorePackage.getEString(), "labelExpression", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInput_ValueExpression(), ecorePackage.getEString(), "valueExpression", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInput_Required(), ecorePackage.getEBoolean(), "required", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(textInputEClass, TextInput.class, "TextInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTextInput_IsPassword(), ecorePackage.getEBoolean(), "isPassword", null, 0, 1, TextInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextInput_IsTextArea(), ecorePackage.getEBoolean(), "isTextArea", null, 0, 1, TextInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAction_Target(), this.getPage(), null, "target", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(formElementEClass, FormElement.class, "FormElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getButton_Value(), ecorePackage.getEString(), "value", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getButton_Type(), this.getButtonType(), "type", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(selectionListEClass, SelectionList.class, "SelectionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSelectionList_Rendering(), this.getSelectionListRendering(), "rendering", null, 0, 1, SelectionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSelectionList_IsMultiple(), ecorePackage.getEBoolean(), "isMultiple", null, 0, 1, SelectionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSelectionList_Options(), this.getExpression(), null, "options", null, 1, 1, SelectionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSelectionList_OptionsExpression(), ecorePackage.getEString(), "optionsExpression", null, 0, 1, SelectionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(fileInputEClass, FileInput.class, "FileInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(standardActionEClass, StandardAction.class, "StandardAction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(customActionEClass, CustomAction.class, "CustomAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(saveEClass, Save.class, "Save", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(submitEClass, Submit.class, "Submit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSubmit_Action(), this.getAction(), null, "action", null, 0, 1, Submit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSubmit_Performer(), this.getExpression(), null, "performer", null, 1, 1, Submit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSubmit_Validator(), this.getExpression(), null, "validator", null, 0, 1, Submit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSubmit_PerformerExpression(), ecorePackage.getEString(), "performerExpression", null, 0, 1, Submit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSubmit_ValidatorExpression(), ecorePackage.getEString(), "validatorExpression", null, 0, 1, Submit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(resetEClass, Reset.class, "Reset", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(cancelEClass, Cancel.class, "Cancel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(listExpEClass, ListExp.class, "ListExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getListExp_Elements(), this.getExpression(), null, "elements", null, 0, -1, ListExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(listElementEClass, ListElement.class, "ListElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getListElement_Key(), this.getExpression(), null, "key", null, 0, 1, ListElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getListElement_Value(), this.getExpression(), null, "value", null, 0, 1, ListElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(webUtilExpEClass, WebUtilExp.class, "WebUtilExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(arithmeticOperatorEEnum, ArithmeticOperator.class, "ArithmeticOperator");
 		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.NEGATION);
@@ -1541,6 +2222,20 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.LESS_THAN);
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.GREATER_THAN_EQUAL);
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.LESS_THAN_EQUAL);
+
+		initEEnum(selectionListRenderingEEnum, SelectionListRendering.class, "SelectionListRendering");
+		addEEnumLiteral(selectionListRenderingEEnum, SelectionListRendering.DROP_DOWN);
+		addEEnumLiteral(selectionListRenderingEEnum, SelectionListRendering.RADIO);
+		addEEnumLiteral(selectionListRenderingEEnum, SelectionListRendering.CHECKBOX);
+
+		initEEnum(buttonTypeEEnum, ButtonType.class, "ButtonType");
+		addEEnumLiteral(buttonTypeEEnum, ButtonType.BUTTON);
+		addEEnumLiteral(buttonTypeEEnum, ButtonType.SUBMIT);
+		addEEnumLiteral(buttonTypeEEnum, ButtonType.RESET);
+
+		initEEnum(formMethodEEnum, FormMethod.class, "FormMethod");
+		addEEnumLiteral(formMethodEEnum, FormMethod.POST);
+		addEEnumLiteral(formMethodEEnum, FormMethod.GET);
 
 		// Create resource
 		createResource(eNS_URI);

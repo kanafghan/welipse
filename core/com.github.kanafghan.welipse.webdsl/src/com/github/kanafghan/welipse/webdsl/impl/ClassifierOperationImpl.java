@@ -225,6 +225,8 @@ public class ClassifierOperationImpl extends PropertyOperationImpl implements Cl
 		}
 	}
 
+	public static final String[] UTILITY_OPERATIONS = {"getAll"};
+	
 	/**
 	 * @generated NOT
 	 */

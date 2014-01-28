@@ -43,6 +43,92 @@ class [genModel.extensionName.toUpperFirst()/]Controller extends JController
 		parent::display($cachable, $urlparams);
     }
 
+	[if (not isBackEnd)]
+    function doAction()
+    {
+		// Check for request forgeries.
+		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
+
+		$app   	= JFactory::getApplication();
+		$session = JFactory::getSession();
+		$jinput	= $app->input;
+		$message = "";
+		$messageType = "message";
+
+		// Get and interpret the request
+		$sourcePage = $jinput->get('__source-page__', '', 'STRING');
+		$targetPage = $jinput->get('__target-page__', '', 'STRING');
+		$data = $jinput->get('__form', array(), 'ARRAY'); 
+		$performer = $jinput->get('__performer__', null, 'STRING');
+		$validator = $jinput->get('__validator__', null, 'STRING');
+
+		$redirectPage = $targetPage;
+		
+		JModel::addIncludePath(JPATH_COMPONENT.DS.'models');
+		$model = null;
+
+		$valid = true;
+		if ($validator !== null && !empty($validator)) {
+			$validator = explode('.', $validator);
+			if (count($validator) == 2) 
+			{
+				$validatorArgs = $jinput->get('__validator-arguments', array(), 'ARRAY');
+
+				$args = array();
+				foreach ($validatorArgs as $key => $value) 
+				{
+					if (isset($data[ '[' /]$value[ ']' /])) 
+					{
+						$args[ '[' /]$key[ ']' /] = $data[ '[' /]$value[ ']' /];
+					}
+				}
+
+				$model = JModel::getInstance($validator[ '[' /]0[ ']' /], '[genModel.extensionName.toUpperFirst()/]Model');
+				$valid = call_user_func_array(array($model, $validator[ '[' /]1[ ']' /]), $args);
+			}
+		}
+
+		if ($valid && $performer !== null && !empty($performer)) {
+			$performer = explode('.', $performer);
+			if (count($performer) == 2) 
+			{
+				$performerArgs = $jinput->get('__performer-arguments', array(), 'ARRAY');
+
+				$args = array();
+				foreach ($performerArgs as $key => $value) 
+				{
+					if (isset($data[ '[' /]$value[ ']' /])) 
+					{
+						$args[ '[' /]$key[ ']' /] = $data[ '[' /]$value[ ']' /];
+					}
+				}
+
+				$model = JModel::getInstance($performer[ '[' /]0[ ']' /], '[genModel.extensionName.toUpperFirst()/]Model');
+				$result = call_user_func_array(array($model, $performer[ '[' /]1[ ']' /]), $args);
+
+				if ($result) {
+					$message = "Your data was saved successfully.";
+					$session->set('form-state', null, '[genModel.extensionName/]');
+				} else {
+					$message = "Saving Error: ". $model->getError();
+					$messageType = "error";
+					$redirectPage = $sourcePage;
+					$session->set('form-state', $data, '[genModel.extensionName/]');
+				}	
+			}		
+		}
+		else 
+		{
+			$message = implode("</li><li>", $model->getErrors());
+			$messageType = "error";
+			$redirectPage = $sourcePage;
+			$session->set('form-state', $data, '[genModel.extensionName/]');
+		}
+
+		$this->setRedirect("?option=[genModel.componentName/]&view=". $redirectPage, $message, $messageType);
+    }
+	[/if]
+
 	[generatePHPProtectedRegion('End')/]
 }
 [/file]

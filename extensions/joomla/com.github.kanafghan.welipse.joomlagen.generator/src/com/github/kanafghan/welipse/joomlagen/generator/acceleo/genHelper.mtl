@@ -38,6 +38,47 @@ class [name/]Helper
 	}
 [/if]
 
+[if (not genModel.datamodel.oclIsUndefined())]
+	[for (model : GenClass | genModel.datamodel.genClasses)]
+		[if (not model.databaseTableName.oclIsUndefined() and not model.ecoreClass.oclIsUndefined())]
+    private static $all[model.ecoreClass.oclAsType(EClass).name/] = array();
+    public function getAll[model.ecoreClass.oclAsType(EClass).name/]()
+    {
+        if (empty(self::$all[model.ecoreClass.oclAsType(EClass).name/]))
+        {
+            $db = JFactory::getDBO();
+            $query = $db->getQuery(true);
+
+            $query->select('id');
+            $query->from('[genModel.databaseTablePrefix.concat(model.databaseTableName)/]');
+
+            $db->setQuery($query);
+            try {
+                $list = $db->loadObjectList();
+                if ($db->getErrorNum())
+                {
+                    throw new Exception($db->getErrorMsg());
+                }
+
+                JModel::addIncludePath(JPATH_COMPONENT.DS.'models');
+                foreach($list as $row)
+                {
+                    self::$all[model.ecoreClass.oclAsType(EClass).name/][ '[' /][ ']' /] = JModel::getInstance('[model.ecoreClass.oclAsType(EClass).name/]', '[genModel.extensionName.toUpperFirst()/]Model', array('id' => $row->id));
+                }
+            }
+            catch (Exception $e)
+            {
+                return array();
+            }
+        }
+
+        return self::$all[model.ecoreClass.oclAsType(EClass).name/];
+    }		
+
+		[/if]
+	[/for]
+[/if]
+
 	[generatePHPProtectedRegion('Custom')/]
 }
 [/file]
