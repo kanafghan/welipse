@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
@@ -354,19 +355,67 @@ public class InternalLinkEditPart extends ShapeNodeEditPart {
 		if (targetEditPart instanceof Group3EditPart) {
 			types.add(WebdslElementTypes.InternalLinkTarget_4004);
 		}
+		if (targetEditPart instanceof FormEditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
 		if (targetEditPart instanceof InternalLink3EditPart) {
 			types.add(WebdslElementTypes.InternalLinkTarget_4004);
 		}
 		if (targetEditPart instanceof ExternalLink3EditPart) {
 			types.add(WebdslElementTypes.InternalLinkTarget_4004);
 		}
+		if (targetEditPart instanceof TextInputEditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
+		if (targetEditPart instanceof SelectionListEditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
+		if (targetEditPart instanceof ButtonEditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
+		if (targetEditPart instanceof CustomActionEditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
+		if (targetEditPart instanceof SaveEditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
+		if (targetEditPart instanceof ResetEditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
+		if (targetEditPart instanceof CancelEditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
 		if (targetEditPart instanceof GroupEditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
+		if (targetEditPart instanceof Form2EditPart) {
 			types.add(WebdslElementTypes.InternalLinkTarget_4004);
 		}
 		if (targetEditPart instanceof com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLinkEditPart) {
 			types.add(WebdslElementTypes.InternalLinkTarget_4004);
 		}
 		if (targetEditPart instanceof ExternalLinkEditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
+		if (targetEditPart instanceof TextInput2EditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
+		if (targetEditPart instanceof SelectionList2EditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
+		if (targetEditPart instanceof Button2EditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
+		if (targetEditPart instanceof CustomAction2EditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
+		if (targetEditPart instanceof Save2EditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
+		if (targetEditPart instanceof Reset2EditPart) {
+			types.add(WebdslElementTypes.InternalLinkTarget_4004);
+		}
+		if (targetEditPart instanceof Cancel2EditPart) {
 			types.add(WebdslElementTypes.InternalLinkTarget_4004);
 		}
 		return types;
@@ -393,11 +442,27 @@ public class InternalLinkEditPart extends ShapeNodeEditPart {
 			types.add(WebdslElementTypes.Image_3023);
 			types.add(WebdslElementTypes.ExternalLink_3015);
 			types.add(WebdslElementTypes.Group_3019);
+			types.add(WebdslElementTypes.Form_3024);
 			types.add(WebdslElementTypes.InternalLink_3020);
 			types.add(WebdslElementTypes.ExternalLink_3021);
+			types.add(WebdslElementTypes.TextInput_3026);
+			types.add(WebdslElementTypes.SelectionList_3028);
+			types.add(WebdslElementTypes.Button_3030);
+			types.add(WebdslElementTypes.CustomAction_3032);
+			types.add(WebdslElementTypes.Save_3034);
+			types.add(WebdslElementTypes.Reset_3036);
+			types.add(WebdslElementTypes.Cancel_3038);
 			types.add(WebdslElementTypes.Group_3006);
+			types.add(WebdslElementTypes.Form_3025);
 			types.add(WebdslElementTypes.InternalLink_3007);
 			types.add(WebdslElementTypes.ExternalLink_3009);
+			types.add(WebdslElementTypes.TextInput_3027);
+			types.add(WebdslElementTypes.SelectionList_3029);
+			types.add(WebdslElementTypes.Button_3031);
+			types.add(WebdslElementTypes.CustomAction_3033);
+			types.add(WebdslElementTypes.Save_3035);
+			types.add(WebdslElementTypes.Reset_3037);
+			types.add(WebdslElementTypes.Cancel_3039);
 		}
 		return types;
 	}
@@ -452,6 +517,7 @@ public class InternalLinkEditPart extends ShapeNodeEditPart {
 
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(130),
 					getMapMode().DPtoLP(100)));
+			this.setBorder(new LineBorder(THIS_BORDER, getMapMode().DPtoLP(1)));
 			createContents();
 		}
 
@@ -472,10 +538,20 @@ public class InternalLinkEditPart extends ShapeNodeEditPart {
 
 			fFigureInternalLinkSourceCompartmentFigure = new RectangleFigure();
 
+			fFigureInternalLinkSourceCompartmentFigure
+					.setBorder(new LineBorder(
+							FFIGUREINTERNALLINKSOURCECOMPARTMENTFIGURE_BORDER,
+							getMapMode().DPtoLP(1)));
+
 			this.add(fFigureInternalLinkSourceCompartmentFigure,
 					BorderLayout.CENTER);
 
 			fFigureInternalLinkActualParametersCompartmentFigure = new RectangleFigure();
+
+			fFigureInternalLinkActualParametersCompartmentFigure
+					.setBorder(new LineBorder(
+							FFIGUREINTERNALLINKACTUALPARAMETERSCOMPARTMENTFIGURE_BORDER,
+							getMapMode().DPtoLP(1)));
 
 			this.add(fFigureInternalLinkActualParametersCompartmentFigure,
 					BorderLayout.BOTTOM);
@@ -504,5 +580,22 @@ public class InternalLinkEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BORDER = new Color(null, 0, 0, 0);
+
+	/**
+	 * @generated
+	 */
+	static final Color FFIGUREINTERNALLINKSOURCECOMPARTMENTFIGURE_BORDER = new Color(
+			null, 0, 0, 0);
+
+	/**
+	 * @generated
+	 */
+	static final Color FFIGUREINTERNALLINKACTUALPARAMETERSCOMPARTMENTFIGURE_BORDER = new Color(
+			null, 0, 0, 0);
 
 }

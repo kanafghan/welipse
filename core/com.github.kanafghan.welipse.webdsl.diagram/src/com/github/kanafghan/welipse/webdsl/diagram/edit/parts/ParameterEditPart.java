@@ -2,6 +2,7 @@ package com.github.kanafghan.welipse.webdsl.diagram.edit.parts;
 
 import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
@@ -287,12 +288,14 @@ public class ParameterEditPart extends ShapeNodeEditPart {
 
 			this.setLayoutManager(layoutThis);
 
+			this.setBackgroundColor(THIS_BACK);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(100),
 					getMapMode().DPtoLP(20)));
 
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(3),
 					getMapMode().DPtoLP(3), getMapMode().DPtoLP(3),
 					getMapMode().DPtoLP(3)));
+			this.setBorder(new LineBorder(THIS_BORDER, getMapMode().DPtoLP(1)));
 			createContents();
 		}
 
@@ -317,5 +320,15 @@ public class ParameterEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BACK = new Color(null, 217, 208, 211);
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BORDER = new Color(null, 0, 0, 0);
 
 }

@@ -12,7 +12,7 @@ public class WebdslNavigatorSorter extends ViewerSorter {
 	/**
 	 * @generated
 	 */
-	private static final int GROUP_CATEGORY = 7020;
+	private static final int GROUP_CATEGORY = 7022;
 
 	/**
 	 * @generated

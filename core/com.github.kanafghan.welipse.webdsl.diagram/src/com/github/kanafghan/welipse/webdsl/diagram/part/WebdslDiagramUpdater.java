@@ -14,24 +14,42 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
 import com.github.kanafghan.welipse.webdsl.ActualParameter;
+import com.github.kanafghan.welipse.webdsl.Button;
+import com.github.kanafghan.welipse.webdsl.Cancel;
+import com.github.kanafghan.welipse.webdsl.CustomAction;
 import com.github.kanafghan.welipse.webdsl.ExternalLink;
+import com.github.kanafghan.welipse.webdsl.Form;
 import com.github.kanafghan.welipse.webdsl.Group;
 import com.github.kanafghan.welipse.webdsl.Image;
 import com.github.kanafghan.welipse.webdsl.InternalLink;
 import com.github.kanafghan.welipse.webdsl.Page;
 import com.github.kanafghan.welipse.webdsl.PageElement;
 import com.github.kanafghan.welipse.webdsl.Parameter;
+import com.github.kanafghan.welipse.webdsl.Reset;
+import com.github.kanafghan.welipse.webdsl.Save;
+import com.github.kanafghan.welipse.webdsl.SelectionList;
 import com.github.kanafghan.welipse.webdsl.Text;
+import com.github.kanafghan.welipse.webdsl.TextInput;
 import com.github.kanafghan.welipse.webdsl.VariableInitialization;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 import com.github.kanafghan.welipse.webdsl.Website;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ActualParameterEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Button2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ButtonEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Cancel2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CancelEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomAction2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLink2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLink3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkExternalLinkSourceCompartment2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkExternalLinkSourceCompartment3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkExternalLinkSourceCompartmentEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Form2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormFormElementsCompartment2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormFormElementsCompartmentEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Group2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Group3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupEditPart;
@@ -63,10 +81,18 @@ import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PagePageElementsCo
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PagePageParametersCompartmentEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PagePageVariablesCompartmentEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ParameterEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Reset2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ResetEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Save2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SaveEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionList2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionListEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text4EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInput2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInputEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.VariableInitializationEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.WebsiteEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.providers.WebdslElementTypes;
@@ -105,6 +131,8 @@ public class WebdslDiagramUpdater {
 			return getExternalLinkExternalLinkSourceCompartment_7016SemanticChildren(view);
 		case GroupGroupElementsCompartment3EditPart.VISUAL_ID:
 			return getGroupGroupElementsCompartment_7009SemanticChildren(view);
+		case FormFormElementsCompartmentEditPart.VISUAL_ID:
+			return getFormFormElementsCompartment_7019SemanticChildren(view);
 		case InternalLinkInternalLinkSourceCompartment2EditPart.VISUAL_ID:
 			return getInternalLinkInternalLinkSourceCompartment_7012SemanticChildren(view);
 		case InternalLinkInternalLinkActualParametersCompartment2EditPart.VISUAL_ID:
@@ -113,6 +141,8 @@ public class WebdslDiagramUpdater {
 			return getExternalLinkExternalLinkSourceCompartment_7017SemanticChildren(view);
 		case GroupGroupElementsCompartment2EditPart.VISUAL_ID:
 			return getGroupGroupElementsCompartment_7007SemanticChildren(view);
+		case FormFormElementsCompartment2EditPart.VISUAL_ID:
+			return getFormFormElementsCompartment_7020SemanticChildren(view);
 		case InternalLinkInternalLinkSourceCompartment3EditPart.VISUAL_ID:
 			return getInternalLinkInternalLinkSourceCompartment_7014SemanticChildren(view);
 		case InternalLinkInternalLinkActualParametersCompartment3EditPart.VISUAL_ID:
@@ -235,11 +265,43 @@ public class WebdslDiagramUpdater {
 				result.add(new WebdslNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == Form2EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == InternalLinkEditPart.VISUAL_ID) {
 				result.add(new WebdslNodeDescriptor(childElement, visualID));
 				continue;
 			}
 			if (visualID == ExternalLinkEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TextInput2EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SelectionList2EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == Button2EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CustomAction2EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == Save2EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == Reset2EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == Cancel2EditPart.VISUAL_ID) {
 				result.add(new WebdslNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -378,11 +440,43 @@ public class WebdslDiagramUpdater {
 				result.add(new WebdslNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == FormEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == InternalLink3EditPart.VISUAL_ID) {
 				result.add(new WebdslNodeDescriptor(childElement, visualID));
 				continue;
 			}
 			if (visualID == ExternalLink3EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TextInputEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SelectionListEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ButtonEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CustomActionEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SaveEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ResetEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CancelEditPart.VISUAL_ID) {
 				result.add(new WebdslNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -556,11 +650,70 @@ public class WebdslDiagramUpdater {
 				result.add(new WebdslNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == FormEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == InternalLink3EditPart.VISUAL_ID) {
 				result.add(new WebdslNodeDescriptor(childElement, visualID));
 				continue;
 			}
 			if (visualID == ExternalLink3EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TextInputEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SelectionListEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ButtonEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CustomActionEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SaveEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ResetEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CancelEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslNodeDescriptor> getFormFormElementsCompartment_7019SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Form modelElement = (Form) containerView.getElement();
+		LinkedList<WebdslNodeDescriptor> result = new LinkedList<WebdslNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getElements().iterator(); it
+				.hasNext();) {
+			PageElement childElement = (PageElement) it.next();
+			int visualID = WebdslVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == Text3EditPart.VISUAL_ID) {
 				result.add(new WebdslNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -686,11 +839,70 @@ public class WebdslDiagramUpdater {
 				result.add(new WebdslNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == FormEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == InternalLink3EditPart.VISUAL_ID) {
 				result.add(new WebdslNodeDescriptor(childElement, visualID));
 				continue;
 			}
 			if (visualID == ExternalLink3EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TextInputEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SelectionListEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ButtonEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CustomActionEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SaveEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ResetEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CancelEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslNodeDescriptor> getFormFormElementsCompartment_7020SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Form modelElement = (Form) containerView.getElement();
+		LinkedList<WebdslNodeDescriptor> result = new LinkedList<WebdslNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getElements().iterator(); it
+				.hasNext();) {
+			PageElement childElement = (PageElement) it.next();
+			int visualID = WebdslVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == Text3EditPart.VISUAL_ID) {
 				result.add(new WebdslNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -826,16 +1038,48 @@ public class WebdslDiagramUpdater {
 			return getExternalLink_3015ContainedLinks(view);
 		case Group3EditPart.VISUAL_ID:
 			return getGroup_3019ContainedLinks(view);
+		case FormEditPart.VISUAL_ID:
+			return getForm_3024ContainedLinks(view);
 		case InternalLink3EditPart.VISUAL_ID:
 			return getInternalLink_3020ContainedLinks(view);
 		case ExternalLink3EditPart.VISUAL_ID:
 			return getExternalLink_3021ContainedLinks(view);
+		case TextInputEditPart.VISUAL_ID:
+			return getTextInput_3026ContainedLinks(view);
+		case SelectionListEditPart.VISUAL_ID:
+			return getSelectionList_3028ContainedLinks(view);
+		case ButtonEditPart.VISUAL_ID:
+			return getButton_3030ContainedLinks(view);
+		case CustomActionEditPart.VISUAL_ID:
+			return getCustomAction_3032ContainedLinks(view);
+		case SaveEditPart.VISUAL_ID:
+			return getSave_3034ContainedLinks(view);
+		case ResetEditPart.VISUAL_ID:
+			return getReset_3036ContainedLinks(view);
+		case CancelEditPart.VISUAL_ID:
+			return getCancel_3038ContainedLinks(view);
 		case GroupEditPart.VISUAL_ID:
 			return getGroup_3006ContainedLinks(view);
+		case Form2EditPart.VISUAL_ID:
+			return getForm_3025ContainedLinks(view);
 		case InternalLinkEditPart.VISUAL_ID:
 			return getInternalLink_3007ContainedLinks(view);
 		case ExternalLinkEditPart.VISUAL_ID:
 			return getExternalLink_3009ContainedLinks(view);
+		case TextInput2EditPart.VISUAL_ID:
+			return getTextInput_3027ContainedLinks(view);
+		case SelectionList2EditPart.VISUAL_ID:
+			return getSelectionList_3029ContainedLinks(view);
+		case Button2EditPart.VISUAL_ID:
+			return getButton_3031ContainedLinks(view);
+		case CustomAction2EditPart.VISUAL_ID:
+			return getCustomAction_3033ContainedLinks(view);
+		case Save2EditPart.VISUAL_ID:
+			return getSave_3035ContainedLinks(view);
+		case Reset2EditPart.VISUAL_ID:
+			return getReset_3037ContainedLinks(view);
+		case Cancel2EditPart.VISUAL_ID:
+			return getCancel_3039ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -883,16 +1127,48 @@ public class WebdslDiagramUpdater {
 			return getExternalLink_3015IncomingLinks(view);
 		case Group3EditPart.VISUAL_ID:
 			return getGroup_3019IncomingLinks(view);
+		case FormEditPart.VISUAL_ID:
+			return getForm_3024IncomingLinks(view);
 		case InternalLink3EditPart.VISUAL_ID:
 			return getInternalLink_3020IncomingLinks(view);
 		case ExternalLink3EditPart.VISUAL_ID:
 			return getExternalLink_3021IncomingLinks(view);
+		case TextInputEditPart.VISUAL_ID:
+			return getTextInput_3026IncomingLinks(view);
+		case SelectionListEditPart.VISUAL_ID:
+			return getSelectionList_3028IncomingLinks(view);
+		case ButtonEditPart.VISUAL_ID:
+			return getButton_3030IncomingLinks(view);
+		case CustomActionEditPart.VISUAL_ID:
+			return getCustomAction_3032IncomingLinks(view);
+		case SaveEditPart.VISUAL_ID:
+			return getSave_3034IncomingLinks(view);
+		case ResetEditPart.VISUAL_ID:
+			return getReset_3036IncomingLinks(view);
+		case CancelEditPart.VISUAL_ID:
+			return getCancel_3038IncomingLinks(view);
 		case GroupEditPart.VISUAL_ID:
 			return getGroup_3006IncomingLinks(view);
+		case Form2EditPart.VISUAL_ID:
+			return getForm_3025IncomingLinks(view);
 		case InternalLinkEditPart.VISUAL_ID:
 			return getInternalLink_3007IncomingLinks(view);
 		case ExternalLinkEditPart.VISUAL_ID:
 			return getExternalLink_3009IncomingLinks(view);
+		case TextInput2EditPart.VISUAL_ID:
+			return getTextInput_3027IncomingLinks(view);
+		case SelectionList2EditPart.VISUAL_ID:
+			return getSelectionList_3029IncomingLinks(view);
+		case Button2EditPart.VISUAL_ID:
+			return getButton_3031IncomingLinks(view);
+		case CustomAction2EditPart.VISUAL_ID:
+			return getCustomAction_3033IncomingLinks(view);
+		case Save2EditPart.VISUAL_ID:
+			return getSave_3035IncomingLinks(view);
+		case Reset2EditPart.VISUAL_ID:
+			return getReset_3037IncomingLinks(view);
+		case Cancel2EditPart.VISUAL_ID:
+			return getCancel_3039IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -940,16 +1216,48 @@ public class WebdslDiagramUpdater {
 			return getExternalLink_3015OutgoingLinks(view);
 		case Group3EditPart.VISUAL_ID:
 			return getGroup_3019OutgoingLinks(view);
+		case FormEditPart.VISUAL_ID:
+			return getForm_3024OutgoingLinks(view);
 		case InternalLink3EditPart.VISUAL_ID:
 			return getInternalLink_3020OutgoingLinks(view);
 		case ExternalLink3EditPart.VISUAL_ID:
 			return getExternalLink_3021OutgoingLinks(view);
+		case TextInputEditPart.VISUAL_ID:
+			return getTextInput_3026OutgoingLinks(view);
+		case SelectionListEditPart.VISUAL_ID:
+			return getSelectionList_3028OutgoingLinks(view);
+		case ButtonEditPart.VISUAL_ID:
+			return getButton_3030OutgoingLinks(view);
+		case CustomActionEditPart.VISUAL_ID:
+			return getCustomAction_3032OutgoingLinks(view);
+		case SaveEditPart.VISUAL_ID:
+			return getSave_3034OutgoingLinks(view);
+		case ResetEditPart.VISUAL_ID:
+			return getReset_3036OutgoingLinks(view);
+		case CancelEditPart.VISUAL_ID:
+			return getCancel_3038OutgoingLinks(view);
 		case GroupEditPart.VISUAL_ID:
 			return getGroup_3006OutgoingLinks(view);
+		case Form2EditPart.VISUAL_ID:
+			return getForm_3025OutgoingLinks(view);
 		case InternalLinkEditPart.VISUAL_ID:
 			return getInternalLink_3007OutgoingLinks(view);
 		case ExternalLinkEditPart.VISUAL_ID:
 			return getExternalLink_3009OutgoingLinks(view);
+		case TextInput2EditPart.VISUAL_ID:
+			return getTextInput_3027OutgoingLinks(view);
+		case SelectionList2EditPart.VISUAL_ID:
+			return getSelectionList_3029OutgoingLinks(view);
+		case Button2EditPart.VISUAL_ID:
+			return getButton_3031OutgoingLinks(view);
+		case CustomAction2EditPart.VISUAL_ID:
+			return getCustomAction_3033OutgoingLinks(view);
+		case Save2EditPart.VISUAL_ID:
+			return getSave_3035OutgoingLinks(view);
+		case Reset2EditPart.VISUAL_ID:
+			return getReset_3037OutgoingLinks(view);
+		case Cancel2EditPart.VISUAL_ID:
+			return getCancel_3039OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -1120,6 +1428,14 @@ public class WebdslDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<WebdslLinkDescriptor> getForm_3024ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<WebdslLinkDescriptor> getInternalLink_3020ContainedLinks(
 			View view) {
 		InternalLink modelElement = (InternalLink) view.getElement();
@@ -1139,7 +1455,71 @@ public class WebdslDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<WebdslLinkDescriptor> getTextInput_3026ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getSelectionList_3028ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getButton_3030ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getCustomAction_3032ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getSave_3034ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getReset_3036ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getCancel_3038ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<WebdslLinkDescriptor> getGroup_3006ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getForm_3025ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -1159,6 +1539,62 @@ public class WebdslDiagramUpdater {
 	 * @generated
 	 */
 	public static List<WebdslLinkDescriptor> getExternalLink_3009ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getTextInput_3027ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getSelectionList_3029ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getButton_3031ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getCustomAction_3033ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getSave_3035ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getReset_3037ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getCancel_3039ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -1403,6 +1839,19 @@ public class WebdslDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<WebdslLinkDescriptor> getForm_3024IncomingLinks(View view) {
+		Form modelElement = (Form) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<WebdslLinkDescriptor> getInternalLink_3020IncomingLinks(
 			View view) {
 		InternalLink modelElement = (InternalLink) view.getElement();
@@ -1431,9 +1880,119 @@ public class WebdslDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<WebdslLinkDescriptor> getTextInput_3026IncomingLinks(
+			View view) {
+		TextInput modelElement = (TextInput) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getSelectionList_3028IncomingLinks(
+			View view) {
+		SelectionList modelElement = (SelectionList) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getButton_3030IncomingLinks(
+			View view) {
+		Button modelElement = (Button) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getCustomAction_3032IncomingLinks(
+			View view) {
+		CustomAction modelElement = (CustomAction) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getSave_3034IncomingLinks(View view) {
+		Save modelElement = (Save) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getReset_3036IncomingLinks(
+			View view) {
+		Reset modelElement = (Reset) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getCancel_3038IncomingLinks(
+			View view) {
+		Cancel modelElement = (Cancel) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<WebdslLinkDescriptor> getGroup_3006IncomingLinks(
 			View view) {
 		Group modelElement = (Group) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getForm_3025IncomingLinks(View view) {
+		Form modelElement = (Form) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
@@ -1462,6 +2021,103 @@ public class WebdslDiagramUpdater {
 	public static List<WebdslLinkDescriptor> getExternalLink_3009IncomingLinks(
 			View view) {
 		ExternalLink modelElement = (ExternalLink) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getTextInput_3027IncomingLinks(
+			View view) {
+		TextInput modelElement = (TextInput) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getSelectionList_3029IncomingLinks(
+			View view) {
+		SelectionList modelElement = (SelectionList) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getButton_3031IncomingLinks(
+			View view) {
+		Button modelElement = (Button) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getCustomAction_3033IncomingLinks(
+			View view) {
+		CustomAction modelElement = (CustomAction) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getSave_3035IncomingLinks(View view) {
+		Save modelElement = (Save) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getReset_3037IncomingLinks(
+			View view) {
+		Reset modelElement = (Reset) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_InternalLink_Target_4004(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getCancel_3039IncomingLinks(
+			View view) {
+		Cancel modelElement = (Cancel) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<WebdslLinkDescriptor> result = new LinkedList<WebdslLinkDescriptor>();
@@ -1620,6 +2276,13 @@ public class WebdslDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<WebdslLinkDescriptor> getForm_3024OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<WebdslLinkDescriptor> getInternalLink_3020OutgoingLinks(
 			View view) {
 		InternalLink modelElement = (InternalLink) view.getElement();
@@ -1639,8 +2302,70 @@ public class WebdslDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<WebdslLinkDescriptor> getTextInput_3026OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getSelectionList_3028OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getButton_3030OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getCustomAction_3032OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getSave_3034OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getReset_3036OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getCancel_3038OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<WebdslLinkDescriptor> getGroup_3006OutgoingLinks(
 			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getForm_3025OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -1659,6 +2384,61 @@ public class WebdslDiagramUpdater {
 	 * @generated
 	 */
 	public static List<WebdslLinkDescriptor> getExternalLink_3009OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getTextInput_3027OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getSelectionList_3029OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getButton_3031OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getCustomAction_3033OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getSave_3035OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getReset_3037OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<WebdslLinkDescriptor> getCancel_3039OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

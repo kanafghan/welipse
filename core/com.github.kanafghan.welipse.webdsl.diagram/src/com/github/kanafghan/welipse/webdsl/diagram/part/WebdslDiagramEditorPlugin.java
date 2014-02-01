@@ -22,6 +22,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import com.github.kanafghan.welipse.webdsl.diagram.edit.policies.WebdslBaseItemSemanticEditPolicy;
+import com.github.kanafghan.welipse.webdsl.diagram.expressions.WebdslOCLFactory;
 import com.github.kanafghan.welipse.webdsl.diagram.providers.ElementInitializers;
 import com.github.kanafghan.welipse.webdsl.provider.WebDSLItemProviderAdapterFactory;
 
@@ -69,6 +70,11 @@ public class WebdslDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
+	private WebdslOCLFactory oclFactory;
+
+	/**
+	 * @generated
+	 */
 	public WebdslDiagramEditorPlugin() {
 	}
 
@@ -91,6 +97,7 @@ public class WebdslDiagramEditorPlugin extends AbstractUIPlugin {
 		adapterFactory = null;
 		linkConstraints = null;
 		initializers = null;
+		oclFactory = null;
 		instance = null;
 		super.stop(context);
 	}
@@ -235,6 +242,20 @@ public class WebdslDiagramEditorPlugin extends AbstractUIPlugin {
 	 */
 	public void setElementInitializers(ElementInitializers i) {
 		this.initializers = i;
+	}
+
+	/**
+	 * @generated
+	 */
+	public WebdslOCLFactory getWebdslOCLFactory() {
+		return oclFactory;
+	}
+
+	/**
+	 * @generated
+	 */
+	public void setWebdslOCLFactory(WebdslOCLFactory f) {
+		this.oclFactory = f;
 	}
 
 	/**

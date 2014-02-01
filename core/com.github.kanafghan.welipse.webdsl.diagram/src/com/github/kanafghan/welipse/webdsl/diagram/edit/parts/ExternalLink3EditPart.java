@@ -5,8 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.BorderLayout;
-import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
@@ -24,7 +24,6 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.FlowLayoutEditPolicy;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -323,7 +322,6 @@ public class ExternalLink3EditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fFigureExternalLinkNameFigure;
-
 		/**
 		 * @generated
 		 */
@@ -339,6 +337,7 @@ public class ExternalLink3EditPart extends ShapeNodeEditPart {
 
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(130),
 					getMapMode().DPtoLP(70)));
+			this.setBorder(new LineBorder(THIS_BORDER, getMapMode().DPtoLP(1)));
 			createContents();
 		}
 
@@ -358,6 +357,11 @@ public class ExternalLink3EditPart extends ShapeNodeEditPart {
 			this.add(fFigureExternalLinkNameFigure, BorderLayout.TOP);
 
 			fFigureExternalLinkSourceCompartmentFigure = new RectangleFigure();
+
+			fFigureExternalLinkSourceCompartmentFigure
+					.setBorder(new LineBorder(
+							FFIGUREEXTERNALLINKSOURCECOMPARTMENTFIGURE_BORDER,
+							getMapMode().DPtoLP(1)));
 
 			this.add(fFigureExternalLinkSourceCompartmentFigure,
 					BorderLayout.CENTER);
@@ -379,5 +383,16 @@ public class ExternalLink3EditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BORDER = new Color(null, 0, 0, 0);
+
+	/**
+	 * @generated
+	 */
+	static final Color FFIGUREEXTERNALLINKSOURCECOMPARTMENTFIGURE_BORDER = new Color(
+			null, 0, 0, 0);
 
 }

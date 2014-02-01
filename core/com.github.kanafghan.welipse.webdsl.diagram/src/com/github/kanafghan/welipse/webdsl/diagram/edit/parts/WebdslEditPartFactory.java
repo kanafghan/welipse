@@ -148,6 +148,12 @@ public class WebdslEditPartFactory implements EditPartFactory {
 			case GroupName3EditPart.VISUAL_ID:
 				return new GroupName3EditPart(view);
 
+			case FormEditPart.VISUAL_ID:
+				return new FormEditPart(view);
+
+			case FormNameEditPart.VISUAL_ID:
+				return new FormNameEditPart(view);
+
 			case InternalLink3EditPart.VISUAL_ID:
 				return new InternalLink3EditPart(view);
 
@@ -160,11 +166,92 @@ public class WebdslEditPartFactory implements EditPartFactory {
 			case ExternalLinkName3EditPart.VISUAL_ID:
 				return new ExternalLinkName3EditPart(view);
 
+			case TextInputEditPart.VISUAL_ID:
+				return new TextInputEditPart(view);
+
+			case TextInputLabelExpressionEditPart.VISUAL_ID:
+				return new TextInputLabelExpressionEditPart(view);
+
+			case TextInputValueExpressionEditPart.VISUAL_ID:
+				return new TextInputValueExpressionEditPart(view);
+
+			case SelectionListEditPart.VISUAL_ID:
+				return new SelectionListEditPart(view);
+
+			case SelectionListLabelExpressionEditPart.VISUAL_ID:
+				return new SelectionListLabelExpressionEditPart(view);
+
+			case SelectionListValueExpressionEditPart.VISUAL_ID:
+				return new SelectionListValueExpressionEditPart(view);
+
+			case SelectionListOptionsExpressionEditPart.VISUAL_ID:
+				return new SelectionListOptionsExpressionEditPart(view);
+
+			case ButtonEditPart.VISUAL_ID:
+				return new ButtonEditPart(view);
+
+			case ButtonValueEditPart.VISUAL_ID:
+				return new ButtonValueEditPart(view);
+
+			case CustomActionEditPart.VISUAL_ID:
+				return new CustomActionEditPart(view);
+
+			case CustomActionValueEditPart.VISUAL_ID:
+				return new CustomActionValueEditPart(view);
+
+			case CustomActionPerformerExpressionEditPart.VISUAL_ID:
+				return new CustomActionPerformerExpressionEditPart(view);
+
+			case CustomActionValidatorExpressionEditPart.VISUAL_ID:
+				return new CustomActionValidatorExpressionEditPart(view);
+
+			case SaveEditPart.VISUAL_ID:
+				return new SaveEditPart(view);
+
+			case SaveValueEditPart.VISUAL_ID:
+				return new SaveValueEditPart(view);
+
+			case SavePerformerExpressionEditPart.VISUAL_ID:
+				return new SavePerformerExpressionEditPart(view);
+
+			case SaveValidatorExpressionEditPart.VISUAL_ID:
+				return new SaveValidatorExpressionEditPart(view);
+
+			case ResetEditPart.VISUAL_ID:
+				return new ResetEditPart(view);
+
+			case ResetValueEditPart.VISUAL_ID:
+				return new ResetValueEditPart(view);
+
+			case ResetPerformerExpressionEditPart.VISUAL_ID:
+				return new ResetPerformerExpressionEditPart(view);
+
+			case ResetValidatorExpressionEditPart.VISUAL_ID:
+				return new ResetValidatorExpressionEditPart(view);
+
+			case CancelEditPart.VISUAL_ID:
+				return new CancelEditPart(view);
+
+			case CancelValueEditPart.VISUAL_ID:
+				return new CancelValueEditPart(view);
+
+			case CancelPerformerExpressionEditPart.VISUAL_ID:
+				return new CancelPerformerExpressionEditPart(view);
+
+			case CancelValidatorExpressionEditPart.VISUAL_ID:
+				return new CancelValidatorExpressionEditPart(view);
+
 			case GroupEditPart.VISUAL_ID:
 				return new GroupEditPart(view);
 
 			case GroupNameEditPart.VISUAL_ID:
 				return new GroupNameEditPart(view);
+
+			case Form2EditPart.VISUAL_ID:
+				return new Form2EditPart(view);
+
+			case FormName2EditPart.VISUAL_ID:
+				return new FormName2EditPart(view);
 
 			case InternalLinkEditPart.VISUAL_ID:
 				return new InternalLinkEditPart(view);
@@ -177,6 +264,81 @@ public class WebdslEditPartFactory implements EditPartFactory {
 
 			case ExternalLinkNameEditPart.VISUAL_ID:
 				return new ExternalLinkNameEditPart(view);
+
+			case TextInput2EditPart.VISUAL_ID:
+				return new TextInput2EditPart(view);
+
+			case TextInputLabelExpression2EditPart.VISUAL_ID:
+				return new TextInputLabelExpression2EditPart(view);
+
+			case TextInputValueExpression2EditPart.VISUAL_ID:
+				return new TextInputValueExpression2EditPart(view);
+
+			case SelectionList2EditPart.VISUAL_ID:
+				return new SelectionList2EditPart(view);
+
+			case SelectionListLabelExpression2EditPart.VISUAL_ID:
+				return new SelectionListLabelExpression2EditPart(view);
+
+			case SelectionListValueExpression2EditPart.VISUAL_ID:
+				return new SelectionListValueExpression2EditPart(view);
+
+			case SelectionListOptionsExpression2EditPart.VISUAL_ID:
+				return new SelectionListOptionsExpression2EditPart(view);
+
+			case Button2EditPart.VISUAL_ID:
+				return new Button2EditPart(view);
+
+			case ButtonValue2EditPart.VISUAL_ID:
+				return new ButtonValue2EditPart(view);
+
+			case CustomAction2EditPart.VISUAL_ID:
+				return new CustomAction2EditPart(view);
+
+			case CustomActionValue2EditPart.VISUAL_ID:
+				return new CustomActionValue2EditPart(view);
+
+			case CustomActionPerformerExpression2EditPart.VISUAL_ID:
+				return new CustomActionPerformerExpression2EditPart(view);
+
+			case CustomActionValidatorExpression2EditPart.VISUAL_ID:
+				return new CustomActionValidatorExpression2EditPart(view);
+
+			case Save2EditPart.VISUAL_ID:
+				return new Save2EditPart(view);
+
+			case SaveValue2EditPart.VISUAL_ID:
+				return new SaveValue2EditPart(view);
+
+			case SavePerformerExpression2EditPart.VISUAL_ID:
+				return new SavePerformerExpression2EditPart(view);
+
+			case SaveValidatorExpression2EditPart.VISUAL_ID:
+				return new SaveValidatorExpression2EditPart(view);
+
+			case Reset2EditPart.VISUAL_ID:
+				return new Reset2EditPart(view);
+
+			case ResetValue2EditPart.VISUAL_ID:
+				return new ResetValue2EditPart(view);
+
+			case ResetPerformerExpression2EditPart.VISUAL_ID:
+				return new ResetPerformerExpression2EditPart(view);
+
+			case ResetValidatorExpression2EditPart.VISUAL_ID:
+				return new ResetValidatorExpression2EditPart(view);
+
+			case Cancel2EditPart.VISUAL_ID:
+				return new Cancel2EditPart(view);
+
+			case CancelValue2EditPart.VISUAL_ID:
+				return new CancelValue2EditPart(view);
+
+			case CancelPerformerExpression2EditPart.VISUAL_ID:
+				return new CancelPerformerExpression2EditPart(view);
+
+			case CancelValidatorExpression2EditPart.VISUAL_ID:
+				return new CancelValidatorExpression2EditPart(view);
 
 			case PagePageParametersCompartmentEditPart.VISUAL_ID:
 				return new PagePageParametersCompartmentEditPart(view);
@@ -214,6 +376,9 @@ public class WebdslEditPartFactory implements EditPartFactory {
 			case GroupGroupElementsCompartment3EditPart.VISUAL_ID:
 				return new GroupGroupElementsCompartment3EditPart(view);
 
+			case FormFormElementsCompartmentEditPart.VISUAL_ID:
+				return new FormFormElementsCompartmentEditPart(view);
+
 			case InternalLinkInternalLinkSourceCompartment2EditPart.VISUAL_ID:
 				return new InternalLinkInternalLinkSourceCompartment2EditPart(
 						view);
@@ -228,6 +393,9 @@ public class WebdslEditPartFactory implements EditPartFactory {
 
 			case GroupGroupElementsCompartment2EditPart.VISUAL_ID:
 				return new GroupGroupElementsCompartment2EditPart(view);
+
+			case FormFormElementsCompartment2EditPart.VISUAL_ID:
+				return new FormFormElementsCompartment2EditPart(view);
 
 			case InternalLinkInternalLinkSourceCompartment3EditPart.VISUAL_ID:
 				return new InternalLinkInternalLinkSourceCompartment3EditPart(

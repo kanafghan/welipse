@@ -21,12 +21,22 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Button2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ButtonEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Cancel2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CancelEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomAction2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLink2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLink3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkExternalLinkSourceCompartment2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkExternalLinkSourceCompartment3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkExternalLinkSourceCompartmentEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Form2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormFormElementsCompartment2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormFormElementsCompartmentEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Group2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Group3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupEditPart;
@@ -55,10 +65,18 @@ import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ListListElementsCo
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PagePageElementsCompartmentEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PagePageParametersCompartmentEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PagePageVariablesCompartmentEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Reset2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ResetEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Save2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SaveEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionList2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionListEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text4EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInput2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInputEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.WebsiteEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.part.Messages;
 import com.github.kanafghan.welipse.webdsl.diagram.part.WebdslDiagramEditorPlugin;
@@ -90,13 +108,21 @@ public class WebdslModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof PagePageElementsCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(6);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(14);
 			types.add(WebdslElementTypes.Text_3003);
 			types.add(WebdslElementTypes.Image_3004);
 			types.add(WebdslElementTypes.List_3005);
 			types.add(WebdslElementTypes.Group_3006);
+			types.add(WebdslElementTypes.Form_3025);
 			types.add(WebdslElementTypes.InternalLink_3007);
 			types.add(WebdslElementTypes.ExternalLink_3009);
+			types.add(WebdslElementTypes.TextInput_3027);
+			types.add(WebdslElementTypes.SelectionList_3029);
+			types.add(WebdslElementTypes.Button_3031);
+			types.add(WebdslElementTypes.CustomAction_3033);
+			types.add(WebdslElementTypes.Save_3035);
+			types.add(WebdslElementTypes.Reset_3037);
+			types.add(WebdslElementTypes.Cancel_3039);
 			return types;
 		}
 		if (editPart instanceof ListListElementsCompartmentEditPart) {
@@ -120,13 +146,21 @@ public class WebdslModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof GroupGroupElementsCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(6);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(14);
 			types.add(WebdslElementTypes.Text_3016);
 			types.add(WebdslElementTypes.Image_3017);
 			types.add(WebdslElementTypes.List_3018);
 			types.add(WebdslElementTypes.Group_3019);
+			types.add(WebdslElementTypes.Form_3024);
 			types.add(WebdslElementTypes.InternalLink_3020);
 			types.add(WebdslElementTypes.ExternalLink_3021);
+			types.add(WebdslElementTypes.TextInput_3026);
+			types.add(WebdslElementTypes.SelectionList_3028);
+			types.add(WebdslElementTypes.Button_3030);
+			types.add(WebdslElementTypes.CustomAction_3032);
+			types.add(WebdslElementTypes.Save_3034);
+			types.add(WebdslElementTypes.Reset_3036);
+			types.add(WebdslElementTypes.Cancel_3038);
 			return types;
 		}
 		if (editPart instanceof ListListElementsCompartment3EditPart) {
@@ -157,13 +191,26 @@ public class WebdslModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof GroupGroupElementsCompartment3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(6);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(14);
 			types.add(WebdslElementTypes.Text_3016);
 			types.add(WebdslElementTypes.Image_3017);
 			types.add(WebdslElementTypes.List_3018);
 			types.add(WebdslElementTypes.Group_3019);
+			types.add(WebdslElementTypes.Form_3024);
 			types.add(WebdslElementTypes.InternalLink_3020);
 			types.add(WebdslElementTypes.ExternalLink_3021);
+			types.add(WebdslElementTypes.TextInput_3026);
+			types.add(WebdslElementTypes.SelectionList_3028);
+			types.add(WebdslElementTypes.Button_3030);
+			types.add(WebdslElementTypes.CustomAction_3032);
+			types.add(WebdslElementTypes.Save_3034);
+			types.add(WebdslElementTypes.Reset_3036);
+			types.add(WebdslElementTypes.Cancel_3038);
+			return types;
+		}
+		if (editPart instanceof FormFormElementsCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(WebdslElementTypes.Text_3016);
 			return types;
 		}
 		if (editPart instanceof InternalLinkInternalLinkSourceCompartment2EditPart) {
@@ -184,13 +231,26 @@ public class WebdslModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof GroupGroupElementsCompartment2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(6);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(14);
 			types.add(WebdslElementTypes.Text_3016);
 			types.add(WebdslElementTypes.Image_3017);
 			types.add(WebdslElementTypes.List_3018);
 			types.add(WebdslElementTypes.Group_3019);
+			types.add(WebdslElementTypes.Form_3024);
 			types.add(WebdslElementTypes.InternalLink_3020);
 			types.add(WebdslElementTypes.ExternalLink_3021);
+			types.add(WebdslElementTypes.TextInput_3026);
+			types.add(WebdslElementTypes.SelectionList_3028);
+			types.add(WebdslElementTypes.Button_3030);
+			types.add(WebdslElementTypes.CustomAction_3032);
+			types.add(WebdslElementTypes.Save_3034);
+			types.add(WebdslElementTypes.Reset_3036);
+			types.add(WebdslElementTypes.Cancel_3038);
+			return types;
+		}
+		if (editPart instanceof FormFormElementsCompartment2EditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(WebdslElementTypes.Text_3016);
 			return types;
 		}
 		if (editPart instanceof InternalLinkInternalLinkSourceCompartment3EditPart) {
@@ -287,6 +347,9 @@ public class WebdslModelingAssistantProvider extends ModelingAssistantProvider {
 		if (targetEditPart instanceof Group3EditPart) {
 			return ((Group3EditPart) targetEditPart).getMARelTypesOnTarget();
 		}
+		if (targetEditPart instanceof FormEditPart) {
+			return ((FormEditPart) targetEditPart).getMARelTypesOnTarget();
+		}
 		if (targetEditPart instanceof InternalLink3EditPart) {
 			return ((InternalLink3EditPart) targetEditPart)
 					.getMARelTypesOnTarget();
@@ -295,8 +358,34 @@ public class WebdslModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((ExternalLink3EditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
+		if (targetEditPart instanceof TextInputEditPart) {
+			return ((TextInputEditPart) targetEditPart).getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof SelectionListEditPart) {
+			return ((SelectionListEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof ButtonEditPart) {
+			return ((ButtonEditPart) targetEditPart).getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof CustomActionEditPart) {
+			return ((CustomActionEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof SaveEditPart) {
+			return ((SaveEditPart) targetEditPart).getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof ResetEditPart) {
+			return ((ResetEditPart) targetEditPart).getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof CancelEditPart) {
+			return ((CancelEditPart) targetEditPart).getMARelTypesOnTarget();
+		}
 		if (targetEditPart instanceof GroupEditPart) {
 			return ((GroupEditPart) targetEditPart).getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof Form2EditPart) {
+			return ((Form2EditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof InternalLinkEditPart) {
 			return ((InternalLinkEditPart) targetEditPart)
@@ -305,6 +394,30 @@ public class WebdslModelingAssistantProvider extends ModelingAssistantProvider {
 		if (targetEditPart instanceof ExternalLinkEditPart) {
 			return ((ExternalLinkEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof TextInput2EditPart) {
+			return ((TextInput2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof SelectionList2EditPart) {
+			return ((SelectionList2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof Button2EditPart) {
+			return ((Button2EditPart) targetEditPart).getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof CustomAction2EditPart) {
+			return ((CustomAction2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof Save2EditPart) {
+			return ((Save2EditPart) targetEditPart).getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof Reset2EditPart) {
+			return ((Reset2EditPart) targetEditPart).getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof Cancel2EditPart) {
+			return ((Cancel2EditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -400,6 +513,10 @@ public class WebdslModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((Group3EditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
+		if (targetEditPart instanceof FormEditPart) {
+			return ((FormEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
 		if (targetEditPart instanceof InternalLink3EditPart) {
 			return ((InternalLink3EditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
@@ -408,8 +525,40 @@ public class WebdslModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((ExternalLink3EditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
+		if (targetEditPart instanceof TextInputEditPart) {
+			return ((TextInputEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof SelectionListEditPart) {
+			return ((SelectionListEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof ButtonEditPart) {
+			return ((ButtonEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof CustomActionEditPart) {
+			return ((CustomActionEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof SaveEditPart) {
+			return ((SaveEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof ResetEditPart) {
+			return ((ResetEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof CancelEditPart) {
+			return ((CancelEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
 		if (targetEditPart instanceof GroupEditPart) {
 			return ((GroupEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof Form2EditPart) {
+			return ((Form2EditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof InternalLinkEditPart) {
@@ -418,6 +567,34 @@ public class WebdslModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (targetEditPart instanceof ExternalLinkEditPart) {
 			return ((ExternalLinkEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof TextInput2EditPart) {
+			return ((TextInput2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof SelectionList2EditPart) {
+			return ((SelectionList2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof Button2EditPart) {
+			return ((Button2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof CustomAction2EditPart) {
+			return ((CustomAction2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof Save2EditPart) {
+			return ((Save2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof Reset2EditPart) {
+			return ((Reset2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof Cancel2EditPart) {
+			return ((Cancel2EditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		return Collections.EMPTY_LIST;

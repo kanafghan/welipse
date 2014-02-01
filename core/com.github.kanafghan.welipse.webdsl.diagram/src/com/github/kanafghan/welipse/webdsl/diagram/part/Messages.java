@@ -323,42 +323,122 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String InternalLink8CreationTool_title;
+	public static String Form8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InternalLink8CreationTool_desc;
+	public static String Form8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ActualParameter9CreationTool_title;
+	public static String TextInput9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ActualParameter9CreationTool_desc;
+	public static String TextInput9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Target10CreationTool_title;
+	public static String SelectionList10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Target10CreationTool_desc;
+	public static String SelectionList10CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ExternalLink11CreationTool_title;
+	public static String Button11CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ExternalLink11CreationTool_desc;
+	public static String Button11CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String CustomAction12CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CustomAction12CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Save13CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Save13CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Reset14CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Reset14CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Cancel15CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Cancel15CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String InternalLink16CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String InternalLink16CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ActualParameter17CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ActualParameter17CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Target18CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Target18CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ExternalLink19CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ExternalLink19CreationTool_desc;
 
 	/**
 	 * @generated
@@ -418,6 +498,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String FormFormElementsCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String InternalLinkInternalLinkSourceCompartment2EditPart_title;
 
 	/**
@@ -434,6 +519,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String GroupGroupElementsCompartment2EditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String FormFormElementsCompartment2EditPart_title;
 
 	/**
 	 * @generated
@@ -574,6 +664,86 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_Image_3023_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Form_3024_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Form_3025_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TextInput_3026_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TextInput_3027_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SelectionList_3028_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SelectionList_3029_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Button_3030_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Button_3031_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CustomAction_3032_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CustomAction_3033_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Save_3034_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Save_3035_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Reset_3036_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Reset_3037_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Cancel_3038_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Cancel_3039_incominglinks;
 
 	/**
 	 * @generated

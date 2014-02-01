@@ -31,9 +31,17 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ActualParameterEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Button2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ButtonEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Cancel2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CancelEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomAction2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLink2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLink3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Form2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Group2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Group3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupEditPart;
@@ -49,10 +57,18 @@ import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.List3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ListEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PageEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ParameterEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Reset2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ResetEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Save2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SaveEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionList2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionListEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text4EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInput2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInputEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.VariableInitializationEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.WebsiteEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.part.WebdslDiagramUpdater;
@@ -421,6 +437,14 @@ public class WebsiteCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
+		case FormEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getForm_3024ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
 		case InternalLink3EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(WebdslDiagramUpdater
@@ -437,10 +461,74 @@ public class WebsiteCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
+		case TextInputEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getTextInput_3026ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case SelectionListEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getSelectionList_3028ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case ButtonEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getButton_3030ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case CustomActionEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getCustomAction_3032ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case SaveEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getSave_3034ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case ResetEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getReset_3036ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case CancelEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getCancel_3038ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
 		case GroupEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(WebdslDiagramUpdater
 						.getGroup_3006ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case Form2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getForm_3025ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -457,6 +545,62 @@ public class WebsiteCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(WebdslDiagramUpdater
 						.getExternalLink_3009ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case TextInput2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getTextInput_3027ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case SelectionList2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getSelectionList_3029ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case Button2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getButton_3031ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case CustomAction2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getCustomAction_3033ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case Save2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getSave_3035ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case Reset2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getReset_3037ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case Cancel2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(WebdslDiagramUpdater
+						.getCancel_3039ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

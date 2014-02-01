@@ -9,7 +9,10 @@
       name="Default">
     <figures
         xsi:type="gmfgraph:PolylineDecoration"
-        name="InternalLinkTargetTargetDecoration"/>
+        name="InternalLinkTargetTargetDecoration">
+      <foregroundColor
+          xsi:type="gmfgraph:RGBColor"/>
+    </figures>
     <descriptors
         name="PageFigure">
       <actualFigure
@@ -23,6 +26,16 @@
         <preferredSize
             dx="250"
             dy="300"/>
+        <insets
+            top="5"
+            left="5"
+            right="3"/>
+        <border
+            xsi:type="gmfgraph:LineBorder"
+            width="3">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
         <children
             xsi:type="gmfgraph:Label"
             name="PageNameFigure"
@@ -48,6 +61,11 @@
                 xsi:type="gmfgraph:BorderLayoutData"
                 alignment="BEGINNING"
                 vertical="true"/>
+            <border
+                xsi:type="gmfgraph:LineBorder">
+              <color
+                  xsi:type="gmfgraph:RGBColor"/>
+            </border>
           </children>
           <children
               xsi:type="gmfgraph:InvisibleRectangle"
@@ -65,6 +83,11 @@
                   xsi:type="gmfgraph:BorderLayoutData"
                   alignment="BEGINNING"
                   vertical="true"/>
+              <border
+                  xsi:type="gmfgraph:LineBorder">
+                <color
+                    xsi:type="gmfgraph:RGBColor"/>
+              </border>
             </children>
             <children
                 xsi:type="gmfgraph:Rectangle"
@@ -76,6 +99,11 @@
               <preferredSize
                   dx="250"
                   dy="150"/>
+              <border
+                  xsi:type="gmfgraph:LineBorder">
+                <color
+                    xsi:type="gmfgraph:RGBColor"/>
+              </border>
             </children>
           </children>
         </children>
@@ -101,6 +129,11 @@
         <preferredSize
             dx="200"
             dy="150"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
         <children
             xsi:type="gmfgraph:InvisibleRectangle"
             name="ListHeaderContainerFigure">
@@ -153,6 +186,16 @@
           <layoutData
               xsi:type="gmfgraph:BorderLayoutData"
               vertical="true"/>
+          <backgroundColor
+              xsi:type="gmfgraph:RGBColor"
+              red="213"
+              green="216"
+              blue="242"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
         </children>
       </actualFigure>
       <accessors
@@ -178,6 +221,11 @@
             left="3"
             bottom="3"
             right="3"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
         <children
             xsi:type="gmfgraph:Label"
             name="TextExpressionFigure"
@@ -201,6 +249,11 @@
             left="3"
             bottom="3"
             right="3"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
         <children
             xsi:type="gmfgraph:Label"
             name="ImageExpressionFigure"
@@ -219,6 +272,11 @@
         <preferredSize
             dx="130"
             dy="100"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
         <children
             xsi:type="gmfgraph:Label"
             name="InternalLinkNameFigure"
@@ -239,6 +297,11 @@
           <layoutData
               xsi:type="gmfgraph:BorderLayoutData"
               vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
@@ -247,6 +310,11 @@
               xsi:type="gmfgraph:BorderLayoutData"
               alignment="END"
               vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
         </children>
       </actualFigure>
       <accessors
@@ -261,7 +329,10 @@
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name="InternalLinkTargetFigure"
-          targetDecoration="//@figures.0/@figures.0"/>
+          targetDecoration="//@figures.0/@figures.0">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+      </actualFigure>
     </descriptors>
     <descriptors
         name="ExternalLinkFigure">
@@ -273,6 +344,11 @@
         <preferredSize
             dx="130"
             dy="70"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
         <children
             xsi:type="gmfgraph:Label"
             name="ExternalLinkNameFigure"
@@ -293,6 +369,11 @@
           <layoutData
               xsi:type="gmfgraph:BorderLayoutData"
               vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
         </children>
       </actualFigure>
       <accessors
@@ -308,6 +389,11 @@
           name="VariableInitializationFigure">
         <layout
             xsi:type="gmfgraph:FlowLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="190"
+            green="191"
+            blue="199"/>
         <preferredSize
             dx="100"
             dy="20"/>
@@ -316,6 +402,11 @@
             left="3"
             bottom="3"
             right="3"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
         <children
             xsi:type="gmfgraph:Label"
             name="VariableInitializationDeclarationFigure"
@@ -331,6 +422,11 @@
           name="ParameterFigure">
         <layout
             xsi:type="gmfgraph:FlowLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="217"
+            green="208"
+            blue="211"/>
         <preferredSize
             dx="100"
             dy="20"/>
@@ -339,6 +435,11 @@
             left="3"
             bottom="3"
             right="3"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
         <children
             xsi:type="gmfgraph:Label"
             name="ParameterDeclarationFigure"
@@ -358,6 +459,11 @@
         <preferredSize
             dx="200"
             dy="150"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
         <children
             xsi:type="gmfgraph:Label"
             name="GroupNameFigure"
@@ -373,6 +479,11 @@
           <layoutData
               xsi:type="gmfgraph:BorderLayoutData"
               vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
         </children>
       </actualFigure>
       <accessors
@@ -380,6 +491,49 @@
       <accessors
           accessor="getFigureGroupElementsCompartmentFigure"
           figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="FormFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="FormFigure">
+        <layout
+            xsi:type="gmfgraph:BorderLayout"/>
+        <preferredSize
+            dx="200"
+            dy="150"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="FormNameFigure"
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="FormElementsCompartmentFigure">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
+        </children>
+      </actualFigure>
+      <accessors
+          accessor="getFigureFormNameFigure"
+          figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.10/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ActualParameterFigure">
@@ -396,6 +550,11 @@
             left="3"
             bottom="3"
             right="3"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
         <children
             xsi:type="gmfgraph:Label"
             name="ActualParameterIdentifierFigure"
@@ -403,7 +562,422 @@
       </actualFigure>
       <accessors
           accessor="getFigureActualParameterIdentifierFigure"
-          figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="TextInputFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="TextInputFigure">
+        <layout
+            xsi:type="gmfgraph:BorderLayout"/>
+        <preferredSize
+            dx="200"
+            dy="42"/>
+        <insets
+            top="3"
+            left="3"
+            bottom="3"
+            right="3"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="TextInputLabelExpressionFigure"
+            text="&lt;label-expression>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="TextInputValueExpressionFigure"
+            text="&lt;value-expression>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="END"
+              vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.12/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getFigureTextInputValueExpression"
+          figure="//@figures.0/@descriptors.12/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="SelectionListFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="SelectionListFigure">
+        <layout
+            xsi:type="gmfgraph:BorderLayout"/>
+        <preferredSize
+            dx="200"
+            dy="52"/>
+        <insets
+            top="3"
+            left="3"
+            bottom="3"
+            right="3"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SelectionListLabelExpressionFigure"
+            text="&lt;label-expression>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SelectionListOptionsExpressionFigure"
+            text="&lt;options-expression>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SelectionListValueExpressionFigure"
+            text="&lt;value-expression>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="END"
+              vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.13/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getFigureSelectionListValueExpression"
+          figure="//@figures.0/@descriptors.13/@actualFigure/@children.2"/>
+      <accessors
+          accessor="getFigureSelectionListOptionsExpression"
+          figure="//@figures.0/@descriptors.13/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="ButtonFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="200"
+            green="200"
+            blue="200"/>
+        <preferredSize
+            dx="150"
+            dy="30"/>
+        <insets
+            top="5"
+            left="8"
+            bottom="5"
+            right="8"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"
+              red="30"
+              green="30"
+              blue="30"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ButtonValueFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.14/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="CustomActionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="CutomActionFigure">
+        <layout
+            xsi:type="gmfgraph:BorderLayout"/>
+        <preferredSize
+            dx="200"
+            dy="52"/>
+        <insets
+            top="3"
+            left="3"
+            bottom="3"
+            right="3"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CustomActionValueFigure"
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CustomActionPerformerExpressionFigure"
+            text="&lt;performer>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CustomActionValidatorExpressionFigure"
+            text="&lt;validator>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="END"
+              vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.15/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getFigureCustomActionValidatorExpression"
+          figure="//@figures.0/@descriptors.15/@actualFigure/@children.2"/>
+      <accessors
+          accessor="getFigureCustomActionPerformerExpression"
+          figure="//@figures.0/@descriptors.15/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="SaveFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="SaveFigure">
+        <layout
+            xsi:type="gmfgraph:BorderLayout"/>
+        <preferredSize
+            dx="200"
+            dy="52"/>
+        <insets
+            top="3"
+            left="3"
+            bottom="3"
+            right="3"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SaveValueFigure"
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SavePerformerExpressionFigure"
+            text="&lt;performer>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SaveValidatorExpressionFigure"
+            text="&lt;validator>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="END"
+              vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.16/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getFigureSaveValidatorExpression"
+          figure="//@figures.0/@descriptors.16/@actualFigure/@children.2"/>
+      <accessors
+          accessor="getFigureSavePerformerExpression"
+          figure="//@figures.0/@descriptors.16/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="ResetFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ResetFigure">
+        <layout
+            xsi:type="gmfgraph:BorderLayout"/>
+        <preferredSize
+            dx="200"
+            dy="52"/>
+        <insets
+            top="3"
+            left="3"
+            bottom="3"
+            right="3"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ResetValueFigure"
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ResetPerformerExpressionFigure"
+            text="&lt;performer>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ResetValidatorExpressionFigure"
+            text="&lt;validator>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="END"
+              vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.17/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getFigureResetValidatorExpression"
+          figure="//@figures.0/@descriptors.17/@actualFigure/@children.2"/>
+      <accessors
+          accessor="getFigureResetPerformerExpression"
+          figure="//@figures.0/@descriptors.17/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="CancelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="CancelFigure">
+        <layout
+            xsi:type="gmfgraph:BorderLayout"/>
+        <preferredSize
+            dx="200"
+            dy="52"/>
+        <insets
+            top="3"
+            left="3"
+            bottom="3"
+            right="3"/>
+        <border
+            xsi:type="gmfgraph:LineBorder">
+          <color
+              xsi:type="gmfgraph:RGBColor"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CancelValueFigure"
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CancelPerformerExpressionFigure"
+            text="&lt;performer>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CancelValidatorExpressionFigure"
+            text="&lt;validator>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="END"
+              vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.18/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getFigureCancelValidatorExpression"
+          figure="//@figures.0/@descriptors.18/@actualFigure/@children.2"/>
+      <accessors
+          accessor="getFigureCancelPerformerExpression"
+          figure="//@figures.0/@descriptors.18/@actualFigure/@children.1"/>
     </descriptors>
   </figures>
   <nodes
@@ -439,8 +1013,39 @@
       name="Group"
       figure="GroupFigure"/>
   <nodes
+      name="Form"
+      figure="FormFigure"/>
+  <nodes
       name="ActualParameter"
       figure="ActualParameterFigure"
+      resizeConstraint="EAST_WEST"/>
+  <nodes
+      name="TextInput"
+      figure="TextInputFigure"
+      resizeConstraint="EAST_WEST"/>
+  <nodes
+      name="SelectionList"
+      figure="SelectionListFigure"
+      resizeConstraint="EAST_WEST"/>
+  <nodes
+      name="Button"
+      figure="ButtonFigure"
+      resizeConstraint="EAST_WEST"/>
+  <nodes
+      name="CustomAction"
+      figure="CustomActionFigure"
+      resizeConstraint="EAST_WEST"/>
+  <nodes
+      name="Save"
+      figure="SaveFigure"
+      resizeConstraint="EAST_WEST"/>
+  <nodes
+      name="Reset"
+      figure="ResetFigure"
+      resizeConstraint="EAST_WEST"/>
+  <nodes
+      name="Cancel"
+      figure="CancelFigure"
       resizeConstraint="EAST_WEST"/>
   <connections
       name="InternalLinkTarget"
@@ -484,6 +1089,11 @@
       figure="ExternalLinkFigure"
       collapsible="true"
       accessor="//@figures.0/@descriptors.6/@accessors.1"/>
+  <compartments
+      name="FormElementsCompartment"
+      figure="FormFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.10/@accessors.1"/>
   <labels
       name="PageName"
       figure="PageFigure"
@@ -531,8 +1141,130 @@
       resizeConstraint="EAST_WEST"
       accessor="//@figures.0/@descriptors.9/@accessors.0"/>
   <labels
+      name="FormName"
+      figure="FormFigure"
+      resizeConstraint="EAST_WEST"
+      accessor="//@figures.0/@descriptors.10/@accessors.0"/>
+  <labels
       name="ActualParameterIdentifier"
       figure="ActualParameterFigure"
       resizeConstraint="EAST_WEST"
-      accessor="//@figures.0/@descriptors.10/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.11/@accessors.0"/>
+  <labels
+      name="TextInputLabelExpression"
+      figure="TextInputFigure"
+      resizeConstraint="EAST_WEST"
+      accessor="//@figures.0/@descriptors.12/@accessors.0"/>
+  <labels
+      name="TextInputValueExpression"
+      figure="TextInputFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH_WEST"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.12/@accessors.1"/>
+  <labels
+      name="SelectionListValueExpression"
+      figure="SelectionListFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH_WEST"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.13/@accessors.1"/>
+  <labels
+      name="SelectionListLabelExpression"
+      figure="SelectionListFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH"
+      accessor="//@figures.0/@descriptors.13/@accessors.0"/>
+  <labels
+      name="SelectionListOptionsExpression"
+      figure="SelectionListFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH_WEST"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.13/@accessors.2"/>
+  <labels
+      name="ButtonValue"
+      figure="ButtonFigure"
+      resizeConstraint="EAST_WEST"
+      accessor="//@figures.0/@descriptors.14/@accessors.0"/>
+  <labels
+      name="CustomActionValue"
+      figure="CustomActionFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH_WEST"
+      accessor="//@figures.0/@descriptors.15/@accessors.0"/>
+  <labels
+      name="CustomActionPerformerExpression"
+      figure="CustomActionFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.15/@accessors.2"/>
+  <labels
+      name="CustomActionValidatorExpression"
+      figure="CustomActionFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH_WEST"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.15/@accessors.1"/>
+  <labels
+      name="SaveValue"
+      figure="SaveFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH_WEST"
+      accessor="//@figures.0/@descriptors.16/@accessors.0"/>
+  <labels
+      name="SavePerformerExpression"
+      figure="SaveFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.16/@accessors.2"/>
+  <labels
+      name="SaveValidatorExpression"
+      figure="SaveFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH_WEST"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.16/@accessors.1"/>
+  <labels
+      name="ResetValue"
+      figure="ResetFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH_WEST"
+      accessor="//@figures.0/@descriptors.17/@accessors.0"/>
+  <labels
+      name="ResetPerformerExpression"
+      figure="ResetFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.17/@accessors.2"/>
+  <labels
+      name="ResetValidatorExpression"
+      figure="ResetFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH_WEST"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.17/@accessors.1"/>
+  <labels
+      name="CancelValue"
+      figure="CancelFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH_WEST"
+      accessor="//@figures.0/@descriptors.18/@accessors.0"/>
+  <labels
+      name="CancelPerformerExpression"
+      figure="CancelFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.18/@accessors.2"/>
+  <labels
+      name="CancelValidatorExpression"
+      figure="CancelFigure"
+      resizeConstraint="EAST_WEST"
+      affixedParentSide="NORTH_WEST"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.18/@accessors.1"/>
 </gmfgraph:Canvas>

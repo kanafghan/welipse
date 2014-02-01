@@ -1,6 +1,7 @@
 package com.github.kanafghan.welipse.webdsl.diagram.edit.parts;
 
 import org.eclipse.draw2d.Connection;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.PolylineDecoration;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
@@ -8,6 +9,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.graphics.Color;
 
 import com.github.kanafghan.welipse.webdsl.diagram.edit.policies.InternalLinkTargetItemSemanticEditPolicy;
 
@@ -67,6 +69,7 @@ public class InternalLinkTargetEditPart extends ConnectionNodeEditPart
 		 * @generated
 		 */
 		public InternalLinkTargetFigure() {
+			this.setForegroundColor(THIS_FORE);
 
 			setTargetDecoration(createTargetDecoration());
 		}
@@ -76,9 +79,19 @@ public class InternalLinkTargetEditPart extends ConnectionNodeEditPart
 		 */
 		private RotatableDecoration createTargetDecoration() {
 			PolylineDecoration df = new PolylineDecoration();
+			df.setForegroundColor(DF_FORE);
 			return df;
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_FORE = new Color(null, 0, 0, 0);
+	/**
+	 * @generated
+	 */
+	static final Color DF_FORE = new Color(null, 0, 0, 0);
 
 }

@@ -19,12 +19,28 @@ import org.eclipse.ui.navigator.ICommonLabelProvider;
 import com.github.kanafghan.welipse.webdsl.Website;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ActualParameterEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ActualParameterIdentifierEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Button2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ButtonEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ButtonValue2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ButtonValueEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Cancel2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CancelEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CancelValue2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CancelValueEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomAction2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionValue2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionValueEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLink2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLink3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkName2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkName3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkNameEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Form2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormName2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormNameEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Group2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Group3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupEditPart;
@@ -56,6 +72,18 @@ import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PageEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PageNameEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ParameterDeclarationEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ParameterEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Reset2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ResetEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ResetValue2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ResetValueEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Save2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SaveEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SaveValue2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SaveValueEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionList2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionListEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionListLabelExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionListLabelExpressionEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text4EditPart;
@@ -64,6 +92,10 @@ import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextExpression2Edi
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextExpression3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextExpression4EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextExpressionEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInput2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInputEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInputLabelExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInputLabelExpressionEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.VariableInitializationDeclarationEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.VariableInitializationEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.WebsiteEditPart;
@@ -206,6 +238,54 @@ public class WebdslNavigatorLabelProvider extends LabelProvider implements
 		case Image4EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?Image", WebdslElementTypes.Image_3023); //$NON-NLS-1$
+		case FormEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?Form", WebdslElementTypes.Form_3024); //$NON-NLS-1$
+		case Form2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?Form", WebdslElementTypes.Form_3025); //$NON-NLS-1$
+		case TextInputEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?TextInput", WebdslElementTypes.TextInput_3026); //$NON-NLS-1$
+		case TextInput2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?TextInput", WebdslElementTypes.TextInput_3027); //$NON-NLS-1$
+		case SelectionListEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?SelectionList", WebdslElementTypes.SelectionList_3028); //$NON-NLS-1$
+		case SelectionList2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?SelectionList", WebdslElementTypes.SelectionList_3029); //$NON-NLS-1$
+		case ButtonEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?Button", WebdslElementTypes.Button_3030); //$NON-NLS-1$
+		case Button2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?Button", WebdslElementTypes.Button_3031); //$NON-NLS-1$
+		case CustomActionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?CustomAction", WebdslElementTypes.CustomAction_3032); //$NON-NLS-1$
+		case CustomAction2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?CustomAction", WebdslElementTypes.CustomAction_3033); //$NON-NLS-1$
+		case SaveEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?Save", WebdslElementTypes.Save_3034); //$NON-NLS-1$
+		case Save2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?Save", WebdslElementTypes.Save_3035); //$NON-NLS-1$
+		case ResetEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?Reset", WebdslElementTypes.Reset_3036); //$NON-NLS-1$
+		case Reset2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?Reset", WebdslElementTypes.Reset_3037); //$NON-NLS-1$
+		case CancelEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?Cancel", WebdslElementTypes.Cancel_3038); //$NON-NLS-1$
+		case Cancel2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://github.com/kanafghan/welipse/webdsl/1.0?Cancel", WebdslElementTypes.Cancel_3039); //$NON-NLS-1$
 		case InternalLinkTargetEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://github.com/kanafghan/welipse/webdsl/1.0?InternalLink?target", WebdslElementTypes.InternalLinkTarget_4004); //$NON-NLS-1$
@@ -311,6 +391,38 @@ public class WebdslNavigatorLabelProvider extends LabelProvider implements
 			return getText_3022Text(view);
 		case Image4EditPart.VISUAL_ID:
 			return getImage_3023Text(view);
+		case FormEditPart.VISUAL_ID:
+			return getForm_3024Text(view);
+		case Form2EditPart.VISUAL_ID:
+			return getForm_3025Text(view);
+		case TextInputEditPart.VISUAL_ID:
+			return getTextInput_3026Text(view);
+		case TextInput2EditPart.VISUAL_ID:
+			return getTextInput_3027Text(view);
+		case SelectionListEditPart.VISUAL_ID:
+			return getSelectionList_3028Text(view);
+		case SelectionList2EditPart.VISUAL_ID:
+			return getSelectionList_3029Text(view);
+		case ButtonEditPart.VISUAL_ID:
+			return getButton_3030Text(view);
+		case Button2EditPart.VISUAL_ID:
+			return getButton_3031Text(view);
+		case CustomActionEditPart.VISUAL_ID:
+			return getCustomAction_3032Text(view);
+		case CustomAction2EditPart.VISUAL_ID:
+			return getCustomAction_3033Text(view);
+		case SaveEditPart.VISUAL_ID:
+			return getSave_3034Text(view);
+		case Save2EditPart.VISUAL_ID:
+			return getSave_3035Text(view);
+		case ResetEditPart.VISUAL_ID:
+			return getReset_3036Text(view);
+		case Reset2EditPart.VISUAL_ID:
+			return getReset_3037Text(view);
+		case CancelEditPart.VISUAL_ID:
+			return getCancel_3038Text(view);
+		case Cancel2EditPart.VISUAL_ID:
+			return getCancel_3039Text(view);
 		case InternalLinkTargetEditPart.VISUAL_ID:
 			return getInternalLinkTarget_4004Text(view);
 		}
@@ -803,6 +915,318 @@ public class WebdslNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			WebdslDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 5045); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getForm_3024Text(View view) {
+		IParser parser = WebdslParserProvider.getParser(
+				WebdslElementTypes.Form_3024,
+				view.getElement() != null ? view.getElement() : view,
+				WebdslVisualIDRegistry.getType(FormNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5046); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getForm_3025Text(View view) {
+		IParser parser = WebdslParserProvider.getParser(
+				WebdslElementTypes.Form_3025,
+				view.getElement() != null ? view.getElement() : view,
+				WebdslVisualIDRegistry.getType(FormName2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5047); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getTextInput_3026Text(View view) {
+		IParser parser = WebdslParserProvider.getParser(
+				WebdslElementTypes.TextInput_3026,
+				view.getElement() != null ? view.getElement() : view,
+				WebdslVisualIDRegistry
+						.getType(TextInputLabelExpressionEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5048); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getTextInput_3027Text(View view) {
+		IParser parser = WebdslParserProvider.getParser(
+				WebdslElementTypes.TextInput_3027,
+				view.getElement() != null ? view.getElement() : view,
+				WebdslVisualIDRegistry
+						.getType(TextInputLabelExpression2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5050); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getSelectionList_3028Text(View view) {
+		IParser parser = WebdslParserProvider
+				.getParser(
+						WebdslElementTypes.SelectionList_3028,
+						view.getElement() != null ? view.getElement() : view,
+						WebdslVisualIDRegistry
+								.getType(SelectionListLabelExpressionEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5052); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getSelectionList_3029Text(View view) {
+		IParser parser = WebdslParserProvider
+				.getParser(
+						WebdslElementTypes.SelectionList_3029,
+						view.getElement() != null ? view.getElement() : view,
+						WebdslVisualIDRegistry
+								.getType(SelectionListLabelExpression2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5055); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getButton_3030Text(View view) {
+		IParser parser = WebdslParserProvider.getParser(
+				WebdslElementTypes.Button_3030,
+				view.getElement() != null ? view.getElement() : view,
+				WebdslVisualIDRegistry.getType(ButtonValueEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5058); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getButton_3031Text(View view) {
+		IParser parser = WebdslParserProvider.getParser(
+				WebdslElementTypes.Button_3031,
+				view.getElement() != null ? view.getElement() : view,
+				WebdslVisualIDRegistry.getType(ButtonValue2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5059); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getCustomAction_3032Text(View view) {
+		IParser parser = WebdslParserProvider.getParser(
+				WebdslElementTypes.CustomAction_3032,
+				view.getElement() != null ? view.getElement() : view,
+				WebdslVisualIDRegistry
+						.getType(CustomActionValueEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5060); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getCustomAction_3033Text(View view) {
+		IParser parser = WebdslParserProvider.getParser(
+				WebdslElementTypes.CustomAction_3033,
+				view.getElement() != null ? view.getElement() : view,
+				WebdslVisualIDRegistry
+						.getType(CustomActionValue2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5063); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getSave_3034Text(View view) {
+		IParser parser = WebdslParserProvider.getParser(
+				WebdslElementTypes.Save_3034,
+				view.getElement() != null ? view.getElement() : view,
+				WebdslVisualIDRegistry.getType(SaveValueEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5066); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getSave_3035Text(View view) {
+		IParser parser = WebdslParserProvider.getParser(
+				WebdslElementTypes.Save_3035,
+				view.getElement() != null ? view.getElement() : view,
+				WebdslVisualIDRegistry.getType(SaveValue2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5069); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getReset_3036Text(View view) {
+		IParser parser = WebdslParserProvider.getParser(
+				WebdslElementTypes.Reset_3036,
+				view.getElement() != null ? view.getElement() : view,
+				WebdslVisualIDRegistry.getType(ResetValueEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5072); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getReset_3037Text(View view) {
+		IParser parser = WebdslParserProvider.getParser(
+				WebdslElementTypes.Reset_3037,
+				view.getElement() != null ? view.getElement() : view,
+				WebdslVisualIDRegistry.getType(ResetValue2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5075); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getCancel_3038Text(View view) {
+		IParser parser = WebdslParserProvider.getParser(
+				WebdslElementTypes.Cancel_3038,
+				view.getElement() != null ? view.getElement() : view,
+				WebdslVisualIDRegistry.getType(CancelValueEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5078); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getCancel_3039Text(View view) {
+		IParser parser = WebdslParserProvider.getParser(
+				WebdslElementTypes.Cancel_3039,
+				view.getElement() != null ? view.getElement() : view,
+				WebdslVisualIDRegistry.getType(CancelValue2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			WebdslDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5081); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

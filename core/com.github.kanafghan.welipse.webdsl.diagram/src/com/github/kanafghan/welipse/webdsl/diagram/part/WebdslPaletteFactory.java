@@ -43,10 +43,18 @@ public class WebdslPaletteFactory {
 		paletteContainer.add(createImage5CreationTool());
 		paletteContainer.add(createList6CreationTool());
 		paletteContainer.add(createGroup7CreationTool());
-		paletteContainer.add(createInternalLink8CreationTool());
-		paletteContainer.add(createActualParameter9CreationTool());
-		paletteContainer.add(createTarget10CreationTool());
-		paletteContainer.add(createExternalLink11CreationTool());
+		paletteContainer.add(createForm8CreationTool());
+		paletteContainer.add(createTextInput9CreationTool());
+		paletteContainer.add(createSelectionList10CreationTool());
+		paletteContainer.add(createButton11CreationTool());
+		paletteContainer.add(createCustomAction12CreationTool());
+		paletteContainer.add(createSave13CreationTool());
+		paletteContainer.add(createReset14CreationTool());
+		paletteContainer.add(createCancel15CreationTool());
+		paletteContainer.add(createInternalLink16CreationTool());
+		paletteContainer.add(createActualParameter17CreationTool());
+		paletteContainer.add(createTarget18CreationTool());
+		paletteContainer.add(createExternalLink19CreationTool());
 		return paletteContainer;
 	}
 
@@ -173,15 +181,151 @@ public class WebdslPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createInternalLink8CreationTool() {
+	private ToolEntry createForm8CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(WebdslElementTypes.Form_3024);
+		types.add(WebdslElementTypes.Form_3025);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Form8CreationTool_title,
+				Messages.Form8CreationTool_desc, types);
+		entry.setId("createForm8CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(WebdslElementTypes
+				.getImageDescriptor(WebdslElementTypes.Form_3024));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createTextInput9CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(WebdslElementTypes.TextInput_3026);
+		types.add(WebdslElementTypes.TextInput_3027);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.TextInput9CreationTool_title,
+				Messages.TextInput9CreationTool_desc, types);
+		entry.setId("createTextInput9CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(WebdslElementTypes
+				.getImageDescriptor(WebdslElementTypes.TextInput_3026));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createSelectionList10CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(WebdslElementTypes.SelectionList_3028);
+		types.add(WebdslElementTypes.SelectionList_3029);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.SelectionList10CreationTool_title,
+				Messages.SelectionList10CreationTool_desc, types);
+		entry.setId("createSelectionList10CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(WebdslElementTypes
+				.getImageDescriptor(WebdslElementTypes.SelectionList_3028));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createButton11CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(WebdslElementTypes.Button_3030);
+		types.add(WebdslElementTypes.Button_3031);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Button11CreationTool_title,
+				Messages.Button11CreationTool_desc, types);
+		entry.setId("createButton11CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(WebdslElementTypes
+				.getImageDescriptor(WebdslElementTypes.Button_3030));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createCustomAction12CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(WebdslElementTypes.CustomAction_3032);
+		types.add(WebdslElementTypes.CustomAction_3033);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.CustomAction12CreationTool_title,
+				Messages.CustomAction12CreationTool_desc, types);
+		entry.setId("createCustomAction12CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(WebdslElementTypes
+				.getImageDescriptor(WebdslElementTypes.CustomAction_3032));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createSave13CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(WebdslElementTypes.Save_3034);
+		types.add(WebdslElementTypes.Save_3035);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Save13CreationTool_title,
+				Messages.Save13CreationTool_desc, types);
+		entry.setId("createSave13CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(WebdslElementTypes
+				.getImageDescriptor(WebdslElementTypes.Save_3034));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createReset14CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(WebdslElementTypes.Reset_3036);
+		types.add(WebdslElementTypes.Reset_3037);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Reset14CreationTool_title,
+				Messages.Reset14CreationTool_desc, types);
+		entry.setId("createReset14CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(WebdslElementTypes
+				.getImageDescriptor(WebdslElementTypes.Reset_3036));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createCancel15CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(WebdslElementTypes.Cancel_3038);
+		types.add(WebdslElementTypes.Cancel_3039);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Cancel15CreationTool_title,
+				Messages.Cancel15CreationTool_desc, types);
+		entry.setId("createCancel15CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(WebdslElementTypes
+				.getImageDescriptor(WebdslElementTypes.Cancel_3038));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createInternalLink16CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(WebdslElementTypes.InternalLink_3014);
 		types.add(WebdslElementTypes.InternalLink_3020);
 		types.add(WebdslElementTypes.InternalLink_3007);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.InternalLink8CreationTool_title,
-				Messages.InternalLink8CreationTool_desc, types);
-		entry.setId("createInternalLink8CreationTool"); //$NON-NLS-1$
+				Messages.InternalLink16CreationTool_title,
+				Messages.InternalLink16CreationTool_desc, types);
+		entry.setId("createInternalLink16CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(WebdslElementTypes
 				.getImageDescriptor(WebdslElementTypes.InternalLink_3014));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -191,13 +335,13 @@ public class WebdslPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createActualParameter9CreationTool() {
+	private ToolEntry createActualParameter17CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ActualParameter9CreationTool_title,
-				Messages.ActualParameter9CreationTool_desc,
+				Messages.ActualParameter17CreationTool_title,
+				Messages.ActualParameter17CreationTool_desc,
 				Collections
 						.singletonList(WebdslElementTypes.ActualParameter_3008));
-		entry.setId("createActualParameter9CreationTool"); //$NON-NLS-1$
+		entry.setId("createActualParameter17CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(WebdslElementTypes
 				.getImageDescriptor(WebdslElementTypes.ActualParameter_3008));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -207,31 +351,30 @@ public class WebdslPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createTarget10CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.Target10CreationTool_title,
-				Messages.Target10CreationTool_desc,
-				Collections
-						.singletonList(WebdslElementTypes.InternalLinkTarget_4004));
-		entry.setId("createTarget10CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(WebdslElementTypes
-				.getImageDescriptor(WebdslElementTypes.InternalLinkTarget_4004));
-		entry.setLargeIcon(entry.getSmallIcon());
+	private ToolEntry createTarget18CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.Target18CreationTool_title,
+				Messages.Target18CreationTool_desc, null, null) {
+		};
+		entry.setId("createTarget18CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(WebdslDiagramEditorPlugin
+				.findImageDescriptor("/com.github.kanafghan.welipse.webdsl.edit/icons/full/obj16/Target.png")); //$NON-NLS-1$
+		entry.setLargeIcon(WebdslDiagramEditorPlugin
+				.findImageDescriptor("/com.github.kanafghan.welipse.webdsl.edit/icons/full/obj16/Target.png")); //$NON-NLS-1$
 		return entry;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createExternalLink11CreationTool() {
+	private ToolEntry createExternalLink19CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(WebdslElementTypes.ExternalLink_3015);
 		types.add(WebdslElementTypes.ExternalLink_3021);
 		types.add(WebdslElementTypes.ExternalLink_3009);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ExternalLink11CreationTool_title,
-				Messages.ExternalLink11CreationTool_desc, types);
-		entry.setId("createExternalLink11CreationTool"); //$NON-NLS-1$
+				Messages.ExternalLink19CreationTool_title,
+				Messages.ExternalLink19CreationTool_desc, types);
+		entry.setId("createExternalLink19CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(WebdslElementTypes
 				.getImageDescriptor(WebdslElementTypes.ExternalLink_3015));
 		entry.setLargeIcon(entry.getSmallIcon());

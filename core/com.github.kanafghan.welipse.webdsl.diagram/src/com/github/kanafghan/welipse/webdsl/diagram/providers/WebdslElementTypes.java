@@ -16,9 +16,17 @@ import org.eclipse.swt.graphics.Image;
 
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ActualParameterEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Button2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ButtonEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Cancel2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CancelEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomAction2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLink2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLink3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Form2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Group2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Group3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupEditPart;
@@ -35,10 +43,18 @@ import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.List3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ListEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PageEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ParameterEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Reset2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ResetEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Save2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SaveEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionList2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionListEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text4EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInput2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInputEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.VariableInitializationEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.WebsiteEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.part.WebdslDiagramEditorPlugin;
@@ -154,6 +170,10 @@ public class WebdslElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Form_3024 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.Form_3024"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
 	public static final IElementType InternalLink_3020 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.InternalLink_3020"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -162,7 +182,42 @@ public class WebdslElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType TextInput_3026 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.TextInput_3026"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType SelectionList_3028 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.SelectionList_3028"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Button_3030 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.Button_3030"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType CustomAction_3032 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.CustomAction_3032"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Save_3034 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.Save_3034"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Reset_3036 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.Reset_3036"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Cancel_3038 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.Cancel_3038"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType Group_3006 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.Group_3006"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Form_3025 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.Form_3025"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -171,6 +226,37 @@ public class WebdslElementTypes {
 	 * @generated
 	 */
 	public static final IElementType ExternalLink_3009 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.ExternalLink_3009"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType TextInput_3027 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.TextInput_3027"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType SelectionList_3029 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.SelectionList_3029"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Button_3031 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.Button_3031"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType CustomAction_3033 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.CustomAction_3033"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Save_3035 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.Save_3035"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Reset_3037 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.Reset_3037"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Cancel_3039 = getElementType("com.github.kanafghan.welipse.webdsl.diagram.Cancel_3039"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -258,19 +344,55 @@ public class WebdslElementTypes {
 
 			elements.put(Group_3019, WebDSLPackage.eINSTANCE.getGroup());
 
+			elements.put(Form_3024, WebDSLPackage.eINSTANCE.getForm());
+
 			elements.put(InternalLink_3020,
 					WebDSLPackage.eINSTANCE.getInternalLink());
 
 			elements.put(ExternalLink_3021,
 					WebDSLPackage.eINSTANCE.getExternalLink());
 
+			elements.put(TextInput_3026, WebDSLPackage.eINSTANCE.getTextInput());
+
+			elements.put(SelectionList_3028,
+					WebDSLPackage.eINSTANCE.getSelectionList());
+
+			elements.put(Button_3030, WebDSLPackage.eINSTANCE.getButton());
+
+			elements.put(CustomAction_3032,
+					WebDSLPackage.eINSTANCE.getCustomAction());
+
+			elements.put(Save_3034, WebDSLPackage.eINSTANCE.getSave());
+
+			elements.put(Reset_3036, WebDSLPackage.eINSTANCE.getReset());
+
+			elements.put(Cancel_3038, WebDSLPackage.eINSTANCE.getCancel());
+
 			elements.put(Group_3006, WebDSLPackage.eINSTANCE.getGroup());
+
+			elements.put(Form_3025, WebDSLPackage.eINSTANCE.getForm());
 
 			elements.put(InternalLink_3007,
 					WebDSLPackage.eINSTANCE.getInternalLink());
 
 			elements.put(ExternalLink_3009,
 					WebDSLPackage.eINSTANCE.getExternalLink());
+
+			elements.put(TextInput_3027, WebDSLPackage.eINSTANCE.getTextInput());
+
+			elements.put(SelectionList_3029,
+					WebDSLPackage.eINSTANCE.getSelectionList());
+
+			elements.put(Button_3031, WebDSLPackage.eINSTANCE.getButton());
+
+			elements.put(CustomAction_3033,
+					WebDSLPackage.eINSTANCE.getCustomAction());
+
+			elements.put(Save_3035, WebDSLPackage.eINSTANCE.getSave());
+
+			elements.put(Reset_3037, WebDSLPackage.eINSTANCE.getReset());
+
+			elements.put(Cancel_3039, WebDSLPackage.eINSTANCE.getCancel());
 
 			elements.put(InternalLinkTarget_4004,
 					WebDSLPackage.eINSTANCE.getInternalLink_Target());
@@ -311,11 +433,27 @@ public class WebdslElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Image_3023);
 			KNOWN_ELEMENT_TYPES.add(ExternalLink_3015);
 			KNOWN_ELEMENT_TYPES.add(Group_3019);
+			KNOWN_ELEMENT_TYPES.add(Form_3024);
 			KNOWN_ELEMENT_TYPES.add(InternalLink_3020);
 			KNOWN_ELEMENT_TYPES.add(ExternalLink_3021);
+			KNOWN_ELEMENT_TYPES.add(TextInput_3026);
+			KNOWN_ELEMENT_TYPES.add(SelectionList_3028);
+			KNOWN_ELEMENT_TYPES.add(Button_3030);
+			KNOWN_ELEMENT_TYPES.add(CustomAction_3032);
+			KNOWN_ELEMENT_TYPES.add(Save_3034);
+			KNOWN_ELEMENT_TYPES.add(Reset_3036);
+			KNOWN_ELEMENT_TYPES.add(Cancel_3038);
 			KNOWN_ELEMENT_TYPES.add(Group_3006);
+			KNOWN_ELEMENT_TYPES.add(Form_3025);
 			KNOWN_ELEMENT_TYPES.add(InternalLink_3007);
 			KNOWN_ELEMENT_TYPES.add(ExternalLink_3009);
+			KNOWN_ELEMENT_TYPES.add(TextInput_3027);
+			KNOWN_ELEMENT_TYPES.add(SelectionList_3029);
+			KNOWN_ELEMENT_TYPES.add(Button_3031);
+			KNOWN_ELEMENT_TYPES.add(CustomAction_3033);
+			KNOWN_ELEMENT_TYPES.add(Save_3035);
+			KNOWN_ELEMENT_TYPES.add(Reset_3037);
+			KNOWN_ELEMENT_TYPES.add(Cancel_3039);
 			KNOWN_ELEMENT_TYPES.add(InternalLinkTarget_4004);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -366,16 +504,48 @@ public class WebdslElementTypes {
 			return ExternalLink_3015;
 		case Group3EditPart.VISUAL_ID:
 			return Group_3019;
+		case FormEditPart.VISUAL_ID:
+			return Form_3024;
 		case InternalLink3EditPart.VISUAL_ID:
 			return InternalLink_3020;
 		case ExternalLink3EditPart.VISUAL_ID:
 			return ExternalLink_3021;
+		case TextInputEditPart.VISUAL_ID:
+			return TextInput_3026;
+		case SelectionListEditPart.VISUAL_ID:
+			return SelectionList_3028;
+		case ButtonEditPart.VISUAL_ID:
+			return Button_3030;
+		case CustomActionEditPart.VISUAL_ID:
+			return CustomAction_3032;
+		case SaveEditPart.VISUAL_ID:
+			return Save_3034;
+		case ResetEditPart.VISUAL_ID:
+			return Reset_3036;
+		case CancelEditPart.VISUAL_ID:
+			return Cancel_3038;
 		case GroupEditPart.VISUAL_ID:
 			return Group_3006;
+		case Form2EditPart.VISUAL_ID:
+			return Form_3025;
 		case InternalLinkEditPart.VISUAL_ID:
 			return InternalLink_3007;
 		case ExternalLinkEditPart.VISUAL_ID:
 			return ExternalLink_3009;
+		case TextInput2EditPart.VISUAL_ID:
+			return TextInput_3027;
+		case SelectionList2EditPart.VISUAL_ID:
+			return SelectionList_3029;
+		case Button2EditPart.VISUAL_ID:
+			return Button_3031;
+		case CustomAction2EditPart.VISUAL_ID:
+			return CustomAction_3033;
+		case Save2EditPart.VISUAL_ID:
+			return Save_3035;
+		case Reset2EditPart.VISUAL_ID:
+			return Reset_3037;
+		case Cancel2EditPart.VISUAL_ID:
+			return Cancel_3039;
 		case InternalLinkTargetEditPart.VISUAL_ID:
 			return InternalLinkTarget_4004;
 		}

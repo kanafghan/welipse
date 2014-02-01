@@ -7,78 +7,17 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
+import com.github.kanafghan.welipse.webdsl.Button;
+import com.github.kanafghan.welipse.webdsl.Cancel;
+import com.github.kanafghan.welipse.webdsl.CustomAction;
+import com.github.kanafghan.welipse.webdsl.Form;
+import com.github.kanafghan.welipse.webdsl.Group;
+import com.github.kanafghan.welipse.webdsl.Reset;
+import com.github.kanafghan.welipse.webdsl.Save;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 import com.github.kanafghan.welipse.webdsl.Website;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ActualParameterEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ActualParameterIdentifierEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLink2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLink3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkExternalLinkSourceCompartment2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkExternalLinkSourceCompartment3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkExternalLinkSourceCompartmentEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkName2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkName3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkNameEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Group2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Group3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupGroupElementsCompartment2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupGroupElementsCompartment3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupGroupElementsCompartmentEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupName2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupName3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupNameEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Image2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Image3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Image4EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ImageEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ImageExpression2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ImageExpression3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ImageExpression4EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ImageExpressionEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLink2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLink3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLinkEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLinkInternalLinkActualParametersCompartment2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLinkInternalLinkActualParametersCompartment3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLinkInternalLinkActualParametersCompartmentEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLinkInternalLinkSourceCompartment2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLinkInternalLinkSourceCompartment3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLinkInternalLinkSourceCompartmentEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLinkName2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLinkName3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLinkNameEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.List2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.List3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ListEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ListExpression2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ListExpression3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ListExpression4EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ListExpressionEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ListListElementsCompartment2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ListListElementsCompartment3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ListListElementsCompartmentEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ListVariable2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ListVariableEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PageEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PageNameEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PagePageElementsCompartmentEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PagePageParametersCompartmentEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PagePageVariablesCompartmentEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ParameterDeclarationEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ParameterEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text4EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextExpression2EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextExpression3EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextExpression4EditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextExpressionEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.VariableInitializationDeclarationEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.VariableInitializationEditPart;
-import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.WebsiteEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.*;
+import com.github.kanafghan.welipse.webdsl.diagram.expressions.WebdslOCLFactory;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -219,8 +158,14 @@ public class WebdslVisualIDRegistry {
 				return ListEditPart.VISUAL_ID;
 			}
 			if (WebDSLPackage.eINSTANCE.getGroup().isSuperTypeOf(
-					domainElement.eClass())) {
+					domainElement.eClass())
+					&& isGroup_3006((Group) domainElement)) {
 				return GroupEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getForm().isSuperTypeOf(
+					domainElement.eClass())
+					&& isForm_3025((Form) domainElement)) {
+				return Form2EditPart.VISUAL_ID;
 			}
 			if (WebDSLPackage.eINSTANCE.getInternalLink().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -229,6 +174,39 @@ public class WebdslVisualIDRegistry {
 			if (WebDSLPackage.eINSTANCE.getExternalLink().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ExternalLinkEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getTextInput().isSuperTypeOf(
+					domainElement.eClass())) {
+				return TextInput2EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getSelectionList().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SelectionList2EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getButton().isSuperTypeOf(
+					domainElement.eClass())
+					&& isButton_3031((Button) domainElement)) {
+				return Button2EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getCustomAction().isSuperTypeOf(
+					domainElement.eClass())
+					&& isCustomAction_3033((CustomAction) domainElement)) {
+				return CustomAction2EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getSave().isSuperTypeOf(
+					domainElement.eClass())
+					&& isSave_3035((Save) domainElement)) {
+				return Save2EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getReset().isSuperTypeOf(
+					domainElement.eClass())
+					&& isReset_3037((Reset) domainElement)) {
+				return Reset2EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getCancel().isSuperTypeOf(
+					domainElement.eClass())
+					&& isCancel_3039((Cancel) domainElement)) {
+				return Cancel2EditPart.VISUAL_ID;
 			}
 			break;
 		case ListListElementsCompartmentEditPart.VISUAL_ID:
@@ -245,7 +223,8 @@ public class WebdslVisualIDRegistry {
 				return List2EditPart.VISUAL_ID;
 			}
 			if (WebDSLPackage.eINSTANCE.getGroup().isSuperTypeOf(
-					domainElement.eClass())) {
+					domainElement.eClass())
+					&& isGroup_3013((Group) domainElement)) {
 				return Group2EditPart.VISUAL_ID;
 			}
 			if (WebDSLPackage.eINSTANCE.getInternalLink().isSuperTypeOf(
@@ -271,7 +250,8 @@ public class WebdslVisualIDRegistry {
 				return List2EditPart.VISUAL_ID;
 			}
 			if (WebDSLPackage.eINSTANCE.getGroup().isSuperTypeOf(
-					domainElement.eClass())) {
+					domainElement.eClass())
+					&& isGroup_3013((Group) domainElement)) {
 				return Group2EditPart.VISUAL_ID;
 			}
 			if (WebDSLPackage.eINSTANCE.getInternalLink().isSuperTypeOf(
@@ -297,8 +277,14 @@ public class WebdslVisualIDRegistry {
 				return List3EditPart.VISUAL_ID;
 			}
 			if (WebDSLPackage.eINSTANCE.getGroup().isSuperTypeOf(
-					domainElement.eClass())) {
+					domainElement.eClass())
+					&& isGroup_3019((Group) domainElement)) {
 				return Group3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getForm().isSuperTypeOf(
+					domainElement.eClass())
+					&& isForm_3024((Form) domainElement)) {
+				return FormEditPart.VISUAL_ID;
 			}
 			if (WebDSLPackage.eINSTANCE.getInternalLink().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -307,6 +293,39 @@ public class WebdslVisualIDRegistry {
 			if (WebDSLPackage.eINSTANCE.getExternalLink().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ExternalLink3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getTextInput().isSuperTypeOf(
+					domainElement.eClass())) {
+				return TextInputEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getSelectionList().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SelectionListEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getButton().isSuperTypeOf(
+					domainElement.eClass())
+					&& isButton_3030((Button) domainElement)) {
+				return ButtonEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getCustomAction().isSuperTypeOf(
+					domainElement.eClass())
+					&& isCustomAction_3032((CustomAction) domainElement)) {
+				return CustomActionEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getSave().isSuperTypeOf(
+					domainElement.eClass())
+					&& isSave_3034((Save) domainElement)) {
+				return SaveEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getReset().isSuperTypeOf(
+					domainElement.eClass())
+					&& isReset_3036((Reset) domainElement)) {
+				return ResetEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getCancel().isSuperTypeOf(
+					domainElement.eClass())
+					&& isCancel_3038((Cancel) domainElement)) {
+				return CancelEditPart.VISUAL_ID;
 			}
 			break;
 		case ListListElementsCompartment3EditPart.VISUAL_ID:
@@ -323,7 +342,8 @@ public class WebdslVisualIDRegistry {
 				return List2EditPart.VISUAL_ID;
 			}
 			if (WebDSLPackage.eINSTANCE.getGroup().isSuperTypeOf(
-					domainElement.eClass())) {
+					domainElement.eClass())
+					&& isGroup_3013((Group) domainElement)) {
 				return Group2EditPart.VISUAL_ID;
 			}
 			if (WebDSLPackage.eINSTANCE.getInternalLink().isSuperTypeOf(
@@ -375,8 +395,14 @@ public class WebdslVisualIDRegistry {
 				return List3EditPart.VISUAL_ID;
 			}
 			if (WebDSLPackage.eINSTANCE.getGroup().isSuperTypeOf(
-					domainElement.eClass())) {
+					domainElement.eClass())
+					&& isGroup_3019((Group) domainElement)) {
 				return Group3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getForm().isSuperTypeOf(
+					domainElement.eClass())
+					&& isForm_3024((Form) domainElement)) {
+				return FormEditPart.VISUAL_ID;
 			}
 			if (WebDSLPackage.eINSTANCE.getInternalLink().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -385,6 +411,45 @@ public class WebdslVisualIDRegistry {
 			if (WebDSLPackage.eINSTANCE.getExternalLink().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ExternalLink3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getTextInput().isSuperTypeOf(
+					domainElement.eClass())) {
+				return TextInputEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getSelectionList().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SelectionListEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getButton().isSuperTypeOf(
+					domainElement.eClass())
+					&& isButton_3030((Button) domainElement)) {
+				return ButtonEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getCustomAction().isSuperTypeOf(
+					domainElement.eClass())
+					&& isCustomAction_3032((CustomAction) domainElement)) {
+				return CustomActionEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getSave().isSuperTypeOf(
+					domainElement.eClass())
+					&& isSave_3034((Save) domainElement)) {
+				return SaveEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getReset().isSuperTypeOf(
+					domainElement.eClass())
+					&& isReset_3036((Reset) domainElement)) {
+				return ResetEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getCancel().isSuperTypeOf(
+					domainElement.eClass())
+					&& isCancel_3038((Cancel) domainElement)) {
+				return CancelEditPart.VISUAL_ID;
+			}
+			break;
+		case FormFormElementsCompartmentEditPart.VISUAL_ID:
+			if (WebDSLPackage.eINSTANCE.getText().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Text3EditPart.VISUAL_ID;
 			}
 			break;
 		case InternalLinkInternalLinkSourceCompartment2EditPart.VISUAL_ID:
@@ -427,8 +492,14 @@ public class WebdslVisualIDRegistry {
 				return List3EditPart.VISUAL_ID;
 			}
 			if (WebDSLPackage.eINSTANCE.getGroup().isSuperTypeOf(
-					domainElement.eClass())) {
+					domainElement.eClass())
+					&& isGroup_3019((Group) domainElement)) {
 				return Group3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getForm().isSuperTypeOf(
+					domainElement.eClass())
+					&& isForm_3024((Form) domainElement)) {
+				return FormEditPart.VISUAL_ID;
 			}
 			if (WebDSLPackage.eINSTANCE.getInternalLink().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -437,6 +508,45 @@ public class WebdslVisualIDRegistry {
 			if (WebDSLPackage.eINSTANCE.getExternalLink().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ExternalLink3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getTextInput().isSuperTypeOf(
+					domainElement.eClass())) {
+				return TextInputEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getSelectionList().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SelectionListEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getButton().isSuperTypeOf(
+					domainElement.eClass())
+					&& isButton_3030((Button) domainElement)) {
+				return ButtonEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getCustomAction().isSuperTypeOf(
+					domainElement.eClass())
+					&& isCustomAction_3032((CustomAction) domainElement)) {
+				return CustomActionEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getSave().isSuperTypeOf(
+					domainElement.eClass())
+					&& isSave_3034((Save) domainElement)) {
+				return SaveEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getReset().isSuperTypeOf(
+					domainElement.eClass())
+					&& isReset_3036((Reset) domainElement)) {
+				return ResetEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getCancel().isSuperTypeOf(
+					domainElement.eClass())
+					&& isCancel_3038((Cancel) domainElement)) {
+				return CancelEditPart.VISUAL_ID;
+			}
+			break;
+		case FormFormElementsCompartment2EditPart.VISUAL_ID:
+			if (WebDSLPackage.eINSTANCE.getText().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Text3EditPart.VISUAL_ID;
 			}
 			break;
 		case InternalLinkInternalLinkSourceCompartment3EditPart.VISUAL_ID:
@@ -632,6 +742,14 @@ public class WebdslVisualIDRegistry {
 				return true;
 			}
 			break;
+		case FormEditPart.VISUAL_ID:
+			if (FormNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (FormFormElementsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case InternalLink3EditPart.VISUAL_ID:
 			if (InternalLinkName3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -651,11 +769,87 @@ public class WebdslVisualIDRegistry {
 				return true;
 			}
 			break;
+		case TextInputEditPart.VISUAL_ID:
+			if (TextInputLabelExpressionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (TextInputValueExpressionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SelectionListEditPart.VISUAL_ID:
+			if (SelectionListLabelExpressionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SelectionListValueExpressionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SelectionListOptionsExpressionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ButtonEditPart.VISUAL_ID:
+			if (ButtonValueEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CustomActionEditPart.VISUAL_ID:
+			if (CustomActionValueEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomActionPerformerExpressionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomActionValidatorExpressionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SaveEditPart.VISUAL_ID:
+			if (SaveValueEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SavePerformerExpressionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SaveValidatorExpressionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ResetEditPart.VISUAL_ID:
+			if (ResetValueEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ResetPerformerExpressionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ResetValidatorExpressionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CancelEditPart.VISUAL_ID:
+			if (CancelValueEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CancelPerformerExpressionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CancelValidatorExpressionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case GroupEditPart.VISUAL_ID:
 			if (GroupNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (GroupGroupElementsCompartment2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case Form2EditPart.VISUAL_ID:
+			if (FormName2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (FormFormElementsCompartment2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -675,6 +869,74 @@ public class WebdslVisualIDRegistry {
 				return true;
 			}
 			if (ExternalLinkExternalLinkSourceCompartment3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case TextInput2EditPart.VISUAL_ID:
+			if (TextInputLabelExpression2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (TextInputValueExpression2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SelectionList2EditPart.VISUAL_ID:
+			if (SelectionListLabelExpression2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SelectionListValueExpression2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SelectionListOptionsExpression2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case Button2EditPart.VISUAL_ID:
+			if (ButtonValue2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CustomAction2EditPart.VISUAL_ID:
+			if (CustomActionValue2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomActionPerformerExpression2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomActionValidatorExpression2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case Save2EditPart.VISUAL_ID:
+			if (SaveValue2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SavePerformerExpression2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SaveValidatorExpression2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case Reset2EditPart.VISUAL_ID:
+			if (ResetValue2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ResetPerformerExpression2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ResetValidatorExpression2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case Cancel2EditPart.VISUAL_ID:
+			if (CancelValue2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CancelPerformerExpression2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CancelValidatorExpression2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -701,10 +963,34 @@ public class WebdslVisualIDRegistry {
 			if (GroupEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (Form2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (InternalLinkEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ExternalLinkEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (TextInput2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SelectionList2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (Button2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomAction2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (Save2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (Reset2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (Cancel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -761,10 +1047,34 @@ public class WebdslVisualIDRegistry {
 			if (Group3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (FormEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (InternalLink3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ExternalLink3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (TextInputEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SelectionListEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomActionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SaveEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ResetEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CancelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -822,10 +1132,39 @@ public class WebdslVisualIDRegistry {
 			if (Group3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (FormEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (InternalLink3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ExternalLink3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (TextInputEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SelectionListEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomActionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SaveEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ResetEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CancelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case FormFormElementsCompartmentEditPart.VISUAL_ID:
+			if (Text3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -863,10 +1202,39 @@ public class WebdslVisualIDRegistry {
 			if (Group3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (FormEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (InternalLink3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ExternalLink3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (TextInputEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SelectionListEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomActionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SaveEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ResetEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CancelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case FormFormElementsCompartment2EditPart.VISUAL_ID:
+			if (Text3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -918,6 +1286,156 @@ public class WebdslVisualIDRegistry {
 	/**
 	 * @generated
 	 */
+	private static boolean isGroup_3013(Group domainElement) {
+		Object result = WebdslOCLFactory.getExpression(0,
+				WebDSLPackage.eINSTANCE.getGroup(), null).evaluate(
+				domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isGroup_3019(Group domainElement) {
+		Object result = WebdslOCLFactory.getExpression(0,
+				WebDSLPackage.eINSTANCE.getGroup(), null).evaluate(
+				domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isForm_3024(Form domainElement) {
+		Object result = WebdslOCLFactory.getExpression(1,
+				WebDSLPackage.eINSTANCE.getForm(), null)
+				.evaluate(domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isButton_3030(Button domainElement) {
+		Object result = WebdslOCLFactory.getExpression(2,
+				WebDSLPackage.eINSTANCE.getButton(), null).evaluate(
+				domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isCustomAction_3032(CustomAction domainElement) {
+		Object result = WebdslOCLFactory.getExpression(3,
+				WebDSLPackage.eINSTANCE.getCustomAction(), null).evaluate(
+				domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isSave_3034(Save domainElement) {
+		Object result = WebdslOCLFactory.getExpression(4,
+				WebDSLPackage.eINSTANCE.getSave(), null)
+				.evaluate(domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isReset_3036(Reset domainElement) {
+		Object result = WebdslOCLFactory.getExpression(5,
+				WebDSLPackage.eINSTANCE.getReset(), null).evaluate(
+				domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isCancel_3038(Cancel domainElement) {
+		Object result = WebdslOCLFactory.getExpression(6,
+				WebDSLPackage.eINSTANCE.getCancel(), null).evaluate(
+				domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isGroup_3006(Group domainElement) {
+		Object result = WebdslOCLFactory.getExpression(0,
+				WebDSLPackage.eINSTANCE.getGroup(), null).evaluate(
+				domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isForm_3025(Form domainElement) {
+		Object result = WebdslOCLFactory.getExpression(1,
+				WebDSLPackage.eINSTANCE.getForm(), null)
+				.evaluate(domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isButton_3031(Button domainElement) {
+		Object result = WebdslOCLFactory.getExpression(2,
+				WebDSLPackage.eINSTANCE.getButton(), null).evaluate(
+				domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isCustomAction_3033(CustomAction domainElement) {
+		Object result = WebdslOCLFactory.getExpression(3,
+				WebDSLPackage.eINSTANCE.getCustomAction(), null).evaluate(
+				domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isSave_3035(Save domainElement) {
+		Object result = WebdslOCLFactory.getExpression(4,
+				WebDSLPackage.eINSTANCE.getSave(), null)
+				.evaluate(domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isReset_3037(Reset domainElement) {
+		Object result = WebdslOCLFactory.getExpression(5,
+				WebDSLPackage.eINSTANCE.getReset(), null).evaluate(
+				domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isCancel_3039(Cancel domainElement) {
+		Object result = WebdslOCLFactory.getExpression(6,
+				WebDSLPackage.eINSTANCE.getCancel(), null).evaluate(
+				domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static boolean checkNodeVisualID(View containerView,
 			EObject domainElement, int candidate) {
 		if (candidate == -1) {
@@ -944,10 +1462,12 @@ public class WebdslVisualIDRegistry {
 		case InternalLinkInternalLinkActualParametersCompartmentEditPart.VISUAL_ID:
 		case ExternalLinkExternalLinkSourceCompartmentEditPart.VISUAL_ID:
 		case GroupGroupElementsCompartment3EditPart.VISUAL_ID:
+		case FormFormElementsCompartmentEditPart.VISUAL_ID:
 		case InternalLinkInternalLinkSourceCompartment2EditPart.VISUAL_ID:
 		case InternalLinkInternalLinkActualParametersCompartment2EditPart.VISUAL_ID:
 		case ExternalLinkExternalLinkSourceCompartment2EditPart.VISUAL_ID:
 		case GroupGroupElementsCompartment2EditPart.VISUAL_ID:
+		case FormFormElementsCompartment2EditPart.VISUAL_ID:
 		case InternalLinkInternalLinkSourceCompartment3EditPart.VISUAL_ID:
 		case InternalLinkInternalLinkActualParametersCompartment3EditPart.VISUAL_ID:
 		case ExternalLinkExternalLinkSourceCompartment3EditPart.VISUAL_ID:
@@ -976,6 +1496,20 @@ public class WebdslVisualIDRegistry {
 		case Image3EditPart.VISUAL_ID:
 		case Text4EditPart.VISUAL_ID:
 		case Image4EditPart.VISUAL_ID:
+		case TextInputEditPart.VISUAL_ID:
+		case TextInput2EditPart.VISUAL_ID:
+		case SelectionListEditPart.VISUAL_ID:
+		case SelectionList2EditPart.VISUAL_ID:
+		case ButtonEditPart.VISUAL_ID:
+		case Button2EditPart.VISUAL_ID:
+		case CustomActionEditPart.VISUAL_ID:
+		case CustomAction2EditPart.VISUAL_ID:
+		case SaveEditPart.VISUAL_ID:
+		case Save2EditPart.VISUAL_ID:
+		case ResetEditPart.VISUAL_ID:
+		case Reset2EditPart.VISUAL_ID:
+		case CancelEditPart.VISUAL_ID:
+		case Cancel2EditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

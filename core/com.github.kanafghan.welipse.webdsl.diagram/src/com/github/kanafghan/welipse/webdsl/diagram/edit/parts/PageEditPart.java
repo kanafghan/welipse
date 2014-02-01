@@ -2,6 +2,8 @@ package com.github.kanafghan.welipse.webdsl.diagram.edit.parts;
 
 import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -336,6 +338,11 @@ public class PageEditPart extends ShapeNodeEditPart {
 
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(250),
 					getMapMode().DPtoLP(300)));
+
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(3)));
+			this.setBorder(new LineBorder(THIS_BORDER, getMapMode().DPtoLP(3)));
 			createContents();
 		}
 
@@ -365,6 +372,9 @@ public class PageEditPart extends ShapeNodeEditPart {
 			fFigurePageParametersCompartmentFigure = new RectangleFigure();
 
 			fFigurePageParametersCompartmentFigure.setOutlineXOR(true);
+			fFigurePageParametersCompartmentFigure.setBorder(new LineBorder(
+					FFIGUREPAGEPARAMETERSCOMPARTMENTFIGURE_BORDER, getMapMode()
+							.DPtoLP(1)));
 
 			pageCompartmentsContainer0.add(
 					fFigurePageParametersCompartmentFigure, BorderLayout.TOP);
@@ -385,6 +395,9 @@ public class PageEditPart extends ShapeNodeEditPart {
 			fFigurePageVariablesCompartmentFigure = new RectangleFigure();
 
 			fFigurePageVariablesCompartmentFigure.setOutlineXOR(true);
+			fFigurePageVariablesCompartmentFigure.setBorder(new LineBorder(
+					FFIGUREPAGEVARIABLESCOMPARTMENTFIGURE_BORDER, getMapMode()
+							.DPtoLP(1)));
 
 			pageVariablesAndElementsContainer1.add(
 					fFigurePageVariablesCompartmentFigure, BorderLayout.TOP);
@@ -395,6 +408,9 @@ public class PageEditPart extends ShapeNodeEditPart {
 			fFigurePageElementsCompartmentFigure
 					.setPreferredSize(new Dimension(getMapMode().DPtoLP(250),
 							getMapMode().DPtoLP(150)));
+			fFigurePageElementsCompartmentFigure.setBorder(new LineBorder(
+					FFIGUREPAGEELEMENTSCOMPARTMENTFIGURE_BORDER, getMapMode()
+							.DPtoLP(1)));
 
 			pageVariablesAndElementsContainer1.add(
 					fFigurePageElementsCompartmentFigure, BorderLayout.CENTER);
@@ -430,5 +446,28 @@ public class PageEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BORDER = new Color(null, 0, 0, 0);
+
+	/**
+	 * @generated
+	 */
+	static final Color FFIGUREPAGEPARAMETERSCOMPARTMENTFIGURE_BORDER = new Color(
+			null, 0, 0, 0);
+
+	/**
+	 * @generated
+	 */
+	static final Color FFIGUREPAGEVARIABLESCOMPARTMENTFIGURE_BORDER = new Color(
+			null, 0, 0, 0);
+
+	/**
+	 * @generated
+	 */
+	static final Color FFIGUREPAGEELEMENTSCOMPARTMENTFIGURE_BORDER = new Color(
+			null, 0, 0, 0);
 
 }

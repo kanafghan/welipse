@@ -22,12 +22,20 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ButtonEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CancelEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLink3EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Group3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Image3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLink3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.List3EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ResetEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SaveEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionListEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Text3EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInputEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.part.WebdslDiagramUpdater;
 import com.github.kanafghan.welipse.webdsl.diagram.part.WebdslNodeDescriptor;
 import com.github.kanafghan.welipse.webdsl.diagram.part.WebdslVisualIDRegistry;
@@ -91,8 +99,16 @@ public class GroupGroupElementsCompartment2CanonicalEditPolicy extends
 		case Image3EditPart.VISUAL_ID:
 		case List3EditPart.VISUAL_ID:
 		case Group3EditPart.VISUAL_ID:
+		case FormEditPart.VISUAL_ID:
 		case InternalLink3EditPart.VISUAL_ID:
 		case ExternalLink3EditPart.VISUAL_ID:
+		case TextInputEditPart.VISUAL_ID:
+		case SelectionListEditPart.VISUAL_ID:
+		case ButtonEditPart.VISUAL_ID:
+		case CustomActionEditPart.VISUAL_ID:
+		case SaveEditPart.VISUAL_ID:
+		case ResetEditPart.VISUAL_ID:
+		case CancelEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

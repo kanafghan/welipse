@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -318,6 +319,7 @@ public class GroupEditPart extends ShapeNodeEditPart {
 
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(200),
 					getMapMode().DPtoLP(150)));
+			this.setBorder(new LineBorder(THIS_BORDER, getMapMode().DPtoLP(1)));
 			createContents();
 		}
 
@@ -333,6 +335,10 @@ public class GroupEditPart extends ShapeNodeEditPart {
 			this.add(fFigureGroupNameFigure, BorderLayout.TOP);
 
 			fFigureGroupElementsCompartmentFigure = new RectangleFigure();
+
+			fFigureGroupElementsCompartmentFigure.setBorder(new LineBorder(
+					FFIGUREGROUPELEMENTSCOMPARTMENTFIGURE_BORDER, getMapMode()
+							.DPtoLP(1)));
 
 			this.add(fFigureGroupElementsCompartmentFigure, BorderLayout.CENTER);
 
@@ -353,5 +359,16 @@ public class GroupEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BORDER = new Color(null, 0, 0, 0);
+
+	/**
+	 * @generated
+	 */
+	static final Color FFIGUREGROUPELEMENTSCOMPARTMENTFIGURE_BORDER = new Color(
+			null, 0, 0, 0);
 
 }

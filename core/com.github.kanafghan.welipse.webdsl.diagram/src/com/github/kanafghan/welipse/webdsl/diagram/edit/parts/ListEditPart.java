@@ -9,6 +9,7 @@ import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -336,6 +337,7 @@ public class ListEditPart extends ShapeNodeEditPart {
 
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(200),
 					getMapMode().DPtoLP(150)));
+			this.setBorder(new LineBorder(THIS_BORDER, getMapMode().DPtoLP(1)));
 			createContents();
 		}
 
@@ -408,6 +410,12 @@ public class ListEditPart extends ShapeNodeEditPart {
 
 			fFigureListElementsCompartmentFigure = new RectangleFigure();
 
+			fFigureListElementsCompartmentFigure
+					.setBackgroundColor(FFIGURELISTELEMENTSCOMPARTMENTFIGURE_BACK);
+			fFigureListElementsCompartmentFigure.setBorder(new LineBorder(
+					FFIGURELISTELEMENTSCOMPARTMENTFIGURE_BORDER, getMapMode()
+							.DPtoLP(1)));
+
 			this.add(fFigureListElementsCompartmentFigure, BorderLayout.CENTER);
 
 		}
@@ -438,7 +446,24 @@ public class ListEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	static final Color THIS_BORDER = new Color(null, 0, 0, 0);
+
+	/**
+	 * @generated
+	 */
 	static final Font LISTINFIGURE1_FONT = new Font(Display.getCurrent(),
 			"Arial", 9, SWT.BOLD);
+
+	/**
+	 * @generated
+	 */
+	static final Color FFIGURELISTELEMENTSCOMPARTMENTFIGURE_BACK = new Color(
+			null, 213, 216, 242);
+
+	/**
+	 * @generated
+	 */
+	static final Color FFIGURELISTELEMENTSCOMPARTMENTFIGURE_BORDER = new Color(
+			null, 0, 0, 0);
 
 }

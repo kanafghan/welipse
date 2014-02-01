@@ -217,7 +217,7 @@
       <viewProvider class="com.github.kanafghan.welipse.webdsl.diagram.providers.WebdslViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Webdsl"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002,3003,3004,3005,3010,3011,3012,3013,3016,3017,3018,3014,3008,3022,3023,3015,3019,3020,3021,3006,3007,3009"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002,3003,3004,3005,3010,3011,3012,3013,3016,3017,3018,3014,3008,3022,3023,3015,3019,3024,3020,3021,3026,3028,3030,3032,3034,3036,3038,3006,3025,3007,3009,3027,3029,3031,3033,3035,3037,3039"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4004"/>
       </viewProvider>
    </extension>
@@ -230,16 +230,16 @@
             <method name="getType()" value="Webdsl"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,3001,3002,3003,3004,3005,3010,3011,3012,3013,3016,3017,3018,3014,3008,3022,3023,3015,3019,3020,3021,3006,3007,3009"/>
+            <method name="getType()" value="2001,3001,3002,3003,3004,3005,3010,3011,3012,3013,3016,3017,3018,3014,3008,3022,3023,3015,3019,3024,3020,3021,3026,3028,3030,3032,3034,3036,3038,3006,3025,3007,3009,3027,3029,3031,3033,3035,3037,3039"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4004"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5001,5002,5003,5004,5023,5024,5030,5029,5031,5035,5036,5032,5037,5038,5039,5040,5033,5026,5044,5045,5034,5043,5041,5042,5025,5027,5028"/>
+            <method name="getType()" value="5001,5002,5003,5004,5023,5024,5030,5029,5031,5035,5036,5032,5037,5038,5039,5040,5033,5026,5044,5045,5034,5043,5046,5041,5042,5048,5049,5052,5053,5054,5058,5060,5061,5062,5066,5067,5068,5072,5073,5074,5078,5079,5080,5025,5047,5027,5028,5050,5051,5055,5056,5057,5059,5063,5064,5065,5069,5070,5071,5075,5076,5077,5081,5082,5083"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7001,7002,7003,7004,7005,7006,7008,7010,7011,7016,7009,7012,7013,7017,7007,7014,7015,7018"/>
+            <method name="getType()" value="7001,7002,7003,7004,7005,7006,7008,7010,7011,7016,7009,7019,7012,7013,7017,7007,7020,7014,7015,7018"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -269,12 +269,28 @@
          <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Image4EditPart" id="Image_3023"/>
          <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLink2EditPart" id="ExternalLink_3015"/>
          <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Group3EditPart" id="Group_3019"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormEditPart" id="Form_3024"/>
          <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLink3EditPart" id="InternalLink_3020"/>
          <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLink3EditPart" id="ExternalLink_3021"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInputEditPart" id="TextInput_3026"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionListEditPart" id="SelectionList_3028"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ButtonEditPart" id="Button_3030"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionEditPart" id="CustomAction_3032"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SaveEditPart" id="Save_3034"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ResetEditPart" id="Reset_3036"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CancelEditPart" id="Cancel_3038"/>
          <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupEditPart" id="Group_3006"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Form2EditPart" id="Form_3025"/>
          <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.InternalLinkEditPart" id="InternalLink_3007"/>
          <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkEditPart" id="ExternalLink_3009"/>
-         <context elements="Website_1000,Page_2001,Parameter_3001,VariableInitialization_3002,Text_3003,Image_3004,List_3005,Text_3010,Image_3011,List_3012,Group_3013,Text_3016,Image_3017,List_3018,InternalLink_3014,ActualParameter_3008,Text_3022,Image_3023,ExternalLink_3015,Group_3019,InternalLink_3020,ExternalLink_3021,Group_3006,InternalLink_3007,ExternalLink_3009"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInput2EditPart" id="TextInput_3027"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionList2EditPart" id="SelectionList_3029"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Button2EditPart" id="Button_3031"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomAction2EditPart" id="CustomAction_3033"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Save2EditPart" id="Save_3035"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Reset2EditPart" id="Reset_3037"/>
+         <object class="com.github.kanafghan.welipse.webdsl.diagram.edit.parts.Cancel2EditPart" id="Cancel_3039"/>
+         <context elements="Website_1000,Page_2001,Parameter_3001,VariableInitialization_3002,Text_3003,Image_3004,List_3005,Text_3010,Image_3011,List_3012,Group_3013,Text_3016,Image_3017,List_3018,InternalLink_3014,ActualParameter_3008,Text_3022,Image_3023,ExternalLink_3015,Group_3019,Form_3024,InternalLink_3020,ExternalLink_3021,TextInput_3026,SelectionList_3028,Button_3030,CustomAction_3032,Save_3034,Reset_3036,Cancel_3038,Group_3006,Form_3025,InternalLink_3007,ExternalLink_3009,TextInput_3027,SelectionList_3029,Button_3031,CustomAction_3033,Save_3035,Reset_3037,Cancel_3039"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -486,6 +502,16 @@
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <metamodelType
+               id="com.github.kanafghan.welipse.webdsl.diagram.Form_3024"
+               name="%metatype.name.Form_3024"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Form"
+               edithelper="com.github.kanafghan.welipse.webdsl.diagram.edit.helpers.FormEditHelper">
+            <param name="semanticHint" value="3024"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
          <specializationType
                id="com.github.kanafghan.welipse.webdsl.diagram.InternalLink_3020"
                name="%metatype.name.InternalLink_3020"
@@ -504,12 +530,91 @@
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <metamodelType
+               id="com.github.kanafghan.welipse.webdsl.diagram.TextInput_3026"
+               name="%metatype.name.TextInput_3026"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="TextInput"
+               edithelper="com.github.kanafghan.welipse.webdsl.diagram.edit.helpers.TextInputEditHelper">
+            <param name="semanticHint" value="3026"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <metamodelType
+               id="com.github.kanafghan.welipse.webdsl.diagram.SelectionList_3028"
+               name="%metatype.name.SelectionList_3028"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SelectionList"
+               edithelper="com.github.kanafghan.welipse.webdsl.diagram.edit.helpers.SelectionListEditHelper">
+            <param name="semanticHint" value="3028"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <metamodelType
+               id="com.github.kanafghan.welipse.webdsl.diagram.Button_3030"
+               name="%metatype.name.Button_3030"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Button"
+               edithelper="com.github.kanafghan.welipse.webdsl.diagram.edit.helpers.ButtonEditHelper">
+            <param name="semanticHint" value="3030"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <metamodelType
+               id="com.github.kanafghan.welipse.webdsl.diagram.CustomAction_3032"
+               name="%metatype.name.CustomAction_3032"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="CustomAction"
+               edithelper="com.github.kanafghan.welipse.webdsl.diagram.edit.helpers.CustomActionEditHelper">
+            <param name="semanticHint" value="3032"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <metamodelType
+               id="com.github.kanafghan.welipse.webdsl.diagram.Save_3034"
+               name="%metatype.name.Save_3034"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Save"
+               edithelper="com.github.kanafghan.welipse.webdsl.diagram.edit.helpers.SaveEditHelper">
+            <param name="semanticHint" value="3034"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <metamodelType
+               id="com.github.kanafghan.welipse.webdsl.diagram.Reset_3036"
+               name="%metatype.name.Reset_3036"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Reset"
+               edithelper="com.github.kanafghan.welipse.webdsl.diagram.edit.helpers.ResetEditHelper">
+            <param name="semanticHint" value="3036"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <metamodelType
+               id="com.github.kanafghan.welipse.webdsl.diagram.Cancel_3038"
+               name="%metatype.name.Cancel_3038"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Cancel"
+               edithelper="com.github.kanafghan.welipse.webdsl.diagram.edit.helpers.CancelEditHelper">
+            <param name="semanticHint" value="3038"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
          <specializationType
                id="com.github.kanafghan.welipse.webdsl.diagram.Group_3006"
                name="%metatype.name.Group_3006"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="com.github.kanafghan.welipse.webdsl.diagram.Group_3013"/>
             <param name="semanticHint" value="3006"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <specializationType
+               id="com.github.kanafghan.welipse.webdsl.diagram.Form_3025"
+               name="%metatype.name.Form_3025"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="com.github.kanafghan.welipse.webdsl.diagram.Form_3024"/>
+            <param name="semanticHint" value="3025"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
@@ -528,6 +633,69 @@
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="com.github.kanafghan.welipse.webdsl.diagram.ExternalLink_3015"/>
             <param name="semanticHint" value="3009"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <specializationType
+               id="com.github.kanafghan.welipse.webdsl.diagram.TextInput_3027"
+               name="%metatype.name.TextInput_3027"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="com.github.kanafghan.welipse.webdsl.diagram.TextInput_3026"/>
+            <param name="semanticHint" value="3027"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <specializationType
+               id="com.github.kanafghan.welipse.webdsl.diagram.SelectionList_3029"
+               name="%metatype.name.SelectionList_3029"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="com.github.kanafghan.welipse.webdsl.diagram.SelectionList_3028"/>
+            <param name="semanticHint" value="3029"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <specializationType
+               id="com.github.kanafghan.welipse.webdsl.diagram.Button_3031"
+               name="%metatype.name.Button_3031"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="com.github.kanafghan.welipse.webdsl.diagram.Button_3030"/>
+            <param name="semanticHint" value="3031"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <specializationType
+               id="com.github.kanafghan.welipse.webdsl.diagram.CustomAction_3033"
+               name="%metatype.name.CustomAction_3033"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="com.github.kanafghan.welipse.webdsl.diagram.CustomAction_3032"/>
+            <param name="semanticHint" value="3033"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <specializationType
+               id="com.github.kanafghan.welipse.webdsl.diagram.Save_3035"
+               name="%metatype.name.Save_3035"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="com.github.kanafghan.welipse.webdsl.diagram.Save_3034"/>
+            <param name="semanticHint" value="3035"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <specializationType
+               id="com.github.kanafghan.welipse.webdsl.diagram.Reset_3037"
+               name="%metatype.name.Reset_3037"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="com.github.kanafghan.welipse.webdsl.diagram.Reset_3036"/>
+            <param name="semanticHint" value="3037"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
+         <specializationType
+               id="com.github.kanafghan.welipse.webdsl.diagram.Cancel_3039"
+               name="%metatype.name.Cancel_3039"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="com.github.kanafghan.welipse.webdsl.diagram.Cancel_3038"/>
+            <param name="semanticHint" value="3039"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://github.com/kanafghan/welipse/webdsl/1.0">
@@ -571,11 +739,27 @@
          <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.Image_3023"/>
          <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.ExternalLink_3015"/>
          <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.Group_3019"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.Form_3024"/>
          <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.InternalLink_3020"/>
          <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.ExternalLink_3021"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.TextInput_3026"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.SelectionList_3028"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.Button_3030"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.CustomAction_3032"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.Save_3034"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.Reset_3036"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.Cancel_3038"/>
          <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.Group_3006"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.Form_3025"/>
          <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.InternalLink_3007"/>
          <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.ExternalLink_3009"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.TextInput_3027"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.SelectionList_3029"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.Button_3031"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.CustomAction_3033"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.Save_3035"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.Reset_3037"/>
+         <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.Cancel_3039"/>
          <elementType ref="com.github.kanafghan.welipse.webdsl.diagram.InternalLinkTarget_4004"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>

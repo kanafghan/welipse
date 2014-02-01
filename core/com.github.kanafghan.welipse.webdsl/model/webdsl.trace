@@ -234,6 +234,190 @@
         visualID="5045"
         queryText="true"/>
   </childNodeTraces>
+  <childNodeTraces
+      visualID="3024"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Form') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Group') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5046"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7019"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3025"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Form') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Page') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5047"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7020"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3026"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'TextInput') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Group') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5048"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5049"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3027"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'TextInput') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Page') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5050"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5051"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3028"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'SelectionList') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Group') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5052"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5053"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5054"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3029"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'SelectionList') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Page') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5055"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5056"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5057"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3030"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Button') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Group') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5058"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3031"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Button') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Page') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5059"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3032"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'CustomAction') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Group') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5060"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5061"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5062"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3033"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'CustomAction') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Page') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5063"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5064"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5065"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3034"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Save') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Group') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5066"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5067"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5068"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3035"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Save') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Page') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5069"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5070"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5071"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3036"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Reset') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Group') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5072"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5073"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5074"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3037"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Reset') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Page') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5075"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5076"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5077"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3038"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Cancel') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Group') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5078"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5079"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5080"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3039"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Cancel') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'Page') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5081"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5082"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5083"
+        queryText="true"/>
+  </childNodeTraces>
   <linkTraces
       visualID="4004"
       queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://github.com/kanafghan/welipse/webdsl/1.0' and _eClass_.name = 'InternalLink') and _feature_.name = 'target')"/>

@@ -15,9 +15,25 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ActualParameterIdentifierEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ButtonValue2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ButtonValueEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CancelPerformerExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CancelPerformerExpressionEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CancelValidatorExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CancelValidatorExpressionEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CancelValue2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CancelValueEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionPerformerExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionPerformerExpressionEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionValidatorExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionValidatorExpressionEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionValue2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionValueEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkName2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkName3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkNameEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormName2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormNameEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupName2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupName3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupNameEditPart;
@@ -36,10 +52,32 @@ import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ListVariable2EditP
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ListVariableEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.PageNameEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ParameterDeclarationEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ResetPerformerExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ResetPerformerExpressionEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ResetValidatorExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ResetValidatorExpressionEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ResetValue2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ResetValueEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SavePerformerExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SavePerformerExpressionEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SaveValidatorExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SaveValidatorExpressionEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SaveValue2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SaveValueEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionListLabelExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionListLabelExpressionEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionListOptionsExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionListOptionsExpressionEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionListValueExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.SelectionListValueExpressionEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextExpression2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextExpression3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextExpression4EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextExpressionEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInputLabelExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInputLabelExpressionEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInputValueExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.TextInputValueExpressionEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.VariableInitializationDeclarationEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.parsers.MessageFormatParser;
 import com.github.kanafghan.welipse.webdsl.diagram.part.WebdslVisualIDRegistry;
@@ -449,6 +487,24 @@ public class WebdslParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser formName_5046Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getFormName_5046Parser() {
+		if (formName_5046Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getPageElement_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			formName_5046Parser = parser;
+		}
+		return formName_5046Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser internalLinkName_5041Parser;
 
 	/**
@@ -485,6 +541,330 @@ public class WebdslParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser textInputLabelExpression_5048Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getTextInputLabelExpression_5048Parser() {
+		if (textInputLabelExpression_5048Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getInput_LabelExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			textInputLabelExpression_5048Parser = parser;
+		}
+		return textInputLabelExpression_5048Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser textInputValueExpression_5049Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getTextInputValueExpression_5049Parser() {
+		if (textInputValueExpression_5049Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getInput_ValueExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			textInputValueExpression_5049Parser = parser;
+		}
+		return textInputValueExpression_5049Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser selectionListLabelExpression_5052Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSelectionListLabelExpression_5052Parser() {
+		if (selectionListLabelExpression_5052Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getInput_LabelExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			selectionListLabelExpression_5052Parser = parser;
+		}
+		return selectionListLabelExpression_5052Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser selectionListValueExpression_5053Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSelectionListValueExpression_5053Parser() {
+		if (selectionListValueExpression_5053Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getInput_ValueExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			selectionListValueExpression_5053Parser = parser;
+		}
+		return selectionListValueExpression_5053Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser selectionListOptionsExpression_5054Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSelectionListOptionsExpression_5054Parser() {
+		if (selectionListOptionsExpression_5054Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSelectionList_OptionsExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			selectionListOptionsExpression_5054Parser = parser;
+		}
+		return selectionListOptionsExpression_5054Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser buttonValue_5058Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getButtonValue_5058Parser() {
+		if (buttonValue_5058Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getButton_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			buttonValue_5058Parser = parser;
+		}
+		return buttonValue_5058Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser customActionValue_5060Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCustomActionValue_5060Parser() {
+		if (customActionValue_5060Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getButton_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			customActionValue_5060Parser = parser;
+		}
+		return customActionValue_5060Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser customActionPerformerExpression_5061Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCustomActionPerformerExpression_5061Parser() {
+		if (customActionPerformerExpression_5061Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_PerformerExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			customActionPerformerExpression_5061Parser = parser;
+		}
+		return customActionPerformerExpression_5061Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser customActionValidatorExpression_5062Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCustomActionValidatorExpression_5062Parser() {
+		if (customActionValidatorExpression_5062Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_ValidatorExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			customActionValidatorExpression_5062Parser = parser;
+		}
+		return customActionValidatorExpression_5062Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser saveValue_5066Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSaveValue_5066Parser() {
+		if (saveValue_5066Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getButton_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			saveValue_5066Parser = parser;
+		}
+		return saveValue_5066Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser savePerformerExpression_5067Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSavePerformerExpression_5067Parser() {
+		if (savePerformerExpression_5067Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_PerformerExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			savePerformerExpression_5067Parser = parser;
+		}
+		return savePerformerExpression_5067Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser saveValidatorExpression_5068Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSaveValidatorExpression_5068Parser() {
+		if (saveValidatorExpression_5068Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_ValidatorExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			saveValidatorExpression_5068Parser = parser;
+		}
+		return saveValidatorExpression_5068Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser resetValue_5072Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getResetValue_5072Parser() {
+		if (resetValue_5072Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getButton_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			resetValue_5072Parser = parser;
+		}
+		return resetValue_5072Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser resetPerformerExpression_5073Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getResetPerformerExpression_5073Parser() {
+		if (resetPerformerExpression_5073Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_PerformerExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			resetPerformerExpression_5073Parser = parser;
+		}
+		return resetPerformerExpression_5073Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser resetValidatorExpression_5074Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getResetValidatorExpression_5074Parser() {
+		if (resetValidatorExpression_5074Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_ValidatorExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			resetValidatorExpression_5074Parser = parser;
+		}
+		return resetValidatorExpression_5074Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser cancelValue_5078Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCancelValue_5078Parser() {
+		if (cancelValue_5078Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getButton_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			cancelValue_5078Parser = parser;
+		}
+		return cancelValue_5078Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser cancelPerformerExpression_5079Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCancelPerformerExpression_5079Parser() {
+		if (cancelPerformerExpression_5079Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_PerformerExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			cancelPerformerExpression_5079Parser = parser;
+		}
+		return cancelPerformerExpression_5079Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser cancelValidatorExpression_5080Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCancelValidatorExpression_5080Parser() {
+		if (cancelValidatorExpression_5080Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_ValidatorExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			cancelValidatorExpression_5080Parser = parser;
+		}
+		return cancelValidatorExpression_5080Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser groupName_5025Parser;
 
 	/**
@@ -498,6 +878,24 @@ public class WebdslParserProvider extends AbstractProvider implements
 			groupName_5025Parser = parser;
 		}
 		return groupName_5025Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser formName_5047Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getFormName_5047Parser() {
+		if (formName_5047Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getPageElement_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			formName_5047Parser = parser;
+		}
+		return formName_5047Parser;
 	}
 
 	/**
@@ -534,6 +932,330 @@ public class WebdslParserProvider extends AbstractProvider implements
 			externalLinkName_5028Parser = parser;
 		}
 		return externalLinkName_5028Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser textInputLabelExpression_5050Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getTextInputLabelExpression_5050Parser() {
+		if (textInputLabelExpression_5050Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getInput_LabelExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			textInputLabelExpression_5050Parser = parser;
+		}
+		return textInputLabelExpression_5050Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser textInputValueExpression_5051Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getTextInputValueExpression_5051Parser() {
+		if (textInputValueExpression_5051Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getInput_ValueExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			textInputValueExpression_5051Parser = parser;
+		}
+		return textInputValueExpression_5051Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser selectionListLabelExpression_5055Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSelectionListLabelExpression_5055Parser() {
+		if (selectionListLabelExpression_5055Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getInput_LabelExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			selectionListLabelExpression_5055Parser = parser;
+		}
+		return selectionListLabelExpression_5055Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser selectionListValueExpression_5056Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSelectionListValueExpression_5056Parser() {
+		if (selectionListValueExpression_5056Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getInput_ValueExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			selectionListValueExpression_5056Parser = parser;
+		}
+		return selectionListValueExpression_5056Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser selectionListOptionsExpression_5057Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSelectionListOptionsExpression_5057Parser() {
+		if (selectionListOptionsExpression_5057Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSelectionList_OptionsExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			selectionListOptionsExpression_5057Parser = parser;
+		}
+		return selectionListOptionsExpression_5057Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser buttonValue_5059Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getButtonValue_5059Parser() {
+		if (buttonValue_5059Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getButton_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			buttonValue_5059Parser = parser;
+		}
+		return buttonValue_5059Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser customActionValue_5063Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCustomActionValue_5063Parser() {
+		if (customActionValue_5063Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getButton_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			customActionValue_5063Parser = parser;
+		}
+		return customActionValue_5063Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser customActionPerformerExpression_5064Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCustomActionPerformerExpression_5064Parser() {
+		if (customActionPerformerExpression_5064Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_PerformerExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			customActionPerformerExpression_5064Parser = parser;
+		}
+		return customActionPerformerExpression_5064Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser customActionValidatorExpression_5065Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCustomActionValidatorExpression_5065Parser() {
+		if (customActionValidatorExpression_5065Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_ValidatorExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			customActionValidatorExpression_5065Parser = parser;
+		}
+		return customActionValidatorExpression_5065Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser saveValue_5069Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSaveValue_5069Parser() {
+		if (saveValue_5069Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getButton_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			saveValue_5069Parser = parser;
+		}
+		return saveValue_5069Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser savePerformerExpression_5070Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSavePerformerExpression_5070Parser() {
+		if (savePerformerExpression_5070Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_PerformerExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			savePerformerExpression_5070Parser = parser;
+		}
+		return savePerformerExpression_5070Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser saveValidatorExpression_5071Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSaveValidatorExpression_5071Parser() {
+		if (saveValidatorExpression_5071Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_ValidatorExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			saveValidatorExpression_5071Parser = parser;
+		}
+		return saveValidatorExpression_5071Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser resetValue_5075Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getResetValue_5075Parser() {
+		if (resetValue_5075Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getButton_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			resetValue_5075Parser = parser;
+		}
+		return resetValue_5075Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser resetPerformerExpression_5076Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getResetPerformerExpression_5076Parser() {
+		if (resetPerformerExpression_5076Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_PerformerExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			resetPerformerExpression_5076Parser = parser;
+		}
+		return resetPerformerExpression_5076Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser resetValidatorExpression_5077Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getResetValidatorExpression_5077Parser() {
+		if (resetValidatorExpression_5077Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_ValidatorExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			resetValidatorExpression_5077Parser = parser;
+		}
+		return resetValidatorExpression_5077Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser cancelValue_5081Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCancelValue_5081Parser() {
+		if (cancelValue_5081Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getButton_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			cancelValue_5081Parser = parser;
+		}
+		return cancelValue_5081Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser cancelPerformerExpression_5082Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCancelPerformerExpression_5082Parser() {
+		if (cancelPerformerExpression_5082Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_PerformerExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			cancelPerformerExpression_5082Parser = parser;
+		}
+		return cancelPerformerExpression_5082Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser cancelValidatorExpression_5083Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCancelValidatorExpression_5083Parser() {
+		if (cancelValidatorExpression_5083Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getSubmit_ValidatorExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			cancelValidatorExpression_5083Parser = parser;
+		}
+		return cancelValidatorExpression_5083Parser;
 	}
 
 	/**
@@ -585,16 +1307,92 @@ public class WebdslParserProvider extends AbstractProvider implements
 			return getExternalLinkName_5034Parser();
 		case GroupName3EditPart.VISUAL_ID:
 			return getGroupName_5043Parser();
+		case FormNameEditPart.VISUAL_ID:
+			return getFormName_5046Parser();
 		case InternalLinkName3EditPart.VISUAL_ID:
 			return getInternalLinkName_5041Parser();
 		case ExternalLinkName3EditPart.VISUAL_ID:
 			return getExternalLinkName_5042Parser();
+		case TextInputLabelExpressionEditPart.VISUAL_ID:
+			return getTextInputLabelExpression_5048Parser();
+		case TextInputValueExpressionEditPart.VISUAL_ID:
+			return getTextInputValueExpression_5049Parser();
+		case SelectionListLabelExpressionEditPart.VISUAL_ID:
+			return getSelectionListLabelExpression_5052Parser();
+		case SelectionListValueExpressionEditPart.VISUAL_ID:
+			return getSelectionListValueExpression_5053Parser();
+		case SelectionListOptionsExpressionEditPart.VISUAL_ID:
+			return getSelectionListOptionsExpression_5054Parser();
+		case ButtonValueEditPart.VISUAL_ID:
+			return getButtonValue_5058Parser();
+		case CustomActionValueEditPart.VISUAL_ID:
+			return getCustomActionValue_5060Parser();
+		case CustomActionPerformerExpressionEditPart.VISUAL_ID:
+			return getCustomActionPerformerExpression_5061Parser();
+		case CustomActionValidatorExpressionEditPart.VISUAL_ID:
+			return getCustomActionValidatorExpression_5062Parser();
+		case SaveValueEditPart.VISUAL_ID:
+			return getSaveValue_5066Parser();
+		case SavePerformerExpressionEditPart.VISUAL_ID:
+			return getSavePerformerExpression_5067Parser();
+		case SaveValidatorExpressionEditPart.VISUAL_ID:
+			return getSaveValidatorExpression_5068Parser();
+		case ResetValueEditPart.VISUAL_ID:
+			return getResetValue_5072Parser();
+		case ResetPerformerExpressionEditPart.VISUAL_ID:
+			return getResetPerformerExpression_5073Parser();
+		case ResetValidatorExpressionEditPart.VISUAL_ID:
+			return getResetValidatorExpression_5074Parser();
+		case CancelValueEditPart.VISUAL_ID:
+			return getCancelValue_5078Parser();
+		case CancelPerformerExpressionEditPart.VISUAL_ID:
+			return getCancelPerformerExpression_5079Parser();
+		case CancelValidatorExpressionEditPart.VISUAL_ID:
+			return getCancelValidatorExpression_5080Parser();
 		case GroupNameEditPart.VISUAL_ID:
 			return getGroupName_5025Parser();
+		case FormName2EditPart.VISUAL_ID:
+			return getFormName_5047Parser();
 		case InternalLinkNameEditPart.VISUAL_ID:
 			return getInternalLinkName_5027Parser();
 		case ExternalLinkNameEditPart.VISUAL_ID:
 			return getExternalLinkName_5028Parser();
+		case TextInputLabelExpression2EditPart.VISUAL_ID:
+			return getTextInputLabelExpression_5050Parser();
+		case TextInputValueExpression2EditPart.VISUAL_ID:
+			return getTextInputValueExpression_5051Parser();
+		case SelectionListLabelExpression2EditPart.VISUAL_ID:
+			return getSelectionListLabelExpression_5055Parser();
+		case SelectionListValueExpression2EditPart.VISUAL_ID:
+			return getSelectionListValueExpression_5056Parser();
+		case SelectionListOptionsExpression2EditPart.VISUAL_ID:
+			return getSelectionListOptionsExpression_5057Parser();
+		case ButtonValue2EditPart.VISUAL_ID:
+			return getButtonValue_5059Parser();
+		case CustomActionValue2EditPart.VISUAL_ID:
+			return getCustomActionValue_5063Parser();
+		case CustomActionPerformerExpression2EditPart.VISUAL_ID:
+			return getCustomActionPerformerExpression_5064Parser();
+		case CustomActionValidatorExpression2EditPart.VISUAL_ID:
+			return getCustomActionValidatorExpression_5065Parser();
+		case SaveValue2EditPart.VISUAL_ID:
+			return getSaveValue_5069Parser();
+		case SavePerformerExpression2EditPart.VISUAL_ID:
+			return getSavePerformerExpression_5070Parser();
+		case SaveValidatorExpression2EditPart.VISUAL_ID:
+			return getSaveValidatorExpression_5071Parser();
+		case ResetValue2EditPart.VISUAL_ID:
+			return getResetValue_5075Parser();
+		case ResetPerformerExpression2EditPart.VISUAL_ID:
+			return getResetPerformerExpression_5076Parser();
+		case ResetValidatorExpression2EditPart.VISUAL_ID:
+			return getResetValidatorExpression_5077Parser();
+		case CancelValue2EditPart.VISUAL_ID:
+			return getCancelValue_5081Parser();
+		case CancelPerformerExpression2EditPart.VISUAL_ID:
+			return getCancelPerformerExpression_5082Parser();
+		case CancelValidatorExpression2EditPart.VISUAL_ID:
+			return getCancelValidatorExpression_5083Parser();
 		}
 		return null;
 	}

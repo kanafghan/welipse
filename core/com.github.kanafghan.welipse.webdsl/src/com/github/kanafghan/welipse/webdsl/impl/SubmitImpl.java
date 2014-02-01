@@ -3,16 +3,15 @@
 package com.github.kanafghan.welipse.webdsl.impl;
 
 import com.github.kanafghan.welipse.webdsl.Action;
+import com.github.kanafghan.welipse.webdsl.ButtonType;
 import com.github.kanafghan.welipse.webdsl.Expression;
 import com.github.kanafghan.welipse.webdsl.Submit;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -425,6 +424,14 @@ public abstract class SubmitImpl extends ButtonImpl implements Submit {
 		result.append(validatorExpression);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public ButtonType getType() {
+		return ButtonType.SUBMIT;
 	}
 
 } //SubmitImpl

@@ -2,11 +2,10 @@
  */
 package com.github.kanafghan.welipse.webdsl.impl;
 
-import com.github.kanafghan.welipse.webdsl.ButtonType;
+import org.eclipse.emf.ecore.EClass;
+
 import com.github.kanafghan.welipse.webdsl.Save;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,11 +46,6 @@ public class SaveImpl extends StandardActionImpl implements Save {
 		} else {			
 			return super.getValue();
 		}
-	}
-
-	@Override
-	public ButtonType getType() {
-		return ButtonType.SUBMIT;
 	}
 
 } //SaveImpl
