@@ -269,7 +269,7 @@ public class ClassifierOperationImpl extends PropertyOperationImpl implements Cl
 							}
 						}
 						
-						if (getOperation() != null) {
+						if (getOperation() == null) {
 							throw new Error("The type '"+ cls.getName() +"' has no operation '"
 									+ getIdentifier() +"()' with "+ getArguments().size() +" arguments.");
 						}
