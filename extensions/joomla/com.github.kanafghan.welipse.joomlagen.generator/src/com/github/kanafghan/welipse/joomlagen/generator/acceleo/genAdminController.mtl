@@ -5,7 +5,7 @@
 
 [template public generateAdminController(controller : GenClass, genModel : JoomlaGenModel)]
 [comment @main/]
-[file (controller.itemMVCName.toLower().concat('.php'), false, 'UTF-8')]
+[file (controller.listMVCName.toLower().concat('.php'), false, 'UTF-8')]
 <?php
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
@@ -16,7 +16,7 @@ jimport('joomla.application.component.controlleradmin');
 /**
  * [controller.itemMVCName/] controller	
  */
-class [genModel.extensionName.toUpperFirst()/]Controller[controller.itemMVCName.toUpperFirst()/] extends JControllerAdmin
+class [genModel.extensionName.toUpperFirst()/]Controller[controller.listMVCName.toUpperFirst()/] extends JControllerAdmin
 {
 	/**
 	 * (non-PHPdoc)

@@ -56,7 +56,7 @@ class [genModel.extensionName.toUpperFirst()/]View[model.itemMVCName.toUpperFirs
 		JRequest::setVar('hidemainmenu', true);
 		$isNew = ($this->item->id == 0);
 
-		JToolBarHelper::title(JText::_('[genModel.componentName.toUpperFirst()/] Manager [ '[' /]'. ($isNew ? 'New' : 'Edit') .'[ ']' /]'));
+		JToolBarHelper::title(JText::_('[model.listMVCName.toUpperFirst()/] Manager [ '[' /]'. ($isNew ? 'New' : 'Edit') .'[ ']' /]'));
 		
 		JToolBarHelper::apply('[model.itemMVCName.toLower()/].apply');
 		JToolBarHelper::save('[model.itemMVCName.toLower()/].save');
@@ -72,6 +72,7 @@ class [genModel.extensionName.toUpperFirst()/]View[model.itemMVCName.toUpperFirs
 			JToolBarHelper::cancel('[model.itemMVCName.toLower()/].cancel', 'JTOOLBAR_CLOSE');
 		}
 	}
+}
 [/file]
 
 [/template]

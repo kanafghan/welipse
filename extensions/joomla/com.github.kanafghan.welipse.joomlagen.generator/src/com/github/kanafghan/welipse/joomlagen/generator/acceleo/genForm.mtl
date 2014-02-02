@@ -30,7 +30,7 @@
 			[/if]
 		[/if]
 			class="inputbox"
-			label="[field.formFieldLabel/]"
+			label="[field.formFieldLabel.toUpperFirst()/]"
 			description="[field.formFieldDescription/]" />		
 [/for]
 	</fieldset>

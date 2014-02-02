@@ -56,13 +56,13 @@ class [genModel.extensionName.toUpperFirst()/]Controller extends JController
 		$messageType = "message";
 
 		// Get and interpret the request
-		$sourcePage = $jinput->get('__source-page__', '', 'STRING');
-		$targetPage = $jinput->get('__target-page__', '', 'STRING');
+		$sourcePage = base64_decode($jinput->get('__source-page__', '', 'STRING'));
+		$targetPage = base64_decode($jinput->get('__target-page__', '', 'STRING'));
 		$data = $jinput->get('__form', array(), 'ARRAY'); 
 		$performer = $jinput->get('__performer__', null, 'STRING');
 		$validator = $jinput->get('__validator__', null, 'STRING');
 
-		$redirectPage = $targetPage;
+		$redirectURL = $targetPage;
 		
 		JModel::addIncludePath(JPATH_COMPONENT.DS.'models');
 		$model = null;
@@ -112,7 +112,7 @@ class [genModel.extensionName.toUpperFirst()/]Controller extends JController
 				} else {
 					$message = "Saving Error: ". $model->getError();
 					$messageType = "error";
-					$redirectPage = $sourcePage;
+					$redirectURL = $sourcePage;
 					$session->set('form-state', $data, '[genModel.extensionName/]');
 				}	
 			}		
@@ -121,11 +121,11 @@ class [genModel.extensionName.toUpperFirst()/]Controller extends JController
 		{
 			$message = implode("</li><li>", $model->getErrors());
 			$messageType = "error";
-			$redirectPage = $sourcePage;
+			$redirectURL = $sourcePage;
 			$session->set('form-state', $data, '[genModel.extensionName/]');
 		}
 
-		$this->setRedirect("?option=[genModel.componentName/]&view=". $redirectPage, $message, $messageType);
+		$this->setRedirect($redirectURL, $message, $messageType);
     }
 	[/if]
 

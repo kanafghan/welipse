@@ -42,12 +42,12 @@ class [genModel.extensionName.toUpperFirst()/]Controller[eClass.name.toUpperFirs
 		$messageType = "message";
 
 		// Get and interpret the request
-		$sourcePage = $jinput->get('__source-page__', '', 'STRING');
-		$targetPage = $jinput->get('__target-page__', '', 'STRING');
+		$sourcePage = base64_decode($jinput->get('__source-page__', '', 'STRING'));
+		$targetPage = base64_decode($jinput->get('__target-page__', '', 'STRING'));
 		$data = $jinput->get('__form', array(), 'ARRAY'); 
 		$validator = $jinput->get('__validator__', null, 'STRING');
 
-		$redirectPage = $targetPage;
+		$redirectURL = $targetPage;
 		
 		$valid = false;
 		if ($validator !== null && !empty($validator)) {
@@ -75,7 +75,7 @@ class [genModel.extensionName.toUpperFirst()/]Controller[eClass.name.toUpperFirs
 			} else {
 				$message = "Saving Error: ". $model->getError();
 				$messageType = "error";
-				$redirectPage = $sourcePage;
+				$redirectURL = $sourcePage;
 				$session->set('form-state', $data, '[genModel.extensionName/]');
 			}			
 		} 
@@ -83,11 +83,11 @@ class [genModel.extensionName.toUpperFirst()/]Controller[eClass.name.toUpperFirs
 		{
 			$message = implode("</li><li>", $model->getErrors());
 			$messageType = "error";
-			$redirectPage = $sourcePage;
+			$redirectURL = $sourcePage;
 			$session->set('form-state', $data, '[genModel.extensionName/]');
 		}
 
-		$this->setRedirect("?option=[genModel.componentName/]". (!empty($redirectPage) ? "&view=". $redirectPage : ""), $message, $messageType);
+		$this->setRedirect($redirectURL, $message, $messageType);
 	}
 }
 [/let]

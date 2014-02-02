@@ -16,7 +16,7 @@ JHtml::_('behavior.tooltip');
 JHtml::_('behavior.formvalidation');
 JHtml::_('behavior.keepalive');
 ?>
-[generatePHPProtectedRegion('Pre-Form')/]
+[generateHTMLProtectedRegion('Pre-Form')/]
 <form action="<?php echo JRoute::_('index.php?option=[genModel.componentName/]&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="[model.itemMVCName/]-form" class="form-validate">
 	<div class="width-60 fltlft">
 		<fieldset class="adminform">
@@ -32,17 +32,17 @@ JHtml::_('behavior.keepalive');
 					<?php echo $this->form->getLabel('id'); ?>
 					<?php echo $this->form->getInput('id'); ?>
 				</li>
-				[generatePHPProtectedRegion('Form-1')/]
+				[generateHTMLProtectedRegion('Form-1')/]
 			</ul>
 		</fieldset>
 	</div>
-	[generatePHPProtectedRegion('Form-2')/]
+	[generateHTMLProtectedRegion('Form-2')/]
 	<input type="hidden" name="task" value="" />
 	<?php echo JHtml::_('form.token'); ?>
 		
 <div class="clr"></div>
 </form>
-[generatePHPProtectedRegion('Post-Form')/]
+[generateHTMLProtectedRegion('Post-Form')/]
 [/file]
 	
 [/template]

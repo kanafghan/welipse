@@ -157,6 +157,16 @@ $[variable.var/] = [generateExpression(variable.initExp, genModel)/];
 		/>
 
 	<input type="hidden"
+		name="__source-page__"
+		value="<?php echo base64_encode(JFactory::getURI()->toString()); ?>"
+		/>
+	
+	<input type="hidden"
+		name="__target-page__"
+		value="<?php echo base64_encode(JFactory::getURI()->toString()); ?>"
+		/>
+
+	<input type="hidden"
 		name="__required__"
 		value="[generateFormRequiredFieldsList(form, genModel)/]"
 		/>
@@ -506,17 +516,6 @@ form-control
 	/>
 [generateSubmitValidatorArguments(submit, genModel)/]
 
-[if (not submit.action.oclIsUndefined())]
-<input type="hidden"
-	name="__source-page__"
-	value="[getElementPage(submit.action).name/]"
-	/>
-
-<input type="hidden"
-	name="__target-page__"
-	value="[submit.action.target.name/]"
-	/>
-[/if]
 [/template]	
 
 [template public generateSubmitPerformer (submit : Submit, genModel : JoomlaGenModel) post (trim()) ]

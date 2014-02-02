@@ -45,7 +45,7 @@ class [genModel.extensionName.toUpperFirst()/]Model[model.itemMVCName.toUpperFir
         {
             // load the row based on the request
             $jinput = JFactory::getApplication()->input;
-            $id = $jinput->get($var, 1, 'INT');
+            $id = $jinput->get($var, 0, 'INT');
         }
 
         // Get a TablePlayers instance
@@ -148,15 +148,17 @@ class [genModel.extensionName.toUpperFirst()/]Model[model.itemMVCName.toUpperFir
      * <!-- user-docs-start -->
      * <!-- user-docs-end -->
 [for (parameter : GenParameter | operation.genParameters)]
-     * @param	[parameter.ecoreParameter.oclAsType(EParameter).eType/] $[parameter.ecoreParameter.oclAsType(EParameter).name/]
+     * @param	[parameter.ecoreParameter.oclAsType(EParameter).eType.name/] $[parameter.ecoreParameter.oclAsType(EParameter).name/]
 [/for]
      * @return [operation.ecoreOperation.oclAsType(EOperation).eType.name/]
      */
     public function [operation.ecoreOperation.oclAsType(EOperation).name/]([generateOperationParameters(operation)/]) 
     {
 		//[protected ('Implementation of '.concat(operation.ecoreOperation.oclAsType(EOperation).name))]			
-    	//TODO Auto-generated function needs implementation
+    	// Don't remove above line
+		//TODO Auto-generated function needs implementation
     	[generateOperationReturnStatement(operation)/]
+		// Don't remove below line
 		//[/protected]
     }
 [/for]
@@ -407,7 +409,9 @@ class [genModel.extensionName.toUpperFirst()/]Model[model.itemMVCName.toUpperFir
 [/template]
 
 [template public generateOperationReturnStatement (operation : GenOperation) post (trim())]
-return [if (operation.ecoreOperation.oclAsType(EOperation).upperBound = -1)]array()[else][if (operation.ecoreOperation.oclAsType(EOperation).eType.oclIsKindOf(EInt))]0[elseif (operation.ecoreOperation.oclAsType(EOperation).eType.oclIsKindOf(EBoolean))]false[else]''[/if][/if];
+[let op : EOperation = operation.ecoreOperation.oclAsType(EOperation)]
+return [if (op.upperBound = -1)]array()[elseif (op.eType.name = 'EInt')]0[elseif (op.eType.name = 'EBoolean')]false[else]''[/if];
+[/let]
 [/template]
 
 [template public generateParameter (parameter : GenParameter) ]
