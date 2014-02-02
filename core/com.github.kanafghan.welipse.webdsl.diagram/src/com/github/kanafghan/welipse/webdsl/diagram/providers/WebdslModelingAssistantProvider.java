@@ -209,8 +209,21 @@ public class WebdslModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof FormFormElementsCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(14);
 			types.add(WebdslElementTypes.Text_3016);
+			types.add(WebdslElementTypes.Image_3017);
+			types.add(WebdslElementTypes.List_3018);
+			types.add(WebdslElementTypes.Group_3019);
+			types.add(WebdslElementTypes.Form_3024);
+			types.add(WebdslElementTypes.InternalLink_3020);
+			types.add(WebdslElementTypes.ExternalLink_3021);
+			types.add(WebdslElementTypes.TextInput_3026);
+			types.add(WebdslElementTypes.SelectionList_3028);
+			types.add(WebdslElementTypes.Button_3030);
+			types.add(WebdslElementTypes.CustomAction_3032);
+			types.add(WebdslElementTypes.Save_3034);
+			types.add(WebdslElementTypes.Reset_3036);
+			types.add(WebdslElementTypes.Cancel_3038);
 			return types;
 		}
 		if (editPart instanceof InternalLinkInternalLinkSourceCompartment2EditPart) {
@@ -249,8 +262,21 @@ public class WebdslModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof FormFormElementsCompartment2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(14);
 			types.add(WebdslElementTypes.Text_3016);
+			types.add(WebdslElementTypes.Image_3017);
+			types.add(WebdslElementTypes.List_3018);
+			types.add(WebdslElementTypes.Group_3019);
+			types.add(WebdslElementTypes.Form_3024);
+			types.add(WebdslElementTypes.InternalLink_3020);
+			types.add(WebdslElementTypes.ExternalLink_3021);
+			types.add(WebdslElementTypes.TextInput_3026);
+			types.add(WebdslElementTypes.SelectionList_3028);
+			types.add(WebdslElementTypes.Button_3030);
+			types.add(WebdslElementTypes.CustomAction_3032);
+			types.add(WebdslElementTypes.Save_3034);
+			types.add(WebdslElementTypes.Reset_3036);
+			types.add(WebdslElementTypes.Cancel_3038);
 			return types;
 		}
 		if (editPart instanceof InternalLinkInternalLinkSourceCompartment3EditPart) {

@@ -717,6 +717,58 @@ public class WebdslDiagramUpdater {
 				result.add(new WebdslNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == Image3EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == List3EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == Group3EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FormEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == InternalLink3EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ExternalLink3EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TextInputEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SelectionListEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ButtonEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CustomActionEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SaveEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ResetEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CancelEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -903,6 +955,58 @@ public class WebdslDiagramUpdater {
 			int visualID = WebdslVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == Text3EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == Image3EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == List3EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == Group3EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FormEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == InternalLink3EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ExternalLink3EditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TextInputEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SelectionListEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ButtonEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CustomActionEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SaveEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ResetEditPart.VISUAL_ID) {
+				result.add(new WebdslNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CancelEditPart.VISUAL_ID) {
 				result.add(new WebdslNodeDescriptor(childElement, visualID));
 				continue;
 			}

@@ -451,6 +451,65 @@ public class WebdslVisualIDRegistry {
 					domainElement.eClass())) {
 				return Text3EditPart.VISUAL_ID;
 			}
+			if (WebDSLPackage.eINSTANCE.getImage().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Image3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getList().isSuperTypeOf(
+					domainElement.eClass())) {
+				return List3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getGroup().isSuperTypeOf(
+					domainElement.eClass())
+					&& isGroup_3019((Group) domainElement)) {
+				return Group3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getForm().isSuperTypeOf(
+					domainElement.eClass())
+					&& isForm_3024((Form) domainElement)) {
+				return FormEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getInternalLink().isSuperTypeOf(
+					domainElement.eClass())) {
+				return InternalLink3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getExternalLink().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ExternalLink3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getTextInput().isSuperTypeOf(
+					domainElement.eClass())) {
+				return TextInputEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getSelectionList().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SelectionListEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getButton().isSuperTypeOf(
+					domainElement.eClass())
+					&& isButton_3030((Button) domainElement)) {
+				return ButtonEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getCustomAction().isSuperTypeOf(
+					domainElement.eClass())
+					&& isCustomAction_3032((CustomAction) domainElement)) {
+				return CustomActionEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getSave().isSuperTypeOf(
+					domainElement.eClass())
+					&& isSave_3034((Save) domainElement)) {
+				return SaveEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getReset().isSuperTypeOf(
+					domainElement.eClass())
+					&& isReset_3036((Reset) domainElement)) {
+				return ResetEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getCancel().isSuperTypeOf(
+					domainElement.eClass())
+					&& isCancel_3038((Cancel) domainElement)) {
+				return CancelEditPart.VISUAL_ID;
+			}
 			break;
 		case InternalLinkInternalLinkSourceCompartment2EditPart.VISUAL_ID:
 			if (WebDSLPackage.eINSTANCE.getText().isSuperTypeOf(
@@ -547,6 +606,65 @@ public class WebdslVisualIDRegistry {
 			if (WebDSLPackage.eINSTANCE.getText().isSuperTypeOf(
 					domainElement.eClass())) {
 				return Text3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getImage().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Image3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getList().isSuperTypeOf(
+					domainElement.eClass())) {
+				return List3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getGroup().isSuperTypeOf(
+					domainElement.eClass())
+					&& isGroup_3019((Group) domainElement)) {
+				return Group3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getForm().isSuperTypeOf(
+					domainElement.eClass())
+					&& isForm_3024((Form) domainElement)) {
+				return FormEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getInternalLink().isSuperTypeOf(
+					domainElement.eClass())) {
+				return InternalLink3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getExternalLink().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ExternalLink3EditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getTextInput().isSuperTypeOf(
+					domainElement.eClass())) {
+				return TextInputEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getSelectionList().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SelectionListEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getButton().isSuperTypeOf(
+					domainElement.eClass())
+					&& isButton_3030((Button) domainElement)) {
+				return ButtonEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getCustomAction().isSuperTypeOf(
+					domainElement.eClass())
+					&& isCustomAction_3032((CustomAction) domainElement)) {
+				return CustomActionEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getSave().isSuperTypeOf(
+					domainElement.eClass())
+					&& isSave_3034((Save) domainElement)) {
+				return SaveEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getReset().isSuperTypeOf(
+					domainElement.eClass())
+					&& isReset_3036((Reset) domainElement)) {
+				return ResetEditPart.VISUAL_ID;
+			}
+			if (WebDSLPackage.eINSTANCE.getCancel().isSuperTypeOf(
+					domainElement.eClass())
+					&& isCancel_3038((Cancel) domainElement)) {
+				return CancelEditPart.VISUAL_ID;
 			}
 			break;
 		case InternalLinkInternalLinkSourceCompartment3EditPart.VISUAL_ID:
@@ -1167,6 +1285,45 @@ public class WebdslVisualIDRegistry {
 			if (Text3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (Image3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (List3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (Group3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (FormEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (InternalLink3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ExternalLink3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (TextInputEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SelectionListEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomActionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SaveEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ResetEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CancelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case InternalLinkInternalLinkSourceCompartment2EditPart.VISUAL_ID:
 			if (Text4EditPart.VISUAL_ID == nodeVisualID) {
@@ -1235,6 +1392,45 @@ public class WebdslVisualIDRegistry {
 			break;
 		case FormFormElementsCompartment2EditPart.VISUAL_ID:
 			if (Text3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (Image3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (List3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (Group3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (FormEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (InternalLink3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ExternalLink3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (TextInputEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SelectionListEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ButtonEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CustomActionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SaveEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ResetEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CancelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
