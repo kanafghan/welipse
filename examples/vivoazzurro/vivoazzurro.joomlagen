@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<joomlagen:JoomlaGenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:joomlagen="http://github.com/kanafghan/welipse/joomlagen/1.0" extensionName="vivoazzurro" creationDate="december 2013" databaseTablePrefix="#__vivoazzurro_" initialData="C:\xampp\htdocs\thesis\feed\data.zip">
+  <webmodel href="vivoazzurro.webdsl#/"/>
+  <datamodel genClassifiers="//@datamodel/@genClasses.0 //@datamodel/@genClasses.1 //@datamodel/@genClasses.2 //@datamodel/@genClasses.3 //@datamodel/@genDataTypes.0 //@datamodel/@genDataTypes.1 //@datamodel/@genDataTypes.2">
+    <ecorePackage href="datamodel.ecore#/"/>
+    <genClasses genPackage="//@datamodel" itemMVCName="Squad" listMVCName="SquadList" databaseTableName="Squad">
+      <ecoreClass href="datamodel.ecore#//Squad"/>
+      <genFeatures xsi:type="joomlagen:GenAttribute" formFieldLabel="name" formFieldDescription="Specify the value of name" databaseColumnType="VARCHAR">
+        <type xsi:type="joomlagen:GenDataType" href="#//@datamodel/@genDataTypes.2"/>
+        <ecoreAttribute href="datamodel.ecore#//Squad/name"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenReference" formFieldLabel="players" formFieldDescription="Spacify the value of players">
+        <type xsi:type="joomlagen:GenClass" href="#//@datamodel/@genClasses.1"/>
+        <ecoreReference href="datamodel.ecore#//Squad/players"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenAttribute" formFieldLabel="groupPhoto" formFieldDescription="Specify the value of groupPhoto" databaseColumnType="VARCHAR">
+        <type xsi:type="joomlagen:GenDataType" href="#//@datamodel/@genDataTypes.2"/>
+        <ecoreAttribute href="datamodel.ecore#//Squad/groupPhoto"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenReference" formFieldLabel="roles" formFieldDescription="Spacify the value of roles">
+        <type xsi:type="joomlagen:GenClass" href="#//@datamodel/@genClasses.2"/>
+        <ecoreReference href="datamodel.ecore#//Squad/roles"/>
+        <opposite href="#//@datamodel/@genClasses.2/@genFeatures.1"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses genPackage="//@datamodel" itemMVCName="Player" listMVCName="PlayerList" databaseTableName="Player">
+      <ecoreClass href="datamodel.ecore#//Player"/>
+      <genFeatures xsi:type="joomlagen:GenAttribute" formFieldLabel="name" formFieldDescription="Specify the value of name" databaseColumnType="VARCHAR">
+        <type xsi:type="joomlagen:GenDataType" href="#//@datamodel/@genDataTypes.2"/>
+        <ecoreAttribute href="datamodel.ecore#//Player/name"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenAttribute" formFieldLabel="photo" formFieldDescription="Specify the value of photo" databaseColumnType="VARCHAR">
+        <type xsi:type="joomlagen:GenDataType" href="#//@datamodel/@genDataTypes.2"/>
+        <ecoreAttribute href="datamodel.ecore#//Player/photo"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenAttribute" formFieldLabel="thumbnail" formFieldDescription="Specify the value of thumbnail" databaseColumnType="VARCHAR">
+        <type xsi:type="joomlagen:GenDataType" href="#//@datamodel/@genDataTypes.2"/>
+        <ecoreAttribute href="datamodel.ecore#//Player/thumbnail"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenAttribute" formFieldLabel="biography" formFieldDescription="Specify the value of biography" databaseColumnType="VARCHAR">
+        <type xsi:type="joomlagen:GenDataType" href="#//@datamodel/@genDataTypes.2"/>
+        <ecoreAttribute href="datamodel.ecore#//Player/biography"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenAttribute" formFieldLabel="link" formFieldDescription="Specify the value of link" databaseColumnType="VARCHAR">
+        <type xsi:type="joomlagen:GenDataType" href="#//@datamodel/@genDataTypes.2"/>
+        <ecoreAttribute href="datamodel.ecore#//Player/link"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenReference" formFieldLabel="primaryRole" formFieldDescription="Spacify the value of primaryRole">
+        <type xsi:type="joomlagen:GenClass" href="#//@datamodel/@genClasses.2"/>
+        <ecoreReference href="datamodel.ecore#//Player/primaryRole"/>
+        <opposite href="#//@datamodel/@genClasses.2/@genFeatures.2"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenAttribute" formFieldLabel="birthDate" formFieldDescription="Specify the value of birthDate" databaseColumnType="VARCHAR">
+        <type xsi:type="joomlagen:GenDataType" href="#//@datamodel/@genDataTypes.2"/>
+        <ecoreAttribute href="datamodel.ecore#//Player/birthDate"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenAttribute" formFieldLabel="height" formFieldDescription="Specify the value of height" databaseColumnType="VARCHAR">
+        <type xsi:type="joomlagen:GenDataType" href="#//@datamodel/@genDataTypes.2"/>
+        <ecoreAttribute href="datamodel.ecore#//Player/height"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenAttribute" formFieldLabel="weight" formFieldDescription="Specify the value of weight" databaseColumnType="VARCHAR">
+        <type xsi:type="joomlagen:GenDataType" href="#//@datamodel/@genDataTypes.2"/>
+        <ecoreAttribute href="datamodel.ecore#//Player/weight"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenReference" formFieldLabel="secondaryRoles" formFieldDescription="Spacify the value of secondaryRoles">
+        <type xsi:type="joomlagen:GenClass" href="#//@datamodel/@genClasses.2"/>
+        <ecoreReference href="datamodel.ecore#//Player/secondaryRoles"/>
+        <opposite href="#//@datamodel/@genClasses.2/@genFeatures.3"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenAttribute" formFieldLabel="gender" formFieldDescription="Specify the value of gender">
+        <type xsi:type="joomlagen:GenDataType" href="#//@datamodel/@genDataTypes.1"/>
+        <ecoreAttribute href="datamodel.ecore#//Player/gender"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenReference" formFieldLabel="subscribers" formFieldDescription="Spacify the value of subscribers">
+        <type xsi:type="joomlagen:GenClass" href="#//@datamodel/@genClasses.3"/>
+        <ecoreReference href="datamodel.ecore#//Player/subscribers"/>
+        <opposite href="#//@datamodel/@genClasses.3/@genFeatures.1"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses genPackage="//@datamodel" itemMVCName="Role" listMVCName="RoleList" databaseTableName="Role">
+      <ecoreClass href="datamodel.ecore#//Role"/>
+      <genFeatures xsi:type="joomlagen:GenAttribute" formFieldLabel="name" formFieldDescription="Specify the value of name" databaseColumnType="VARCHAR">
+        <type xsi:type="joomlagen:GenDataType" href="#//@datamodel/@genDataTypes.2"/>
+        <ecoreAttribute href="datamodel.ecore#//Role/name"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenReference" formFieldLabel="squads" formFieldDescription="Spacify the value of squads">
+        <type xsi:type="joomlagen:GenClass" href="#//@datamodel/@genClasses.0"/>
+        <ecoreReference href="datamodel.ecore#//Role/squads"/>
+        <opposite href="#//@datamodel/@genClasses.0/@genFeatures.3"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenReference" formFieldLabel="primaryPlayers" formFieldDescription="Spacify the value of primaryPlayers">
+        <type xsi:type="joomlagen:GenClass" href="#//@datamodel/@genClasses.1"/>
+        <ecoreReference href="datamodel.ecore#//Role/primaryPlayers"/>
+        <opposite href="#//@datamodel/@genClasses.1/@genFeatures.5"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenReference" formFieldLabel="secondaryPlayers" formFieldDescription="Spacify the value of secondaryPlayers">
+        <type xsi:type="joomlagen:GenClass" href="#//@datamodel/@genClasses.1"/>
+        <ecoreReference href="datamodel.ecore#//Role/secondaryPlayers"/>
+        <opposite href="#//@datamodel/@genClasses.1/@genFeatures.9"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses genPackage="//@datamodel" itemMVCName="Subscription" listMVCName="SubscriptionList" databaseTableName="Subscription">
+      <ecoreClass href="datamodel.ecore#//Subscription"/>
+      <genFeatures xsi:type="joomlagen:GenAttribute" formFieldLabel="email" formFieldDescription="Specify the value of email" databaseColumnType="VARCHAR">
+        <type xsi:type="joomlagen:GenDataType" href="#//@datamodel/@genDataTypes.0"/>
+        <ecoreAttribute href="datamodel.ecore#//Subscription/email"/>
+      </genFeatures>
+      <genFeatures xsi:type="joomlagen:GenReference" formFieldLabel="players" formFieldDescription="Spacify the value of players">
+        <type xsi:type="joomlagen:GenClass" href="#//@datamodel/@genClasses.1"/>
+        <ecoreReference href="datamodel.ecore#//Subscription/players"/>
+        <opposite href="#//@datamodel/@genClasses.1/@genFeatures.11"/>
+      </genFeatures>
+      <genOperations type="//@datamodel/@genDataTypes.2">
+        <genParameters>
+          <type xsi:type="joomlagen:GenClass" href="#//@datamodel/@genClasses.1"/>
+          <ecoreParameter href="datamodel.ecore#//Subscription/subscribe/player"/>
+        </genParameters>
+        <genParameters>
+          <type xsi:type="joomlagen:GenDataType" href="#//@datamodel/@genDataTypes.0"/>
+          <ecoreParameter href="datamodel.ecore#//Subscription/subscribe/email"/>
+        </genParameters>
+        <ecoreOperation href="datamodel.ecore#//Subscription/subscribe"/>
+      </genOperations>
+    </genClasses>
+    <genDataTypes genPackage="//@datamodel">
+      <ecoreDataType href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </genDataTypes>
+    <genDataTypes genPackage="//@datamodel">
+      <ecoreDataType href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </genDataTypes>
+    <genDataTypes genPackage="//@datamodel">
+      <ecoreDataType href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </genDataTypes>
+  </datamodel>
+</joomlagen:JoomlaGenModel>

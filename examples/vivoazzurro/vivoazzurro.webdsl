@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webdsl:Website xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:webdsl="http://github.com/kanafghan/welipse/webdsl/1.0" home="//@pages.0" name="vivoazzurro">
+  <pages name="squad" parameter="squad : Squad">
+    <elements xsi:type="webdsl:Group" name="container" class="container">
+      <elements xsi:type="webdsl:Text" name="squad-name" class="h1" expression="squad.name">
+        <content xsi:type="webdsl:StructuralExp" identifier="name">
+          <source xsi:type="webdsl:VariableExp" var="squad" declaration="//@pages.0/@parameters.0"/>
+          <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Squad/name"/>
+        </content>
+      </elements>
+      <elements xsi:type="webdsl:Image" name="squad-group-photo" expression="squad.groupPhoto">
+        <source xsi:type="webdsl:StructuralExp" identifier="groupPhoto">
+          <source xsi:type="webdsl:VariableExp" var="squad" declaration="//@pages.0/@parameters.0"/>
+          <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Squad/groupPhoto"/>
+        </source>
+      </elements>
+      <elements xsi:type="webdsl:Group" name="row" class="row">
+        <elements xsi:type="webdsl:List" expression="squad.roles" variable="role : Role">
+          <elements xsi:type="webdsl:Group" name="col" class="col-md-3">
+            <elements xsi:type="webdsl:Group" name="roles-list" class="panel panel-info">
+              <elements xsi:type="webdsl:Group" name="header" class="panel-heading">
+                <elements xsi:type="webdsl:InternalLink" name="to-role-page" target="//@pages.1/@elements.0">
+                  <source xsi:type="webdsl:Text" class="h3" expression="role.name">
+                    <content xsi:type="webdsl:StructuralExp" identifier="name">
+                      <source xsi:type="webdsl:VariableExp" var="role" declaration="//@pages.0/@elements.0/@elements.2/@elements.0/@iteratorVariable"/>
+                      <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Role/name"/>
+                    </content>
+                  </source>
+                  <actualParameters identifier="role">
+                    <value xsi:type="webdsl:VariableExp" var="role"/>
+                  </actualParameters>
+                </elements>
+              </elements>
+              <elements xsi:type="webdsl:Group" name="body" class="panel-body">
+                <elements xsi:type="webdsl:List" expression="role.primaryPlayers" variable="player : Player">
+                  <elements xsi:type="webdsl:Group" name="player-list" class="panel panel-default">
+                    <elements xsi:type="webdsl:Group" name="body" class="panel-body">
+                      <elements xsi:type="webdsl:Image" class="img-thumbnail" expression="player.thumbnail">
+                        <source xsi:type="webdsl:StructuralExp" identifier="thumbnail">
+                          <source xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.0/@elements.0/@elements.2/@elements.0/@elements.0/@elements.0/@elements.1/@elements.0/@iteratorVariable"/>
+                          <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/thumbnail"/>
+                        </source>
+                      </elements>
+                    </elements>
+                    <elements xsi:type="webdsl:Group" name="footer" class="panel-footer">
+                      <elements xsi:type="webdsl:InternalLink" name="to-player-page" target="//@pages.2/@elements.0">
+                        <source xsi:type="webdsl:Text" expression="player.name">
+                          <content xsi:type="webdsl:StructuralExp" identifier="name">
+                            <source xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.0/@elements.0/@elements.2/@elements.0/@elements.0/@elements.0/@elements.1/@elements.0/@iteratorVariable"/>
+                            <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/name"/>
+                          </content>
+                        </source>
+                        <actualParameters identifier="player">
+                          <value xsi:type="webdsl:VariableExp" var="player"/>
+                        </actualParameters>
+                      </elements>
+                    </elements>
+                  </elements>
+                  <collection xsi:type="webdsl:StructuralExp" identifier="primaryPlayers">
+                    <source xsi:type="webdsl:VariableExp" var="role" declaration="//@pages.0/@elements.0/@elements.2/@elements.0/@iteratorVariable"/>
+                    <feature xsi:type="ecore:EReference" href="datamodel.ecore#//Role/primaryPlayers"/>
+                  </collection>
+                  <iteratorVariable xsi:type="webdsl:Parameter" var="player" classifier="Player">
+                    <type xsi:type="ecore:EClass" href="datamodel.ecore#//Player"/>
+                  </iteratorVariable>
+                </elements>
+              </elements>
+            </elements>
+          </elements>
+          <collection xsi:type="webdsl:StructuralExp" identifier="roles">
+            <source xsi:type="webdsl:VariableExp" var="squad" declaration="//@pages.0/@parameters.0"/>
+            <feature xsi:type="ecore:EReference" href="datamodel.ecore#//Squad/roles"/>
+          </collection>
+          <iteratorVariable xsi:type="webdsl:Parameter" var="role" classifier="Role">
+            <type xsi:type="ecore:EClass" href="datamodel.ecore#//Role"/>
+          </iteratorVariable>
+        </elements>
+      </elements>
+    </elements>
+    <elements xsi:type="webdsl:InternalLink" name="to-playerForm" target="//@pages.3/@elements.0">
+      <source xsi:type="webdsl:Text" expression="&quot;Add a Player&quot;">
+        <content xsi:type="webdsl:StringConstant" value="Add a Player"/>
+      </source>
+      <actualParameters identifier="squad" formalParameter="//@pages.3/@parameters.2">
+        <value xsi:type="webdsl:VariableExp" var="squad" declaration="//@pages.0/@parameters.0"/>
+      </actualParameters>
+    </elements>
+    <parameters var="squad" classifier="Squad" declaration="squad : Squad">
+      <type xsi:type="ecore:EClass" href="datamodel.ecore#//Squad"/>
+    </parameters>
+  </pages>
+  <pages name="role">
+    <elements xsi:type="webdsl:Group" name="container" class="container">
+      <elements xsi:type="webdsl:Text" class="h1" expression="role.name">
+        <content xsi:type="webdsl:StructuralExp" identifier="name">
+          <source xsi:type="webdsl:VariableExp" var="role"/>
+          <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Role/name"/>
+        </content>
+      </elements>
+      <elements xsi:type="webdsl:List" expression="role.primaryPlayers" variable="player : Player">
+        <elements xsi:type="webdsl:Group" name="player-list" class="panel panel-default">
+          <elements xsi:type="webdsl:Group" name="body" class="panel-body">
+            <elements xsi:type="webdsl:Image" class="img-thumbnail" expression="player.thumbnail">
+              <source xsi:type="webdsl:StructuralExp" identifier="thumbnail">
+                <source xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.1/@elements.0/@elements.1/@iteratorVariable"/>
+                <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/thumbnail"/>
+              </source>
+            </elements>
+          </elements>
+          <elements xsi:type="webdsl:Group" name="footer" class="panel-footer">
+            <elements xsi:type="webdsl:InternalLink" name="to-player-page" target="//@pages.2/@elements.0">
+              <source xsi:type="webdsl:Text" expression="player.name">
+                <content xsi:type="webdsl:StructuralExp" identifier="name">
+                  <source xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.0/@elements.0/@elements.2/@elements.0/@elements.0/@elements.0/@elements.1/@elements.0/@iteratorVariable"/>
+                  <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/name"/>
+                </content>
+              </source>
+              <actualParameters identifier="player">
+                <value xsi:type="webdsl:VariableExp" var="player"/>
+              </actualParameters>
+            </elements>
+          </elements>
+        </elements>
+        <collection xsi:type="webdsl:StructuralExp" identifier="primaryPlayers">
+          <source xsi:type="webdsl:VariableExp" var="role" declaration="//@pages.1/@parameters.0"/>
+          <feature xsi:type="ecore:EReference" href="datamodel.ecore#//Role/primaryPlayers"/>
+        </collection>
+        <iteratorVariable xsi:type="webdsl:Parameter" var="player" classifier="Player">
+          <type xsi:type="ecore:EClass" href="datamodel.ecore#//Player"/>
+        </iteratorVariable>
+      </elements>
+    </elements>
+    <parameters var="role" classifier="Role" declaration="role : Role">
+      <type xsi:type="ecore:EClass" href="datamodel.ecore#//Role"/>
+    </parameters>
+  </pages>
+  <pages name="player" parameter="subscription : Subscription" variable="email : EString = &quot;&quot;">
+    <elements xsi:type="webdsl:Group" name="container" class="container">
+      <elements xsi:type="webdsl:Text" class="h1" expression="player.name">
+        <content xsi:type="webdsl:StructuralExp" identifier="name">
+          <source xsi:type="webdsl:VariableExp" var="player"/>
+          <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/name"/>
+        </content>
+      </elements>
+      <elements xsi:type="webdsl:Image" expression="player.photo">
+        <source xsi:type="webdsl:StructuralExp" identifier="photo">
+          <source xsi:type="webdsl:VariableExp" var="player"/>
+          <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/photo"/>
+        </source>
+      </elements>
+      <elements xsi:type="webdsl:Group" name="row" class="row">
+        <elements xsi:type="webdsl:Group" name="biography-container" class="col-lg-8">
+          <elements xsi:type="webdsl:Text" class="h2" expression="&quot;Biography&quot;">
+            <content xsi:type="webdsl:StringConstant" value="Biography"/>
+          </elements>
+          <elements xsi:type="webdsl:Text" expression="player.biography">
+            <content xsi:type="webdsl:StructuralExp" identifier="biography">
+              <source xsi:type="webdsl:VariableExp" var="player"/>
+              <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/biography"/>
+            </content>
+          </elements>
+        </elements>
+        <elements xsi:type="webdsl:Group" name="player-data-container" class="col-lg-4">
+          <elements xsi:type="webdsl:Text" class="h4" expression="&quot;Player Data&quot;">
+            <content xsi:type="webdsl:StringConstant" value="Player Data"/>
+          </elements>
+          <elements xsi:type="webdsl:Group" name="player-name-container">
+            <elements xsi:type="webdsl:Text" class="pull-left" expression="&quot;Name:&quot;">
+              <content xsi:type="webdsl:StringConstant" value="Name:"/>
+            </elements>
+            <elements xsi:type="webdsl:Text" class="pull-right" expression="player.name">
+              <content xsi:type="webdsl:StructuralExp" identifier="name">
+                <source xsi:type="webdsl:VariableExp" var="player"/>
+                <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/name"/>
+              </content>
+            </elements>
+            <elements xsi:type="webdsl:Group" class="clearfix"/>
+          </elements>
+          <elements xsi:type="webdsl:Group" name="player-link-container">
+            <elements xsi:type="webdsl:ExternalLink" name="player-link">
+              <source xsi:type="webdsl:Text" class="pull-right" expression="&quot;Website&quot;">
+                <content xsi:type="webdsl:StringConstant" value="Website"/>
+              </source>
+              <target xsi:type="webdsl:StructuralExp" identifier="link">
+                <source xsi:type="webdsl:VariableExp" var="player"/>
+                <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/link"/>
+              </target>
+            </elements>
+            <elements xsi:type="webdsl:Text" class="pull-left" expression="&quot;Link&quot;">
+              <content xsi:type="webdsl:StringConstant" value="Link"/>
+            </elements>
+            <elements xsi:type="webdsl:Group" class="clearfix"/>
+          </elements>
+          <elements xsi:type="webdsl:Group" name="player-height-container">
+            <elements xsi:type="webdsl:Text" class="pull-right" expression="player.height">
+              <content xsi:type="webdsl:StructuralExp" identifier="height">
+                <source xsi:type="webdsl:VariableExp" var="player"/>
+                <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/height"/>
+              </content>
+            </elements>
+            <elements xsi:type="webdsl:Text" expression="&quot;Height:&quot;">
+              <content xsi:type="webdsl:StringConstant" value="Height:"/>
+            </elements>
+            <elements xsi:type="webdsl:Group" class="clearfix"/>
+          </elements>
+          <elements xsi:type="webdsl:Group" name="player-weight-container">
+            <elements xsi:type="webdsl:Text" class="pull-left" expression="&quot;Weight:&quot;">
+              <content xsi:type="webdsl:StringConstant" value="Weight:"/>
+            </elements>
+            <elements xsi:type="webdsl:Text" class="pull-right" expression="player.weight">
+              <content xsi:type="webdsl:StructuralExp" identifier="weight">
+                <source xsi:type="webdsl:VariableExp" var="player"/>
+                <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/weight"/>
+              </content>
+            </elements>
+            <elements xsi:type="webdsl:Group" class="clearfix"/>
+          </elements>
+          <elements xsi:type="webdsl:Group" name="player-role-container">
+            <elements xsi:type="webdsl:InternalLink" name="to-role-page" target="//@pages.1/@elements.0">
+              <source xsi:type="webdsl:Text" class="pull-right" expression="role.name">
+                <content xsi:type="webdsl:StructuralExp" identifier="name">
+                  <source xsi:type="webdsl:VariableExp" var="role" declaration="//@pages.2/@variables.0"/>
+                  <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Role/name"/>
+                </content>
+              </source>
+              <actualParameters identifier="role">
+                <value xsi:type="webdsl:VariableExp" var="role" declaration="//@pages.2/@variables.0"/>
+              </actualParameters>
+            </elements>
+            <elements xsi:type="webdsl:Text" class="pull-left" expression="&quot;Role:&quot;">
+              <content xsi:type="webdsl:StringConstant" value="Role:"/>
+            </elements>
+            <elements xsi:type="webdsl:Group" class="clearfix"/>
+          </elements>
+        </elements>
+      </elements>
+    </elements>
+    <elements xsi:type="webdsl:Group" name="container" class="well">
+      <elements xsi:type="webdsl:Form" name="subscription-form">
+        <elements xsi:type="webdsl:Text" expression="&quot;Subscribe to &quot;.concat(player.name)">
+          <content xsi:type="webdsl:StringOperation">
+            <operands xsi:type="webdsl:StringConstant" value="Subscribe to "/>
+            <operands xsi:type="webdsl:StructuralExp" identifier="name">
+              <source xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.2/@parameters.0"/>
+              <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/name"/>
+            </operands>
+          </content>
+        </elements>
+        <elements xsi:type="webdsl:TextInput" name="email" labelExpression="&quot;E-mail&quot;" valueExpression="email" required="true">
+          <label xsi:type="webdsl:StringConstant" value="E-mail"/>
+          <value xsi:type="webdsl:VariableExp" var="email" declaration="//@pages.2/@variables.1"/>
+        </elements>
+        <elements xsi:type="webdsl:CustomAction" value="Subscribe" performerExpression="subscription.subscribe(player, email)">
+          <performer xsi:type="webdsl:ClassifierOperation" identifier="subscribe">
+            <source xsi:type="webdsl:VariableExp" var="subscription" declaration="//@pages.2/@parameters.1"/>
+            <operation href="datamodel.ecore#//Subscription/subscribe"/>
+            <arguments xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.2/@parameters.0"/>
+            <arguments xsi:type="webdsl:VariableExp" var="email" declaration="//@pages.2/@variables.1"/>
+          </performer>
+        </elements>
+      </elements>
+    </elements>
+    <parameters var="player" classifier="Player" declaration="player : Player">
+      <type xsi:type="ecore:EClass" href="datamodel.ecore#//Player"/>
+    </parameters>
+    <parameters var="subscription" classifier="Subscription" declaration="subscription : Subscription">
+      <type xsi:type="ecore:EClass" href="datamodel.ecore#//Subscription"/>
+    </parameters>
+    <variables var="role" classifier="Role" declaration="role : Role = player.primaryRole">
+      <type xsi:type="ecore:EClass" href="datamodel.ecore#//Role"/>
+      <initExp xsi:type="webdsl:StructuralExp" identifier="primaryRole">
+        <source xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.2/@parameters.0"/>
+        <feature xsi:type="ecore:EReference" href="datamodel.ecore#//Player/primaryRole"/>
+      </initExp>
+    </variables>
+    <variables var="email" classifier="EString" declaration="email : EString = &quot;&quot;">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <initExp xsi:type="webdsl:StringConstant" value=""/>
+    </variables>
+  </pages>
+  <pages name="playerForm" parameter="squad : Squad" variable="gender : EInt = player.gender">
+    <elements xsi:type="webdsl:Text" name="" class="h1" expression="&quot;Add a Player&quot;">
+      <content xsi:type="webdsl:StringConstant" value="Add a Player"/>
+    </elements>
+    <elements xsi:type="webdsl:Form" name="add-player-form">
+      <elements xsi:type="webdsl:Text" expression="&quot;* = Required fields&quot;">
+        <content xsi:type="webdsl:StringConstant" value="* = Required fields"/>
+      </elements>
+      <elements xsi:type="webdsl:TextInput" name="name" expression="" labelExpression="&quot;Name: *&quot;" valueExpression="player.name" required="true">
+        <label xsi:type="webdsl:StringConstant" value="Name: *"/>
+        <value xsi:type="webdsl:StructuralExp" identifier="name">
+          <source xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.0/@parameters.0"/>
+          <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/name"/>
+        </value>
+      </elements>
+      <elements xsi:type="webdsl:TextInput" name="height" labelExpression="&quot;Height:&quot;" valueExpression="player.height">
+        <label xsi:type="webdsl:StringConstant" value="Height:"/>
+        <value xsi:type="webdsl:StructuralExp" identifier="height">
+          <source xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.0/@parameters.0"/>
+          <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/height"/>
+        </value>
+      </elements>
+      <elements xsi:type="webdsl:SelectionList" name="gender" labelExpression="&quot;Gender:&quot;" valueExpression="player.gender" rendering="Radio" optionsExpression="[1 => &quot;Male&quot;, 0 => &quot;Female&quot;]">
+        <label xsi:type="webdsl:StringConstant" value="Gender:"/>
+        <value xsi:type="webdsl:StructuralExp" identifier="gender">
+          <source xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.0/@parameters.0"/>
+          <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/gender"/>
+        </value>
+        <options xsi:type="webdsl:ListExp">
+          <elements xsi:type="webdsl:ListElement">
+            <key xsi:type="webdsl:IntegerConstant" value="1"/>
+            <value xsi:type="webdsl:StringConstant" value="Male"/>
+          </elements>
+          <elements xsi:type="webdsl:ListElement">
+            <key xsi:type="webdsl:IntegerConstant"/>
+            <value xsi:type="webdsl:StringConstant" value="Female"/>
+          </elements>
+        </options>
+      </elements>
+      <elements xsi:type="webdsl:Save" name="save-player" value="Save" type="Submit" performerExpression="player">
+        <performer xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.2/@parameters.0"/>
+      </elements>
+      <elements xsi:type="webdsl:Button" name="reset" value="Reset" type="Reset"/>
+      <elements xsi:type="webdsl:SelectionList" name="secondaryRoles" labelExpression="&quot;Secondary Role(s):&quot;" valueExpression="player.secondaryRoles" rendering="Checkbox" isMultiple="true" optionsExpression="WebUtils.getAllRole()">
+        <label xsi:type="webdsl:StringConstant" value="Secondary Role(s):"/>
+        <value xsi:type="webdsl:StructuralExp" identifier="secondaryRoles">
+          <source xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.0/@parameters.0"/>
+          <feature xsi:type="ecore:EReference" href="datamodel.ecore#//Player/secondaryRoles"/>
+        </value>
+        <options xsi:type="webdsl:WebUtilExp" identifier="getAllRole"/>
+      </elements>
+      <elements xsi:type="webdsl:TextInput" name="biography" labelExpression="&quot;Biography&quot;" valueExpression="player.biography" isTextArea="true">
+        <label xsi:type="webdsl:StringConstant" value="Biography"/>
+        <value xsi:type="webdsl:StructuralExp" identifier="biography">
+          <source xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.0/@parameters.0"/>
+          <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/biography"/>
+        </value>
+      </elements>
+      <elements xsi:type="webdsl:SelectionList" name="primaryRole" labelExpression="&quot;Primary Role:&quot;" valueExpression="player.primaryRole" optionsExpression="WebUtils.getAllRole()">
+        <label xsi:type="webdsl:StringConstant" value="Primary Role:"/>
+        <value xsi:type="webdsl:StructuralExp" identifier="primaryRole">
+          <source xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.0/@parameters.0"/>
+          <feature xsi:type="ecore:EReference" href="datamodel.ecore#//Player/primaryRole"/>
+        </value>
+        <options xsi:type="webdsl:WebUtilExp" identifier="getAllRole"/>
+      </elements>
+    </elements>
+    <elements xsi:type="webdsl:InternalLink" name="to-squad" target="//@pages.0/@elements.0">
+      <source xsi:type="webdsl:Text" name="" expression="&quot;Back to &quot;.concat(squad.name)">
+        <content xsi:type="webdsl:StringOperation">
+          <operands xsi:type="webdsl:StringConstant" value="Back to "/>
+          <operands xsi:type="webdsl:StructuralExp" identifier="name">
+            <source xsi:type="webdsl:VariableExp" var="squad" declaration="//@pages.3/@parameters.2"/>
+            <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Squad/name"/>
+          </operands>
+        </content>
+      </source>
+      <actualParameters identifier="squad" formalParameter="//@pages.0/@parameters.0">
+        <value xsi:type="webdsl:VariableExp" var="squad" declaration="//@pages.0/@parameters.0"/>
+      </actualParameters>
+    </elements>
+    <parameters var="player" classifier="Player" declaration="player : Player">
+      <type xsi:type="ecore:EClass" href="datamodel.ecore#//Player"/>
+    </parameters>
+    <parameters var="role" classifier="Role" declaration="role : Role">
+      <type xsi:type="ecore:EClass" href="datamodel.ecore#//Role"/>
+    </parameters>
+    <parameters var="squad" classifier="Squad" declaration="squad : Squad">
+      <type xsi:type="ecore:EClass" href="datamodel.ecore#//Squad"/>
+    </parameters>
+  </pages>
+</webdsl:Website>

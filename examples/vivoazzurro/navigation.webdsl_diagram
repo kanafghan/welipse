@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:webdsl="http://github.com/kanafghan/welipse/webdsl/1.0" xmi:id="_sDQzYIwgEeOZ_-Ij4LPYFw" type="Webdsl" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_sKutUIwgEeOZ_-Ij4LPYFw" type="2001" fontName="Segoe UI" fillColor="12632256">
+    <children xmi:type="notation:DecorationNode" xmi:id="_sKutUowgEeOZ_-Ij4LPYFw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_sKutU4wgEeOZ_-Ij4LPYFw" type="7001" collapsed="true"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_sKutVIwgEeOZ_-Ij4LPYFw" type="7002" collapsed="true"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_sKutVYwgEeOZ_-Ij4LPYFw" type="7003">
+      <children xmi:type="notation:Shape" xmi:id="_sKxwoIwgEeOZ_-Ij4LPYFw" type="3006" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_sKxwoowgEeOZ_-Ij4LPYFw" type="5025"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_sKyXsIwgEeOZ_-Ij4LPYFw" type="7007">
+          <children xmi:type="notation:Shape" xmi:id="_sKy-wIwgEeOZ_-Ij4LPYFw" visible="false" type="3016" fontName="Segoe UI">
+            <children xmi:type="notation:DecorationNode" xmi:id="_sKy-wowgEeOZ_-Ij4LPYFw" type="5037"/>
+            <element xmi:type="webdsl:Text" href="vivoazzurro.webdsl#//@pages.0/@elements.0/@elements.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sKy-wYwgEeOZ_-Ij4LPYFw"/>
+          </children>
+          <children xmi:type="notation:Shape" xmi:id="_sKy-w4wgEeOZ_-Ij4LPYFw" visible="false" type="3017" fontName="Segoe UI">
+            <children xmi:type="notation:DecorationNode" xmi:id="_sKzl0IwgEeOZ_-Ij4LPYFw" type="5038"/>
+            <element xmi:type="webdsl:Image" href="vivoazzurro.webdsl#//@pages.0/@elements.0/@elements.1"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sKy-xIwgEeOZ_-Ij4LPYFw" x="160"/>
+          </children>
+          <children xmi:type="notation:Shape" xmi:id="_sKzl0YwgEeOZ_-Ij4LPYFw" type="3019" fontName="Segoe UI">
+            <children xmi:type="notation:DecorationNode" xmi:id="_sKzl04wgEeOZ_-Ij4LPYFw" type="5043"/>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_sKzl1IwgEeOZ_-Ij4LPYFw" type="7009">
+              <children xmi:type="notation:Node" xmi:id="_sK0z8IwgEeOZ_-Ij4LPYFw" type="3018">
+                <children xmi:type="notation:DecorationNode" xmi:id="_sK1bAIwgEeOZ_-Ij4LPYFw" type="5039"/>
+                <children xmi:type="notation:DecorationNode" xmi:id="_sK1bAYwgEeOZ_-Ij4LPYFw" type="5040"/>
+                <children xmi:type="notation:BasicCompartment" xmi:id="_sK1bAowgEeOZ_-Ij4LPYFw" type="7008">
+                  <children xmi:type="notation:Shape" xmi:id="_sK2CEIwgEeOZ_-Ij4LPYFw" type="3013" fontName="Segoe UI">
+                    <children xmi:type="notation:DecorationNode" xmi:id="_sK2pIIwgEeOZ_-Ij4LPYFw" type="5032"/>
+                    <children xmi:type="notation:BasicCompartment" xmi:id="_sK2pIYwgEeOZ_-Ij4LPYFw" type="7006">
+                      <children xmi:type="notation:Shape" xmi:id="_sK3QMIwgEeOZ_-Ij4LPYFw" type="3019" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sK33QIwgEeOZ_-Ij4LPYFw" type="5043"/>
+                        <children xmi:type="notation:BasicCompartment" xmi:id="_sK33QYwgEeOZ_-Ij4LPYFw" type="7009">
+                          <children xmi:type="notation:Shape" xmi:id="_sK5FYIwgEeOZ_-Ij4LPYFw" type="3019" fontName="Segoe UI">
+                            <children xmi:type="notation:DecorationNode" xmi:id="_sK5FYowgEeOZ_-Ij4LPYFw" type="5043"/>
+                            <children xmi:type="notation:BasicCompartment" xmi:id="_sK5FY4wgEeOZ_-Ij4LPYFw" type="7009">
+                              <children xmi:type="notation:Shape" xmi:id="_sK6TgIwgEeOZ_-Ij4LPYFw" type="3020" fontName="Segoe UI">
+                                <children xmi:type="notation:DecorationNode" xmi:id="_sK66kIwgEeOZ_-Ij4LPYFw" type="5041"/>
+                                <children xmi:type="notation:BasicCompartment" xmi:id="_sK66kYwgEeOZ_-Ij4LPYFw" type="7012"/>
+                                <children xmi:type="notation:BasicCompartment" xmi:id="_sK66kowgEeOZ_-Ij4LPYFw" type="7013"/>
+                                <element xmi:type="webdsl:InternalLink" href="vivoazzurro.webdsl#//@pages.0/@elements.0/@elements.2/@elements.0/@elements.0/@elements.0/@elements.0/@elements.0"/>
+                                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sK6TgYwgEeOZ_-Ij4LPYFw"/>
+                              </children>
+                            </children>
+                            <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.0/@elements.0/@elements.2/@elements.0/@elements.0/@elements.0/@elements.0"/>
+                            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sK5FYYwgEeOZ_-Ij4LPYFw" width="223"/>
+                          </children>
+                          <children xmi:type="notation:Shape" xmi:id="_sK5FZIwgEeOZ_-Ij4LPYFw" type="3019" fontName="Segoe UI">
+                            <children xmi:type="notation:DecorationNode" xmi:id="_sK5FZowgEeOZ_-Ij4LPYFw" type="5043"/>
+                            <children xmi:type="notation:BasicCompartment" xmi:id="_sK5scIwgEeOZ_-Ij4LPYFw" type="7009">
+                              <children xmi:type="notation:Node" xmi:id="_sK_zEIwgEeOZ_-Ij4LPYFw" type="3018">
+                                <children xmi:type="notation:DecorationNode" xmi:id="_sK_zFYwgEeOZ_-Ij4LPYFw" type="5039"/>
+                                <children xmi:type="notation:DecorationNode" xmi:id="_sK_zFowgEeOZ_-Ij4LPYFw" type="5040"/>
+                                <children xmi:type="notation:BasicCompartment" xmi:id="_sK_zF4wgEeOZ_-Ij4LPYFw" type="7008">
+                                  <children xmi:type="notation:Shape" xmi:id="_sLBBMIwgEeOZ_-Ij4LPYFw" type="3013" fontName="Segoe UI">
+                                    <children xmi:type="notation:DecorationNode" xmi:id="_sLBBMowgEeOZ_-Ij4LPYFw" type="5032"/>
+                                    <children xmi:type="notation:BasicCompartment" xmi:id="_sLBBM4wgEeOZ_-Ij4LPYFw" type="7006">
+                                      <children xmi:type="notation:Shape" xmi:id="_sLCPUIwgEeOZ_-Ij4LPYFw" visible="false" type="3019" fontName="Segoe UI">
+                                        <children xmi:type="notation:DecorationNode" xmi:id="_sLCPUowgEeOZ_-Ij4LPYFw" type="5043"/>
+                                        <children xmi:type="notation:BasicCompartment" xmi:id="_sLCPU4wgEeOZ_-Ij4LPYFw" type="7009">
+                                          <children xmi:type="notation:Shape" xmi:id="_sLDdcIwgEeOZ_-Ij4LPYFw" visible="false" type="3017" fontName="Segoe UI">
+                                            <children xmi:type="notation:DecorationNode" xmi:id="_sLDdcowgEeOZ_-Ij4LPYFw" type="5038"/>
+                                            <element xmi:type="webdsl:Image" href="vivoazzurro.webdsl#//@pages.0/@elements.0/@elements.2/@elements.0/@elements.0/@elements.0/@elements.1/@elements.0/@elements.0/@elements.0/@elements.0"/>
+                                            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sLDdcYwgEeOZ_-Ij4LPYFw"/>
+                                          </children>
+                                        </children>
+                                        <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.0/@elements.0/@elements.2/@elements.0/@elements.0/@elements.0/@elements.1/@elements.0/@elements.0/@elements.0"/>
+                                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sLCPUYwgEeOZ_-Ij4LPYFw"/>
+                                      </children>
+                                      <children xmi:type="notation:Shape" xmi:id="_sLCPVIwgEeOZ_-Ij4LPYFw" type="3019" fontName="Segoe UI">
+                                        <children xmi:type="notation:DecorationNode" xmi:id="_sLCPVowgEeOZ_-Ij4LPYFw" type="5043"/>
+                                        <children xmi:type="notation:BasicCompartment" xmi:id="_sLC2YIwgEeOZ_-Ij4LPYFw" type="7009">
+                                          <children xmi:type="notation:Shape" xmi:id="_sLErkIwgEeOZ_-Ij4LPYFw" type="3020" fontName="Segoe UI">
+                                            <children xmi:type="notation:DecorationNode" xmi:id="_sLFSoIwgEeOZ_-Ij4LPYFw" type="5041"/>
+                                            <children xmi:type="notation:BasicCompartment" xmi:id="_sLFSoYwgEeOZ_-Ij4LPYFw" type="7012"/>
+                                            <children xmi:type="notation:BasicCompartment" xmi:id="_sLFSoowgEeOZ_-Ij4LPYFw" type="7013"/>
+                                            <element xmi:type="webdsl:InternalLink" href="vivoazzurro.webdsl#//@pages.0/@elements.0/@elements.2/@elements.0/@elements.0/@elements.0/@elements.1/@elements.0/@elements.0/@elements.1/@elements.0"/>
+                                            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sLErkYwgEeOZ_-Ij4LPYFw"/>
+                                          </children>
+                                        </children>
+                                        <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.0/@elements.0/@elements.2/@elements.0/@elements.0/@elements.0/@elements.1/@elements.0/@elements.0/@elements.1"/>
+                                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sLCPVYwgEeOZ_-Ij4LPYFw" x="1" width="146" height="131"/>
+                                      </children>
+                                    </children>
+                                    <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.0/@elements.0/@elements.2/@elements.0/@elements.0/@elements.0/@elements.1/@elements.0/@elements.0"/>
+                                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sLBBMYwgEeOZ_-Ij4LPYFw" width="164" height="165"/>
+                                  </children>
+                                </children>
+                                <styles xmi:type="notation:DescriptionStyle" xmi:id="_sK_zEYwgEeOZ_-Ij4LPYFw"/>
+                                <styles xmi:type="notation:FontStyle" xmi:id="_sK_zEowgEeOZ_-Ij4LPYFw" fontName="Segoe UI"/>
+                                <styles xmi:type="notation:FillStyle" xmi:id="_sK_zE4wgEeOZ_-Ij4LPYFw"/>
+                                <element xmi:type="webdsl:List" href="vivoazzurro.webdsl#//@pages.0/@elements.0/@elements.2/@elements.0/@elements.0/@elements.0/@elements.1/@elements.0"/>
+                                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sK_zFIwgEeOZ_-Ij4LPYFw" x="3" y="3" width="196" height="209"/>
+                              </children>
+                            </children>
+                            <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.0/@elements.0/@elements.2/@elements.0/@elements.0/@elements.0/@elements.1"/>
+                            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sK5FZYwgEeOZ_-Ij4LPYFw" x="2" y="160" width="221" height="261"/>
+                          </children>
+                        </children>
+                        <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.0/@elements.0/@elements.2/@elements.0/@elements.0/@elements.0"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sK3QMYwgEeOZ_-Ij4LPYFw" width="245" height="455"/>
+                      </children>
+                    </children>
+                    <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.0/@elements.0/@elements.2/@elements.0/@elements.0"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sK2CEYwgEeOZ_-Ij4LPYFw" width="262" height="489"/>
+                  </children>
+                </children>
+                <styles xmi:type="notation:DescriptionStyle" xmi:id="_sK0z8YwgEeOZ_-Ij4LPYFw"/>
+                <styles xmi:type="notation:FontStyle" xmi:id="_sK0z8owgEeOZ_-Ij4LPYFw" fontName="Segoe UI"/>
+                <styles xmi:type="notation:FillStyle" xmi:id="_sK0z84wgEeOZ_-Ij4LPYFw"/>
+                <element xmi:type="webdsl:List" href="vivoazzurro.webdsl#//@pages.0/@elements.0/@elements.2/@elements.0"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sK0z9IwgEeOZ_-Ij4LPYFw" width="279" height="533"/>
+              </children>
+            </children>
+            <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.0/@elements.0/@elements.2"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sKzl0owgEeOZ_-Ij4LPYFw" x="3" y="1" width="296" height="587"/>
+          </children>
+        </children>
+        <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.0/@elements.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sKxwoYwgEeOZ_-Ij4LPYFw" x="141" y="2" width="316" height="632"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_tyDGoIyzEeOIeeLsc9PvkA" type="3007" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_tyDtsIyzEeOIeeLsc9PvkA" type="5027"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_tyDtsYyzEeOIeeLsc9PvkA" type="7014"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_tyDtsoyzEeOIeeLsc9PvkA" type="7015"/>
+        <element xmi:type="webdsl:InternalLink" href="vivoazzurro.webdsl#//@pages.0/@elements.1"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tyDGoYyzEeOIeeLsc9PvkA"/>
+      </children>
+    </children>
+    <element xmi:type="webdsl:Page" href="vivoazzurro.webdsl#//@pages.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sKutUYwgEeOZ_-Ij4LPYFw" x="-10" width="486" height="706"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_sKutVowgEeOZ_-Ij4LPYFw" type="2001" fontName="Segoe UI" fillColor="10011046">
+    <children xmi:type="notation:DecorationNode" xmi:id="_sKvUYIwgEeOZ_-Ij4LPYFw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_sKvUYYwgEeOZ_-Ij4LPYFw" type="7001" collapsed="true"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_sKvUYowgEeOZ_-Ij4LPYFw" type="7002" collapsed="true"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_sKvUY4wgEeOZ_-Ij4LPYFw" type="7003">
+      <children xmi:type="notation:Shape" xmi:id="_sLdGEIwgEeOZ_-Ij4LPYFw" type="3006" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_sLdGEowgEeOZ_-Ij4LPYFw" type="5025"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_sLdGE4wgEeOZ_-Ij4LPYFw" type="7007">
+          <children xmi:type="notation:Shape" xmi:id="_sLeUMIwgEeOZ_-Ij4LPYFw" visible="false" type="3016" fontName="Segoe UI">
+            <children xmi:type="notation:DecorationNode" xmi:id="_sLeUMowgEeOZ_-Ij4LPYFw" type="5037"/>
+            <element xmi:type="webdsl:Text" href="vivoazzurro.webdsl#//@pages.1/@elements.0/@elements.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sLeUMYwgEeOZ_-Ij4LPYFw"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_sLeUM4wgEeOZ_-Ij4LPYFw" type="3018">
+            <children xmi:type="notation:DecorationNode" xmi:id="_sLeUOIwgEeOZ_-Ij4LPYFw" type="5039"/>
+            <children xmi:type="notation:DecorationNode" xmi:id="_sLeUOYwgEeOZ_-Ij4LPYFw" type="5040"/>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_sLeUOowgEeOZ_-Ij4LPYFw" type="7008">
+              <children xmi:type="notation:Shape" xmi:id="_sLgJYIwgEeOZ_-Ij4LPYFw" type="3013" fontName="Segoe UI">
+                <children xmi:type="notation:DecorationNode" xmi:id="_sLgJYowgEeOZ_-Ij4LPYFw" type="5032"/>
+                <children xmi:type="notation:BasicCompartment" xmi:id="_sLgJY4wgEeOZ_-Ij4LPYFw" type="7006">
+                  <children xmi:type="notation:Shape" xmi:id="_sLhXgIwgEeOZ_-Ij4LPYFw" visible="false" type="3019" fontName="Segoe UI">
+                    <children xmi:type="notation:DecorationNode" xmi:id="_sLhXgowgEeOZ_-Ij4LPYFw" type="5043"/>
+                    <children xmi:type="notation:BasicCompartment" xmi:id="_sLhXg4wgEeOZ_-Ij4LPYFw" type="7009"/>
+                    <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.1/@elements.0/@elements.1/@elements.0/@elements.0"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sLhXgYwgEeOZ_-Ij4LPYFw" width="172"/>
+                  </children>
+                  <children xmi:type="notation:Shape" xmi:id="_sLhXhIwgEeOZ_-Ij4LPYFw" type="3019" fontName="Segoe UI">
+                    <children xmi:type="notation:DecorationNode" xmi:id="_sLhXhowgEeOZ_-Ij4LPYFw" type="5043"/>
+                    <children xmi:type="notation:BasicCompartment" xmi:id="_sLhXh4wgEeOZ_-Ij4LPYFw" type="7009">
+                      <children xmi:type="notation:Shape" xmi:id="_sLjzwIwgEeOZ_-Ij4LPYFw" type="3020" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sLjzwowgEeOZ_-Ij4LPYFw" type="5041"/>
+                        <children xmi:type="notation:BasicCompartment" xmi:id="_sLjzw4wgEeOZ_-Ij4LPYFw" type="7012"/>
+                        <children xmi:type="notation:BasicCompartment" xmi:id="_sLka0IwgEeOZ_-Ij4LPYFw" type="7013"/>
+                        <element xmi:type="webdsl:InternalLink" href="vivoazzurro.webdsl#//@pages.1/@elements.0/@elements.1/@elements.0/@elements.1/@elements.0"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sLjzwYwgEeOZ_-Ij4LPYFw"/>
+                      </children>
+                    </children>
+                    <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.1/@elements.0/@elements.1/@elements.0/@elements.1"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sLhXhYwgEeOZ_-Ij4LPYFw" x="6" y="4" width="146" height="136"/>
+                  </children>
+                </children>
+                <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.1/@elements.0/@elements.1/@elements.0"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sLgJYYwgEeOZ_-Ij4LPYFw" width="169" height="174"/>
+              </children>
+            </children>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_sLeUNIwgEeOZ_-Ij4LPYFw"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_sLeUNYwgEeOZ_-Ij4LPYFw" fontName="Segoe UI"/>
+            <styles xmi:type="notation:FillStyle" xmi:id="_sLeUNowgEeOZ_-Ij4LPYFw"/>
+            <element xmi:type="webdsl:List" href="vivoazzurro.webdsl#//@pages.1/@elements.0/@elements.1"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sLeUN4wgEeOZ_-Ij4LPYFw" x="4" y="1" width="191" height="218"/>
+          </children>
+        </children>
+        <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.1/@elements.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sLdGEYwgEeOZ_-Ij4LPYFw" width="212" height="268"/>
+      </children>
+    </children>
+    <element xmi:type="webdsl:Page" href="vivoazzurro.webdsl#//@pages.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sKutV4wgEeOZ_-Ij4LPYFw" x="500" y="5" width="231" height="341"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_sKvUZIwgEeOZ_-Ij4LPYFw" type="2001" fontName="Segoe UI" fillColor="12621752">
+    <children xmi:type="notation:DecorationNode" xmi:id="_sKvUZowgEeOZ_-Ij4LPYFw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_sKvUZ4wgEeOZ_-Ij4LPYFw" type="7001" collapsed="true"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_sKvUaIwgEeOZ_-Ij4LPYFw" type="7002" collapsed="true"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_sKvUaYwgEeOZ_-Ij4LPYFw" type="7003">
+      <children xmi:type="notation:Shape" xmi:id="_sL05gIwgEeOZ_-Ij4LPYFw" type="3006" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_sL05gowgEeOZ_-Ij4LPYFw" type="5025"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_sL05g4wgEeOZ_-Ij4LPYFw" type="7007">
+          <children xmi:type="notation:Shape" xmi:id="_sL2HoIwgEeOZ_-Ij4LPYFw" visible="false" type="3016" fontName="Segoe UI">
+            <children xmi:type="notation:DecorationNode" xmi:id="_sL2HoowgEeOZ_-Ij4LPYFw" type="5037"/>
+            <element xmi:type="webdsl:Text" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sL2HoYwgEeOZ_-Ij4LPYFw"/>
+          </children>
+          <children xmi:type="notation:Shape" xmi:id="_sL2Ho4wgEeOZ_-Ij4LPYFw" visible="false" type="3017" fontName="Segoe UI">
+            <children xmi:type="notation:DecorationNode" xmi:id="_sL2HpYwgEeOZ_-Ij4LPYFw" type="5038"/>
+            <element xmi:type="webdsl:Image" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.1"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sL2HpIwgEeOZ_-Ij4LPYFw" x="160"/>
+          </children>
+          <children xmi:type="notation:Shape" xmi:id="_sL2HpowgEeOZ_-Ij4LPYFw" type="3019" fontName="Segoe UI">
+            <children xmi:type="notation:DecorationNode" xmi:id="_sL2HqIwgEeOZ_-Ij4LPYFw" type="5043"/>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_sL2HqYwgEeOZ_-Ij4LPYFw" type="7009">
+              <children xmi:type="notation:Shape" xmi:id="_sL380IwgEeOZ_-Ij4LPYFw" visible="false" type="3019" fontName="Segoe UI">
+                <children xmi:type="notation:DecorationNode" xmi:id="_sL380owgEeOZ_-Ij4LPYFw" type="5043"/>
+                <children xmi:type="notation:BasicCompartment" xmi:id="_sL4j4IwgEeOZ_-Ij4LPYFw" type="7009">
+                  <children xmi:type="notation:Shape" xmi:id="_sL7AIIwgEeOZ_-Ij4LPYFw" visible="false" type="3016" fontName="Segoe UI">
+                    <children xmi:type="notation:DecorationNode" xmi:id="_sL7AIowgEeOZ_-Ij4LPYFw" type="5037"/>
+                    <element xmi:type="webdsl:Text" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.0/@elements.0"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sL7AIYwgEeOZ_-Ij4LPYFw"/>
+                  </children>
+                  <children xmi:type="notation:Shape" xmi:id="_sL7AI4wgEeOZ_-Ij4LPYFw" visible="false" type="3016" fontName="Segoe UI">
+                    <children xmi:type="notation:DecorationNode" xmi:id="_sL7nMIwgEeOZ_-Ij4LPYFw" type="5037"/>
+                    <element xmi:type="webdsl:Text" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.0/@elements.1"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sL7AJIwgEeOZ_-Ij4LPYFw" x="160"/>
+                  </children>
+                </children>
+                <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.0"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sL380YwgEeOZ_-Ij4LPYFw"/>
+              </children>
+              <children xmi:type="notation:Shape" xmi:id="_sL5yAIwgEeOZ_-Ij4LPYFw" type="3019" fontName="Segoe UI">
+                <children xmi:type="notation:DecorationNode" xmi:id="_sL5yAowgEeOZ_-Ij4LPYFw" type="5043"/>
+                <children xmi:type="notation:BasicCompartment" xmi:id="_sL5yA4wgEeOZ_-Ij4LPYFw" type="7009">
+                  <children xmi:type="notation:Shape" xmi:id="_sL_4oIwgEeOZ_-Ij4LPYFw" visible="false" type="3016" fontName="Segoe UI">
+                    <children xmi:type="notation:DecorationNode" xmi:id="_sL_4oowgEeOZ_-Ij4LPYFw" type="5037"/>
+                    <element xmi:type="webdsl:Text" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.0"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sL_4oYwgEeOZ_-Ij4LPYFw"/>
+                  </children>
+                  <children xmi:type="notation:Shape" xmi:id="_sL_4o4wgEeOZ_-Ij4LPYFw" visible="false" type="3019" fontName="Segoe UI">
+                    <children xmi:type="notation:DecorationNode" xmi:id="_sL_4pYwgEeOZ_-Ij4LPYFw" type="5043"/>
+                    <children xmi:type="notation:BasicCompartment" xmi:id="_sL_4powgEeOZ_-Ij4LPYFw" type="7009">
+                      <children xmi:type="notation:Shape" xmi:id="_sMCU4IwgEeOZ_-Ij4LPYFw" visible="false" type="3016" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sMC78IwgEeOZ_-Ij4LPYFw" type="5037"/>
+                        <element xmi:type="webdsl:Text" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.1/@elements.0"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMCU4YwgEeOZ_-Ij4LPYFw"/>
+                      </children>
+                      <children xmi:type="notation:Shape" xmi:id="_sMC78YwgEeOZ_-Ij4LPYFw" visible="false" type="3016" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sMC784wgEeOZ_-Ij4LPYFw" type="5037"/>
+                        <element xmi:type="webdsl:Text" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.1/@elements.1"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMC78owgEeOZ_-Ij4LPYFw" x="160"/>
+                      </children>
+                      <children xmi:type="notation:Shape" xmi:id="_sMC79IwgEeOZ_-Ij4LPYFw" type="3019" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sMC79owgEeOZ_-Ij4LPYFw" type="5043"/>
+                        <children xmi:type="notation:BasicCompartment" xmi:id="_sMC794wgEeOZ_-Ij4LPYFw" type="7009"/>
+                        <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.1/@elements.2"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMC79YwgEeOZ_-Ij4LPYFw" x="320"/>
+                      </children>
+                    </children>
+                    <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.1"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sL_4pIwgEeOZ_-Ij4LPYFw" x="160" width="150" height="87"/>
+                  </children>
+                  <children xmi:type="notation:Shape" xmi:id="_sL_4p4wgEeOZ_-Ij4LPYFw" visible="false" type="3019" fontName="Segoe UI">
+                    <children xmi:type="notation:DecorationNode" xmi:id="_sMAfsIwgEeOZ_-Ij4LPYFw" type="5043"/>
+                    <children xmi:type="notation:BasicCompartment" xmi:id="_sMAfsYwgEeOZ_-Ij4LPYFw" type="7009">
+                      <children xmi:type="notation:Shape" xmi:id="_sMJCkIwgEeOZ_-Ij4LPYFw" type="3021" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sMJCkowgEeOZ_-Ij4LPYFw" type="5042"/>
+                        <children xmi:type="notation:BasicCompartment" xmi:id="_sMJCk4wgEeOZ_-Ij4LPYFw" type="7017"/>
+                        <element xmi:type="webdsl:ExternalLink" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.2/@elements.0"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMJCkYwgEeOZ_-Ij4LPYFw"/>
+                      </children>
+                      <children xmi:type="notation:Shape" xmi:id="_sMJClIwgEeOZ_-Ij4LPYFw" visible="false" type="3016" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sMJClowgEeOZ_-Ij4LPYFw" type="5037"/>
+                        <element xmi:type="webdsl:Text" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.2/@elements.1"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMJClYwgEeOZ_-Ij4LPYFw" x="190"/>
+                      </children>
+                      <children xmi:type="notation:Shape" xmi:id="_sMJpoIwgEeOZ_-Ij4LPYFw" type="3019" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sMJpoowgEeOZ_-Ij4LPYFw" type="5043"/>
+                        <children xmi:type="notation:BasicCompartment" xmi:id="_sMJpo4wgEeOZ_-Ij4LPYFw" type="7009"/>
+                        <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.2/@elements.2"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMJpoYwgEeOZ_-Ij4LPYFw" x="350"/>
+                      </children>
+                    </children>
+                    <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.2"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sL_4qIwgEeOZ_-Ij4LPYFw" x="420"/>
+                  </children>
+                  <children xmi:type="notation:Shape" xmi:id="_sMAfsowgEeOZ_-Ij4LPYFw" visible="false" type="3019" fontName="Segoe UI">
+                    <children xmi:type="notation:DecorationNode" xmi:id="_sMAftIwgEeOZ_-Ij4LPYFw" type="5043"/>
+                    <children xmi:type="notation:BasicCompartment" xmi:id="_sMAftYwgEeOZ_-Ij4LPYFw" type="7009">
+                      <children xmi:type="notation:Shape" xmi:id="_sMRlcIwgEeOZ_-Ij4LPYFw" visible="false" type="3016" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sMRlcowgEeOZ_-Ij4LPYFw" type="5037"/>
+                        <element xmi:type="webdsl:Text" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.3/@elements.0"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMRlcYwgEeOZ_-Ij4LPYFw"/>
+                      </children>
+                      <children xmi:type="notation:Shape" xmi:id="_sMRlc4wgEeOZ_-Ij4LPYFw" visible="false" type="3016" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sMRldYwgEeOZ_-Ij4LPYFw" type="5037"/>
+                        <element xmi:type="webdsl:Text" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.3/@elements.1"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMRldIwgEeOZ_-Ij4LPYFw" x="160"/>
+                      </children>
+                      <children xmi:type="notation:Shape" xmi:id="_sMRldowgEeOZ_-Ij4LPYFw" visible="false" type="3019" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sMRleIwgEeOZ_-Ij4LPYFw" type="5043"/>
+                        <children xmi:type="notation:BasicCompartment" xmi:id="_sMRleYwgEeOZ_-Ij4LPYFw" type="7009"/>
+                        <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.3/@elements.2"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMRld4wgEeOZ_-Ij4LPYFw" x="320"/>
+                      </children>
+                    </children>
+                    <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.3"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMAfs4wgEeOZ_-Ij4LPYFw" x="680" width="340" height="162"/>
+                  </children>
+                  <children xmi:type="notation:Shape" xmi:id="_sMAftowgEeOZ_-Ij4LPYFw" visible="false" type="3019" fontName="Segoe UI">
+                    <children xmi:type="notation:DecorationNode" xmi:id="_sMAfuIwgEeOZ_-Ij4LPYFw" type="5043"/>
+                    <children xmi:type="notation:BasicCompartment" xmi:id="_sMAfuYwgEeOZ_-Ij4LPYFw" type="7009">
+                      <children xmi:type="notation:Shape" xmi:id="_sMXsEIwgEeOZ_-Ij4LPYFw" visible="false" type="3016" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sMXsEowgEeOZ_-Ij4LPYFw" type="5037"/>
+                        <element xmi:type="webdsl:Text" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.4/@elements.0"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMXsEYwgEeOZ_-Ij4LPYFw"/>
+                      </children>
+                      <children xmi:type="notation:Shape" xmi:id="_sMXsE4wgEeOZ_-Ij4LPYFw" visible="false" type="3016" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sMYTIIwgEeOZ_-Ij4LPYFw" type="5037"/>
+                        <element xmi:type="webdsl:Text" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.4/@elements.1"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMXsFIwgEeOZ_-Ij4LPYFw" x="160"/>
+                      </children>
+                      <children xmi:type="notation:Shape" xmi:id="_sMYTIYwgEeOZ_-Ij4LPYFw" type="3019" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sMYTI4wgEeOZ_-Ij4LPYFw" type="5043"/>
+                        <children xmi:type="notation:BasicCompartment" xmi:id="_sMYTJIwgEeOZ_-Ij4LPYFw" type="7009"/>
+                        <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.4/@elements.2"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMYTIowgEeOZ_-Ij4LPYFw" x="320"/>
+                      </children>
+                    </children>
+                    <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.4"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMAft4wgEeOZ_-Ij4LPYFw" x="940"/>
+                  </children>
+                  <children xmi:type="notation:Shape" xmi:id="_sMAfuowgEeOZ_-Ij4LPYFw" type="3019" fontName="Segoe UI">
+                    <children xmi:type="notation:DecorationNode" xmi:id="_sMBGwIwgEeOZ_-Ij4LPYFw" type="5043"/>
+                    <children xmi:type="notation:BasicCompartment" xmi:id="_sMBGwYwgEeOZ_-Ij4LPYFw" type="7009">
+                      <children xmi:type="notation:Shape" xmi:id="_sMeZwIwgEeOZ_-Ij4LPYFw" type="3020" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sMeZwowgEeOZ_-Ij4LPYFw" type="5041"/>
+                        <children xmi:type="notation:BasicCompartment" xmi:id="_sMeZw4wgEeOZ_-Ij4LPYFw" type="7012"/>
+                        <children xmi:type="notation:BasicCompartment" xmi:id="_sMeZxIwgEeOZ_-Ij4LPYFw" type="7013"/>
+                        <element xmi:type="webdsl:InternalLink" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.5/@elements.0"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMeZwYwgEeOZ_-Ij4LPYFw"/>
+                      </children>
+                      <children xmi:type="notation:Shape" xmi:id="_sMeZxYwgEeOZ_-Ij4LPYFw" visible="false" type="3016" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sMeZx4wgEeOZ_-Ij4LPYFw" type="5037"/>
+                        <element xmi:type="webdsl:Text" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.5/@elements.1"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMeZxowgEeOZ_-Ij4LPYFw" x="190"/>
+                      </children>
+                      <children xmi:type="notation:Shape" xmi:id="_sMeZyIwgEeOZ_-Ij4LPYFw" visible="false" type="3019" fontName="Segoe UI">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_sMfA0IwgEeOZ_-Ij4LPYFw" type="5043"/>
+                        <children xmi:type="notation:BasicCompartment" xmi:id="_sMfA0YwgEeOZ_-Ij4LPYFw" type="7009"/>
+                        <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.5/@elements.2"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMeZyYwgEeOZ_-Ij4LPYFw" x="350"/>
+                      </children>
+                    </children>
+                    <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1/@elements.5"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMAfu4wgEeOZ_-Ij4LPYFw" x="4" y="1" width="151" height="136"/>
+                  </children>
+                </children>
+                <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2/@elements.1"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sL5yAYwgEeOZ_-Ij4LPYFw" x="7" width="172" height="171"/>
+              </children>
+            </children>
+            <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.2/@elements.0/@elements.2"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sL2Hp4wgEeOZ_-Ij4LPYFw" x="4" y="2" width="196" height="205"/>
+          </children>
+        </children>
+        <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.2/@elements.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sL05gYwgEeOZ_-Ij4LPYFw" width="217" height="239"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_tydWUIyzEeOIeeLsc9PvkA" visible="false" type="3006" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_tydWUoyzEeOIeeLsc9PvkA" type="5025"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_tydWU4yzEeOIeeLsc9PvkA" type="7007"/>
+        <element xmi:type="webdsl:Group" href="vivoazzurro.webdsl#//@pages.2/@elements.1"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tydWUYyzEeOIeeLsc9PvkA"/>
+      </children>
+    </children>
+    <element xmi:type="webdsl:Page" href="vivoazzurro.webdsl#//@pages.2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sKvUZYwgEeOZ_-Ij4LPYFw" x="495" y="395" width="236" height="311"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_tyyGcIyzEeOIeeLsc9PvkA" type="2001" fontName="Segoe UI" fillColor="8905185">
+    <children xmi:type="notation:DecorationNode" xmi:id="_tyytgIyzEeOIeeLsc9PvkA" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_tyytgYyzEeOIeeLsc9PvkA" type="7001" collapsed="true"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_tyytgoyzEeOIeeLsc9PvkA" type="7002" collapsed="true"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_tyytg4yzEeOIeeLsc9PvkA" type="7003">
+      <children xmi:type="notation:Shape" xmi:id="_ty-6wIyzEeOIeeLsc9PvkA" type="3003" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_ty-6woyzEeOIeeLsc9PvkA" type="5004"/>
+        <element xmi:type="webdsl:Text" href="vivoazzurro.webdsl#//@pages.3/@elements.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ty-6wYyzEeOIeeLsc9PvkA" y="3"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_ty_h0IyzEeOIeeLsc9PvkA" type="3025" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_ty_h0oyzEeOIeeLsc9PvkA" type="5047"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_ty_h04yzEeOIeeLsc9PvkA" type="7020" collapsed="true"/>
+        <element xmi:type="webdsl:Form" href="vivoazzurro.webdsl#//@pages.3/@elements.1"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ty_h0YyzEeOIeeLsc9PvkA" x="1" y="32"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_ty_h1IyzEeOIeeLsc9PvkA" type="3007" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_tzAI4IyzEeOIeeLsc9PvkA" type="5027"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_tzAI4YyzEeOIeeLsc9PvkA" type="7014"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_tzAI4oyzEeOIeeLsc9PvkA" type="7015"/>
+        <element xmi:type="webdsl:InternalLink" href="vivoazzurro.webdsl#//@pages.3/@elements.2"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ty_h1YyzEeOIeeLsc9PvkA" x="1" y="197" width="201"/>
+      </children>
+    </children>
+    <element xmi:type="webdsl:Page" href="vivoazzurro.webdsl#//@pages.3"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tyyGcYyzEeOIeeLsc9PvkA" x="-290" height="376"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_sDQzYYwgEeOZ_-Ij4LPYFw"/>
+  <element xmi:type="webdsl:Website" href="vivoazzurro.webdsl#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_sM-wEIwgEeOZ_-Ij4LPYFw" type="4004" source="_sK6TgIwgEeOZ_-Ij4LPYFw" target="_sLdGEIwgEeOZ_-Ij4LPYFw">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_sM-wEYwgEeOZ_-Ij4LPYFw" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_sM-wEowgEeOZ_-Ij4LPYFw" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_sM-wE4wgEeOZ_-Ij4LPYFw" points="[65, -24, -295, 44]$[254, -24, -106, 44]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_sM_-MIwgEeOZ_-Ij4LPYFw" type="4004" source="_sLErkIwgEeOZ_-Ij4LPYFw" target="_sL05gIwgEeOZ_-Ij4LPYFw">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_sM_-MYwgEeOZ_-Ij4LPYFw" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_sM_-MowgEeOZ_-Ij4LPYFw" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_sM_-M4wgEeOZ_-Ij4LPYFw" points="[-27, -50, 134, 258]$[-161, -308, 0, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_sNAlQIwgEeOZ_-Ij4LPYFw" type="4004" source="_sLjzwIwgEeOZ_-Ij4LPYFw" target="_sL05gIwgEeOZ_-Ij4LPYFw">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_sNAlQYwgEeOZ_-Ij4LPYFw" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_sNAlQowgEeOZ_-Ij4LPYFw" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_sNAlQ4wgEeOZ_-Ij4LPYFw" points="[-34, -50, 72, 108]$[-106, -158, 0, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_sNBzYIwgEeOZ_-Ij4LPYFw" type="4004" source="_sMeZwIwgEeOZ_-Ij4LPYFw" target="_sLdGEIwgEeOZ_-Ij4LPYFw">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_sNBzYYwgEeOZ_-Ij4LPYFw" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_sNBzYowgEeOZ_-Ij4LPYFw" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_sNBzY4wgEeOZ_-Ij4LPYFw" points="[33, -50, 30, 355]$[33, -271, 30, 134]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_tzpCEIyzEeOIeeLsc9PvkA" type="4004" source="_tyDGoIyzEeOIeeLsc9PvkA" target="_ty-6wIyzEeOIeeLsc9PvkA">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_tzpCEYyzEeOIeeLsc9PvkA" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_tzpCEoyzEeOIeeLsc9PvkA" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tzpCE4yzEeOIeeLsc9PvkA" points="[-65, -35, 235, 5]$[-250, -35, 50, 5]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_tzqQMIyzEeOIeeLsc9PvkA" type="4004" source="_ty_h1IyzEeOIeeLsc9PvkA" target="_sKxwoIwgEeOZ_-Ij4LPYFw">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_tzqQMYyzEeOIeeLsc9PvkA" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_tzqQMoyzEeOIeeLsc9PvkA" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tzqQM4yzEeOIeeLsc9PvkA" points="[-56, -50, 29, 26]$[-85, -76, 0, 0]"/>
+  </edges>
+</notation:Diagram>
