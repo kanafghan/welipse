@@ -142,7 +142,7 @@
           <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/name"/>
         </content>
       </elements>
-      <elements xsi:type="webdsl:Image" expression="player.photo">
+      <elements xsi:type="webdsl:Image" class="img-responsive" expression="player.photo">
         <source xsi:type="webdsl:StructuralExp" identifier="photo">
           <source xsi:type="webdsl:VariableExp" var="player"/>
           <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/photo"/>
@@ -186,8 +186,8 @@
                 <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/link"/>
               </target>
             </elements>
-            <elements xsi:type="webdsl:Text" class="pull-left" expression="&quot;Link&quot;">
-              <content xsi:type="webdsl:StringConstant" value="Link"/>
+            <elements xsi:type="webdsl:Text" class="pull-left" expression="&quot;Link:&quot;">
+              <content xsi:type="webdsl:StringConstant" value="Link:"/>
             </elements>
             <elements xsi:type="webdsl:Group" class="clearfix"/>
           </elements>
