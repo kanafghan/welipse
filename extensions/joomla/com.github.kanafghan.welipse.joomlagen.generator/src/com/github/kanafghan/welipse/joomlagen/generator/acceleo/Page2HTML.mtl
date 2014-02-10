@@ -151,6 +151,20 @@ $[variable.var/] = [generateExpression(variable.initExp, genModel)/];
 	[/let]
 		/>
 [/if]
+
+[for (parameter : Parameter | getElementPage(form).parameters)]
+	<input type="hidden"
+		name="__params-vars[ '['.concat(parameter.var).concat(']') /]"
+		value="[if (parameter.type.oclIsKindOf(EClass))][parameter.classifier/]::<?php echo $[parameter.var/]->id; ?>[else]<?php echo $[parameter.var/]; ?>[/if]"
+		/>
+[/for]
+[for (variable : VariableInitialization | getElementPage(form).variables)]
+	<input type="hidden"
+		name="__params-vars[ '['.concat(variable.var).concat(']') /]"
+		value="[if (variable.type.oclIsKindOf(EClass))][variable.classifier/]::<?php echo $[variable.var/]->id; ?>[else]<?php echo $[variable.var/]; ?>[/if]"
+		/>
+[/for]
+
 	<input type="hidden" 
 		name="task"
 		value="[if (hasSaveAction(form))][getFormObject(form).oclAsType(VariableExp).declaration.classifier.toLower()/].save[else]doAction[/if]"

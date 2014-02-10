@@ -59,6 +59,7 @@ class [genModel.extensionName.toUpperFirst()/]Controller extends JController
 		$sourcePage = base64_decode($jinput->get('__source-page__', '', 'STRING'));
 		$targetPage = base64_decode($jinput->get('__target-page__', '', 'STRING'));
 		$data = $jinput->get('__form', array(), 'ARRAY'); 
+		$paramsVars = $jinput->get('__params-vars', array(), 'ARRAY');
 		$performer = $jinput->get('__performer__', null, 'STRING');
 		$validator = $jinput->get('__validator__', null, 'STRING');
 
@@ -77,6 +78,21 @@ class [genModel.extensionName.toUpperFirst()/]Controller extends JController
 				$args = array();
 				foreach ($validatorArgs as $key => $value) 
 				{
+					// First look among parameters and variables of the page
+					if (isset($paramsVars[ '[' /]$value[ ']' /]))
+					{
+						$paramVar = explode('::', $paramsVars[ '[' /]$value[ ']' /]);
+						if (count($paramVar) == 2)
+						{
+							$args[ '[' /]$key[ ']' /] = JModel::getInstance($paramVar[ '[' /]0[ ']' /], '[genModel.extensionName.toUpperFirst()/]Model', array('id' => $paramVar[ '[' /]1[ ']' /]));
+						}
+						else
+						{
+							$args[ '[' /]$key[ ']' /] = $paramVars[ '[' /]$value[ ']' /];
+						}
+					}
+					// Finally, look among the form data,
+					// Notice, that this will override those values having the same name (key) in __form and __params-vars!
 					if (isset($data[ '[' /]$value[ ']' /])) 
 					{
 						$args[ '[' /]$key[ ']' /] = $data[ '[' /]$value[ ']' /];
@@ -97,6 +113,21 @@ class [genModel.extensionName.toUpperFirst()/]Controller extends JController
 				$args = array();
 				foreach ($performerArgs as $key => $value) 
 				{
+					// First look among parameters and variables of the page
+					if (isset($paramsVars[ '[' /]$value[ ']' /]))
+					{
+						$paramVar = explode('::', $paramsVars[ '[' /]$value[ ']' /]);
+						if (count($paramVar) == 2)
+						{
+							$args[ '[' /]$key[ ']' /] = JModel::getInstance($paramVar[ '[' /]0[ ']' /], '[genModel.extensionName.toUpperFirst()/]Model', array('id' => $paramVar[ '[' /]1[ ']' /]));
+						}
+						else
+						{
+							$args[ '[' /]$key[ ']' /] = $paramVars[ '[' /]$value[ ']' /];
+						}
+					}
+					// Finally, look among the form data,
+					// Notice, that this will override those values having the same name (key) in __form and __params-vars!
 					if (isset($data[ '[' /]$value[ ']' /])) 
 					{
 						$args[ '[' /]$key[ ']' /] = $data[ '[' /]$value[ ']' /];
