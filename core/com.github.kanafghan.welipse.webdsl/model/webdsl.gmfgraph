@@ -331,7 +331,8 @@
           name="InternalLinkTargetFigure"
           targetDecoration="//@figures.0/@figures.0">
         <foregroundColor
-            xsi:type="gmfgraph:RGBColor"/>
+            xsi:type="gmfgraph:RGBColor"
+            blue="255"/>
       </actualFigure>
     </descriptors>
     <descriptors

@@ -88,7 +88,7 @@ public class InternalLinkTargetEditPart extends ConnectionNodeEditPart
 	/**
 	 * @generated
 	 */
-	static final Color THIS_FORE = new Color(null, 0, 0, 0);
+	static final Color THIS_FORE = new Color(null, 0, 0, 255);
 	/**
 	 * @generated
 	 */
