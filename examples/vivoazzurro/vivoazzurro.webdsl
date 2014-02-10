@@ -317,10 +317,14 @@
           </elements>
         </options>
       </elements>
-      <elements xsi:type="webdsl:Save" name="save-player" value="Save" type="Submit" performerExpression="player">
-        <performer xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.2/@parameters.0"/>
+      <elements xsi:type="webdsl:SelectionList" name="primaryRole" labelExpression="&quot;Primary Role:&quot;" valueExpression="player.primaryRole" optionsExpression="WebUtils.getAllRole()">
+        <label xsi:type="webdsl:StringConstant" value="Primary Role:"/>
+        <value xsi:type="webdsl:StructuralExp" identifier="primaryRole">
+          <source xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.0/@parameters.0"/>
+          <feature xsi:type="ecore:EReference" href="datamodel.ecore#//Player/primaryRole"/>
+        </value>
+        <options xsi:type="webdsl:WebUtilExp" identifier="getAllRole"/>
       </elements>
-      <elements xsi:type="webdsl:Button" name="reset" value="Reset" type="Reset"/>
       <elements xsi:type="webdsl:SelectionList" name="secondaryRoles" labelExpression="&quot;Secondary Role(s):&quot;" valueExpression="player.secondaryRoles" rendering="Checkbox" isMultiple="true" optionsExpression="WebUtils.getAllRole()">
         <label xsi:type="webdsl:StringConstant" value="Secondary Role(s):"/>
         <value xsi:type="webdsl:StructuralExp" identifier="secondaryRoles">
@@ -336,14 +340,10 @@
           <feature xsi:type="ecore:EAttribute" href="datamodel.ecore#//Player/biography"/>
         </value>
       </elements>
-      <elements xsi:type="webdsl:SelectionList" name="primaryRole" labelExpression="&quot;Primary Role:&quot;" valueExpression="player.primaryRole" optionsExpression="WebUtils.getAllRole()">
-        <label xsi:type="webdsl:StringConstant" value="Primary Role:"/>
-        <value xsi:type="webdsl:StructuralExp" identifier="primaryRole">
-          <source xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.0/@parameters.0"/>
-          <feature xsi:type="ecore:EReference" href="datamodel.ecore#//Player/primaryRole"/>
-        </value>
-        <options xsi:type="webdsl:WebUtilExp" identifier="getAllRole"/>
+      <elements xsi:type="webdsl:Save" name="save-player" value="Save" type="Submit" performerExpression="player">
+        <performer xsi:type="webdsl:VariableExp" var="player" declaration="//@pages.2/@parameters.0"/>
       </elements>
+      <elements xsi:type="webdsl:Button" name="reset" value="Reset" type="Reset"/>
     </elements>
     <elements xsi:type="webdsl:InternalLink" name="to-squad" target="//@pages.0/@elements.0">
       <source xsi:type="webdsl:Text" name="" expression="&quot;Back to &quot;.concat(squad.name)">
