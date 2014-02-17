@@ -90,7 +90,7 @@
             <children xmi:type="notation:DecorationNode" xmi:id="_XDEll4y5EeO9DK3-HZafpw" type="5066"/>
             <children xmi:type="notation:DecorationNode" xmi:id="_XDElmIy5EeO9DK3-HZafpw" type="5067"/>
             <children xmi:type="notation:DecorationNode" xmi:id="_XDElmYy5EeO9DK3-HZafpw" type="5068"/>
-            <element xmi:type="webdsl:Save" href="vivoazzurro.webdsl#//@pages.3/@elements.1/@elements.4"/>
+            <element xmi:type="webdsl:Save" href="vivoazzurro.webdsl#//@pages.3/@elements.1/@elements.7"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XDElloy5EeO9DK3-HZafpw" x="3" y="411"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_XDFMoIy5EeO9DK3-HZafpw" type="3030">
@@ -98,28 +98,28 @@
             <styles xmi:type="notation:DescriptionStyle" xmi:id="_XDFMoYy5EeO9DK3-HZafpw"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_XDFMooy5EeO9DK3-HZafpw" fontName="Segoe UI"/>
             <styles xmi:type="notation:LineStyle" xmi:id="_XDFMo4y5EeO9DK3-HZafpw"/>
-            <element xmi:type="webdsl:Button" href="vivoazzurro.webdsl#//@pages.3/@elements.1/@elements.5"/>
+            <element xmi:type="webdsl:Button" href="vivoazzurro.webdsl#//@pages.3/@elements.1/@elements.8"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XDFMpIy5EeO9DK3-HZafpw" x="220" y="411"/>
           </children>
           <children xmi:type="notation:Shape" xmi:id="_XDFMq4y5EeO9DK3-HZafpw" type="3028" fontName="Segoe UI">
             <children xmi:type="notation:DecorationNode" xmi:id="_XDFzsIy5EeO9DK3-HZafpw" type="5052"/>
             <children xmi:type="notation:DecorationNode" xmi:id="_XDFzsYy5EeO9DK3-HZafpw" type="5053"/>
             <children xmi:type="notation:DecorationNode" xmi:id="_XDFzsoy5EeO9DK3-HZafpw" type="5054"/>
-            <element xmi:type="webdsl:SelectionList" href="vivoazzurro.webdsl#//@pages.3/@elements.1/@elements.6"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XDFMrIy5EeO9DK3-HZafpw" x="3" y="281"/>
+            <element xmi:type="webdsl:SelectionList" href="vivoazzurro.webdsl#//@pages.3/@elements.1/@elements.4"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XDFMrIy5EeO9DK3-HZafpw" x="3" y="211"/>
           </children>
           <children xmi:type="notation:Shape" xmi:id="_XDFzs4y5EeO9DK3-HZafpw" type="3026" fontName="Segoe UI">
             <children xmi:type="notation:DecorationNode" xmi:id="_XDFztYy5EeO9DK3-HZafpw" type="5048"/>
             <children xmi:type="notation:DecorationNode" xmi:id="_XDFztoy5EeO9DK3-HZafpw" type="5049"/>
-            <element xmi:type="webdsl:TextInput" href="vivoazzurro.webdsl#//@pages.3/@elements.1/@elements.7"/>
+            <element xmi:type="webdsl:TextInput" href="vivoazzurro.webdsl#//@pages.3/@elements.1/@elements.6"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XDFztIy5EeO9DK3-HZafpw" x="3" y="351"/>
           </children>
           <children xmi:type="notation:Shape" xmi:id="_XDFMpoy5EeO9DK3-HZafpw" type="3028" fontName="Segoe UI">
             <children xmi:type="notation:DecorationNode" xmi:id="_xgQPAIy5EeO9DK3-HZafpw" type="5052"/>
             <children xmi:type="notation:DecorationNode" xmi:id="_xgQPAYy5EeO9DK3-HZafpw" type="5053"/>
             <children xmi:type="notation:DecorationNode" xmi:id="_xgQPAoy5EeO9DK3-HZafpw" type="5054"/>
-            <element xmi:type="webdsl:SelectionList" href="vivoazzurro.webdsl#//@pages.3/@elements.1/@elements.8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XDFMp4y5EeO9DK3-HZafpw" x="3" y="211"/>
+            <element xmi:type="webdsl:SelectionList" href="vivoazzurro.webdsl#//@pages.3/@elements.1/@elements.5"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XDFMp4y5EeO9DK3-HZafpw" x="3" y="281"/>
           </children>
         </children>
         <element xmi:type="webdsl:Form" href="vivoazzurro.webdsl#//@pages.3/@elements.1"/>
