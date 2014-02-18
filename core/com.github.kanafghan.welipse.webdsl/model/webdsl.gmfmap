@@ -35,7 +35,8 @@
           <domainMetaElement
               href="webdsl.ecore#//Parameter"/>
           <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
+              xsi:type="gmfmap:FeatureLabelMapping"
+              readOnly="true">
             <diagramLabel
                 href="webdsl.gmfgraph#ParameterDeclaration"/>
             <features
@@ -58,7 +59,8 @@
           <domainMetaElement
               href="webdsl.ecore#//VariableInitialization"/>
           <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
+              xsi:type="gmfmap:FeatureLabelMapping"
+              readOnly="true">
             <diagramLabel
                 href="webdsl.gmfgraph#VariableInitializationDeclaration"/>
             <features
@@ -81,7 +83,8 @@
           <domainMetaElement
               href="webdsl.ecore#//Text"/>
           <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
+              xsi:type="gmfmap:FeatureLabelMapping"
+              readOnly="true">
             <diagramLabel
                 href="webdsl.gmfgraph#TextExpression"/>
             <features
@@ -102,7 +105,8 @@
           <domainMetaElement
               href="webdsl.ecore#//Image"/>
           <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
+              xsi:type="gmfmap:FeatureLabelMapping"
+              readOnly="true">
             <diagramLabel
                 href="webdsl.gmfgraph#ImageExpression"/>
             <features
@@ -124,6 +128,7 @@
               href="webdsl.ecore#//List"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
+              readOnly="true"
               editorPattern="">
             <diagramLabel
                 href="webdsl.gmfgraph#ListVariable"/>
@@ -132,6 +137,7 @@
           </labelMappings>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
+              readOnly="true"
               editorPattern="">
             <diagramLabel
                 href="webdsl.gmfgraph#ListExpression"/>
@@ -556,7 +562,8 @@
           <domainMetaElement
               href="webdsl.ecore#//ExternalLink"/>
           <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
+              xsi:type="gmfmap:FeatureLabelMapping"
+              readOnly="true">
             <diagramLabel
                 href="webdsl.gmfgraph#ExternalLinkName"/>
             <features

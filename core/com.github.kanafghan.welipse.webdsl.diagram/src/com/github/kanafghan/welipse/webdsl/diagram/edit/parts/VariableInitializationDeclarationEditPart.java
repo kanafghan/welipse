@@ -245,7 +245,7 @@ public class VariableInitializationDeclarationEditPart extends
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getParser() != null;
+		return false;
 	}
 
 	/**

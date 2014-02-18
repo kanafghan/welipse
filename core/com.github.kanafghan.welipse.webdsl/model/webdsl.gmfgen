@@ -64,6 +64,7 @@
           editPartClassName="ParameterDeclarationEditPart"
           itemSemanticEditPolicyClassName="ParameterDeclarationItemSemanticEditPolicy"
           notationViewFactoryClassName="ParameterDeclarationViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -122,6 +123,7 @@
           editPartClassName="VariableInitializationDeclarationEditPart"
           itemSemanticEditPolicyClassName="VariableInitializationDeclarationItemSemanticEditPolicy"
           notationViewFactoryClassName="VariableInitializationDeclarationViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -177,6 +179,7 @@
           editPartClassName="TextExpressionEditPart"
           itemSemanticEditPolicyClassName="TextExpressionItemSemanticEditPolicy"
           notationViewFactoryClassName="TextExpressionViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -232,6 +235,7 @@
           editPartClassName="ImageExpressionEditPart"
           itemSemanticEditPolicyClassName="ImageExpressionItemSemanticEditPolicy"
           notationViewFactoryClassName="ImageExpressionViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -287,6 +291,7 @@
           editPartClassName="ListExpressionEditPart"
           itemSemanticEditPolicyClassName="ListExpressionItemSemanticEditPolicy"
           notationViewFactoryClassName="ListExpressionViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -306,7 +311,8 @@
           visualID="5030"
           editPartClassName="ListExpression2EditPart"
           itemSemanticEditPolicyClassName="ListExpression2ItemSemanticEditPolicy"
-          notationViewFactoryClassName="ListExpressionViewFactory">
+          notationViewFactoryClassName="ListExpressionViewFactory"
+          readOnly="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -362,6 +368,7 @@
           editPartClassName="TextExpression2EditPart"
           itemSemanticEditPolicyClassName="TextExpression2ItemSemanticEditPolicy"
           notationViewFactoryClassName="TextExpressionViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -417,6 +424,7 @@
           editPartClassName="ImageExpression2EditPart"
           itemSemanticEditPolicyClassName="ImageExpression2ItemSemanticEditPolicy"
           notationViewFactoryClassName="ImageExpressionViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -472,6 +480,7 @@
           editPartClassName="ListVariableEditPart"
           itemSemanticEditPolicyClassName="ListVariableItemSemanticEditPolicy"
           notationViewFactoryClassName="ListVariableViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -491,7 +500,8 @@
           visualID="5036"
           editPartClassName="ListExpression3EditPart"
           itemSemanticEditPolicyClassName="ListExpression3ItemSemanticEditPolicy"
-          notationViewFactoryClassName="ListExpressionViewFactory">
+          notationViewFactoryClassName="ListExpressionViewFactory"
+          readOnly="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -600,6 +610,7 @@
           editPartClassName="TextExpression3EditPart"
           itemSemanticEditPolicyClassName="TextExpression3ItemSemanticEditPolicy"
           notationViewFactoryClassName="TextExpressionViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -655,6 +666,7 @@
           editPartClassName="ImageExpression3EditPart"
           itemSemanticEditPolicyClassName="ImageExpression3ItemSemanticEditPolicy"
           notationViewFactoryClassName="ImageExpressionViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -710,6 +722,7 @@
           editPartClassName="ListVariable2EditPart"
           itemSemanticEditPolicyClassName="ListVariable2ItemSemanticEditPolicy"
           notationViewFactoryClassName="ListVariableViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -729,7 +742,8 @@
           visualID="5040"
           editPartClassName="ListExpression4EditPart"
           itemSemanticEditPolicyClassName="ListExpression4ItemSemanticEditPolicy"
-          notationViewFactoryClassName="ListExpressionViewFactory">
+          notationViewFactoryClassName="ListExpressionViewFactory"
+          readOnly="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -894,6 +908,7 @@
           editPartClassName="TextExpression4EditPart"
           itemSemanticEditPolicyClassName="TextExpression4ItemSemanticEditPolicy"
           notationViewFactoryClassName="TextExpressionViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -949,6 +964,7 @@
           editPartClassName="ImageExpression4EditPart"
           itemSemanticEditPolicyClassName="ImageExpression4ItemSemanticEditPolicy"
           notationViewFactoryClassName="ImageExpressionViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -1004,6 +1020,7 @@
           editPartClassName="ExternalLinkName2EditPart"
           itemSemanticEditPolicyClassName="ExternalLinkName2ItemSemanticEditPolicy"
           notationViewFactoryClassName="ExternalLinkNameViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -1217,6 +1234,7 @@
           editPartClassName="ExternalLinkName3EditPart"
           itemSemanticEditPolicyClassName="ExternalLinkName3ItemSemanticEditPolicy"
           notationViewFactoryClassName="ExternalLinkNameViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -2057,6 +2075,7 @@
           editPartClassName="ExternalLinkNameEditPart"
           itemSemanticEditPolicyClassName="ExternalLinkNameItemSemanticEditPolicy"
           notationViewFactoryClassName="ExternalLinkNameViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
