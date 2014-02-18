@@ -142,6 +142,9 @@ public class WebdslEditPartFactory implements EditPartFactory {
 			case ExternalLinkName2EditPart.VISUAL_ID:
 				return new ExternalLinkName2EditPart(view);
 
+			case ExternalLinkTargetExpressionEditPart.VISUAL_ID:
+				return new ExternalLinkTargetExpressionEditPart(view);
+
 			case Group3EditPart.VISUAL_ID:
 				return new Group3EditPart(view);
 
@@ -165,6 +168,9 @@ public class WebdslEditPartFactory implements EditPartFactory {
 
 			case ExternalLinkName3EditPart.VISUAL_ID:
 				return new ExternalLinkName3EditPart(view);
+
+			case ExternalLinkTargetExpression2EditPart.VISUAL_ID:
+				return new ExternalLinkTargetExpression2EditPart(view);
 
 			case TextInputEditPart.VISUAL_ID:
 				return new TextInputEditPart(view);
@@ -264,6 +270,9 @@ public class WebdslEditPartFactory implements EditPartFactory {
 
 			case ExternalLinkNameEditPart.VISUAL_ID:
 				return new ExternalLinkNameEditPart(view);
+
+			case ExternalLinkTargetExpression3EditPart.VISUAL_ID:
+				return new ExternalLinkTargetExpression3EditPart(view);
 
 			case TextInput2EditPart.VISUAL_ID:
 				return new TextInput2EditPart(view);

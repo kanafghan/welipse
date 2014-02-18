@@ -12,6 +12,7 @@ package com.github.kanafghan.welipse.webdsl;
  * The following features are supported:
  * <ul>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.ExternalLink#getTarget <em>Target</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.ExternalLink#getTargetExpression <em>Target Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,5 +46,31 @@ public interface ExternalLink extends Link {
 	 * @generated
 	 */
 	void setTarget(Expression value);
+
+	/**
+	 * Returns the value of the '<em><b>Target Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Expression</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target Expression</em>' attribute.
+	 * @see #setTargetExpression(String)
+	 * @see com.github.kanafghan.welipse.webdsl.WebDSLPackage#getExternalLink_TargetExpression()
+	 * @model
+	 * @generated
+	 */
+	String getTargetExpression();
+
+	/**
+	 * Sets the value of the '{@link com.github.kanafghan.welipse.webdsl.ExternalLink#getTargetExpression <em>Target Expression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target Expression</em>' attribute.
+	 * @see #getTargetExpression()
+	 * @generated
+	 */
+	void setTargetExpression(String value);
 
 } // ExternalLink

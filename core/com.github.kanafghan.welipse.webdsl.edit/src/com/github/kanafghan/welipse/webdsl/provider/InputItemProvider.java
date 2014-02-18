@@ -100,9 +100,9 @@ public class InputItemProvider
 							Input input = (Input) object;
 							EditingDomain editingDomain = getEditingDomain(input);
 							// parse, initialize, analyze and set the expression of the input
-							ExpressionsAnalyzer evaluator = new ExpressionsAnalyzer(
+							ExpressionsAnalyzer expAnalyzer = new ExpressionsAnalyzer(
 									editingDomain, input, expression);
-							evaluator.analyzeInputExpressions(false);
+							expAnalyzer.analyzeInputExpressions(false);
 						}
 					}
 				}
@@ -143,9 +143,9 @@ public class InputItemProvider
 							Input input = (Input) object;
 							EditingDomain editingDomain = getEditingDomain(input);
 							// parse, initialize, analyze and set the expression of the input
-							ExpressionsAnalyzer evaluator = new ExpressionsAnalyzer(
+							ExpressionsAnalyzer expAnalyzer = new ExpressionsAnalyzer(
 									editingDomain, input, expression);
-							evaluator.analyzeInputExpressions(true);
+							expAnalyzer.analyzeInputExpressions(true);
 						}
 					}
 				}

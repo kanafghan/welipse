@@ -53,13 +53,13 @@ import com.github.kanafghan.welipse.webdsl.diagram.providers.WebdslParserProvide
 /**
  * @generated
  */
-public class ExternalLinkNameEditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class ExternalLinkTargetExpressionEditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5028;
+	public static final int VISUAL_ID = 5084;
 
 	/**
 	 * @generated
@@ -89,7 +89,7 @@ public class ExternalLinkNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public ExternalLinkNameEditPart(View view) {
+	public ExternalLinkTargetExpressionEditPart(View view) {
 		super(view);
 	}
 
@@ -197,11 +197,7 @@ public class ExternalLinkNameEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return WebdslElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**
@@ -245,7 +241,7 @@ public class ExternalLinkNameEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getParser() != null;
+		return false;
 	}
 
 	/**
@@ -309,10 +305,10 @@ public class ExternalLinkNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = WebdslParserProvider
 					.getParser(
-							WebdslElementTypes.ExternalLink_3009,
+							WebdslElementTypes.ExternalLink_3015,
 							getParserElement(),
 							WebdslVisualIDRegistry
-									.getType(com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkNameEditPart.VISUAL_ID));
+									.getType(com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkTargetExpressionEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

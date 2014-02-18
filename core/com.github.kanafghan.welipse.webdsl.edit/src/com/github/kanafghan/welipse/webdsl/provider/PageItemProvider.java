@@ -120,13 +120,16 @@ public class PageItemProvider
 					// get the declaration of the parameter
 					if (value instanceof String && object instanceof Page) {
 						String expression = (String) value;
-						if (!expression.isEmpty()) {							
-							Page page = (Page) object;
-							EditingDomain editingDomain = getEditingDomain(page);
-							
-							// parse, initialize, analyze and add the parameter to the page
-							ExpressionsAnalyzer evaluator = new ExpressionsAnalyzer(editingDomain, page, expression);
-							evaluator.analyzeParameter();
+						Page page = (Page) object;
+						EditingDomain editingDomain = getEditingDomain(page);
+
+						String[] expressions = expression.split(";");
+						for (String exp : expressions) {
+							if (!exp.isEmpty()) {														
+								// parse, initialize, analyze and add the parameter to the page
+								ExpressionsAnalyzer expAnalyzer = new ExpressionsAnalyzer(editingDomain, page, exp);
+								expAnalyzer.analyzeParameter();
+							}
 						}
 					}
 				}
@@ -155,23 +158,26 @@ public class PageItemProvider
                   null)
          {
 
-                 @Override
-                 public void setPropertyValue(Object object, Object value) {
-                         super.setPropertyValue(object, value);
-                         
-                         // get the declaration of the parameter
-                         if (value instanceof String && object instanceof Page) {
-                                 String expression = (String) value;
-                                 if (!expression.isEmpty()) {                                	 
-                                	 Page page = (Page) object;
-                                	 EditingDomain editingDomain = getEditingDomain(page);
-                                	 
-                                	 // parse, initialize, analyze and add the variable to the page
-                                	 ExpressionsAnalyzer analyzer = new ExpressionsAnalyzer(editingDomain, page, expression);
-                                	 analyzer.analyzeVariable();
-                                 }
-                         }
-                 }
+			 @Override
+			 public void setPropertyValue(Object object, Object value) {
+				super.setPropertyValue(object, value);
+				 
+				// get the declaration of the parameter
+				if (value instanceof String && object instanceof Page) {
+					String expression = (String) value;
+					Page page = (Page) object;
+					EditingDomain editingDomain = getEditingDomain(page);
+				
+					String[] expressions = expression.split(";");
+					for (String exp : expressions) {
+						if (!exp.isEmpty()) {														
+							// parse, initialize, analyze and add the parameter to the page
+							ExpressionsAnalyzer expAnalyzer = new ExpressionsAnalyzer(editingDomain, page, exp);
+							expAnalyzer.analyzeVariable();
+						}
+					}
+				}
+			 }
          });
 	}
 

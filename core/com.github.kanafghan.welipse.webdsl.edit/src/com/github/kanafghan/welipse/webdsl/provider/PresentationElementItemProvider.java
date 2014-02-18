@@ -119,9 +119,9 @@ public class PresentationElementItemProvider
 							PresentationElement element = (PresentationElement) object;
 							EditingDomain editingDomain = getEditingDomain(element);
 							// parse, initialize, analyze and set the expression of the element
-							ExpressionsAnalyzer evaluator = new ExpressionsAnalyzer(
+							ExpressionsAnalyzer expAnalyzer = new ExpressionsAnalyzer(
 									editingDomain, element, expression);
-							evaluator.analyzeMainExpressions();
+							expAnalyzer.analyzeMainExpressions();
 						}
 					}
 				}

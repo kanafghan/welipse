@@ -32,6 +32,9 @@ import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.CustomActionValueE
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkName2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkName3EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkNameEditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkTargetExpression2EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkTargetExpression3EditPart;
+import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.ExternalLinkTargetExpressionEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormName2EditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.FormNameEditPart;
 import com.github.kanafghan.welipse.webdsl.diagram.edit.parts.GroupName2EditPart;
@@ -469,6 +472,24 @@ public class WebdslParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser externalLinkTargetExpression_5084Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getExternalLinkTargetExpression_5084Parser() {
+		if (externalLinkTargetExpression_5084Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getExternalLink_TargetExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			externalLinkTargetExpression_5084Parser = parser;
+		}
+		return externalLinkTargetExpression_5084Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser groupName_5043Parser;
 
 	/**
@@ -536,6 +557,24 @@ public class WebdslParserProvider extends AbstractProvider implements
 			externalLinkName_5042Parser = parser;
 		}
 		return externalLinkName_5042Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser externalLinkTargetExpression_5085Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getExternalLinkTargetExpression_5085Parser() {
+		if (externalLinkTargetExpression_5085Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getExternalLink_TargetExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			externalLinkTargetExpression_5085Parser = parser;
+		}
+		return externalLinkTargetExpression_5085Parser;
 	}
 
 	/**
@@ -937,6 +976,24 @@ public class WebdslParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser externalLinkTargetExpression_5086Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getExternalLinkTargetExpression_5086Parser() {
+		if (externalLinkTargetExpression_5086Parser == null) {
+			EAttribute[] features = new EAttribute[] { WebDSLPackage.eINSTANCE
+					.getExternalLink_TargetExpression() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			externalLinkTargetExpression_5086Parser = parser;
+		}
+		return externalLinkTargetExpression_5086Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser textInputLabelExpression_5050Parser;
 
 	/**
@@ -1305,6 +1362,8 @@ public class WebdslParserProvider extends AbstractProvider implements
 			return getImageExpression_5045Parser();
 		case ExternalLinkName2EditPart.VISUAL_ID:
 			return getExternalLinkName_5034Parser();
+		case ExternalLinkTargetExpressionEditPart.VISUAL_ID:
+			return getExternalLinkTargetExpression_5084Parser();
 		case GroupName3EditPart.VISUAL_ID:
 			return getGroupName_5043Parser();
 		case FormNameEditPart.VISUAL_ID:
@@ -1313,6 +1372,8 @@ public class WebdslParserProvider extends AbstractProvider implements
 			return getInternalLinkName_5041Parser();
 		case ExternalLinkName3EditPart.VISUAL_ID:
 			return getExternalLinkName_5042Parser();
+		case ExternalLinkTargetExpression2EditPart.VISUAL_ID:
+			return getExternalLinkTargetExpression_5085Parser();
 		case TextInputLabelExpressionEditPart.VISUAL_ID:
 			return getTextInputLabelExpression_5048Parser();
 		case TextInputValueExpressionEditPart.VISUAL_ID:
@@ -1357,6 +1418,8 @@ public class WebdslParserProvider extends AbstractProvider implements
 			return getInternalLinkName_5027Parser();
 		case ExternalLinkNameEditPart.VISUAL_ID:
 			return getExternalLinkName_5028Parser();
+		case ExternalLinkTargetExpression3EditPart.VISUAL_ID:
+			return getExternalLinkTargetExpression_5086Parser();
 		case TextInputLabelExpression2EditPart.VISUAL_ID:
 			return getTextInputLabelExpression_5050Parser();
 		case TextInputValueExpression2EditPart.VISUAL_ID:

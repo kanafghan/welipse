@@ -125,6 +125,12 @@ public class ExternalLinkEditPart extends ShapeNodeEditPart {
 							.getFigureExternalLinkNameFigure());
 			return true;
 		}
+		if (childEditPart instanceof ExternalLinkTargetExpression3EditPart) {
+			((ExternalLinkTargetExpression3EditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureExternalLinkTargetExpressionFigure());
+			return true;
+		}
 		if (childEditPart instanceof ExternalLinkExternalLinkSourceCompartment3EditPart) {
 			IFigure pane = getPrimaryShape()
 					.getFigureExternalLinkSourceCompartmentFigure();
@@ -141,6 +147,9 @@ public class ExternalLinkEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ExternalLinkNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof ExternalLinkTargetExpression3EditPart) {
 			return true;
 		}
 		if (childEditPart instanceof ExternalLinkExternalLinkSourceCompartment3EditPart) {
@@ -188,7 +197,7 @@ public class ExternalLinkEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(130, 70);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(130, 75);
 		return result;
 	}
 
@@ -330,13 +339,18 @@ public class ExternalLinkEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrappingLabel fFigureExternalLinkTargetExpressionFigure;
+
+		/**
+		 * @generated
+		 */
 		public ExternalLinkFigure() {
 
 			BorderLayout layoutThis = new BorderLayout();
 			this.setLayoutManager(layoutThis);
 
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(130),
-					getMapMode().DPtoLP(70)));
+					getMapMode().DPtoLP(75)));
 			this.setBorder(new LineBorder(THIS_BORDER, getMapMode().DPtoLP(1)));
 			createContents();
 		}
@@ -366,6 +380,16 @@ public class ExternalLinkEditPart extends ShapeNodeEditPart {
 			this.add(fFigureExternalLinkSourceCompartmentFigure,
 					BorderLayout.CENTER);
 
+			fFigureExternalLinkTargetExpressionFigure = new WrappingLabel();
+
+			fFigureExternalLinkTargetExpressionFigure.setText("");
+			fFigureExternalLinkTargetExpressionFigure.setBorder(new LineBorder(
+					FFIGUREEXTERNALLINKTARGETEXPRESSIONFIGURE_BORDER,
+					getMapMode().DPtoLP(1)));
+
+			this.add(fFigureExternalLinkTargetExpressionFigure,
+					BorderLayout.BOTTOM);
+
 		}
 
 		/**
@@ -382,6 +406,13 @@ public class ExternalLinkEditPart extends ShapeNodeEditPart {
 			return fFigureExternalLinkSourceCompartmentFigure;
 		}
 
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureExternalLinkTargetExpressionFigure() {
+			return fFigureExternalLinkTargetExpressionFigure;
+		}
+
 	}
 
 	/**
@@ -393,6 +424,12 @@ public class ExternalLinkEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	static final Color FFIGUREEXTERNALLINKSOURCECOMPARTMENTFIGURE_BORDER = new Color(
+			null, 0, 0, 0);
+
+	/**
+	 * @generated
+	 */
+	static final Color FFIGUREEXTERNALLINKTARGETEXPRESSIONFIGURE_BORDER = new Color(
 			null, 0, 0, 0);
 
 }

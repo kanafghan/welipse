@@ -92,6 +92,7 @@
     </genClasses>
     <genClasses ecoreClass="webdsl.ecore#//ExternalLink">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webdsl.ecore#//ExternalLink/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webdsl.ecore#//ExternalLink/targetExpression"/>
     </genClasses>
     <genClasses image="false" ecoreClass="webdsl.ecore#//Expression">
       <genOperations ecoreOperation="webdsl.ecore#//Expression/type"/>

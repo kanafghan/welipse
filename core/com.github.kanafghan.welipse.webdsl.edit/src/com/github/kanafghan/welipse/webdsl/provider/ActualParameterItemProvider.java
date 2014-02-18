@@ -3,20 +3,14 @@
 package com.github.kanafghan.welipse.webdsl.provider;
 
 
-import com.github.kanafghan.welipse.webdsl.ActualParameter;
-import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
-import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -27,6 +21,11 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import com.github.kanafghan.welipse.webdsl.ActualParameter;
+import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
+import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
+import com.github.kanafghan.welipse.webdsl.expressions.ExpressionsAnalyzer;
 
 /**
  * This is the item provider adapter for a {@link com.github.kanafghan.welipse.webdsl.ActualParameter} object.
@@ -73,11 +72,11 @@ public class ActualParameterItemProvider
 	 * This adds a property descriptor for the Identifier feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addIdentifierPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_ActualParameter_identifier_feature"),
@@ -88,7 +87,27 @@ public class ActualParameterItemProvider
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null));
+				 null)
+			{
+
+				@Override
+				public void setPropertyValue(Object object, Object value) {
+					super.setPropertyValue(object, value);
+					
+					// get the expression in order to parse it
+					if (value instanceof String && object instanceof ActualParameter) {
+						String expression = (String) value;
+						if (!expression.isEmpty()) {
+							ActualParameter actualParameter = (ActualParameter) object;
+							EditingDomain editingDomain = getEditingDomain(actualParameter);
+							// parse, initialize, analyze and set the expression
+							ExpressionsAnalyzer expAnalyzer = new ExpressionsAnalyzer(editingDomain, actualParameter, expression);
+							expAnalyzer.analyzeMainExpressions();
+						}
+					}
+				}
+				
+			});
 	}
 
 	/**

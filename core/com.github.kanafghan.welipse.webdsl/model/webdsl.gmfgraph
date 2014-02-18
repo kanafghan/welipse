@@ -344,7 +344,7 @@
             xsi:type="gmfgraph:BorderLayout"/>
         <preferredSize
             dx="130"
-            dy="70"/>
+            dy="75"/>
         <border
             xsi:type="gmfgraph:LineBorder">
           <color
@@ -376,12 +376,27 @@
                 xsi:type="gmfgraph:RGBColor"/>
           </border>
         </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ExternalLinkTargetExpressionFigure">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="END"
+              vertical="true"/>
+          <border
+              xsi:type="gmfgraph:LineBorder">
+            <color
+                xsi:type="gmfgraph:RGBColor"/>
+          </border>
+        </children>
       </actualFigure>
       <accessors
           accessor="getFigureExternalLinkNameFigure"
           figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
       <accessors
           figure="//@figures.0/@descriptors.6/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="VariableInitializationFigure">
@@ -1127,6 +1142,12 @@
       figure="ExternalLinkFigure"
       resizeConstraint="EAST_WEST"
       accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels
+      name="ExternalLinkTargetExpression"
+      figure="ExternalLinkFigure"
+      resizeConstraint="EAST_WEST"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.6/@accessors.2"/>
   <labels
       name="VariableInitializationDeclaration"
       figure="VariableInitializationFigure"

@@ -5,6 +5,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -14,11 +15,13 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
+import com.github.kanafghan.welipse.webdsl.ActualParameter;
 import com.github.kanafghan.welipse.webdsl.ClassifierOperation;
 import com.github.kanafghan.welipse.webdsl.Expression;
 import com.github.kanafghan.welipse.webdsl.ExternalLink;
 import com.github.kanafghan.welipse.webdsl.Image;
 import com.github.kanafghan.welipse.webdsl.Input;
+import com.github.kanafghan.welipse.webdsl.InternalLink;
 import com.github.kanafghan.welipse.webdsl.Page;
 import com.github.kanafghan.welipse.webdsl.PageElement;
 import com.github.kanafghan.welipse.webdsl.Parameter;
@@ -28,6 +31,7 @@ import com.github.kanafghan.welipse.webdsl.SelectionList;
 import com.github.kanafghan.welipse.webdsl.StructuralExp;
 import com.github.kanafghan.welipse.webdsl.Submit;
 import com.github.kanafghan.welipse.webdsl.Text;
+import com.github.kanafghan.welipse.webdsl.VariableDeclaration;
 import com.github.kanafghan.welipse.webdsl.VariableExp;
 import com.github.kanafghan.welipse.webdsl.VariableInitialization;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
@@ -160,16 +164,13 @@ public class ExpressionsAnalyzer {
 							editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, element, f, e));
 						}
 					} else {
-						editingDomain.getCommandStack().undo();
 						return new Status(Status.ERROR, PLUGIN_ID,
 								"The expression '"+ expression +"' could not be parsed.");
 					}
 				} catch (Exception e) {
-					editingDomain.getCommandStack().undo();
 					return new Status(Status.ERROR, PLUGIN_ID,
 							"The expression '"+ expression +"' could not be parsed: "+ e.getMessage(), e);
 				} catch (Error e) {
-					editingDomain.getCommandStack().undo();
 					return new Status(Status.ERROR, PLUGIN_ID,
 							"The expression '"+ expression +"' is not correct: "+ e.getMessage(), e);
 				}
@@ -202,6 +203,10 @@ public class ExpressionsAnalyzer {
 						// Initialize the expression
 						if (element instanceof PageElement) {
 							e.initialize(getPage((PageElement) element));
+						} else if (element instanceof ActualParameter) {
+							ActualParameter actualParameter = (ActualParameter) element;
+							InternalLink internalLink = (InternalLink) actualParameter.eContainer();
+							e.initialize(getPage(internalLink));
 						}
 						
 						// Type check the expression
@@ -241,6 +246,58 @@ public class ExpressionsAnalyzer {
 						} else if (element instanceof ExternalLink) {
 							f = eClass.getEStructuralFeature(WebDSLPackage.EXTERNAL_LINK__TARGET);
 						} else if (element instanceof Input) {
+							//TODO do something about this
+						} else if (element instanceof ActualParameter) {
+							ActualParameter actualParameter = (ActualParameter) element;
+							VariableExp variable;
+							
+							// The expression must be a variable expression
+							if (!(e instanceof VariableExp)) {
+								return new Status(Status.ERROR, PLUGIN_ID,
+										"The allowed expression for an actual parameter is a variable expression. "
+										+ "You have provided: "+ e.eClass().getName());
+							} else {
+								variable = (VariableExp) e;
+							}
+							
+							// Set the formal parameter
+							InternalLink internalLink = (InternalLink) actualParameter.eContainer();
+							PageElement targetElement = internalLink.getTarget();
+							if (targetElement != null) {
+								Page targetPage = getPage((PageElement) targetElement);
+								if (targetPage != null) {
+									EList<Parameter> parameters = targetPage.getParameters();
+									for (Parameter formalParameter : parameters) {
+										if (formalParameter.getVar().equals(actualParameter.getIdentifier())) {
+											// Types must also match
+											if (formalParameter.getType().equals(variable.type())) {												
+												actualParameter.setFormalParameter(formalParameter);
+											}
+										}
+									}
+									
+									if (actualParameter.getFormalParameter() == null) {
+										return new Status(Status.ERROR, PLUGIN_ID,
+												"The target page '"+ targetPage.getName() 
+												+"' of the internal link '"+ internalLink.getName() 
+												+"' does not have either a parameter with the name '"+ expression 
+												+"' or a parameter with the type '"+ variable.type().getName()
+												+"'. Your model is incomplete at the moment");
+									}
+								} else {
+									return new Status(Status.ERROR, PLUGIN_ID,
+											"Could not found the target page of the link. Please define the target of the internal link '"
+											+ internalLink.getName() 
+											+"' before defining its actual parameters. Your model is incomplete at the moment");
+								}
+								
+							} else {
+								return new Status(Status.ERROR, PLUGIN_ID,
+										"Please define the target of the internal link '"+ internalLink.getName() 
+										+"' before defining its actual parameters. Your model is incomplete at the moment");
+							}
+							
+							f = eClass.getEStructuralFeature(WebDSLPackage.ACTUAL_PARAMETER__VALUE);
 							
 						}
 						
@@ -297,14 +354,12 @@ public class ExpressionsAnalyzer {
 						
 						EClassifier type = var.getInitExp().type();
 						if (type == null) {
-							editingDomain.getCommandStack().undo();
 							return new Status(Status.ERROR, PLUGIN_ID,
 									"The type of the expresion  in the variable declaration '"
 											+ expression +"' is not defined.");
 						}
 						
 						if (!var.getType().getName().equals(type.getName())) {
-							editingDomain.getCommandStack().undo();
 							return new Status(Status.ERROR, PLUGIN_ID,
 									"The type of the variable in '"+ expression +"' is different from the "
 											+ "expression initializing it. (variable type: "
@@ -317,16 +372,13 @@ public class ExpressionsAnalyzer {
 					    EStructuralFeature f = eClass.getEStructuralFeature(WebDSLPackage.PAGE__VARIABLES);
 					    editingDomain.getCommandStack().execute(AddCommand.create(editingDomain, page, f, var));
 					} else {
-						editingDomain.getCommandStack().undo();
 						return new Status(Status.ERROR, PLUGIN_ID,
 								"The variable declaration '"+ expression +"' could not be parsed.");
 					}
 				} catch (Exception e) {
-					editingDomain.getCommandStack().undo();
 					return new Status(Status.ERROR, PLUGIN_ID,
 							"The variable declaration '"+ expression +"' could not be parsed: "+ e.getMessage(), e);
 				} catch (Error e) {
-					editingDomain.getCommandStack().undo();
 					return new Status(Status.ERROR, PLUGIN_ID,
 							"The variable declaration '"+ expression +"' is not correct: "+ e.getMessage(), e);
 				}
@@ -364,16 +416,13 @@ public class ExpressionsAnalyzer {
 					    EStructuralFeature f = eClass.getEStructuralFeature(WebDSLPackage.PAGE__PARAMETERS);
 					    editingDomain.getCommandStack().execute(AddCommand.create(editingDomain, page, f, param));
 					} else {
-						editingDomain.getCommandStack().undo();
 						return new Status(Status.ERROR, PLUGIN_ID,
 								"The parameter '"+ expression +"' could not be parsed.");
 					}
 				} catch (Exception e) {
-					editingDomain.getCommandStack().undo();
 					return new Status(Status.ERROR, PLUGIN_ID,
 							"The parameter '"+ expression +"' could not be parsed: "+ e.getMessage(), e);
 				} catch (Error e) {
-					editingDomain.getCommandStack().undo();
 					return new Status(Status.ERROR, PLUGIN_ID,
 							"The parameter declaration '"+ expression +"' is not correct: "+ e.getMessage(), e);
 				}
@@ -413,16 +462,13 @@ public class ExpressionsAnalyzer {
 					    EStructuralFeature f = eClass.getEStructuralFeature(WebDSLPackage.LIST__ITERATOR_VARIABLE);
 					    editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, element, f, iteratorVar));
 					} else {
-						editingDomain.getCommandStack().undo();
 						return new Status(Status.ERROR, PLUGIN_ID,
 								"The iterator variable '"+ expression +"' could not be parsed.");
 					}
 				} catch (Exception e) {
-					editingDomain.getCommandStack().undo();
 					return new Status(Status.ERROR, PLUGIN_ID,
 							"The iterator variable '"+ expression +"' could not be parsed: "+ e.getMessage(), e);
 				} catch (Error e) {
-					editingDomain.getCommandStack().undo();
 					return new Status(Status.ERROR, PLUGIN_ID,
 							"The iterator variable declaration '"+ expression +"' is not correct: "+ e.getMessage(), e);
 				}
@@ -483,6 +529,86 @@ public class ExpressionsAnalyzer {
 		job.setRule(ResourcesPlugin.getWorkspace().getRoot());
 		job.setUser(true);
 		job.schedule();		
+	}	
+	
+	public void analyzeVariableDeclaration(final boolean isParameter) {
+		final Job job = new Job("Analyzing "+ (isParameter ? "Parameter" : "Variable") +": "+ expression) {
+			@Override
+			protected IStatus run(IProgressMonitor monitor) {
+				String PLUGIN_ID = "com.github.kanafghan.welipse.webdsl";
+				
+				// initialize the parser
+				ExpressionsLanguage parser = ExpressionsLanguage.getInstace();
+				parser.setExpression(expression);
+				
+				try {
+					VariableDeclaration oldVar = (VariableDeclaration) element;
+					
+					// parse the variable declaration
+					VariableDeclaration newVar;
+					if (isParameter) {
+						newVar = parser.getParameter();
+					} else {
+						newVar = parser.getVariable();
+					}
+					
+					if (newVar != null) {
+						// Initialize the variable
+						Page containerPage = (Page) oldVar.eContainer();
+						newVar.initialize(containerPage);
+						
+						oldVar.setClassifier(newVar.getClassifier());
+						oldVar.setDeclaration(newVar.getDeclaration());
+						oldVar.setType(newVar.getType());
+						oldVar.setVar(newVar.getVar());
+						
+						if (!isParameter) {
+							VariableInitialization oldVarInit = (VariableInitialization) oldVar;
+							
+							VariableInitialization newVarInit = (VariableInitialization) newVar;
+							EClassifier type = newVarInit.getInitExp().type();
+							if (type == null) {
+								return new Status(Status.ERROR, PLUGIN_ID,
+										"The type of the expresion in the variable declaration '"
+												+ expression
+												+ "' is not defined.");
+							}
+							if (!newVar.getType().getName().equals(type.getName())) {
+								return new Status(
+										Status.ERROR,
+										PLUGIN_ID,
+										"The type of the variable in '"
+												+ expression
+												+ "' is different from the "
+												+ "expression initializing it. (variable type: "
+												+ newVarInit.getType().getName()
+												+ ", expression type: "
+												+ type.getName());
+							}
+							
+							oldVarInit.setInitExp(newVarInit.getInitExp());
+						}
+					} else {
+						return new Status(Status.ERROR, PLUGIN_ID,
+								"The variable declaration '"+ expression +"' could not be parsed.");
+					}
+				} catch (Exception e) {
+					return new Status(Status.ERROR, PLUGIN_ID,
+							"The variable declaration '"+ expression +"' could not be parsed: "+ e.getMessage(), e);
+				} catch (Error e) {
+					return new Status(Status.ERROR, PLUGIN_ID,
+							"The variable declaration '"+ expression +"' is not correct: "+ e.getMessage(), e);
+				}
+				
+				monitor.worked(1);
+				return new Status(Status.OK, PLUGIN_ID, "Analyzed successfully.");
+			}
+		};
+	
+		// enqueue the job
+		job.setRule(ResourcesPlugin.getWorkspace().getRoot());
+		job.setUser(true);
+		job.schedule();
 	}	
 	
 	public void setExpression(String expression) {

@@ -6,21 +6,23 @@ package com.github.kanafghan.welipse.webdsl.provider;
 import com.github.kanafghan.welipse.webdsl.ExternalLink;
 import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
+import com.github.kanafghan.welipse.webdsl.expressions.ExpressionsAnalyzer;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -58,8 +60,50 @@ public class ExternalLinkItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTargetExpressionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Target Expression feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addTargetExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(new ItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ExternalLink_targetExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalLink_targetExpression_feature", "_UI_ExternalLink_type"),
+				 WebDSLPackage.Literals.EXTERNAL_LINK__TARGET_EXPRESSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null)
+			{
+
+				@Override
+				public void setPropertyValue(Object object, Object value) {
+					super.setPropertyValue(object, value);
+					
+					// get the expression in order to parse it
+					if (value instanceof String && object instanceof ExternalLink) {
+						String expression = (String) value;
+						if (!expression.isEmpty()) {
+							ExternalLink link = (ExternalLink) object;
+							EditingDomain editingDomain = getEditingDomain(link);
+							// parse, initialize, analyze and set the expression
+							ExpressionsAnalyzer expAnalyzer = new ExpressionsAnalyzer(editingDomain, link, expression);
+							expAnalyzer.analyzeMainExpressions();
+						}
+					}
+				}
+			});
 	}
 
 	/**
@@ -129,6 +173,9 @@ public class ExternalLinkItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExternalLink.class)) {
+			case WebDSLPackage.EXTERNAL_LINK__TARGET_EXPRESSION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case WebDSLPackage.EXTERNAL_LINK__TARGET:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

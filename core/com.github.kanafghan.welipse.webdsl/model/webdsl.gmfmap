@@ -562,12 +562,19 @@
           <domainMetaElement
               href="webdsl.ecore#//ExternalLink"/>
           <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              readOnly="true">
+              xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
                 href="webdsl.gmfgraph#ExternalLinkName"/>
             <features
                 href="webdsl.ecore#//PageElement/name"/>
+          </labelMappings>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping"
+              readOnly="true">
+            <diagramLabel
+                href="webdsl.gmfgraph#ExternalLinkTargetExpression"/>
+            <features
+                href="webdsl.ecore#//ExternalLink/targetExpression"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"

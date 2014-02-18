@@ -848,6 +848,9 @@ public class WebdslVisualIDRegistry {
 			if (ExternalLinkName2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ExternalLinkTargetExpressionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (ExternalLinkExternalLinkSourceCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -881,6 +884,9 @@ public class WebdslVisualIDRegistry {
 			break;
 		case ExternalLink3EditPart.VISUAL_ID:
 			if (ExternalLinkName3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ExternalLinkTargetExpression2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ExternalLinkExternalLinkSourceCompartment2EditPart.VISUAL_ID == nodeVisualID) {
@@ -984,6 +990,9 @@ public class WebdslVisualIDRegistry {
 			break;
 		case ExternalLinkEditPart.VISUAL_ID:
 			if (ExternalLinkNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ExternalLinkTargetExpression3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ExternalLinkExternalLinkSourceCompartment3EditPart.VISUAL_ID == nodeVisualID) {

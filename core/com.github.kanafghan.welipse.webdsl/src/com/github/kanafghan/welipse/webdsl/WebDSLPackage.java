@@ -799,13 +799,22 @@ public interface WebDSLPackage extends EPackage {
 	int EXTERNAL_LINK__TARGET = LINK_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Target Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_LINK__TARGET_EXPRESSION = LINK_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>External Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_LINK_FEATURE_COUNT = LINK_FEATURE_COUNT + 1;
+	int EXTERNAL_LINK_FEATURE_COUNT = LINK_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>External Link</em>' class.
@@ -4313,6 +4322,17 @@ public interface WebDSLPackage extends EPackage {
 	EReference getExternalLink_Target();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.github.kanafghan.welipse.webdsl.ExternalLink#getTargetExpression <em>Target Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target Expression</em>'.
+	 * @see com.github.kanafghan.welipse.webdsl.ExternalLink#getTargetExpression()
+	 * @see #getExternalLink()
+	 * @generated
+	 */
+	EAttribute getExternalLink_TargetExpression();
+
+	/**
 	 * Returns the meta object for class '{@link com.github.kanafghan.welipse.webdsl.Expression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5660,6 +5680,14 @@ public interface WebDSLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EXTERNAL_LINK__TARGET = eINSTANCE.getExternalLink_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXTERNAL_LINK__TARGET_EXPRESSION = eINSTANCE.getExternalLink_TargetExpression();
 
 		/**
 		 * The meta object literal for the '{@link com.github.kanafghan.welipse.webdsl.impl.ExpressionImpl <em>Expression</em>}' class.

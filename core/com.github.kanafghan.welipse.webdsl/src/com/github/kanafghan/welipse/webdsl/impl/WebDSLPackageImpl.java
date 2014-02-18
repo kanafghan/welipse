@@ -870,6 +870,15 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getExternalLink_TargetExpression() {
+		return (EAttribute)externalLinkEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getExpression() {
 		return expressionEClass;
 	}
@@ -1804,6 +1813,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 
 		externalLinkEClass = createEClass(EXTERNAL_LINK);
 		createEReference(externalLinkEClass, EXTERNAL_LINK__TARGET);
+		createEAttribute(externalLinkEClass, EXTERNAL_LINK__TARGET_EXPRESSION);
 
 		expressionEClass = createEClass(EXPRESSION);
 		createEOperation(expressionEClass, EXPRESSION___TYPE);
@@ -2065,6 +2075,7 @@ public class WebDSLPackageImpl extends EPackageImpl implements WebDSLPackage {
 
 		initEClass(externalLinkEClass, ExternalLink.class, "ExternalLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExternalLink_Target(), this.getExpression(), null, "target", null, 1, 1, ExternalLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExternalLink_TargetExpression(), ecorePackage.getEString(), "targetExpression", null, 0, 1, ExternalLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(expressionEClass, Expression.class, "Expression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -1267,6 +1267,10 @@ public class WebdslViewProvider extends AbstractProvider implements
 		Node label5034 = createLabel(node,
 				WebdslVisualIDRegistry
 						.getType(ExternalLinkName2EditPart.VISUAL_ID));
+		Node label5084 = createLabel(
+				node,
+				WebdslVisualIDRegistry
+						.getType(ExternalLinkTargetExpressionEditPart.VISUAL_ID));
 		createCompartment(
 				node,
 				WebdslVisualIDRegistry
@@ -1470,6 +1474,10 @@ public class WebdslViewProvider extends AbstractProvider implements
 		Node label5042 = createLabel(node,
 				WebdslVisualIDRegistry
 						.getType(ExternalLinkName3EditPart.VISUAL_ID));
+		Node label5085 = createLabel(
+				node,
+				WebdslVisualIDRegistry
+						.getType(ExternalLinkTargetExpression2EditPart.VISUAL_ID));
 		createCompartment(
 				node,
 				WebdslVisualIDRegistry
@@ -2019,6 +2027,10 @@ public class WebdslViewProvider extends AbstractProvider implements
 		Node label5028 = createLabel(node,
 				WebdslVisualIDRegistry
 						.getType(ExternalLinkNameEditPart.VISUAL_ID));
+		Node label5086 = createLabel(
+				node,
+				WebdslVisualIDRegistry
+						.getType(ExternalLinkTargetExpression3EditPart.VISUAL_ID));
 		createCompartment(
 				node,
 				WebdslVisualIDRegistry

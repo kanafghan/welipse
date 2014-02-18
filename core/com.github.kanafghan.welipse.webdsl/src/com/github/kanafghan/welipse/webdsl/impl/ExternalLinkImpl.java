@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.ExternalLinkImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link com.github.kanafghan.welipse.webdsl.impl.ExternalLinkImpl#getTargetExpression <em>Target Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,6 +36,26 @@ public class ExternalLinkImpl extends LinkImpl implements ExternalLink {
 	 * @ordered
 	 */
 	protected Expression target;
+
+	/**
+	 * The default value of the '{@link #getTargetExpression() <em>Target Expression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TARGET_EXPRESSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTargetExpression() <em>Target Expression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected String targetExpression = TARGET_EXPRESSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,6 +124,27 @@ public class ExternalLinkImpl extends LinkImpl implements ExternalLink {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getTargetExpression() {
+		return targetExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetExpression(String newTargetExpression) {
+		String oldTargetExpression = targetExpression;
+		targetExpression = newTargetExpression;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WebDSLPackage.EXTERNAL_LINK__TARGET_EXPRESSION, oldTargetExpression, targetExpression));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -122,6 +164,8 @@ public class ExternalLinkImpl extends LinkImpl implements ExternalLink {
 		switch (featureID) {
 			case WebDSLPackage.EXTERNAL_LINK__TARGET:
 				return getTarget();
+			case WebDSLPackage.EXTERNAL_LINK__TARGET_EXPRESSION:
+				return getTargetExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -136,6 +180,9 @@ public class ExternalLinkImpl extends LinkImpl implements ExternalLink {
 		switch (featureID) {
 			case WebDSLPackage.EXTERNAL_LINK__TARGET:
 				setTarget((Expression)newValue);
+				return;
+			case WebDSLPackage.EXTERNAL_LINK__TARGET_EXPRESSION:
+				setTargetExpression((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -152,6 +199,9 @@ public class ExternalLinkImpl extends LinkImpl implements ExternalLink {
 			case WebDSLPackage.EXTERNAL_LINK__TARGET:
 				setTarget((Expression)null);
 				return;
+			case WebDSLPackage.EXTERNAL_LINK__TARGET_EXPRESSION:
+				setTargetExpression(TARGET_EXPRESSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -166,8 +216,26 @@ public class ExternalLinkImpl extends LinkImpl implements ExternalLink {
 		switch (featureID) {
 			case WebDSLPackage.EXTERNAL_LINK__TARGET:
 				return target != null;
+			case WebDSLPackage.EXTERNAL_LINK__TARGET_EXPRESSION:
+				return TARGET_EXPRESSION_EDEFAULT == null ? targetExpression != null : !TARGET_EXPRESSION_EDEFAULT.equals(targetExpression);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (targetExpression: ");
+		result.append(targetExpression);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ExternalLinkImpl
