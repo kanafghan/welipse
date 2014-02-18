@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.github.kanafghan.welipse.feature.core_1.0.0.qualifier.jar" id="com.github.kanafghan.welipse.feature.core" version="1.0.0.qualifier">
+      <category name="kanafghan"/>
+   </feature>
+   <feature url="features/com.github.kanafghan.welipse.feature.joomla_1.0.0.qualifier.jar" id="com.github.kanafghan.welipse.feature.joomla" version="1.0.0.qualifier">
+      <category name="kanafghan"/>
+   </feature>
+   <category-def name="kanafghan" label="Welipse">
+      <description>
+         Eclipse Tools for Web Engineering
+      </description>
+   </category-def>
+</site>
