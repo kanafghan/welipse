@@ -17,7 +17,7 @@ public class WebdslUriEditorInputTester extends PropertyTester {
 			return false;
 		}
 		URIEditorInput editorInput = (URIEditorInput) receiver;
-		return "webdsl_diagram".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
+		return "webdsldiag".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
 	}
 
 }

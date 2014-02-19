@@ -4,13 +4,13 @@
 
    <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
       <?gmfgen generated="true"?>
-      <fileTypes type="text" extension="webdsl_diagram"/>
+      <fileTypes type="text" extension="webdsldiag"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
       <?gmfgen generated="true"?>
       <parser
-         type="webdsl_diagram"
+         type="webdsldiag"
          class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
       </parser>
    </extension>
@@ -21,7 +21,7 @@
          id="com.github.kanafghan.welipse.webdsl.diagram.part.WebdslDiagramEditorID"
          name="%editorName"
          icon="icons/obj16/WebDSLDiagramFile.gif"
-         extensions="webdsl_diagram"
+         extensions="webdsldiag"
          default="true"
          class="com.github.kanafghan.welipse.webdsl.diagram.part.WebdslDiagramEditor"
          matchingStrategy="com.github.kanafghan.welipse.webdsl.diagram.part.WebdslMatchingStrategy"
@@ -40,11 +40,11 @@
    </extension>
 
    <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/WebDSLDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
+  	     category="com.github.kanafghan.welipse.ui.wizards"
   	     class="com.github.kanafghan.welipse.webdsl.diagram.part.WebdslCreationWizard"
   	     id="com.github.kanafghan.welipse.webdsl.diagram.part.WebdslCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
@@ -805,7 +805,7 @@
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="webdsl_diagram"/>
+        	      <test property="org.eclipse.core.resources.extension" value="webdsldiag"/>
                </and>
                <instanceof value="com.github.kanafghan.welipse.webdsl.diagram.navigator.WebdslAbstractNavigatorItem"/>
             </or>
@@ -822,7 +822,7 @@
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
-        	         <test property="org.eclipse.core.resources.extension" value="webdsl_diagram"/>
+        	         <test property="org.eclipse.core.resources.extension" value="webdsldiag"/>
                   </and>
                   <instanceof value="com.github.kanafghan.welipse.webdsl.diagram.navigator.WebdslAbstractNavigatorItem"/>
                </or>

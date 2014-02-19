@@ -102,7 +102,7 @@ public class WebdslCreationWizard extends Wizard implements INewWizard {
 	 */
 	public void addPages() {
 		diagramModelFilePage = new WebdslCreationWizardPage(
-				"DiagramModelFile", getSelection(), "webdsl_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
+				"DiagramModelFile", getSelection(), "webdsldiag"); //$NON-NLS-1$ //$NON-NLS-2$
 		diagramModelFilePage
 				.setTitle(Messages.WebdslCreationWizard_DiagramModelFilePageTitle);
 		diagramModelFilePage
@@ -116,7 +116,7 @@ public class WebdslCreationWizard extends Wizard implements INewWizard {
 				if (visible) {
 					String fileName = diagramModelFilePage.getFileName();
 					fileName = fileName.substring(0, fileName.length()
-							- ".webdsl_diagram".length()); //$NON-NLS-1$
+							- ".webdsldiag".length()); //$NON-NLS-1$
 					setFileName(WebdslDiagramEditorUtil.getUniqueFileName(
 							getContainerFullPath(), fileName, "webdsl")); //$NON-NLS-1$
 				}

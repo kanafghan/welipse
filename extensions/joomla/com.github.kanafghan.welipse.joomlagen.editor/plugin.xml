@@ -15,7 +15,7 @@
             id="com.github.kanafghan.welipse.joomlagen.presentation.JoomlaGenModelWizardID"
             name="%_UI_JoomlaGenModelWizard_label"
             class="com.github.kanafghan.welipse.joomlagen.presentation.JoomlaGenModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="com.github.kanafghan.welipse.ui.wizards"
             icon="icons/full/obj16/JoomlaGenModelFile.gif">
          <description>%_UI_JoomlaGenModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>

@@ -9,5 +9,12 @@
             name="popups">
       </category>
    </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="com.github.kanafghan.welipse.ui.wizards"
+            name="Welipse Wizards">
+      </category>
+   </extension>
 
 </plugin>

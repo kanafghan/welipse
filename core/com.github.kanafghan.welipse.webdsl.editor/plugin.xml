@@ -15,7 +15,7 @@
             id="com.github.kanafghan.welipse.webdsl.presentation.WebDSLModelWizardID"
             name="%_UI_WebDSLModelWizard_label"
             class="com.github.kanafghan.welipse.webdsl.presentation.WebDSLModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="com.github.kanafghan.welipse.ui.wizards"
             icon="icons/full/obj16/WebDSLModelFile.gif">
          <description>%_UI_WebDSLModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
