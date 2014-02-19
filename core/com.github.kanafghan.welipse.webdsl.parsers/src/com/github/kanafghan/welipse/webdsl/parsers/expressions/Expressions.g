@@ -19,7 +19,7 @@ evaluator returns [Expression result]
 	;
 	
 expression returns [Expression result]
-	:	term9 {$result = $term9.result;}	
+	:	term11 {$result = $term11.result;}	
 	;
 	
 term0 returns [Expression result]
@@ -108,23 +108,7 @@ term4 returns [Expression result]
 
 term5 returns [Expression result]
 	:	op1 = term4 { $result = $op1.result; }
-		(	'==' op2 = term4
-			{	
-				ComparisonOperation e = WebDSLFactory.eINSTANCE.createComparisonOperation();
-				e.getOperands().add($op1.result);
-				e.getOperands().add($op2.result);
-				e.setOperator(ComparisonOperator.EQUAL);
-				$result = e;
-			}
-		|	'!=' op2 = term4
-			{
-				ComparisonOperation e = WebDSLFactory.eINSTANCE.createComparisonOperation();
-				e.getOperands().add($op1.result);
-				e.getOperands().add($op2.result);
-				e.setOperator(ComparisonOperator.NOT_EQUAL);
-				$result = e;
-			}
-		|	'>' op2 = term4
+		(	'>' op2 = term4
 			{	
 				ComparisonOperation e = WebDSLFactory.eINSTANCE.createComparisonOperation();
 				e.getOperands().add($op1.result);			
@@ -158,10 +142,31 @@ term5 returns [Expression result]
 			}
 		)*
 	;
-
+	
 term6 returns [Expression result]
 	:	op1 = term5 { $result = $op1.result; }
-		(	'&&' op2 = term5
+		(	'==' op2 = term5
+			{	
+				ComparisonOperation e = WebDSLFactory.eINSTANCE.createComparisonOperation();
+				e.getOperands().add($op1.result);
+				e.getOperands().add($op2.result);
+				e.setOperator(ComparisonOperator.EQUAL);
+				$result = e;
+			}
+		|	'!=' op2 = term5
+			{
+				ComparisonOperation e = WebDSLFactory.eINSTANCE.createComparisonOperation();
+				e.getOperands().add($op1.result);
+				e.getOperands().add($op2.result);
+				e.setOperator(ComparisonOperator.NOT_EQUAL);
+				$result = e;
+			}
+		)*
+	;	
+
+term7 returns [Expression result]
+	:	op1 = term6 { $result = $op1.result; }
+		(	'&&' op2 = term6
 			{
 				BooleanOperation e = WebDSLFactory.eINSTANCE.createBooleanOperation();
 				e.getOperands().add($op1.result);
@@ -169,7 +174,12 @@ term6 returns [Expression result]
 				e.setOperator(BooleanOperator.CONJUNCTION);
 				$result = e;
 			}
-		|	'||' op2 = term5
+		)*	
+	;
+
+term8 returns [Expression result]
+	:	op1 = term7 { $result = $op1.result; }
+		(	'||' op2 = term7
 			{
 				BooleanOperation e = WebDSLFactory.eINSTANCE.createBooleanOperation();
 				e.getOperands().add($op1.result);
@@ -180,9 +190,9 @@ term6 returns [Expression result]
 		)*	
 	;
 
-term7 returns [Expression result]
-	:	op1 = term6 { $result = $op1.result; } 
-		(	'.' 'concat(' op2 = term6 ')'
+term9 returns [Expression result]
+	:	op1 = term8 { $result = $op1.result; } 
+		(	'.' 'concat(' op2 = term8 ')'
 			{
 				StringOperation e = WebDSLFactory.eINSTANCE.createStringOperation();
 				e.getOperands().add($op1.result);
@@ -193,8 +203,8 @@ term7 returns [Expression result]
 		)*
 	;
 	
-term8 returns [Expression result]
-	:	op = term7 { $result = $op.result; }
+term10 returns [Expression result]
+	:	op = term9 { $result = $op.result; }
 		(	'.' 'length'
 			{
 				StringOperation e = WebDSLFactory.eINSTANCE.createStringOperation();
@@ -205,10 +215,10 @@ term8 returns [Expression result]
 		)?
 	;
 	
-term9 returns [Expression result]
-	:	key = term8 { $result = $key.result; }
+term11 returns [Expression result]
+	:	key = term10 { $result = $key.result; }
 		(
-			'=>' value = term8
+			'=>' value = term10
 			{
 				ListElement le = WebDSLFactory.eINSTANCE.createListElement();
 				le.setKey($key.result);
