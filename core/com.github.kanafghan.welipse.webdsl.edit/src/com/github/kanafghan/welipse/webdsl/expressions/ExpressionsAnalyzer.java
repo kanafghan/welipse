@@ -1,10 +1,15 @@
 package com.github.kanafghan.welipse.webdsl.expressions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
@@ -557,10 +562,16 @@ public class ExpressionsAnalyzer {
 						Page containerPage = (Page) oldVar.eContainer();
 						newVar.initialize(containerPage);
 						
-						oldVar.setClassifier(newVar.getClassifier());
-						oldVar.setDeclaration(newVar.getDeclaration());
-						oldVar.setType(newVar.getType());
-						oldVar.setVar(newVar.getVar());
+						EClass eClass = oldVar.eClass();
+					    EStructuralFeature sfClassifier = eClass.getEStructuralFeature(WebDSLPackage.VARIABLE_DECLARATION__CLASSIFIER);
+					    EStructuralFeature sfType = eClass.getEStructuralFeature(WebDSLPackage.VARIABLE_DECLARATION__TYPE);
+					    EStructuralFeature sfVar = eClass.getEStructuralFeature(WebDSLPackage.VARIABLE_DECLARATION__VAR);
+					    
+					    // The list of commands that will set the features of the oldVar
+					    List<Command> commandList = new ArrayList<Command>();
+					    commandList.add(SetCommand.create(editingDomain, oldVar, sfClassifier, newVar.getClassifier()));
+					    commandList.add(SetCommand.create(editingDomain, oldVar, sfType, newVar.getType()));
+					    commandList.add(SetCommand.create(editingDomain, oldVar, sfVar, newVar.getVar()));
 						
 						if (!isParameter) {
 							VariableInitialization oldVarInit = (VariableInitialization) oldVar;
@@ -586,8 +597,13 @@ public class ExpressionsAnalyzer {
 												+ type.getName());
 							}
 							
-							oldVarInit.setInitExp(newVarInit.getInitExp());
+							EStructuralFeature sfInitExp = eClass.getEStructuralFeature(WebDSLPackage.VARIABLE_INITIALIZATION__INIT_EXP);
+							commandList.add(SetCommand.create(editingDomain, oldVarInit, sfInitExp, newVarInit.getInitExp()));
 						}
+						
+						// Execute the commands
+						CompoundCommand command = new CompoundCommand(commandList);
+					    editingDomain.getCommandStack().execute(command);
 					} else {
 						return new Status(Status.ERROR, PLUGIN_ID,
 								"The variable declaration '"+ expression +"' could not be parsed.");
