@@ -11,7 +11,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecore;bundle-version="2.9.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Export-Package: com.github.kanafghan.welipse.webdsl.parsers,
- com.github.kanafghan.welipse.webdsl.parsers.expressions
+Export-Package: com.github.kanafghan.welipse.webdsl.parsers;uses:="com.github.kanafghan.welipse.webdsl,org.eclipse.ui.plugin,org.osgi.framework",
+ com.github.kanafghan.welipse.webdsl.parsers.expressions;uses:="com.github.kanafghan.welipse.webdsl,org.antlr.runtime"
 Bundle-ClassPath: .,
  antlr-3.5.1-complete.jar
