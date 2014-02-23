@@ -253,6 +253,7 @@ public class ExpressionsAnalyzer {
 						} else if (element instanceof Input) {
 							//TODO do something about this
 						} else if (element instanceof ActualParameter) {
+							//TODO fix this by using commands
 							ActualParameter actualParameter = (ActualParameter) element;
 							VariableExp variable;
 							
@@ -275,8 +276,17 @@ public class ExpressionsAnalyzer {
 									for (Parameter formalParameter : parameters) {
 										if (formalParameter.getVar().equals(actualParameter.getIdentifier())) {
 											// Types must also match
-											if (formalParameter.getType().equals(variable.type())) {												
-												actualParameter.setFormalParameter(formalParameter);
+											if (formalParameter.getType().equals(variable.type())) {
+												EStructuralFeature sfValue = eClass.getEStructuralFeature(WebDSLPackage.ACTUAL_PARAMETER__VALUE);
+												EStructuralFeature sfFormalParameter = eClass.getEStructuralFeature(WebDSLPackage.ACTUAL_PARAMETER__FORMAL_PARAMETER);
+												
+												List<Command> commandList = new ArrayList<Command>();
+												commandList.add(SetCommand.create(editingDomain, element, sfValue, e));
+												commandList.add(SetCommand.create(editingDomain, element, sfFormalParameter, formalParameter));
+												
+												// Execute the commands
+												CompoundCommand command = new CompoundCommand(commandList);
+											    editingDomain.getCommandStack().execute(command);
 											}
 										}
 									}
@@ -287,23 +297,20 @@ public class ExpressionsAnalyzer {
 												+"' of the internal link '"+ internalLink.getName() 
 												+"' does not have either a parameter with the name '"+ expression 
 												+"' or a parameter with the type '"+ variable.type().getName()
-												+"'. Your model is incomplete at the moment");
+												+"'. Your model is incomplete at the moment.");
 									}
 								} else {
 									return new Status(Status.ERROR, PLUGIN_ID,
 											"Could not found the target page of the link. Please define the target of the internal link '"
 											+ internalLink.getName() 
-											+"' before defining its actual parameters. Your model is incomplete at the moment");
+											+"' before defining its actual parameters. Your model is incomplete at the moment.");
 								}
 								
 							} else {
 								return new Status(Status.ERROR, PLUGIN_ID,
 										"Please define the target of the internal link '"+ internalLink.getName() 
-										+"' before defining its actual parameters. Your model is incomplete at the moment");
+										+"' before defining its actual parameters. Your model is incomplete at the moment.");
 							}
-							
-							f = eClass.getEStructuralFeature(WebDSLPackage.ACTUAL_PARAMETER__VALUE);
-							
 						}
 						
 						if (f != null) {											
