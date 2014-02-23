@@ -55,7 +55,7 @@ public class Tester {
 	private static void runTests(String[] expressions, int kind) {
 		for (String tc: expressions) {
 			ExpressionsLanguage parser = ExpressionsLanguage.getInstace();
-			parser.setExpression(tc);
+			parser.setText(tc);
 			try {
 				switch (kind) {
 				case EXPRESSION:

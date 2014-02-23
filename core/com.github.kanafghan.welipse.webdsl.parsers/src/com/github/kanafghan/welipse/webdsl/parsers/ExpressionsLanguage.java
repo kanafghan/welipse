@@ -36,7 +36,7 @@ public class ExpressionsLanguage {
 		return instance;
 	}
 	
-	public void setExpression(String expression) {
+	public void setText(String expression) {
 		charStream = new ANTLRStringStream(expression);
 		lexer = new ExpressionsLexer(charStream);
 		tokenStream = new CommonTokenStream(lexer);

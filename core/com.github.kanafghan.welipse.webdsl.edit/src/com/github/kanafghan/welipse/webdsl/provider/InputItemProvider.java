@@ -3,18 +3,12 @@
 package com.github.kanafghan.welipse.webdsl.provider;
 
 
-import com.github.kanafghan.welipse.webdsl.Input;
-import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
-import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
-import com.github.kanafghan.welipse.webdsl.expressions.ExpressionsAnalyzer;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -24,6 +18,11 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import com.github.kanafghan.welipse.webdsl.Input;
+import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
+import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
+import com.github.kanafghan.welipse.webdsl.provider.integration.ParseableItemPropertyDescriptor;
 
 /**
  * This is the item provider adapter for a {@link com.github.kanafghan.welipse.webdsl.Input} object.
@@ -75,7 +74,7 @@ public class InputItemProvider
 	 */
 	protected void addLabelExpressionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
+			(new ParseableItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_Input_labelExpression_feature"),
@@ -86,28 +85,7 @@ public class InputItemProvider
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null)
-			 {
-
-				@Override
-				public void setPropertyValue(Object object, Object value) {
-					super.setPropertyValue(object, value);
-					
-					// get the expression
-					if (value instanceof String && object instanceof Input) {
-						String expression = (String) value;
-						if (!expression.isEmpty()) {
-							Input input = (Input) object;
-							EditingDomain editingDomain = getEditingDomain(input);
-							// parse, initialize, analyze and set the expression of the input
-							ExpressionsAnalyzer expAnalyzer = new ExpressionsAnalyzer(
-									editingDomain, input, expression);
-							expAnalyzer.analyzeInputExpressions(false);
-						}
-					}
-				}
-				
-			 });
+				 null));
 	}
 	
 	/**
@@ -118,7 +96,7 @@ public class InputItemProvider
 	 */
 	protected void addValueExpressionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
+			(new ParseableItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_Input_valueExpression_feature"),
@@ -129,28 +107,7 @@ public class InputItemProvider
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null)			
-			{
-
-				@Override
-				public void setPropertyValue(Object object, Object value) {
-					super.setPropertyValue(object, value);
-					
-					// get the expression
-					if (value instanceof String && object instanceof Input) {
-						String expression = (String) value;
-						if (!expression.isEmpty()) {
-							Input input = (Input) object;
-							EditingDomain editingDomain = getEditingDomain(input);
-							// parse, initialize, analyze and set the expression of the input
-							ExpressionsAnalyzer expAnalyzer = new ExpressionsAnalyzer(
-									editingDomain, input, expression);
-							expAnalyzer.analyzeInputExpressions(true);
-						}
-					}
-				}
-				
-			 });
+				 null));
 	}
 
 	/**

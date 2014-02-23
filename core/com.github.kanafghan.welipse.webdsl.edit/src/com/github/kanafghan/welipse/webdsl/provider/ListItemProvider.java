@@ -3,18 +3,12 @@
 package com.github.kanafghan.welipse.webdsl.provider;
 
 
-import com.github.kanafghan.welipse.webdsl.PresentationElement;
-import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
-import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
-import com.github.kanafghan.welipse.webdsl.expressions.ExpressionsAnalyzer;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -24,6 +18,10 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
+import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
+import com.github.kanafghan.welipse.webdsl.provider.integration.ParseableItemPropertyDescriptor;
 
 /**
  * This is the item provider adapter for a {@link com.github.kanafghan.welipse.webdsl.List} object.
@@ -73,7 +71,7 @@ public class ListItemProvider
 	 */
 	protected void addVariablePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
+			(new ParseableItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_List_variable_feature"),
@@ -84,26 +82,7 @@ public class ListItemProvider
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null) 
-			{
-
-				@Override
-				public void setPropertyValue(Object object, Object value) {
-					super.setPropertyValue(object, value);
-					
-					// get the variable declaration
-					if (value instanceof String && object instanceof PresentationElement) {
-						String expression = (String) value;
-						PresentationElement element = (PresentationElement) object;
-						EditingDomain editingDomain = getEditingDomain(element);
-						
-						// parse, initialize, analyze and set the iteratorVariable of the list
-						ExpressionsAnalyzer evaluator = new ExpressionsAnalyzer(editingDomain, element, expression);
-						evaluator.analyzeIteratorVariable();
-					}
-				}
-				
-			});
+				 null));
 	}
 
 	/**

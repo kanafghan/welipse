@@ -10,7 +10,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -25,7 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import com.github.kanafghan.welipse.webdsl.Page;
 import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
-import com.github.kanafghan.welipse.webdsl.expressions.ExpressionsAnalyzer;
+import com.github.kanafghan.welipse.webdsl.provider.integration.ParseableItemPropertyDescriptor;
 
 /**
  * This is the item provider adapter for a {@link com.github.kanafghan.welipse.webdsl.Page} object.
@@ -99,7 +98,7 @@ public class PageItemProvider
 	 */
 	protected void addParameterPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
+			(new ParseableItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_Page_parameter_feature"),
@@ -110,30 +109,7 @@ public class PageItemProvider
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null)
-			{
-
-				@Override
-				public void setPropertyValue(Object object, Object value) {
-					super.setPropertyValue(object, value);
-					
-					// get the declaration of the parameter
-					if (value instanceof String && object instanceof Page) {
-						String expression = (String) value;
-						Page page = (Page) object;
-						EditingDomain editingDomain = getEditingDomain(page);
-
-						String[] expressions = expression.split(";");
-						for (String exp : expressions) {
-							if (!exp.isEmpty()) {														
-								// parse, initialize, analyze and add the parameter to the page
-								ExpressionsAnalyzer expAnalyzer = new ExpressionsAnalyzer(editingDomain, page, exp);
-								expAnalyzer.analyzeParameter();
-							}
-						}
-					}
-				}
-			});
+				 null));
 	}
 
 	/**
@@ -144,7 +120,7 @@ public class PageItemProvider
 	 */
 	protected void addVariablePropertyDescriptor(Object object) {
 		 itemPropertyDescriptors.add
-         (new ItemPropertyDescriptor
+         (new ParseableItemPropertyDescriptor
                  (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                   getResourceLocator(),
                   getString("_UI_Page_variable_feature"),
@@ -155,30 +131,7 @@ public class PageItemProvider
                   false,
                   ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
                   null,
-                  null)
-         {
-
-			 @Override
-			 public void setPropertyValue(Object object, Object value) {
-				super.setPropertyValue(object, value);
-				 
-				// get the declaration of the parameter
-				if (value instanceof String && object instanceof Page) {
-					String expression = (String) value;
-					Page page = (Page) object;
-					EditingDomain editingDomain = getEditingDomain(page);
-				
-					String[] expressions = expression.split(";");
-					for (String exp : expressions) {
-						if (!exp.isEmpty()) {														
-							// parse, initialize, analyze and add the parameter to the page
-							ExpressionsAnalyzer expAnalyzer = new ExpressionsAnalyzer(editingDomain, page, exp);
-							expAnalyzer.analyzeVariable();
-						}
-					}
-				}
-			 }
-         });
+                  null));
 	}
 
 	/**

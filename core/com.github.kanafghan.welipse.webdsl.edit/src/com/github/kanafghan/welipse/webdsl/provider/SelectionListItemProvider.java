@@ -9,7 +9,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,7 +22,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import com.github.kanafghan.welipse.webdsl.SelectionList;
 import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
-import com.github.kanafghan.welipse.webdsl.expressions.ExpressionsAnalyzer;
+import com.github.kanafghan.welipse.webdsl.provider.integration.ParseableItemPropertyDescriptor;
 
 /**
  * This is the item provider adapter for a {@link com.github.kanafghan.welipse.webdsl.SelectionList} object.
@@ -119,7 +118,7 @@ public class SelectionListItemProvider
 	 */
 	protected void addOptionsExpressionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
+			(new ParseableItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_SelectionList_optionsExpression_feature"),
@@ -130,28 +129,7 @@ public class SelectionListItemProvider
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null)
-			{
-
-				@Override
-				public void setPropertyValue(Object object, Object value) {
-					super.setPropertyValue(object, value);
-					
-					// get the expression
-					if (value instanceof String && object instanceof SelectionList) {
-						String expression = (String) value;
-						if (!expression.isEmpty()) {
-							SelectionList select = (SelectionList) object;
-							EditingDomain editingDomain = getEditingDomain(select);
-							// parse, initialize, analyze and set the expression of the input
-							ExpressionsAnalyzer evaluator = new ExpressionsAnalyzer(
-									editingDomain, select, expression);
-							evaluator.analyzeSelectionListOptionsExpression();
-						}
-					}
-				}
-				
-			});
+				 null));
 	}
 
 	/**

@@ -9,7 +9,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -21,10 +20,9 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import com.github.kanafghan.welipse.webdsl.Parameter;
 import com.github.kanafghan.welipse.webdsl.VariableDeclaration;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
-import com.github.kanafghan.welipse.webdsl.expressions.ExpressionsAnalyzer;
+import com.github.kanafghan.welipse.webdsl.provider.integration.ParseableItemPropertyDescriptor;
 
 /**
  * This is the item provider adapter for a {@link com.github.kanafghan.welipse.webdsl.VariableDeclaration} object.
@@ -143,7 +141,7 @@ public class VariableDeclarationItemProvider
 	 */
 	protected void addDeclarationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
+			(new ParseableItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_VariableDeclaration_declaration_feature"),
@@ -154,27 +152,7 @@ public class VariableDeclarationItemProvider
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null)
-			{
-
-				@Override
-				public void setPropertyValue(Object object, Object value) {
-					super.setPropertyValue(object, value);
-					
-					if (value instanceof String && object instanceof VariableDeclaration) {
-						String declaration = (String) value;
-						
-						if (!declaration.isEmpty()) {
-							VariableDeclaration var = (VariableDeclaration) object;
-							EditingDomain editingDomain = getEditingDomain(var);
-							
-							ExpressionsAnalyzer expAnalyzer = new ExpressionsAnalyzer(editingDomain, var, declaration);
-							expAnalyzer.analyzeVariableDeclaration(var instanceof Parameter);
-						}
-					}
-				}
-				
-			});
+				 null));
 	}
 
 	/**
