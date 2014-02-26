@@ -36,8 +36,8 @@ public class ExpressionsLanguage {
 		return instance;
 	}
 	
-	public void setText(String expression) {
-		charStream = new ANTLRStringStream(expression);
+	public void setText(String text) {
+		charStream = new ANTLRStringStream(text);
 		lexer = new ExpressionsLexer(charStream);
 		tokenStream = new CommonTokenStream(lexer);
 		parser = new ExpressionsParser(tokenStream);
@@ -47,7 +47,7 @@ public class ExpressionsLanguage {
 		Expression result = null;
 		
 		try {
-			result = parser.evaluator();
+			result = parser.expressions();
 		} catch (RecognitionException e) {
 			throw new Exception(e.getMessage());
 		}

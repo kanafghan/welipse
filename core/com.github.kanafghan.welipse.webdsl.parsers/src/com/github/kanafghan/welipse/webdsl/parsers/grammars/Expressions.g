@@ -14,7 +14,7 @@ options {
     package com.github.kanafghan.welipse.webdsl.parsers.expressions;
 }
 
-evaluator returns [Expression result]
+expressions returns [Expression result]
 	:	expression {$result = $expression.result;}
 	;
 	
