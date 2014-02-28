@@ -13,14 +13,6 @@
 [/if]
 [/template]
 
-[template public getObjectName (element : ETypedElement) post (trim())]
-[element.eType.name.toLower()/]	
-[/template]
-
-[template public getObjectAttributeName (element : ETypedElement) post (trim())]
-[element.name.toLower()/]
-[/template]
-
 [template public generatePHPProtectedRegion(name : OclAny)]
 //[protected (name)]
 // Insert custom code here (don't remove the above and below lines)
