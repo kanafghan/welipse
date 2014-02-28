@@ -25,24 +25,24 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
- * Entry point of the 'GenListModel' generation module.
+ * Entry point of the 'GenEditTemplate' generation module.
  *
  * @generated
  */
-public class GenListModel extends AbstractAcceleoGenerator {
+public class GenBEEditTemplate extends AbstractAcceleoGenerator {
     /**
      * The name of the module.
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genListModel";
+    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genBEEditTemplate";
     
     /**
      * The name of the templates that are to be generated.
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "generateListModel" };
+    public static final String[] TEMPLATE_NAMES = { "genEditTemplate" };
     
     /**
      * The list of properties files from the launch parameters (Launch configuration).
@@ -65,7 +65,7 @@ public class GenListModel extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public GenListModel() {
+    public GenBEEditTemplate() {
         // Empty implementation
     }
 
@@ -85,7 +85,7 @@ public class GenListModel extends AbstractAcceleoGenerator {
      *             the model cannot be loaded.
      * @generated
      */
-    public GenListModel(URI modelURI, File targetFolder,
+    public GenBEEditTemplate(URI modelURI, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -106,7 +106,7 @@ public class GenListModel extends AbstractAcceleoGenerator {
      *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
      * @generated
      */
-    public GenListModel(EObject model, File targetFolder,
+    public GenBEEditTemplate(EObject model, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -141,7 +141,7 @@ public class GenListModel extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                GenListModel generator = new GenListModel(modelURI, folder, arguments);
+                GenBEEditTemplate generator = new GenBEEditTemplate(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.

@@ -15,10 +15,10 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.BasicMonitor;
 
 import com.github.kanafghan.welipse.joomlagen.generator.Utils.ModelType;
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenEditTemplate;
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenEditView;
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenListTemplate;
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenListView;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenBEEditTemplate;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenBEEditView;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenBEListTemplate;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenBEListView;
 import com.github.kanafghan.welipse.joomlagen.generator.acceleo.Page2HTML;
 import com.github.kanafghan.welipse.joomlagen.generator.acceleo.Page2View;
 import com.github.kanafghan.welipse.joomlagen.generator.context.ViewContext;
@@ -55,9 +55,9 @@ public class JViewGenerator {
 				
 				try {
 					if (viewContext.getModelType() == ModelType.ModelList) {
-						generator = new GenListTemplate(viewContext.getModel(), targetFolder, arguments);
+						generator = new GenBEListTemplate(viewContext.getModel(), targetFolder, arguments);
 					} else if (viewContext.getModelType() == ModelType.ModelAdmin) {
-						generator = new GenEditTemplate(viewContext.getModel(), targetFolder, arguments);
+						generator = new GenBEEditTemplate(viewContext.getModel(), targetFolder, arguments);
 					} else if (viewContext.getPage() != null) {
 						generator = new Page2HTML(viewContext.getPage(), targetFolder, arguments);
 					}
@@ -93,9 +93,9 @@ public class JViewGenerator {
 				
 				try {
 					if (viewContext.getModelType() == ModelType.ModelList) {
-						generator = new GenListView(viewContext.getModel(), targetFolder, arguments);
+						generator = new GenBEListView(viewContext.getModel(), targetFolder, arguments);
 					} else if (viewContext.getModelType() == ModelType.ModelAdmin) {
-						generator = new GenEditView(viewContext.getModel(), targetFolder, arguments);
+						generator = new GenBEEditView(viewContext.getModel(), targetFolder, arguments);
 					} else if (viewContext.getPage() != null) {
 						generator = new Page2View(viewContext.getPage(), targetFolder, arguments);
 					}

@@ -25,24 +25,24 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
- * Entry point of the 'GenFormModel' generation module.
+ * Entry point of the 'GenListTemplate' generation module.
  *
  * @generated
  */
-public class GenJFormModel extends AbstractAcceleoGenerator {
+public class GenBEListTemplate extends AbstractAcceleoGenerator {
     /**
      * The name of the module.
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genJFormModel";
+    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genBEListTemplate";
     
     /**
      * The name of the templates that are to be generated.
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "generateFormModel" };
+    public static final String[] TEMPLATE_NAMES = { "genListTemplate" };
     
     /**
      * The list of properties files from the launch parameters (Launch configuration).
@@ -65,7 +65,7 @@ public class GenJFormModel extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public GenJFormModel() {
+    public GenBEListTemplate() {
         // Empty implementation
     }
 
@@ -85,7 +85,7 @@ public class GenJFormModel extends AbstractAcceleoGenerator {
      *             the model cannot be loaded.
      * @generated
      */
-    public GenJFormModel(URI modelURI, File targetFolder,
+    public GenBEListTemplate(URI modelURI, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -106,7 +106,7 @@ public class GenJFormModel extends AbstractAcceleoGenerator {
      *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
      * @generated
      */
-    public GenJFormModel(EObject model, File targetFolder,
+    public GenBEListTemplate(EObject model, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -141,7 +141,7 @@ public class GenJFormModel extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                GenJFormModel generator = new GenJFormModel(modelURI, folder, arguments);
+                GenBEListTemplate generator = new GenBEListTemplate(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.

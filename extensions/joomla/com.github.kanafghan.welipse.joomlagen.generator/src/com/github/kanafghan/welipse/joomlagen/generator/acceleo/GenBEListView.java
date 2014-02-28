@@ -25,24 +25,24 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
- * Entry point of the 'GenTable' generation module.
+ * Entry point of the 'GenListView' generation module.
  *
  * @generated
  */
-public class GenTable extends AbstractAcceleoGenerator {
+public class GenBEListView extends AbstractAcceleoGenerator {
     /**
      * The name of the module.
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genTable";
+    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genBEListView";
     
     /**
      * The name of the templates that are to be generated.
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "generateTable" };
+    public static final String[] TEMPLATE_NAMES = { "genListView" };
     
     /**
      * The list of properties files from the launch parameters (Launch configuration).
@@ -65,7 +65,7 @@ public class GenTable extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public GenTable() {
+    public GenBEListView() {
         // Empty implementation
     }
 
@@ -85,7 +85,7 @@ public class GenTable extends AbstractAcceleoGenerator {
      *             the model cannot be loaded.
      * @generated
      */
-    public GenTable(URI modelURI, File targetFolder,
+    public GenBEListView(URI modelURI, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -106,7 +106,7 @@ public class GenTable extends AbstractAcceleoGenerator {
      *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
      * @generated
      */
-    public GenTable(EObject model, File targetFolder,
+    public GenBEListView(EObject model, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -141,7 +141,7 @@ public class GenTable extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                GenTable generator = new GenTable(modelURI, folder, arguments);
+                GenBEListView generator = new GenBEListView(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.

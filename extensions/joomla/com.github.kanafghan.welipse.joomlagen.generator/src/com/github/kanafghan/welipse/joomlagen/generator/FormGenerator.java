@@ -13,7 +13,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.BasicMonitor;
 
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenForm;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenBEForm;
 import com.github.kanafghan.welipse.joomlagen.generator.context.FormContext;
 
 public class FormGenerator {
@@ -27,7 +27,7 @@ public class FormGenerator {
 		final Job job = new Job("Generating form.") {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
-				GenForm generator = new GenForm();
+				GenBEForm generator = new GenBEForm();
 				try {
 					generator.initialize(formContext.getModel(), targetFolder, arguments);
 					generator.doGenerate(BasicMonitor.toMonitor(monitor));

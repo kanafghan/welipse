@@ -25,24 +25,24 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
- * Entry point of the 'GenEditView' generation module.
+ * Entry point of the 'GenTable' generation module.
  *
  * @generated
  */
-public class GenEditView extends AbstractAcceleoGenerator {
+public class GenFETable extends AbstractAcceleoGenerator {
     /**
      * The name of the module.
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genEditView";
+    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genFETable";
     
     /**
      * The name of the templates that are to be generated.
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "genEditView" };
+    public static final String[] TEMPLATE_NAMES = { "generateTable" };
     
     /**
      * The list of properties files from the launch parameters (Launch configuration).
@@ -65,7 +65,7 @@ public class GenEditView extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public GenEditView() {
+    public GenFETable() {
         // Empty implementation
     }
 
@@ -85,7 +85,7 @@ public class GenEditView extends AbstractAcceleoGenerator {
      *             the model cannot be loaded.
      * @generated
      */
-    public GenEditView(URI modelURI, File targetFolder,
+    public GenFETable(URI modelURI, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -106,7 +106,7 @@ public class GenEditView extends AbstractAcceleoGenerator {
      *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
      * @generated
      */
-    public GenEditView(EObject model, File targetFolder,
+    public GenFETable(EObject model, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -141,7 +141,7 @@ public class GenEditView extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                GenEditView generator = new GenEditView(modelURI, folder, arguments);
+                GenFETable generator = new GenFETable(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.

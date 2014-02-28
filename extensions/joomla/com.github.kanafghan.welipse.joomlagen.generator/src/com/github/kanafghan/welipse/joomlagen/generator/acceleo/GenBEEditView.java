@@ -25,24 +25,24 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
- * Entry point of the 'GenItemModel' generation module.
+ * Entry point of the 'GenEditView' generation module.
  *
  * @generated
  */
-public class GenItemModel extends AbstractAcceleoGenerator {
+public class GenBEEditView extends AbstractAcceleoGenerator {
     /**
      * The name of the module.
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genItemModel";
+    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genBEEditView";
     
     /**
      * The name of the templates that are to be generated.
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "generateItemModel" };
+    public static final String[] TEMPLATE_NAMES = { "genEditView" };
     
     /**
      * The list of properties files from the launch parameters (Launch configuration).
@@ -65,7 +65,7 @@ public class GenItemModel extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public GenItemModel() {
+    public GenBEEditView() {
         // Empty implementation
     }
 
@@ -85,7 +85,7 @@ public class GenItemModel extends AbstractAcceleoGenerator {
      *             the model cannot be loaded.
      * @generated
      */
-    public GenItemModel(URI modelURI, File targetFolder,
+    public GenBEEditView(URI modelURI, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -106,7 +106,7 @@ public class GenItemModel extends AbstractAcceleoGenerator {
      *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
      * @generated
      */
-    public GenItemModel(EObject model, File targetFolder,
+    public GenBEEditView(EObject model, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -141,7 +141,7 @@ public class GenItemModel extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                GenItemModel generator = new GenItemModel(modelURI, folder, arguments);
+                GenBEEditView generator = new GenBEEditView(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.

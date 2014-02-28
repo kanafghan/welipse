@@ -25,24 +25,24 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
- * Entry point of the 'GenListView' generation module.
+ * Entry point of the 'GenFormModel' generation module.
  *
  * @generated
  */
-public class GenListView extends AbstractAcceleoGenerator {
+public class GenBEFormModel extends AbstractAcceleoGenerator {
     /**
      * The name of the module.
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genListView";
+    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genBEFormModel";
     
     /**
      * The name of the templates that are to be generated.
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "genListView" };
+    public static final String[] TEMPLATE_NAMES = { "generateFormModel" };
     
     /**
      * The list of properties files from the launch parameters (Launch configuration).
@@ -65,7 +65,7 @@ public class GenListView extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public GenListView() {
+    public GenBEFormModel() {
         // Empty implementation
     }
 
@@ -85,7 +85,7 @@ public class GenListView extends AbstractAcceleoGenerator {
      *             the model cannot be loaded.
      * @generated
      */
-    public GenListView(URI modelURI, File targetFolder,
+    public GenBEFormModel(URI modelURI, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -106,7 +106,7 @@ public class GenListView extends AbstractAcceleoGenerator {
      *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
      * @generated
      */
-    public GenListView(EObject model, File targetFolder,
+    public GenBEFormModel(EObject model, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -141,7 +141,7 @@ public class GenListView extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                GenListView generator = new GenListView(modelURI, folder, arguments);
+                GenBEFormModel generator = new GenBEFormModel(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.

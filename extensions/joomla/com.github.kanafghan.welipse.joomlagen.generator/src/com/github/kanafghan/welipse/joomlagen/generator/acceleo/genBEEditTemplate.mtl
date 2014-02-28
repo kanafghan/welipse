@@ -1,5 +1,5 @@
 [comment encoding = UTF-8 /]
-[module genEditTemplate('/com.github.kanafghan.welipse.webdsl/model/webdsl.ecore', '/com.github.kanafghan.welipse.joomlagen/model/joomlagen.ecore', 'http://www.eclipse.org/emf/2002/Ecore')/]
+[module genBEEditTemplate('/com.github.kanafghan.welipse.webdsl/model/webdsl.ecore', '/com.github.kanafghan.welipse.joomlagen/model/joomlagen.ecore', 'http://www.eclipse.org/emf/2002/Ecore')/]
 
 [import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::common /]
 [import com::github::kanafghan::welipse::joomlagen::generator::acceleo::common::UtilsServices /]

@@ -13,7 +13,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.BasicMonitor;
 
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenFormModel;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenFEFormModel;
 import com.github.kanafghan.welipse.joomlagen.generator.context.Context;
 
 public class WelipseFrameworkGenerator {
@@ -27,7 +27,7 @@ public class WelipseFrameworkGenerator {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
 				try {
-					GenFormModel generator = new GenFormModel(wfContext.getGenModel(), targetFolder, arguments);								
+					GenFEFormModel generator = new GenFEFormModel(wfContext.getGenModel(), targetFolder, arguments);								
 					generator.doGenerate(BasicMonitor.toMonitor(monitor));
 				} catch (IOException e) {
 					return new Status(Status.ERROR, Activator.PLUGIN_ID, 

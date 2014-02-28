@@ -14,11 +14,11 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.BasicMonitor;
 
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenAdminModel;
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenJFormModel;
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenItemModel;
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenListModel;
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenModel;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenBEAdminModel;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenBEFormModel;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenBEItemModel;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenBEListModel;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenFEModel;
 import com.github.kanafghan.welipse.joomlagen.generator.context.ModelContext;
 
 public class JModelGenerator {
@@ -37,20 +37,20 @@ public class JModelGenerator {
 				try {
 					switch (modelContext.getType()) {
 					case ModelAdmin:
-						generator = new GenAdminModel(modelContext.getModel(), targetFolder, arguments);
+						generator = new GenBEAdminModel(modelContext.getModel(), targetFolder, arguments);
 						break;
 					case ModelForm:
-						generator = new GenJFormModel(modelContext.getModel(), targetFolder, arguments);
+						generator = new GenBEFormModel(modelContext.getModel(), targetFolder, arguments);
 						break;
 					case ModelList:
-						generator = new GenListModel(modelContext.getModel(), targetFolder, arguments);
+						generator = new GenBEListModel(modelContext.getModel(), targetFolder, arguments);
 						break;
 					case ModelItem:
-						generator = new GenItemModel(modelContext.getModel(), targetFolder, arguments);
+						generator = new GenBEItemModel(modelContext.getModel(), targetFolder, arguments);
 						break;
 					case Model:
 					default:
-						generator = new GenModel(modelContext.getModel(), targetFolder, arguments);
+						generator = new GenFEModel(modelContext.getModel(), targetFolder, arguments);
 						break;
 					}
 			

@@ -25,24 +25,24 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
- * Entry point of the 'GenForm' generation module.
+ * Entry point of the 'GenFormModel' generation module.
  *
  * @generated
  */
-public class GenForm extends AbstractAcceleoGenerator {
+public class GenFEFormModel extends AbstractAcceleoGenerator {
     /**
      * The name of the module.
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genForm";
+    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genFEFormModel";
     
     /**
      * The name of the templates that are to be generated.
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "generateForm" };
+    public static final String[] TEMPLATE_NAMES = { "generateFormModel" };
     
     /**
      * The list of properties files from the launch parameters (Launch configuration).
@@ -65,7 +65,7 @@ public class GenForm extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public GenForm() {
+    public GenFEFormModel() {
         // Empty implementation
     }
 
@@ -85,7 +85,7 @@ public class GenForm extends AbstractAcceleoGenerator {
      *             the model cannot be loaded.
      * @generated
      */
-    public GenForm(URI modelURI, File targetFolder,
+    public GenFEFormModel(URI modelURI, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -106,7 +106,7 @@ public class GenForm extends AbstractAcceleoGenerator {
      *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
      * @generated
      */
-    public GenForm(EObject model, File targetFolder,
+    public GenFEFormModel(EObject model, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -141,7 +141,7 @@ public class GenForm extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                GenForm generator = new GenForm(modelURI, folder, arguments);
+                GenFEFormModel generator = new GenFEFormModel(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.

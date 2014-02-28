@@ -15,7 +15,7 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.BasicMonitor;
 
 import com.github.kanafghan.welipse.joomlagen.generator.Utils.ControllerType;
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenAdminController;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenBEAdminController;
 import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenBEController;
 import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenBEFormController;
 import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenFEController;
@@ -42,7 +42,7 @@ public class JControllerGenerator {
 						generator = new GenBEFormController(controllerContext.getModel(), targetFolder, arguments);
 					} else if (controllerContext.getType() == ControllerType.ControllerAdmin) {						
 						arguments.add(controllerContext.getContext().getGenModel());
-						generator = new GenAdminController(controllerContext.getModel(), targetFolder, arguments);
+						generator = new GenBEAdminController(controllerContext.getModel(), targetFolder, arguments);
 					} else if (controllerContext.getType() == ControllerType.FEController) {
 						arguments.add(controllerContext.getContext().getGenModel());
 						generator = new GenFEController(controllerContext.getModel(), targetFolder, arguments);

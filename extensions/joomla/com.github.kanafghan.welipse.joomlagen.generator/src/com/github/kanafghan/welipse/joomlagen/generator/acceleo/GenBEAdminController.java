@@ -25,24 +25,24 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
- * Entry point of the 'GenEditTemplate' generation module.
+ * Entry point of the 'GenAdminController' generation module.
  *
  * @generated
  */
-public class GenEditTemplate extends AbstractAcceleoGenerator {
+public class GenBEAdminController extends AbstractAcceleoGenerator {
     /**
      * The name of the module.
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genEditTemplate";
+    public static final String MODULE_FILE_NAME = "/com/github/kanafghan/welipse/joomlagen/generator/acceleo/genBEAdminController";
     
     /**
      * The name of the templates that are to be generated.
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "genEditTemplate" };
+    public static final String[] TEMPLATE_NAMES = { "generateAdminController" };
     
     /**
      * The list of properties files from the launch parameters (Launch configuration).
@@ -65,7 +65,7 @@ public class GenEditTemplate extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public GenEditTemplate() {
+    public GenBEAdminController() {
         // Empty implementation
     }
 
@@ -85,7 +85,7 @@ public class GenEditTemplate extends AbstractAcceleoGenerator {
      *             the model cannot be loaded.
      * @generated
      */
-    public GenEditTemplate(URI modelURI, File targetFolder,
+    public GenBEAdminController(URI modelURI, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -106,7 +106,7 @@ public class GenEditTemplate extends AbstractAcceleoGenerator {
      *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
      * @generated
      */
-    public GenEditTemplate(EObject model, File targetFolder,
+    public GenBEAdminController(EObject model, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -141,7 +141,7 @@ public class GenEditTemplate extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                GenEditTemplate generator = new GenEditTemplate(modelURI, folder, arguments);
+                GenBEAdminController generator = new GenBEAdminController(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.

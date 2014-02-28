@@ -13,7 +13,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.BasicMonitor;
 
-import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenTable;
+import com.github.kanafghan.welipse.joomlagen.generator.acceleo.GenFETable;
 import com.github.kanafghan.welipse.joomlagen.generator.context.TableContext;
 
 public class JTableGenerator {
@@ -27,7 +27,7 @@ public class JTableGenerator {
 		final Job job = new Job("Generating Table.") {//"Generating codes for table: "+ fileName) {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
-				GenTable generator = new GenTable();
+				GenFETable generator = new GenFETable();
 				try {
 					generator.initialize(tableContext.getTable(), targetFolder, arguments);
 					generator.doGenerate(BasicMonitor.toMonitor(monitor));
