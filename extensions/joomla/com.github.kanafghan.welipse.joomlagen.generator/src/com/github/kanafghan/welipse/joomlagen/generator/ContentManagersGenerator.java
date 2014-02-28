@@ -33,18 +33,6 @@ public class ContentManagersGenerator {
 				JoomlaGenModel genModel = ctx.getGenModel();
 				try {
 					if (genModel != null) {
-//						EPackage dataModel = genModel.getDatamodel();
-//						if (dataModel != null) {
-//							EList<EClassifier> classifiers = dataModel.getEClassifiers();
-//							for (EClassifier classifier : classifiers) {
-//								if (classifier instanceof EClass) {
-//									EClass clazz = (EClass) classifier;
-//									generateTable(ctx, adminFolder, clazz, monitor);
-//									generateItemManager(ctx, clazz, adminFolder);
-//									generateListManager(ctx, clazz, adminFolder);
-//								}
-//							}
-//						}
 						GenPackage dataModel = genModel.getDatamodel();
 						if (dataModel != null) {
 							EList<GenClass> classes = dataModel.getGenClasses();

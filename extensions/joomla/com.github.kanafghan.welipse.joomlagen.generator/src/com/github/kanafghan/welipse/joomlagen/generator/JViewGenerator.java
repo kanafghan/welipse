@@ -8,6 +8,7 @@ import java.util.List;
 import org.eclipse.acceleo.engine.service.AbstractAcceleoGenerator;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -30,7 +31,7 @@ public class JViewGenerator {
 		if (context.isBackEndView()) {
 			name = context.getModel().getItemMVCName();
 			if (context.getModelType() == ModelType.ModelList) {
-				name = context.getModel().getListMVCName(); //name += Utils.MODEL_LIST_NAME_SUFFIX;
+				name = context.getModel().getListMVCName();
 			}
 		}
 		name = name.toLowerCase();
@@ -43,17 +44,20 @@ public class JViewGenerator {
 	}
 
 	private static void generateTemplate(ViewContext context, IFolder folder, String viewName) {
+		final IFolder tmplFolder = folder.getFolder(viewName +"/tmpl");
 		final ViewContext viewContext = context;
-		final File targetFolder = new File(folder.getFolder(viewName +"/tmpl").getLocationURI());
+		final File targetFolder = new File(tmplFolder.getLocationURI());
 		final List<Object> arguments = new ArrayList<Object>(1);
 		arguments.add(viewContext.getContext().getGenModel());
 		
-		final Job job = new Job("Generating Template.") {//"Generating codes for default layout within view: "+ viewName) {
+		final Job job = new Job("Generating Template.") {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {				
 				AbstractAcceleoGenerator generator = null;
 				
 				try {
+					Utils.getFolder(tmplFolder, monitor);
+					
 					if (viewContext.getModelType() == ModelType.ModelList) {
 						generator = new GenBEListTemplate(viewContext.getModel(), targetFolder, arguments);
 					} else if (viewContext.getModelType() == ModelType.ModelAdmin) {
@@ -67,7 +71,11 @@ public class JViewGenerator {
 					return new Status(Status.ERROR, Activator.PLUGIN_ID, 
 					"An exception occurred during the code generation! Please check the error view. "
 					+ e.getMessage(), e);					
-				}	
+				} catch (CoreException e) {
+					return new Status(Status.ERROR, Activator.PLUGIN_ID, 
+					"An exception occurred during the code generation! Please check the error view. "
+					+ e.getMessage(), e);
+				}
 				
 				monitor.worked(1);
 				return new Status(Status.OK, Activator.PLUGIN_ID, "Code successfully generated!");
@@ -81,8 +89,9 @@ public class JViewGenerator {
 	}
 
 	private static void generateView(ViewContext context, IFolder folder, String viewName) {
+		final IFolder viewFolder = folder.getFolder(viewName);
 		final ViewContext viewContext = context;
-		final File targetFolder = new File(folder.getFolder(viewName).getLocationURI());
+		final File targetFolder = new File(viewFolder.getLocationURI());
 		final List<Object> arguments = new ArrayList<Object>(1);
 		arguments.add(viewContext.getContext().getGenModel());
 		
@@ -92,6 +101,8 @@ public class JViewGenerator {
 				AbstractAcceleoGenerator generator = null;
 				
 				try {
+					Utils.getFolder(viewFolder, monitor);
+					
 					if (viewContext.getModelType() == ModelType.ModelList) {
 						generator = new GenBEListView(viewContext.getModel(), targetFolder, arguments);
 					} else if (viewContext.getModelType() == ModelType.ModelAdmin) {
@@ -105,6 +116,10 @@ public class JViewGenerator {
 					return new Status(Status.ERROR, Activator.PLUGIN_ID, 
 					"An exception occurred during the code generation! Please check the error view. "
 					+ e.getMessage(), e);					
+				} catch (CoreException e) {
+					return new Status(Status.ERROR, Activator.PLUGIN_ID, 
+					"An exception occurred during the code generation! Please check the error view. "
+					+ e.getMessage(), e);
 				}	
 				
 				monitor.worked(1);

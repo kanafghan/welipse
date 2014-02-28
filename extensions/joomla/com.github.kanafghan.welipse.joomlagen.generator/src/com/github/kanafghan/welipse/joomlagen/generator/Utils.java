@@ -140,8 +140,8 @@ public class Utils {
 		if (!folder.exists()) {
 			monitor = monitor == null ? new NullProgressMonitor() : monitor;
 			folder.create(true, false, monitor);
-			Utils.generateBlankPage(folder, monitor);
 		}
+		Utils.generateBlankPage(folder, monitor);
 		return folder;
 	}
 	
