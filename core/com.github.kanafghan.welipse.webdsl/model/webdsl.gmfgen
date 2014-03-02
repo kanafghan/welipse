@@ -16,6 +16,7 @@
         href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
     <elementType
         xsi:type="gmfgen:MetamodelType"
+        displayName="Website"
         editHelperClassName="WebsiteEditHelper"/>
     <viewmap
         xsi:type="gmfgen:FigureViewmap"
@@ -2835,7 +2836,8 @@
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
       <elementType
-          xsi:type="gmfgen:SpecializationType"/>
+          xsi:type="gmfgen:SpecializationType"
+          displayName="Target"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="InternalLinkTargetFigure"
