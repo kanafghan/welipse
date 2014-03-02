@@ -14,37 +14,52 @@ public class Tester {
 	public static void main(String[] args) {
 		// Test cases for testing expressions
 		String[] expressions = {
-			"1+2*2-5",
-			"2*3/4+5-(3+(-2))",
+			"42",
+			"42.987",
+			"0.42",
+			"42.0",
+			".42",
+			"42.",
+			"\"\"",
+			"\"Welipse\"",
+			"true",
+			"false",
+			"player",
 			"player.name",
-			"c.c1",
-			"(1+(2+(3+(4+5))))+6",
-			"1+5*3",
-			"1>2 || 3<5",
-			"3 != 5 && 4 <= x || false",
-			"2 > 3 == 5",
-			"2 == 3 > 5",
-			"8/2",
-			"1*(2*3)*(4*5)",
-			"x >= player.scores(true)",
-			"\"hello\".length",
-			"\"hello\".concat(\" world\")",
+			"player.calculateAge()",
+			"player.getGoals(match)",
+			"player.calculateAge(bY, bM, bD)",
+			"WebUtils.getAllPlayers()",
 			"[]",
-			"[\"Man\", \"Woman\"]",
-			"[1 => \"Man\", 0 => \"Woman\"]",
-			"WebUtils.getAllPlayer()"
+			"[\"Welipse\"]",
+			"[\"Male\", \"Female\"]",
+			"[1 => \"One\", 2 => \"Two\", 3 => \"Three\", 4 => \"Four\", 5 => \"Five\"]",
+			"\"Welipse\".length",
+			"\"Hello\".concat(\" World!\")",
+			"\"Name: \".concat(player.name)",
+			"1+2-5",
+			"2*3/4",
+			"2*3/4+5-(3+(-2))",
+			"2*3/height+5-(weight+(-2))",
+			"3>2<6>=(5<=19)",
+			"(3==5)!=19",
+			"3>weight<6==(height!=190)",
+			"!(3>x)",
+			"(3>x) && (y==4)",
+			"(5>y) || (3==y)",
+			"!((5>y) || (3==y)) && ((player.weight>x) && (y==player.height))"
 		};
 		// Test cases for creating Variables
 		String[] vars = {
 			"name:EString=player.name",
 			"name : EString = player.name",
-			"x:EInt = 2*(player.height-30)"
+			"name:EString=",
+			"name:EString"
 		};
 		// Test cases for creating Parameters
 		String[] params = {
 			"player:Player",
-			"x:EInt",
-			"role : Role"
+			"player : Player"
 		};
 
 		runTests(expressions, EXPRESSION);
@@ -68,7 +83,7 @@ public class Tester {
 					break;
 				case VARIABLES:
 					VariableInitialization v = parser.getVariable();
-					if (v != null) {						
+					if (v != null && v.getInitExp() != null) {						
 						System.out.println("Test Case: "+ tc +" PASSED ("+ v.toString() +")");
 					} else {
 						throw new Exception("Could not parse the variable initialization!");
@@ -87,7 +102,7 @@ public class Tester {
 				}
 			} catch (Exception e) {
 				System.err.println("Test Case: "+ tc +" FAILED ("+ e.getMessage() +")");
-				e.printStackTrace();
+//				e.printStackTrace();
 			}
 		}
 	}
