@@ -1,5 +1,6 @@
 package com.github.kanafghan.welipse.joomlagen.generator;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -129,12 +130,24 @@ public class JComponentGenerator {
 				Utils.getFolder(project.getFolder("admin/sql/updates"), monitor);
 				
 				// Create 'mysql' update folder
-				Utils.getFolder(project.getFolder("admin/sql/updates/mysql"), monitor);
+				IFolder mysqlUpdateFolder = Utils.getFolder(project.getFolder("admin/sql/updates/mysql"), monitor);
+				// Create update SQL for the current version of the component
+				createMysqlUpdatesQL(genModel, mysqlUpdateFolder, monitor);
 				
 				// Create 'helpers' folder
 				Utils.getFolder(project.getFolder("admin/helpers"), monitor);
 			}
 						
+			private void createMysqlUpdatesQL(JoomlaGenModel genModel,
+					IFolder mysqlUpdateFolder, IProgressMonitor monitor) throws CoreException {
+				String fileName = genModel.getVersion() + ".sql";
+				IFile updateSQLFile = mysqlUpdateFolder.getFile(fileName);
+				if (!updateSQLFile.exists()) {
+					ByteArrayInputStream inStream = new ByteArrayInputStream("".getBytes());
+					updateSQLFile.create(inStream, true, monitor);
+				}
+			}
+
 			private void addBootstrap(JoomlaGenModel genModel, IFolder cssFolder, IProgressMonitor monitor) throws CoreException, IOException {
 				// Is Bootstrap enabled
 				if (genModel.isUseBootstrap()) {
