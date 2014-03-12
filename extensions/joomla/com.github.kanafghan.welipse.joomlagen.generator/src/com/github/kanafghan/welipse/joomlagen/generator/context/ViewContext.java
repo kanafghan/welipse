@@ -5,36 +5,23 @@ import com.github.kanafghan.welipse.joomlagen.GenClass;
 import com.github.kanafghan.welipse.joomlagen.generator.Utils.ModelType;
 import com.github.kanafghan.welipse.webdsl.Page;
 
-public class ViewContext {
+public class ViewContext extends MVCContext {
 	
-	final private Context context;
-	final private Page page;
-	final private GenClass model;
-	
+	final private Page page;	
 	private ModelType modelType;
 	private boolean isBackEndView;
 	
-	public ViewContext(Context context, Page page, GenClass model) {
-		super();
-		this.context = context;
+	public ViewContext(Context context, GenClass genClass, Page page) {
+		super(context, genClass);
 		this.page = page;
-		this.model = model;
 		this.modelType = ModelType.Model;
 		this.isBackEndView = (page == null);
-	}
-
-	public Context getContext() {
-		return context;
 	}
 
 	public Page getPage() {
 		return page;
 	}
 	
-	public GenClass getModel() {
-		return model;
-	}
-
 	public ModelType getModelType() {
 		return modelType;
 	}
@@ -43,12 +30,12 @@ public class ViewContext {
 		this.modelType = modelType;
 	}
 
-	public String getLayoutName() {
-		if (modelType == ModelType.ModelAdmin) {
-			return "edit";
-		}
-		return "default";
-	}
+//	public String getLayoutName() {
+//		if (modelType == ModelType.ModelAdmin) {
+//			return "edit";
+//		}
+//		return "default";
+//	}
 
 	public boolean isBackEndView() {
 		return isBackEndView;

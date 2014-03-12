@@ -39,16 +39,16 @@ public class JControllerGenerator {
 						generator = new GenMainController(controllerContext.getContext().getGenModel(), targetFolder, arguments);
 					} else if (controllerContext.getType() == ControllerType.ControllerForm) {
 						arguments.add(controllerContext.getContext().getGenModel());
-						generator = new GenBEFormController(controllerContext.getModel(), targetFolder, arguments);
+						generator = new GenBEFormController(controllerContext.getGenClass(), targetFolder, arguments);
 					} else if (controllerContext.getType() == ControllerType.ControllerAdmin) {						
 						arguments.add(controllerContext.getContext().getGenModel());
-						generator = new GenBEAdminController(controllerContext.getModel(), targetFolder, arguments);
+						generator = new GenBEAdminController(controllerContext.getGenClass(), targetFolder, arguments);
 					} else if (controllerContext.getType() == ControllerType.FEController) {
 						arguments.add(controllerContext.getContext().getGenModel());
-						generator = new GenFEController(controllerContext.getModel(), targetFolder, arguments);
+						generator = new GenFEController(controllerContext.getGenClass(), targetFolder, arguments);
 					} else {
 						arguments.add(controllerContext.getContext().getGenModel());
-						generator = new GenBEController(controllerContext.getModel(), targetFolder, arguments);
+						generator = new GenBEController(controllerContext.getGenClass(), targetFolder, arguments);
 					}
 					
 					generator.doGenerate(BasicMonitor.toMonitor(monitor));

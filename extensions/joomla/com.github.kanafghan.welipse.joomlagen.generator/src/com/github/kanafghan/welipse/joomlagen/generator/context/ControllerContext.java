@@ -6,42 +6,17 @@ import com.github.kanafghan.welipse.joomlagen.generator.Utils;
 import com.github.kanafghan.welipse.joomlagen.generator.Utils.ControllerType;
 
 
-public class ControllerContext {
+public class ControllerContext extends MVCContext {
 	
-	final private Context context;
 	private boolean isMain;
-	private String name;
 	private ControllerType type;
-	private GenClass model;
 	private boolean isBackEndController;
-	
-	public ControllerContext(Context context, boolean isBackEndController) {
-		super();
-		this.context = context;
-		this.isMain = true;
-		this.name = "";
-		this.type = Utils.ControllerType.BEController;
-		this.isBackEndController = isBackEndController;
-		this.model = null;
-	}
-	
-	public ControllerContext(Context context, 
-			Utils.ControllerType type, String name) {
-		super();
-		this.context = context;
+
+	public ControllerContext(Context context, GenClass genClass) {
+		super(context, genClass);
 		this.isMain = false;
+		this.type = Utils.ControllerType.BEController;
 		this.isBackEndController = false;
-		this.type = type;
-		this.name = name;
-		this.model = null;
-	}
-
-	public Context getContext() {
-		return context;
-	}
-
-	public String getName() {
-		return name;
 	}
 
 	public boolean isMain() {
@@ -66,17 +41,5 @@ public class ControllerContext {
 
 	public void setBackEndController(boolean isBackEndController) {
 		this.isBackEndController = isBackEndController;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public GenClass getModel() {
-		return model;
-	}
-
-	public void setModel(GenClass model) {
-		this.model = model;
 	}
 }

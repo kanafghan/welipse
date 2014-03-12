@@ -4,28 +4,15 @@ import com.github.kanafghan.welipse.joomlagen.GenClass;
 import com.github.kanafghan.welipse.joomlagen.generator.Utils;
 import com.github.kanafghan.welipse.joomlagen.generator.Utils.ModelType;
 
-public class ModelContext {
-	
-	final private Context context;
-	final private GenClass model;
-	
+public class ModelContext extends MVCContext {
+		
 	private Utils.ModelType type;
 	private boolean isBackEndModel;
 	
 	public ModelContext(Context context, GenClass model, Utils.ModelType type) {
-		super();
-		this.context = context;
-		this.model = model;
+		super(context, model);
 		this.type = type;
 		this.isBackEndModel = type == ModelType.ModelAdmin;
-	}
-
-	public Context getContext() {
-		return context;
-	}
-
-	public GenClass getModel() {
-		return model;
 	}
 
 	public Utils.ModelType getType() {

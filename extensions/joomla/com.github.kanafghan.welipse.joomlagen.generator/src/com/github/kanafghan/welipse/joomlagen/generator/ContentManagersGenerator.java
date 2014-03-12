@@ -67,9 +67,8 @@ public class ContentManagersGenerator {
 			private void generateItemManager(Context context, GenClass entity, IFolder folder) {
 				// Generate Controller (of type ControllerForm) in the 'controllers' folder
 				ControllerContext controllerCtx = new ControllerContext(context, 
-						ControllerType.ControllerForm, 
-						entity.getItemMVCName().toLowerCase());
-				controllerCtx.setModel(entity);
+						entity);
+				controllerCtx.setType(ControllerType.ControllerForm);
 				JControllerGenerator.generate(controllerCtx, folder.getFolder("controllers"));
 				
 				// Generate Model (of type ModelAdmin) in the 'models' folder
@@ -82,7 +81,7 @@ public class ContentManagersGenerator {
 				FormGenerator.generate(formCtx, folder.getFolder("models/forms"));
 				
 				// Generate View with edit.php template
-				ViewContext viewCtx = new ViewContext(context, null, entity);
+				ViewContext viewCtx = new ViewContext(context, entity, null);
 				viewCtx.setModelType(ModelType.ModelAdmin);
 				viewCtx.setIsBackEndView(true);
 				JViewGenerator.generate(viewCtx, folder.getFolder("views"));
@@ -90,10 +89,9 @@ public class ContentManagersGenerator {
 			
 			private void generateListManager(Context context, GenClass entity, IFolder folder) {
 				// Generate Controller (of type JControllerAdmin) in the 'controllers' folder
-				String name = entity.getListMVCName();
-				ControllerContext controllerCtx = new ControllerContext(context, ControllerType.ControllerAdmin, name.toLowerCase());
+				ControllerContext controllerCtx = new ControllerContext(context, entity);
+				controllerCtx.setType(ControllerType.ControllerAdmin);
 				controllerCtx.setBackEndController(true);
-				controllerCtx.setModel(entity);
 				JControllerGenerator.generate(controllerCtx, folder.getFolder("controllers"));
 				
 				// Generate Model (of type ModelList) in the 'models' folder
@@ -102,7 +100,7 @@ public class ContentManagersGenerator {
 				JModelGenerator.generate(modelCtx, folder.getFolder("models"));
 				
 				// Generate View with default.php template
-				ViewContext viewCtx = new ViewContext(context, null, entity);
+				ViewContext viewCtx = new ViewContext(context, entity, null);
 				viewCtx.setModelType(ModelType.ModelList);
 				viewCtx.setIsBackEndView(true);
 				JViewGenerator.generate(viewCtx, folder.getFolder("views"));

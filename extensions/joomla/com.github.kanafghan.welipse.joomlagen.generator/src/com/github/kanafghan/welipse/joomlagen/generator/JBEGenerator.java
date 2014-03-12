@@ -21,7 +21,8 @@ public class JBEGenerator {
 		BEEntryGenerator.generate(context, beFolder);
 		
 		// Generate main controller
-		ControllerContext ctx = new ControllerContext(context, true);
+		ControllerContext ctx = new ControllerContext(context, null);
+		ctx.setBackEndController(true);
 		ctx.setMain(true);
 		JControllerGenerator.generate(ctx, beFolder);
 		

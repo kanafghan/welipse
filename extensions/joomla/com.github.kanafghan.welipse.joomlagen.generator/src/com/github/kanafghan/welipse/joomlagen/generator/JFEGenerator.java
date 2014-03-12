@@ -20,7 +20,8 @@ public class JFEGenerator {
 		FEEntryGenerator.generate(context, feFolder);
 		
 		// Generate main controller
-		ControllerContext ctx = new ControllerContext(context, false);
+		ControllerContext ctx = new ControllerContext(context, null);
+		ctx.setBackEndController(false);
 		ctx.setMain(true);
 		JControllerGenerator.generate(ctx, feFolder);
 		

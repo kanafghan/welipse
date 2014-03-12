@@ -18,11 +18,11 @@ public class FEViewsGenerator {
 			feViewsFolder.create(true, false, new NullProgressMonitor());
 		}
 		
-		Website extension = context.getGenModel().getWebmodel(); //context.getGenModel().getExtension();
+		Website extension = context.getGenModel().getWebmodel();
 		if (extension != null) {			
 			EList<Page> pages = extension.getPages();
 			for (Page page: pages) {
-				JViewGenerator.generate(new ViewContext(context, page, null), feViewsFolder);
+				JViewGenerator.generate(new ViewContext(context, null, page), feViewsFolder);
 			}
 		}
 	}

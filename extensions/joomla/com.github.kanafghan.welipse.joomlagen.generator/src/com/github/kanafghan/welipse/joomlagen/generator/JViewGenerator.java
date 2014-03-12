@@ -29,9 +29,9 @@ public class JViewGenerator {
 	public static void generate(ViewContext context, IFolder folder) {
 		String name = Utils.getPageName(context.getPage());
 		if (context.isBackEndView()) {
-			name = context.getModel().getItemMVCName();
+			name = context.getGenClass().getItemMVCName();
 			if (context.getModelType() == ModelType.ModelList) {
-				name = context.getModel().getListMVCName();
+				name = context.getGenClass().getListMVCName();
 			}
 		}
 		name = name.toLowerCase();
@@ -59,9 +59,9 @@ public class JViewGenerator {
 					Utils.getFolder(tmplFolder, monitor);
 					
 					if (viewContext.getModelType() == ModelType.ModelList) {
-						generator = new GenBEListTemplate(viewContext.getModel(), targetFolder, arguments);
+						generator = new GenBEListTemplate(viewContext.getGenClass(), targetFolder, arguments);
 					} else if (viewContext.getModelType() == ModelType.ModelAdmin) {
-						generator = new GenBEEditTemplate(viewContext.getModel(), targetFolder, arguments);
+						generator = new GenBEEditTemplate(viewContext.getGenClass(), targetFolder, arguments);
 					} else if (viewContext.getPage() != null) {
 						generator = new Page2HTML(viewContext.getPage(), targetFolder, arguments);
 					}
@@ -104,9 +104,9 @@ public class JViewGenerator {
 					Utils.getFolder(viewFolder, monitor);
 					
 					if (viewContext.getModelType() == ModelType.ModelList) {
-						generator = new GenBEListView(viewContext.getModel(), targetFolder, arguments);
+						generator = new GenBEListView(viewContext.getGenClass(), targetFolder, arguments);
 					} else if (viewContext.getModelType() == ModelType.ModelAdmin) {
-						generator = new GenBEEditView(viewContext.getModel(), targetFolder, arguments);
+						generator = new GenBEEditView(viewContext.getGenClass(), targetFolder, arguments);
 					} else if (viewContext.getPage() != null) {
 						generator = new Page2View(viewContext.getPage(), targetFolder, arguments);
 					}

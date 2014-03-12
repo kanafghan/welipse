@@ -21,11 +21,8 @@ public class FEControllersGenerator {
 				EList<GenClass> controllers = dataModel.getGenClasses();
 				for (GenClass controller : controllers) {
 					if (controller.isGenerateContentManager()) {
-						ControllerContext controllerContext = new ControllerContext(
-								context, 
-								ControllerType.FEController, 
-								controller.getEcoreClass().getName());
-						controllerContext.setModel(controller);
+						ControllerContext controllerContext = new ControllerContext(context, controller);
+						controllerContext.setType(ControllerType.FEController);
 						JControllerGenerator.generate(controllerContext, folder);
 					}
 				}

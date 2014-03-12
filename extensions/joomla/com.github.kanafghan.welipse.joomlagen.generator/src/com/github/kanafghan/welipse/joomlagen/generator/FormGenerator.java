@@ -29,7 +29,7 @@ public class FormGenerator {
 			protected IStatus run(IProgressMonitor monitor) {
 				GenBEForm generator = new GenBEForm();
 				try {
-					generator.initialize(formContext.getModel(), targetFolder, arguments);
+					generator.initialize(formContext.getGenClass(), targetFolder, arguments);
 					generator.doGenerate(BasicMonitor.toMonitor(monitor));
 				} catch (IOException e) {
 					return new Status(Status.ERROR, Activator.PLUGIN_ID, 

@@ -37,20 +37,20 @@ public class JModelGenerator {
 				try {
 					switch (modelContext.getType()) {
 					case ModelAdmin:
-						generator = new GenBEAdminModel(modelContext.getModel(), targetFolder, arguments);
+						generator = new GenBEAdminModel(modelContext.getGenClass(), targetFolder, arguments);
 						break;
 					case ModelForm:
-						generator = new GenBEFormModel(modelContext.getModel(), targetFolder, arguments);
+						generator = new GenBEFormModel(modelContext.getGenClass(), targetFolder, arguments);
 						break;
 					case ModelList:
-						generator = new GenBEListModel(modelContext.getModel(), targetFolder, arguments);
+						generator = new GenBEListModel(modelContext.getGenClass(), targetFolder, arguments);
 						break;
 					case ModelItem:
-						generator = new GenBEItemModel(modelContext.getModel(), targetFolder, arguments);
+						generator = new GenBEItemModel(modelContext.getGenClass(), targetFolder, arguments);
 						break;
 					case Model:
 					default:
-						generator = new GenFEModel(modelContext.getModel(), targetFolder, arguments);
+						generator = new GenFEModel(modelContext.getGenClass(), targetFolder, arguments);
 						break;
 					}
 			
