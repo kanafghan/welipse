@@ -380,14 +380,15 @@ public class GenReferenceImpl extends GenFeatureImpl implements GenReference {
 		setFormFieldDescription(oldGenReferenceVersion.getFormFieldDescription());
 		setFormFieldLabel(oldGenReferenceVersion.getFormFieldLabel());
 		setNullable(oldGenReferenceVersion.isNullable());
-		setOpposite(oldGenReferenceVersion.getOpposite());
+//		setOpposite(oldGenReferenceVersion.getOpposite());
 		setType(oldGenReferenceVersion.getType());
 	}
 
 	@Override
 	public boolean reconcile() {
 		EReference eReference = getEcoreReference();
-		if (eReference == null || eReference.eIsProxy() || eReference.eResource() == null) {
+		if (eReference == null || eReference.eIsProxy() 
+				|| eReference.eResource() == null) {
 			return false;
 		}
 		return true;

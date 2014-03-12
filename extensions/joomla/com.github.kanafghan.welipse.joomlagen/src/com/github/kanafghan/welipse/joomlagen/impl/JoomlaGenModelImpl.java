@@ -629,7 +629,9 @@ public class JoomlaGenModelImpl extends GenBaseImpl implements JoomlaGenModel {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JoomlaGenPackage.JOOMLA_GEN_MODEL__EXTENSION_NAME, oldExtensionName, extensionName));
 		
-		setDatabaseTablePrefix(DATABASE_TABLE_PREFIX_EDEFAULT + extensionName +"_");
+		if (getDatabaseTablePrefix().equals(DATABASE_TABLE_PREFIX_EDEFAULT)) {
+			setDatabaseTablePrefix(DATABASE_TABLE_PREFIX_EDEFAULT + extensionName +"_");
+		}	
 	}
 
 	/**

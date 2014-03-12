@@ -181,8 +181,8 @@ public class JoomlaGenModelWizard extends Wizard implements INewWizard {
 			EObject model = contents.get(0);
 			if (model instanceof JoomlaGenModel) {
 				originalGenModel = (JoomlaGenModel) model;
-				//TODO fix this
-//				originalGenModel.reconcile();
+				// Adjust the GeModel
+				originalGenModel.reconcile();
 			}
 		}
 	}
