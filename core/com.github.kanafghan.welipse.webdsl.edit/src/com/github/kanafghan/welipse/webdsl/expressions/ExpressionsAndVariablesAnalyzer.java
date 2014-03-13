@@ -246,11 +246,13 @@ public class ExpressionsAndVariablesAnalyzer {
 			    	// create and execute a compound command
 			    	List<Command> commandsList = new ArrayList<Command>();
 			    	commandsList.add(SetCommand.create(editingDomain, element, sfInputName, inputName));
-			    	commandsList.add(SetCommand.create(editingDomain, element, sfInputValue, inputName));
+			    	commandsList.add(SetCommand.create(editingDomain, element, sfInputValue, expression));
 			    	CompoundCommand command = new CompoundCommand(commandsList);
 			    	editingDomain.getCommandStack().execute(command);
-			    } else {
+			    } else if (expressionVariableKind == ExpressionVariableKind.INPUT_LABEL) {
 			    	f = eClass.getEStructuralFeature(WebDSLPackage.INPUT__LABEL);
+			    } else if (expressionVariableKind == ExpressionVariableKind.SELECTION_LIST_OPTIONS) {
+			    	f = eClass.getEStructuralFeature(WebDSLPackage.SELECTION_LIST__OPTIONS);
 			    }
 			} else if (element instanceof Submit) {
 				if (expressionVariableKind == ExpressionVariableKind.SUBMIT_PERFORMER) {
