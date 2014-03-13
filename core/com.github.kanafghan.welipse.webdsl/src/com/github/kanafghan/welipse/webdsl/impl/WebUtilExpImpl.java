@@ -5,6 +5,8 @@ package com.github.kanafghan.welipse.webdsl.impl;
 import java.util.ArrayList;
 
 import com.github.kanafghan.welipse.webdsl.Page;
+import com.github.kanafghan.welipse.webdsl.VariableExp;
+import com.github.kanafghan.welipse.webdsl.WebDSLFactory;
 import com.github.kanafghan.welipse.webdsl.WebDSLPackage;
 import com.github.kanafghan.welipse.webdsl.WebUtilExp;
 
@@ -92,6 +94,11 @@ public class WebUtilExpImpl extends PropertyOperationImpl implements WebUtilExp 
 			throw new Error("The operation '"+ getIdentifier() +"()' is not among the available utility operations: '"
 					+ availableOperations.toString() +"'.");
 		}
+		
+		// This sets the required source expression
+		VariableExp src = WebDSLFactory.eINSTANCE.createVariableExp();
+		src.setVar("WebUtils");
+		this.setSource(src);
 	}
 
 } //WebUtilExpImpl
