@@ -154,6 +154,9 @@ public class ExpressionsAndVariablesAnalyzer {
 			    editingDomain.getCommandStack().execute(AddCommand.create(editingDomain, element, f, variable));
 			} else if (expressionVariableKind == ExpressionVariableKind.LIST_ITERATOR_VARIABLE) {
 				variable.initialize(getPage((PageElement) element));
+				// Create and execute the command
+				EStructuralFeature f = eClass.getEStructuralFeature(WebDSLPackage.LIST__ITERATOR_VARIABLE);
+				editingDomain.getCommandStack().execute(SetCommand.create(editingDomain, element, f, variable));
 			}
 		} else {
 			throw new Error("The declaration '"+ text +"' could not be analyzed. Probabily, due to a parsing error.");
