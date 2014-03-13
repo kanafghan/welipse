@@ -43,15 +43,7 @@ SELECT id AS value, [generateValueField(field)/] AS [field.name.toLower()/] FROM
 [/template]
 
 [template public generateValueField (reference : GenReference) post (trim())]
-[for (column : GenFeature | reference.type.oclAsType(GenClass).genFeatures)]
-[if (column.oclIsKindOf(GenAttribute))]
-	[if (column.name.contains('name') or column.name.contains('title'))]
-		[column.name/]
-	[elseif (column.oclAsType(GenAttribute).databaseColumnType = DatabaseColumnType::VARCHAR)]
-		[column.name/]
-	[/if]
-[/if]
-[/for]
+[reference.type.oclAsType(GenClass).labelFeature.name/]
 [/template]
 
 [template public generateTableName (field : GenReference, genModel : JoomlaGenModel) ]
