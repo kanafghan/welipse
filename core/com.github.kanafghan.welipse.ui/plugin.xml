@@ -13,7 +13,7 @@
          point="org.eclipse.ui.newWizards">
       <category
             id="com.github.kanafghan.welipse.ui.wizards"
-            name="Welipse Wizards">
+            name="Welipse">
       </category>
    </extension>
 

@@ -4,7 +4,7 @@ Bundle-Name: WebDSL Parsers
 Bundle-SymbolicName: com.github.kanafghan.welipse.webdsl.parsers
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.github.kanafghan.welipse.webdsl.parsers.Activator
-Bundle-Vendor: www.welipse.com
+Bundle-Vendor: Welipse.com
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  com.github.kanafghan.welipse.webdsl;bundle-version="0.1.0",

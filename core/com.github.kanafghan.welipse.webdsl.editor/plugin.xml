@@ -8,9 +8,6 @@
 
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated webdsl -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
       <wizard
             id="com.github.kanafghan.welipse.webdsl.presentation.WebDSLModelWizardID"
             name="%_UI_WebDSLModelWizard_label"

@@ -8,9 +8,6 @@
 
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated joomlagen -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
       <wizard
             id="com.github.kanafghan.welipse.joomlagen.presentation.JoomlaGenModelWizardID"
             name="%_UI_JoomlaGenModelWizard_label"
